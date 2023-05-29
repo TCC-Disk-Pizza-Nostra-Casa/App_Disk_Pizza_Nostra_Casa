@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using App_Disk_Pizza_Nostra_Casa.View.Modules;
+
 namespace App_Disk_Pizza_Nostra_Casa.View
 {
 
@@ -123,7 +125,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_cadastro_produto_Click(object sender, EventArgs e)
         {
 
-
+            associar_form_externo(new Modules.Produto.Form_Cadastro_Produtos());
 
         }
 
