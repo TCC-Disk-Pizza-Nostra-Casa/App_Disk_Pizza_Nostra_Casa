@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using App_Disk_Pizza_Nostra_Casa.View.Modules;
+using App_Disk_Pizza_Nostra_Casa.View;
 
 namespace App_Disk_Pizza_Nostra_Casa.View
 {
@@ -16,7 +16,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
     public partial class form_inicio : Form
     {
 
-        private Form form_ativo = null;
+        private Form form_associado = null;
 
         public form_inicio()
         {
@@ -69,14 +69,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void associar_form_externo(Form form_externo)
         {
 
-            if(form_ativo != null)
+            if(form_associado != null)
             {
 
-                form_ativo.Close();
+                form_associado.Close();
 
             }
 
-            form_ativo = form_externo;
+            form_associado = form_externo;
 
             form_externo.TopLevel = false;
 
@@ -104,14 +104,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_listagem_funcionario_Click(object sender, EventArgs e)
         {
 
-
+            associar_form_externo(new Modules.Funcionario.Form_Listagem_Funcionarios());
 
         }
 
         private void btn_cadastro_funcionario_Click(object sender, EventArgs e)
         {
 
-
+            associar_form_externo(new Modules.Funcionario.Form_Cadastro_Funcionarios());
 
         }
 
@@ -132,6 +132,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_listagem_produtos_Click(object sender, EventArgs e)
         {
 
+            associar_form_externo(new Modules.Produto.Form_Listagem_Produtos());
+
         }
 
         private void btn_vendas_Click(object sender, EventArgs e)
@@ -144,14 +146,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_adicionar_venda_Click(object sender, EventArgs e)
         {
 
-
+            associar_form_externo(new Modules.Venda.Form_Adicionar_Venda());
 
         }
 
         private void btn_listagem_vendas_Click(object sender, EventArgs e)
         {
 
-
+            associar_form_externo(new Modules.Venda.Form_Listagem_Vendas());
 
         }
 
