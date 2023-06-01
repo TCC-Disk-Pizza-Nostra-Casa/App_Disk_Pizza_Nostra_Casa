@@ -38,11 +38,11 @@
             this.btn_vendas = new System.Windows.Forms.Button();
             this.pnl_submenu_produtos = new System.Windows.Forms.Panel();
             this.btn_listagem_produtos = new System.Windows.Forms.Button();
-            this.btn_cadastro_produto = new System.Windows.Forms.Button();
+            this.btn_cadastro_produtos = new System.Windows.Forms.Button();
             this.btn_produtos = new System.Windows.Forms.Button();
             this.pnl_submenu_funcionarios = new System.Windows.Forms.Panel();
             this.btn_listagem_funcionarios = new System.Windows.Forms.Button();
-            this.btn_cadastro_funcionario = new System.Windows.Forms.Button();
+            this.btn_cadastro_funcionarios = new System.Windows.Forms.Button();
             this.btn_funcionarios = new System.Windows.Forms.Button();
             this.pnl_logo = new System.Windows.Forms.Panel();
             this.pctbox_logo = new System.Windows.Forms.PictureBox();
@@ -187,7 +187,7 @@
             // pnl_submenu_produtos
             // 
             this.pnl_submenu_produtos.Controls.Add(this.btn_listagem_produtos);
-            this.pnl_submenu_produtos.Controls.Add(this.btn_cadastro_produto);
+            this.pnl_submenu_produtos.Controls.Add(this.btn_cadastro_produtos);
             this.pnl_submenu_produtos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_submenu_produtos.Location = new System.Drawing.Point(0, 188);
             this.pnl_submenu_produtos.Name = "pnl_submenu_produtos";
@@ -216,27 +216,27 @@
             this.btn_listagem_produtos.UseVisualStyleBackColor = false;
             this.btn_listagem_produtos.Click += new System.EventHandler(this.btn_listagem_produtos_Click);
             // 
-            // btn_cadastro_produto
+            // btn_cadastro_produtos
             // 
-            this.btn_cadastro_produto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(88)))), ((int)(((byte)(50)))));
-            this.btn_cadastro_produto.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cadastro_produto.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_cadastro_produto.FlatAppearance.BorderSize = 0;
-            this.btn_cadastro_produto.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
-            this.btn_cadastro_produto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
-            this.btn_cadastro_produto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(98)))), ((int)(((byte)(55)))));
-            this.btn_cadastro_produto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cadastro_produto.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_cadastro_produto.ForeColor = System.Drawing.Color.White;
-            this.btn_cadastro_produto.Location = new System.Drawing.Point(0, 0);
-            this.btn_cadastro_produto.Name = "btn_cadastro_produto";
-            this.btn_cadastro_produto.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_cadastro_produto.Size = new System.Drawing.Size(211, 44);
-            this.btn_cadastro_produto.TabIndex = 6;
-            this.btn_cadastro_produto.Text = "Cadastro";
-            this.btn_cadastro_produto.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cadastro_produto.UseVisualStyleBackColor = false;
-            this.btn_cadastro_produto.Click += new System.EventHandler(this.btn_cadastro_produto_Click);
+            this.btn_cadastro_produtos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(88)))), ((int)(((byte)(50)))));
+            this.btn_cadastro_produtos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cadastro_produtos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_cadastro_produtos.FlatAppearance.BorderSize = 0;
+            this.btn_cadastro_produtos.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
+            this.btn_cadastro_produtos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
+            this.btn_cadastro_produtos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(98)))), ((int)(((byte)(55)))));
+            this.btn_cadastro_produtos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cadastro_produtos.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_cadastro_produtos.ForeColor = System.Drawing.Color.White;
+            this.btn_cadastro_produtos.Location = new System.Drawing.Point(0, 0);
+            this.btn_cadastro_produtos.Name = "btn_cadastro_produtos";
+            this.btn_cadastro_produtos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_cadastro_produtos.Size = new System.Drawing.Size(211, 44);
+            this.btn_cadastro_produtos.TabIndex = 6;
+            this.btn_cadastro_produtos.Text = "Cadastro";
+            this.btn_cadastro_produtos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_cadastro_produtos.UseVisualStyleBackColor = false;
+            this.btn_cadastro_produtos.Click += new System.EventHandler(this.btn_cadastro_produto_Click);
             // 
             // btn_produtos
             // 
@@ -263,7 +263,7 @@
             // 
             this.pnl_submenu_funcionarios.BackColor = System.Drawing.Color.Transparent;
             this.pnl_submenu_funcionarios.Controls.Add(this.btn_listagem_funcionarios);
-            this.pnl_submenu_funcionarios.Controls.Add(this.btn_cadastro_funcionario);
+            this.pnl_submenu_funcionarios.Controls.Add(this.btn_cadastro_funcionarios);
             this.pnl_submenu_funcionarios.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_submenu_funcionarios.Location = new System.Drawing.Point(0, 50);
             this.pnl_submenu_funcionarios.Name = "pnl_submenu_funcionarios";
@@ -293,28 +293,28 @@
             this.btn_listagem_funcionarios.UseVisualStyleBackColor = false;
             this.btn_listagem_funcionarios.Click += new System.EventHandler(this.btn_listagem_funcionario_Click);
             // 
-            // btn_cadastro_funcionario
+            // btn_cadastro_funcionarios
             // 
-            this.btn_cadastro_funcionario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(88)))), ((int)(((byte)(50)))));
-            this.btn_cadastro_funcionario.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cadastro_funcionario.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_cadastro_funcionario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_cadastro_funcionario.FlatAppearance.BorderSize = 0;
-            this.btn_cadastro_funcionario.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
-            this.btn_cadastro_funcionario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
-            this.btn_cadastro_funcionario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(98)))), ((int)(((byte)(55)))));
-            this.btn_cadastro_funcionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_cadastro_funcionario.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_cadastro_funcionario.ForeColor = System.Drawing.Color.White;
-            this.btn_cadastro_funcionario.Location = new System.Drawing.Point(0, 0);
-            this.btn_cadastro_funcionario.Name = "btn_cadastro_funcionario";
-            this.btn_cadastro_funcionario.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btn_cadastro_funcionario.Size = new System.Drawing.Size(211, 44);
-            this.btn_cadastro_funcionario.TabIndex = 3;
-            this.btn_cadastro_funcionario.Text = "Cadastro";
-            this.btn_cadastro_funcionario.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn_cadastro_funcionario.UseVisualStyleBackColor = false;
-            this.btn_cadastro_funcionario.Click += new System.EventHandler(this.btn_cadastro_funcionario_Click);
+            this.btn_cadastro_funcionarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(88)))), ((int)(((byte)(50)))));
+            this.btn_cadastro_funcionarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cadastro_funcionarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_cadastro_funcionarios.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btn_cadastro_funcionarios.FlatAppearance.BorderSize = 0;
+            this.btn_cadastro_funcionarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
+            this.btn_cadastro_funcionarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(108)))), ((int)(((byte)(48)))));
+            this.btn_cadastro_funcionarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(171)))), ((int)(((byte)(98)))), ((int)(((byte)(55)))));
+            this.btn_cadastro_funcionarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_cadastro_funcionarios.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btn_cadastro_funcionarios.ForeColor = System.Drawing.Color.White;
+            this.btn_cadastro_funcionarios.Location = new System.Drawing.Point(0, 0);
+            this.btn_cadastro_funcionarios.Name = "btn_cadastro_funcionarios";
+            this.btn_cadastro_funcionarios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btn_cadastro_funcionarios.Size = new System.Drawing.Size(211, 44);
+            this.btn_cadastro_funcionarios.TabIndex = 3;
+            this.btn_cadastro_funcionarios.Text = "Cadastro";
+            this.btn_cadastro_funcionarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_cadastro_funcionarios.UseVisualStyleBackColor = false;
+            this.btn_cadastro_funcionarios.Click += new System.EventHandler(this.btn_cadastro_funcionario_Click);
             // 
             // btn_funcionarios
             // 
@@ -428,10 +428,10 @@
         private Button btn_adicionar_venda;
         private Button btn_vendas;
         private Button btn_listagem_produtos;
-        private Button btn_cadastro_produto;
+        private Button btn_cadastro_produtos;
         private Button btn_produtos;
         private Button btn_listagem_funcionarios;
-        private Button btn_cadastro_funcionario;
+        private Button btn_cadastro_funcionarios;
         private Panel pnl_submenu_funcionarios;
         private Panel pnl_submenu_vendas;
         private Panel pnl_submenu_produtos;
