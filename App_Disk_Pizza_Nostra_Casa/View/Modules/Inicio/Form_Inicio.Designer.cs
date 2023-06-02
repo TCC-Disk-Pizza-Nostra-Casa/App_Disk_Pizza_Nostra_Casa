@@ -394,6 +394,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1029, 661);
+            this.ControlBox = false;
             this.Controls.Add(this.pnl_formulario_externo);
             this.Controls.Add(this.pnl_titulo_formulario_externo);
             this.Controls.Add(this.pnl_menu_lateral);
