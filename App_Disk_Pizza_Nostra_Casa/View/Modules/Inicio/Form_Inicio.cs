@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using App_Disk_Pizza_Nostra_Casa.View;
-
 namespace App_Disk_Pizza_Nostra_Casa.View
 {
 
@@ -161,7 +159,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         {
 
             if (MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
                 Application.Exit();
