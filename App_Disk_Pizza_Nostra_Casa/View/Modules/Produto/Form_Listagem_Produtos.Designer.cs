@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_listagem_produtos));
             this.dgv_listagem_produtos = new System.Windows.Forms.DataGridView();
             this.dgv_listagem_produtos_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_listagem_produtos_estoque = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_listagem_produtos_preco = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_listagem_produtos_observacoes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_pesquisar_produtos = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listagem_produtos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,7 +48,7 @@
             this.dgv_listagem_produtos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_listagem_produtos.BackgroundColor = System.Drawing.SystemColors.WindowFrame;
+            this.dgv_listagem_produtos.BackgroundColor = System.Drawing.Color.Gray;
             this.dgv_listagem_produtos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_listagem_produtos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgv_listagem_produtos_nome,
@@ -102,17 +105,44 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Pesquisar nome:";
             // 
+            // txt_pesquisar_produtos
+            // 
+            this.txt_pesquisar_produtos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txt_pesquisar_produtos.Location = new System.Drawing.Point(131, 25);
+            this.txt_pesquisar_produtos.Name = "txt_pesquisar_produtos";
+            this.txt_pesquisar_produtos.Size = new System.Drawing.Size(595, 23);
+            this.txt_pesquisar_produtos.TabIndex = 3;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Location = new System.Drawing.Point(741, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 30);
+            this.button1.TabIndex = 4;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // form_listagem_produtos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 492);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txt_pesquisar_produtos);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgv_listagem_produtos);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "form_listagem_produtos";
             this.Text = "Form_Listagem_Produtos";
+            this.Load += new System.EventHandler(this.form_listagem_produtos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listagem_produtos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,5 +157,7 @@
         private DataGridViewTextBoxColumn dgv_listagem_produtos_preco;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_observacoes;
         private Label label1;
+        private TextBox txt_pesquisar_produtos;
+        private Button button1;
     }
 }

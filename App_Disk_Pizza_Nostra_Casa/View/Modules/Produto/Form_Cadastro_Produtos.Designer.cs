@@ -38,6 +38,7 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "Form_Cadastro_Produtos";
             this.Text = "Form_Cadastro_Produtos";
+            this.Load += new System.EventHandler(this.Form_Cadastro_Produtos_Load);
             this.ResumeLayout(false);
 
         }
