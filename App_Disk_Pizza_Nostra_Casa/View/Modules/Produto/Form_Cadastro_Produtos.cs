@@ -21,6 +21,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
+        private void Form_Cadastro_Produtos_Load(object sender, EventArgs e)
+        {
+
+            this.MinimumSize = new Size(800, 500);
+
+            this.Size = new Size(800, 500);
+
+        }
     }
 
 }
