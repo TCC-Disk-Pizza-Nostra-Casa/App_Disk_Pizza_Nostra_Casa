@@ -11,10 +11,10 @@ using System.Windows.Forms;
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 {
 
-    public partial class Form_Listagem_Produtos : Form
+    public partial class form_listagem_produtos : Form
     {
 
-        public Form_Listagem_Produtos()
+        public form_listagem_produtos()
         {
 
             InitializeComponent();
