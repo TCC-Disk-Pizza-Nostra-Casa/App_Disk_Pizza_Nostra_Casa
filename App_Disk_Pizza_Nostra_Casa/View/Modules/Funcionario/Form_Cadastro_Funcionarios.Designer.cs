@@ -1,6 +1,6 @@
 ﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 {
-    partial class Form_Cadastro_Funcionarios
+    partial class form_cadastro_funcionarios
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // form_cadastro_funcionarios
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form_Cadastro_Funcionarios";
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.Name = "form_cadastro_funcionarios";
+            this.Text = "Cadastro de Funcionários";
+            this.Load += new System.EventHandler(this.form_cadastro_funcionarios_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

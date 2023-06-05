@@ -2,6 +2,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 {
     internal static class Program
     {
+
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -13,8 +14,14 @@ namespace App_Disk_Pizza_Nostra_Casa
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
+            // Fonte e tamanho padrão da aplicação.
+            Application.SetDefaultFont(new Font(new FontFamily("Arial"), 10f));
+
+            // Inicializando a aplicação.
             Application.Run(new View.Modules.Login.form_login());
 
         }
+
     }
+
 }

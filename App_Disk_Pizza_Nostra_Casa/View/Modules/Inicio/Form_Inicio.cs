@@ -102,14 +102,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_listagem_funcionario_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Funcionario.Form_Listagem_Funcionarios());
+            associar_form_externo(new Modules.Funcionario.form_listagem_funcionarios());
 
         }
 
         private void btn_cadastro_funcionario_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Funcionario.Form_Cadastro_Funcionarios());
+            associar_form_externo(new Modules.Funcionario.form_cadastro_funcionarios());
 
         }
 
@@ -144,14 +144,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_adicionar_venda_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Venda.Form_Adicionar_Venda());
+            associar_form_externo(new Modules.Venda.form_adicionar_venda());
 
         }
 
         private void btn_listagem_vendas_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Venda.Form_Listagem_Vendas());
+            associar_form_externo(new Modules.Venda.form_listagem_vendas());
 
         }
 

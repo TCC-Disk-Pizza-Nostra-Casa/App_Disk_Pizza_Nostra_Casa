@@ -1,6 +1,6 @@
 ﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
-    partial class Form_Adicionar_Venda
+    partial class form_adicionar_venda
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.SuspendLayout();
+            // 
+            // form_adicionar_venda
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form_Adicionar_Venda";
+            this.ClientSize = new System.Drawing.Size(784, 461);
+            this.MinimumSize = new System.Drawing.Size(800, 500);
+            this.Name = "form_adicionar_venda";
+            this.Text = "Adicionar Venda";
+            this.Load += new System.EventHandler(this.form_adicionar_venda_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion

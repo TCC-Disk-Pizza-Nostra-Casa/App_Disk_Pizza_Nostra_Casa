@@ -28,6 +28,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
             this.MaximumSize = new Size(1045, 579);
 
+            this.Size = new Size(1045, 579);
+
             txt_usuario.BackColor = this.BackColor;
 
             txt_senha.BackColor = this.BackColor;
