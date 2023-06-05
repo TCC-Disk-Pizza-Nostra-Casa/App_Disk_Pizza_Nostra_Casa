@@ -130,7 +130,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void btn_listagem_produtos_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Produto.Form_Listagem_Produtos());
+            associar_form_externo(new Modules.Produto.form_listagem_produtos());
 
         }
 

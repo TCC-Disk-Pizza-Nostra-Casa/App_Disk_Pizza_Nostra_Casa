@@ -1,0 +1,7 @@
+130; 69; 34   - Marrom Escuro
+153; 88; 50   - Marrom Claro
+SaddleBrown   - MouseDownBackColor
+153; 68; 0    - MouseOverBackColor
+Arial 10pt    - Fontes
+255; 255; 255 - Branco
+0; 0; 0       - Preto
