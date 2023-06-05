@@ -11,13 +11,22 @@ using System.Windows.Forms;
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 {
 
-    public partial class Form_Cadastro_Funcionarios : Form
+    public partial class form_cadastro_funcionarios : Form
     {
 
-        public Form_Cadastro_Funcionarios()
+        public form_cadastro_funcionarios()
         {
 
             InitializeComponent();
+
+        }
+
+        private void form_cadastro_funcionarios_Load(object sender, EventArgs e)
+        {
+
+            this.MinimumSize = new Size(800, 500);
+
+            this.Size = new Size(800, 500);
 
         }
 

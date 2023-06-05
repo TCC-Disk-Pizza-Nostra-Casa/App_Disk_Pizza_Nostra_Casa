@@ -11,13 +11,22 @@ using System.Windows.Forms;
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
 
-    public partial class Form_Listagem_Vendas : Form
+    public partial class form_listagem_vendas : Form
     {
 
-        public Form_Listagem_Vendas()
+        public form_listagem_vendas()
         {
 
             InitializeComponent();
+
+        }
+
+        private void form_listagem_vendas_Load(object sender, EventArgs e)
+        {
+
+            this.MinimumSize = new Size(800, 500);
+
+            this.Size = new Size(800, 500);
 
         }
 
