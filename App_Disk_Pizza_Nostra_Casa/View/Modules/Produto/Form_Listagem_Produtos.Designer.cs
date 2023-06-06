@@ -101,19 +101,22 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 16);
+            this.label1.Size = new System.Drawing.Size(127, 16);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Pesquisar nome:";
+            this.label1.Text = "Pesquisar produto:";
             // 
             // txt_pesquisar_produtos
             // 
             this.txt_pesquisar_produtos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_pesquisar_produtos.Location = new System.Drawing.Point(131, 25);
+            this.txt_pesquisar_produtos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_pesquisar_produtos.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txt_pesquisar_produtos.Location = new System.Drawing.Point(145, 25);
             this.txt_pesquisar_produtos.Name = "txt_pesquisar_produtos";
-            this.txt_pesquisar_produtos.Size = new System.Drawing.Size(595, 23);
-            this.txt_pesquisar_produtos.TabIndex = 3;
+            this.txt_pesquisar_produtos.PlaceholderText = "Digite o nome do produto...";
+            this.txt_pesquisar_produtos.Size = new System.Drawing.Size(581, 23);
+            this.txt_pesquisar_produtos.TabIndex = 1;
             // 
             // button1
             // 
@@ -123,10 +126,10 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(741, 23);
+            this.button1.Location = new System.Drawing.Point(749, 23);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 30);
-            this.button1.TabIndex = 4;
+            this.button1.Size = new System.Drawing.Size(23, 23);
+            this.button1.TabIndex = 2;
             this.button1.UseVisualStyleBackColor = false;
             // 
             // form_listagem_produtos
