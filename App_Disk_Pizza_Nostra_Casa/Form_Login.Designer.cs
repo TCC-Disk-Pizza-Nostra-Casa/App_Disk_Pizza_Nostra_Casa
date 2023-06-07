@@ -111,8 +111,10 @@
             this.txt_usuario.ForeColor = System.Drawing.Color.Black;
             this.txt_usuario.Location = new System.Drawing.Point(635, 171);
             this.txt_usuario.Name = "txt_usuario";
+            this.txt_usuario.PlaceholderText = "Digite seu nome completo";
             this.txt_usuario.Size = new System.Drawing.Size(269, 19);
             this.txt_usuario.TabIndex = 7;
+            this.txt_usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_senha
             // 
@@ -121,8 +123,10 @@
             this.txt_senha.ForeColor = System.Drawing.Color.Black;
             this.txt_senha.Location = new System.Drawing.Point(635, 306);
             this.txt_senha.Name = "txt_senha";
+            this.txt_senha.PlaceholderText = "Digite sua senha";
             this.txt_senha.Size = new System.Drawing.Size(269, 19);
             this.txt_senha.TabIndex = 9;
+            this.txt_senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label3
             // 

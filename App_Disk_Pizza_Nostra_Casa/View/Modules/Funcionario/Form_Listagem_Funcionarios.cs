@@ -27,27 +27,58 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
         private async void form_listagem_funcionarios_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(800, 500);
-
-            this.Size = new Size(800, 500);
-
-            List<Model.Funcionario> lista_funcionarios = await Data_Service_Funcionario.GetListAsyncFuncionario();
-
-            if(lista_funcionarios.Count > 0)
+            try
             {
 
-                for (int i = 0; i < lista_funcionarios.Count; i++)
+                this.MinimumSize = new Size(800, 500);
+
+                this.Size = new Size(800, 500);
+
+                List<Model.Funcionario> lista_funcionarios = await Data_Service_Funcionario.GetListAsyncFuncionario();
+
+                if(lista_funcionarios.Count > 0)
                 {
 
-                    string nome = lista_funcionarios[i].nome;
+                    for(int i = 0; i < lista_funcionarios.Count; i++)
+                    {
 
-                    string email = lista_funcionarios[i].email;
+                        string nome = lista_funcionarios[i].nome;
 
-                    string data_contratacao = lista_funcionarios[i].data_cadastro.ToString();
+                        string email = lista_funcionarios[i].email;
 
-                    dgv_listagem_funcionarios.Rows.Add(i + 1, nome, email, data_contratacao);
+                        string data_contratacao = lista_funcionarios[i].data_cadastro.ToString();
+
+                        dgv_listagem_funcionarios.Rows.Add(i + 1, nome, email, data_contratacao);
+
+                    }
 
                 }
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_pesquisar_funcionario_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

@@ -24,9 +24,40 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
         private void form_listagem_produtos_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(800, 500);
+            try
+            {
 
-            this.Size = new Size(800, 500);
+                this.MinimumSize = new Size(800, 500);
+
+                this.Size = new Size(800, 500);
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_pesquisar_produtos_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
