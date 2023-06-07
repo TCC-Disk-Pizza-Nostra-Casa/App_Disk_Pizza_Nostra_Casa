@@ -55,13 +55,13 @@
             this.dgv_listagem_produtos_estoque,
             this.dgv_listagem_produtos_preco,
             this.dgv_listagem_produtos_observacoes});
-            this.dgv_listagem_produtos.Location = new System.Drawing.Point(12, 67);
+            this.dgv_listagem_produtos.Location = new System.Drawing.Point(12, 49);
             this.dgv_listagem_produtos.MultiSelect = false;
             this.dgv_listagem_produtos.Name = "dgv_listagem_produtos";
             this.dgv_listagem_produtos.ReadOnly = true;
             this.dgv_listagem_produtos.RowTemplate.Height = 25;
             this.dgv_listagem_produtos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_listagem_produtos.Size = new System.Drawing.Size(760, 382);
+            this.dgv_listagem_produtos.Size = new System.Drawing.Size(760, 400);
             this.dgv_listagem_produtos.TabIndex = 0;
             // 
             // dgv_listagem_produtos_nome
@@ -99,23 +99,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 27);
+            this.label1.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 16);
+            this.label1.Size = new System.Drawing.Size(100, 22);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Pesquisar produto:";
+            this.label1.Text = "Pesquisar:";
             // 
             // txt_pesquisar_produtos
             // 
-            this.txt_pesquisar_produtos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.txt_pesquisar_produtos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_pesquisar_produtos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_pesquisar_produtos.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_pesquisar_produtos.Location = new System.Drawing.Point(145, 25);
+            this.txt_pesquisar_produtos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_pesquisar_produtos.Location = new System.Drawing.Point(118, 9);
             this.txt_pesquisar_produtos.Name = "txt_pesquisar_produtos";
             this.txt_pesquisar_produtos.PlaceholderText = "Digite o nome do produto...";
-            this.txt_pesquisar_produtos.Size = new System.Drawing.Size(581, 23);
+            this.txt_pesquisar_produtos.Size = new System.Drawing.Size(625, 22);
             this.txt_pesquisar_produtos.TabIndex = 1;
             // 
             // button1
@@ -126,7 +127,7 @@
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(749, 23);
+            this.button1.Location = new System.Drawing.Point(749, 8);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(23, 23);
             this.button1.TabIndex = 2;
