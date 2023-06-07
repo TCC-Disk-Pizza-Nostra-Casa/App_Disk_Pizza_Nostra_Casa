@@ -63,6 +63,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
+        public static async Task<List<Funcionario>> LoginAsyncFuncionario(string usuario, string senha)
+        {
+
+
+
+        }
+
     }
 
 }

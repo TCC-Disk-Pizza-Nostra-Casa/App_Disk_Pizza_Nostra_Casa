@@ -30,6 +30,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
+        private void btn_pesquisar_produtos_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
     }
 
 }

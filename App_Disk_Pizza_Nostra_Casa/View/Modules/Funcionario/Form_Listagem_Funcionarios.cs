@@ -53,6 +53,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
+        private void btn_pesquisar_funcionario_Click(object sender, EventArgs e)
+        {
+
+
+
+        }
+
     }
 
 }

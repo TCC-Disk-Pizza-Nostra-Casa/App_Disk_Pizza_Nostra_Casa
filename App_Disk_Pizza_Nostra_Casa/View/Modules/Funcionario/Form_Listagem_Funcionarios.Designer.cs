@@ -48,11 +48,12 @@
             this.btn_pesquisar_funcionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_pesquisar_funcionario.FlatAppearance.BorderSize = 0;
             this.btn_pesquisar_funcionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pesquisar_funcionario.Location = new System.Drawing.Point(749, 8);
+            this.btn_pesquisar_funcionario.Location = new System.Drawing.Point(749, 11);
             this.btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";
             this.btn_pesquisar_funcionario.Size = new System.Drawing.Size(23, 23);
             this.btn_pesquisar_funcionario.TabIndex = 5;
             this.btn_pesquisar_funcionario.UseVisualStyleBackColor = false;
+            this.btn_pesquisar_funcionario.Click += new System.EventHandler(this.btn_pesquisar_funcionario_Click);
             // 
             // txt_pesquisar_funcionario
             // 
@@ -61,7 +62,7 @@
             this.txt_pesquisar_funcionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_pesquisar_funcionario.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_pesquisar_funcionario.Location = new System.Drawing.Point(118, 9);
+            this.txt_pesquisar_funcionario.Location = new System.Drawing.Point(118, 12);
             this.txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
             this.txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do funcionário...";
             this.txt_pesquisar_funcionario.Size = new System.Drawing.Size(625, 22);
@@ -71,7 +72,7 @@
             // 
             this.lbl_pesquisar_funcionario.AutoSize = true;
             this.lbl_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_pesquisar_funcionario.Location = new System.Drawing.Point(12, 9);
+            this.lbl_pesquisar_funcionario.Location = new System.Drawing.Point(12, 12);
             this.lbl_pesquisar_funcionario.Name = "lbl_pesquisar_funcionario";
             this.lbl_pesquisar_funcionario.Size = new System.Drawing.Size(100, 22);
             this.lbl_pesquisar_funcionario.TabIndex = 6;
@@ -98,14 +99,15 @@
             this.dgv_listagem_funcionarios.ReadOnly = true;
             this.dgv_listagem_funcionarios.RowTemplate.Height = 25;
             this.dgv_listagem_funcionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_listagem_funcionarios.Size = new System.Drawing.Size(760, 401);
+            this.dgv_listagem_funcionarios.Size = new System.Drawing.Size(760, 400);
             this.dgv_listagem_funcionarios.TabIndex = 3;
             // 
             // dgv_listagem_funcionarios_numero_linha
             // 
             this.dgv_listagem_funcionarios_numero_linha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgv_listagem_funcionarios_numero_linha.DividerWidth = 2;
-            this.dgv_listagem_funcionarios_numero_linha.HeaderText = "Nº Linha:";
+            this.dgv_listagem_funcionarios_numero_linha.FillWeight = 44.31297F;
+            this.dgv_listagem_funcionarios_numero_linha.HeaderText = "Nº:";
             this.dgv_listagem_funcionarios_numero_linha.Name = "dgv_listagem_funcionarios_numero_linha";
             this.dgv_listagem_funcionarios_numero_linha.ReadOnly = true;
             this.dgv_listagem_funcionarios_numero_linha.ToolTipText = "Numeração das linhas da tabela.";
@@ -114,7 +116,8 @@
             // 
             this.dgv_listagem_funcionarios_nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgv_listagem_funcionarios_nome.DividerWidth = 2;
-            this.dgv_listagem_funcionarios_nome.HeaderText = "Nome:";
+            this.dgv_listagem_funcionarios_nome.FillWeight = 187.9669F;
+            this.dgv_listagem_funcionarios_nome.HeaderText = "Nome Completo:";
             this.dgv_listagem_funcionarios_nome.Name = "dgv_listagem_funcionarios_nome";
             this.dgv_listagem_funcionarios_nome.ReadOnly = true;
             this.dgv_listagem_funcionarios_nome.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -124,6 +127,7 @@
             // 
             this.dgv_listagem_funcionarios_email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dgv_listagem_funcionarios_email.DividerWidth = 2;
+            this.dgv_listagem_funcionarios_email.FillWeight = 101.5229F;
             this.dgv_listagem_funcionarios_email.HeaderText = "E-Mail:";
             this.dgv_listagem_funcionarios_email.Name = "dgv_listagem_funcionarios_email";
             this.dgv_listagem_funcionarios_email.ReadOnly = true;
@@ -132,6 +136,7 @@
             // dgv_listagem_funcionarios_contratacao
             // 
             this.dgv_listagem_funcionarios_contratacao.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dgv_listagem_funcionarios_contratacao.FillWeight = 66.19731F;
             this.dgv_listagem_funcionarios_contratacao.HeaderText = "Contratado em:";
             this.dgv_listagem_funcionarios_contratacao.Name = "dgv_listagem_funcionarios_contratacao";
             this.dgv_listagem_funcionarios_contratacao.ReadOnly = true;
@@ -141,6 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.btn_pesquisar_funcionario);
             this.Controls.Add(this.txt_pesquisar_funcionario);
