@@ -26,7 +26,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void form_inicio_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(1045, 579);
+            this.MinimumSize = new Size(1200, 800);
+
+            this.Size = new Size(1200, 800);
 
             esconder_submenus();
 

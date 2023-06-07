@@ -61,7 +61,7 @@
             this.dgv_listagem_produtos.ReadOnly = true;
             this.dgv_listagem_produtos.RowTemplate.Height = 25;
             this.dgv_listagem_produtos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_listagem_produtos.Size = new System.Drawing.Size(760, 413);
+            this.dgv_listagem_produtos.Size = new System.Drawing.Size(760, 382);
             this.dgv_listagem_produtos.TabIndex = 0;
             // 
             // dgv_listagem_produtos_nome
@@ -137,7 +137,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 492);
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txt_pesquisar_produtos);
             this.Controls.Add(this.label1);
