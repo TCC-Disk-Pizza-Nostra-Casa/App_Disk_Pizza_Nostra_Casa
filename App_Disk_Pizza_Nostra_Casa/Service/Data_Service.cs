@@ -19,7 +19,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
         private static readonly string host = "http://localhost:8000";
         //private static readonly string host = "";
 
-        protected static async Task<string> Pegar_Dados_Get_Api(string rota)
+        protected static async Task<string> GetDataApi(string rota)
         {
 
             string json;
@@ -41,7 +41,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
                 else
                 {
 
-                    throw new Exception(Verificacao_Erro_Servidor(requisicao_api.StatusCode));
+                    throw new Exception(ServerErrorValidation(requisicao_api.StatusCode));
 
                 }
 
@@ -51,7 +51,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        protected static async Task<string> Enviar_Dados_Post_Api(string objeto_json, string rota)
+        protected static async Task<string> SendDataApi(string objeto_json, string rota)
         {
 
             string json;
@@ -73,7 +73,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
                 else
                 {
 
-                    throw new Exception(Verificacao_Erro_Servidor(requisicao_api.StatusCode));
+                    throw new Exception(ServerErrorValidation(requisicao_api.StatusCode));
 
                 }
 
@@ -83,7 +83,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        private static string Verificacao_Erro_Servidor(HttpStatusCode status_code)
+        private static string ServerErrorValidation(HttpStatusCode status_code)
         {
 
             string mensagem_erro;

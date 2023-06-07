@@ -68,7 +68,7 @@
             this.pnl_menu_lateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnl_menu_lateral.Location = new System.Drawing.Point(0, 0);
             this.pnl_menu_lateral.Name = "pnl_menu_lateral";
-            this.pnl_menu_lateral.Size = new System.Drawing.Size(211, 661);
+            this.pnl_menu_lateral.Size = new System.Drawing.Size(211, 761);
             this.pnl_menu_lateral.TabIndex = 0;
             // 
             // pnl_opcoes
@@ -84,7 +84,7 @@
             this.pnl_opcoes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_opcoes.Location = new System.Drawing.Point(0, 147);
             this.pnl_opcoes.Name = "pnl_opcoes";
-            this.pnl_opcoes.Size = new System.Drawing.Size(211, 514);
+            this.pnl_opcoes.Size = new System.Drawing.Size(211, 614);
             this.pnl_opcoes.TabIndex = 12;
             // 
             // btn_sair
@@ -99,7 +99,7 @@
             this.btn_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_sair.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_sair.ForeColor = System.Drawing.Color.White;
-            this.btn_sair.Location = new System.Drawing.Point(0, 464);
+            this.btn_sair.Location = new System.Drawing.Point(0, 564);
             this.btn_sair.Name = "btn_sair";
             this.btn_sair.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.btn_sair.Size = new System.Drawing.Size(211, 50);
@@ -360,11 +360,12 @@
             // 
             // pnl_formulario_externo
             // 
+            this.pnl_formulario_externo.AutoScroll = true;
             this.pnl_formulario_externo.Controls.Add(this.pctbox_icone_espera);
             this.pnl_formulario_externo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnl_formulario_externo.Location = new System.Drawing.Point(211, 147);
             this.pnl_formulario_externo.Name = "pnl_formulario_externo";
-            this.pnl_formulario_externo.Size = new System.Drawing.Size(818, 514);
+            this.pnl_formulario_externo.Size = new System.Drawing.Size(973, 614);
             this.pnl_formulario_externo.TabIndex = 1;
             // 
             // pctbox_icone_espera
@@ -372,7 +373,7 @@
             this.pctbox_icone_espera.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pctbox_icone_espera.BackColor = System.Drawing.Color.Transparent;
             this.pctbox_icone_espera.Image = ((System.Drawing.Image)(resources.GetObject("pctbox_icone_espera.Image")));
-            this.pctbox_icone_espera.Location = new System.Drawing.Point(250, 141);
+            this.pctbox_icone_espera.Location = new System.Drawing.Point(327, 191);
             this.pctbox_icone_espera.Name = "pctbox_icone_espera";
             this.pctbox_icone_espera.Size = new System.Drawing.Size(300, 230);
             this.pctbox_icone_espera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -385,7 +386,7 @@
             this.pnl_titulo_formulario_externo.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnl_titulo_formulario_externo.Location = new System.Drawing.Point(211, 0);
             this.pnl_titulo_formulario_externo.Name = "pnl_titulo_formulario_externo";
-            this.pnl_titulo_formulario_externo.Size = new System.Drawing.Size(818, 147);
+            this.pnl_titulo_formulario_externo.Size = new System.Drawing.Size(973, 147);
             this.pnl_titulo_formulario_externo.TabIndex = 2;
             // 
             // form_inicio
@@ -393,13 +394,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1029, 661);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.ControlBox = false;
             this.Controls.Add(this.pnl_formulario_externo);
             this.Controls.Add(this.pnl_titulo_formulario_externo);
             this.Controls.Add(this.pnl_menu_lateral);
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MinimumSize = new System.Drawing.Size(1045, 579);
+            this.MinimumSize = new System.Drawing.Size(1200, 800);
             this.Name = "form_inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela Inicial";
