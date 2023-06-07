@@ -48,7 +48,7 @@
             this.btn_pesquisar_funcionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btn_pesquisar_funcionario.FlatAppearance.BorderSize = 0;
             this.btn_pesquisar_funcionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pesquisar_funcionario.Location = new System.Drawing.Point(749, 6);
+            this.btn_pesquisar_funcionario.Location = new System.Drawing.Point(749, 8);
             this.btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";
             this.btn_pesquisar_funcionario.Size = new System.Drawing.Size(23, 23);
             this.btn_pesquisar_funcionario.TabIndex = 5;
@@ -60,22 +60,22 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_pesquisar_funcionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txt_pesquisar_funcionario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_pesquisar_funcionario.Location = new System.Drawing.Point(181, 6);
+            this.txt_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txt_pesquisar_funcionario.Location = new System.Drawing.Point(118, 9);
             this.txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
-            this.txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do produto...";
-            this.txt_pesquisar_funcionario.Size = new System.Drawing.Size(551, 25);
+            this.txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do funcionário...";
+            this.txt_pesquisar_funcionario.Size = new System.Drawing.Size(625, 22);
             this.txt_pesquisar_funcionario.TabIndex = 4;
             // 
             // lbl_pesquisar_funcionario
             // 
             this.lbl_pesquisar_funcionario.AutoSize = true;
-            this.lbl_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_pesquisar_funcionario.Location = new System.Drawing.Point(12, 7);
+            this.lbl_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbl_pesquisar_funcionario.Location = new System.Drawing.Point(12, 9);
             this.lbl_pesquisar_funcionario.Name = "lbl_pesquisar_funcionario";
-            this.lbl_pesquisar_funcionario.Size = new System.Drawing.Size(163, 18);
+            this.lbl_pesquisar_funcionario.Size = new System.Drawing.Size(100, 22);
             this.lbl_pesquisar_funcionario.TabIndex = 6;
-            this.lbl_pesquisar_funcionario.Text = "Pesquisar funcionário:";
+            this.lbl_pesquisar_funcionario.Text = "Pesquisar:";
             // 
             // dgv_listagem_funcionarios
             // 
@@ -92,13 +92,13 @@
             this.dgv_listagem_funcionarios_nome,
             this.dgv_listagem_funcionarios_email,
             this.dgv_listagem_funcionarios_contratacao});
-            this.dgv_listagem_funcionarios.Location = new System.Drawing.Point(12, 39);
+            this.dgv_listagem_funcionarios.Location = new System.Drawing.Point(12, 48);
             this.dgv_listagem_funcionarios.MultiSelect = false;
             this.dgv_listagem_funcionarios.Name = "dgv_listagem_funcionarios";
             this.dgv_listagem_funcionarios.ReadOnly = true;
             this.dgv_listagem_funcionarios.RowTemplate.Height = 25;
             this.dgv_listagem_funcionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_listagem_funcionarios.Size = new System.Drawing.Size(760, 404);
+            this.dgv_listagem_funcionarios.Size = new System.Drawing.Size(760, 401);
             this.dgv_listagem_funcionarios.TabIndex = 3;
             // 
             // dgv_listagem_funcionarios_numero_linha

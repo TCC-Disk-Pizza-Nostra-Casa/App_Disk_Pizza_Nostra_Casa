@@ -10,17 +10,17 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
     public class Funcionario
     {
 
-        int id { get; set; }
+        public int id { get; set; }
 
-        string nome { get; set; }
+        public string nome { get; set; }
 
-        string email { get; set; }
+        public string email { get; set; }
 
-        string senha { get; set; }
+        public string senha { get; set; }
 
-        bool administrador { get; set; }
+        public bool administrador { get; set; }
 
-        DateTime data_cadastro { get; set; }
+        public DateTime data_cadastro { get; set; }
 
     }
 
