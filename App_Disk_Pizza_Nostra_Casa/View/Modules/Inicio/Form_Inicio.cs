@@ -26,41 +26,77 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void form_inicio_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(1200, 800);
+            try
+            {
 
-            this.Size = new Size(1200, 800);
+                this.MinimumSize = new Size(1200, 800);
 
-            esconder_submenus();
+                this.Size = new Size(1200, 800);
+
+                esconder_submenus();
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void esconder_submenus()
         {
 
-            pnl_submenu_funcionarios.Visible = false;
+            try
+            {
 
-            pnl_submenu_produtos.Visible = false;
+                pnl_submenu_funcionarios.Visible = false;
 
-            pnl_submenu_vendas.Visible = false;
+                pnl_submenu_produtos.Visible = false;
+
+                pnl_submenu_vendas.Visible = false;
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void visibilidade_submenus(Panel painel)
         {
 
-            if(painel.Visible)
+            try
             {
 
-                painel.Visible = false;
+                if(painel.Visible)
+                {
+
+                    painel.Visible = false;
+
+                }
+
+                else
+                {
+
+                    esconder_submenus();
+
+                    painel.Visible = true;
+
+                }
 
             }
 
-            else
+            catch(Exception ex)
             {
 
-                esconder_submenus();
-
-                painel.Visible = true;
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
@@ -69,102 +105,234 @@ namespace App_Disk_Pizza_Nostra_Casa.View
         private void associar_form_externo(Form form_externo)
         {
 
-            if(form_associado != null)
+            try
             {
 
-                form_associado.Close();
+                if(form_associado != null)
+                {
+
+                    form_associado.Close();
+
+                }
+
+                form_associado = form_externo;
+
+                form_externo.TopLevel = false;
+
+                form_externo.FormBorderStyle = FormBorderStyle.None;
+
+                form_externo.Dock = DockStyle.Fill;
+
+                pnl_formulario_externo.Controls.Add(form_externo);
+
+                pnl_formulario_externo.Tag = form_externo;
+
+                form_externo.BringToFront();
+
+                form_externo.Show();
 
             }
 
-            form_associado = form_externo;
+            catch(Exception ex)
+            {
 
-            form_externo.TopLevel = false;
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            form_externo.FormBorderStyle = FormBorderStyle.None;
-
-            form_externo.Dock = DockStyle.Fill;
-
-            pnl_formulario_externo.Controls.Add(form_externo);
-
-            pnl_formulario_externo.Tag = form_externo;
-
-            form_externo.BringToFront();
-
-            form_externo.Show();
+            }
 
         }
 
         private void btn_funcionarios_Click(object sender, EventArgs e)
         {
 
-            visibilidade_submenus(pnl_submenu_funcionarios);
+            try
+            {
+
+                visibilidade_submenus(pnl_submenu_funcionarios);
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_listagem_funcionario_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Funcionario.form_listagem_funcionarios());
+            try
+            {
+
+                associar_form_externo(new Modules.Funcionario.form_listagem_funcionarios());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_cadastro_funcionario_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Funcionario.form_cadastro_funcionarios());
+            try
+            {
+
+                associar_form_externo(new Modules.Funcionario.form_cadastro_funcionarios());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_produtos_Click(object sender, EventArgs e)
         {
 
-            visibilidade_submenus(pnl_submenu_produtos);
+            try
+            {
+
+                visibilidade_submenus(pnl_submenu_produtos);
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_cadastro_produto_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Produto.Form_Cadastro_Produtos());
+            try
+            {
+
+                associar_form_externo(new Modules.Produto.form_cadastro_produtos());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_listagem_produtos_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Produto.form_listagem_produtos());
+            try
+            {
+
+                associar_form_externo(new Modules.Produto.form_listagem_produtos());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_vendas_Click(object sender, EventArgs e)
         {
 
-            visibilidade_submenus(pnl_submenu_vendas);
+            try
+            {
+
+                visibilidade_submenus(pnl_submenu_vendas);
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_adicionar_venda_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Venda.form_adicionar_venda());
+            try
+            {
+
+                associar_form_externo(new Modules.Venda.form_adicionar_venda());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_listagem_vendas_Click(object sender, EventArgs e)
         {
 
-            associar_form_externo(new Modules.Venda.form_listagem_vendas());
+            try
+            {
+
+                associar_form_externo(new Modules.Venda.form_listagem_vendas());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void btn_sair_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
 
-                Application.Exit();
+                if(MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Application.Exit();
+
+                }
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
