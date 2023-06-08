@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
+
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 {
 
@@ -21,14 +24,27 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private void Form_Cadastro_Produtos_Load(object sender, EventArgs e)
+        private void form_cadastro_produtos_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(800, 500);
+            try
+            {
 
-            this.Size = new Size(800, 500);
+                this.MinimumSize = new Size(800, 500);
+
+                this.Size = new Size(800, 500);
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
+
     }
 
 }

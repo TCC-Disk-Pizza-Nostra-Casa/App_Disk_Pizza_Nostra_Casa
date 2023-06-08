@@ -11,10 +11,8 @@ using System.Net;
 namespace App_Disk_Pizza_Nostra_Casa.Service
 {
 
-    public class Data_Service
+    public abstract class Data_Service
     {
-
-        // Classe destinada para uma futura integração a uma API.
 
         private static readonly string host = "http://localhost:8000";
         //private static readonly string host = "";
