@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
 using Newtonsoft.Json;
 
 namespace App_Disk_Pizza_Nostra_Casa.Service
@@ -55,7 +56,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             var post_json = JsonConvert.SerializeObject(parametro);
 
-            string json = await Data_Service.SendDataApi(parametro, "/funcionario/search");
+            string json = await Data_Service.SendDataApi(post_json, "/funcionario/search");
 
             List<Funcionario> lista_funcionarios_encontrados = JsonConvert.DeserializeObject<List<Funcionario>>(json);
 

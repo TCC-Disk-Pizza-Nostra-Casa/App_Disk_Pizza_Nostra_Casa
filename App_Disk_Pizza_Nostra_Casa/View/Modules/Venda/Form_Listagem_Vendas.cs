@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
+
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
 
@@ -24,9 +27,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private void form_listagem_vendas_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(800, 500);
+            try
+            {
 
-            this.Size = new Size(800, 500);
+                this.MinimumSize = new Size(800, 500);
+
+                this.Size = new Size(800, 500);
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 

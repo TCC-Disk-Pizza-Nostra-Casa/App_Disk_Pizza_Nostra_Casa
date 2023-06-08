@@ -39,7 +39,7 @@
             this.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Name = "form_cadastro_produtos";
             this.Text = "Cadastro de Produtos";
-            this.Load += new System.EventHandler(this.Form_Cadastro_Produtos_Load);
+            this.Load += new System.EventHandler(this.form_cadastro_produtos_Load);
             this.ResumeLayout(false);
 
         }
