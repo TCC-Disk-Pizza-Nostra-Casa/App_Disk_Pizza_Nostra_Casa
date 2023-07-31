@@ -57,12 +57,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
             try
             {
 
-                string[] dados_login = {txt_usuario.Text, txt_senha.Text};
-
-                List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
-
                 // Condição destinada para testes da aplicação.
-                if(txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
+                if (txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
                 {
 
                     MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
@@ -77,7 +73,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
                 else
                 {
 
-                    if(usuario_encontrado.Count == 0)
+                    string[] dados_login = { txt_usuario.Text, txt_senha.Text };
+
+                    List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
+
+                    if (usuario_encontrado.Count == 0)
                     {
 
                         throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");

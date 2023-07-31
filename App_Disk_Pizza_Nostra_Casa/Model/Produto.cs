@@ -10,15 +10,15 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
     public class Produto
     {
 
-        int id { get; set; }
+        public int id { get; set; }
 
-        string nome { get; set; }
+        public string nome { get; set; }
 
-        int estoque { get; set; }
+        public int estoque { get; set; }
 
-        double preco { get; set; }
+        public double preco { get; set; }
 
-        string observacoes { get; set; }
+        public string? observacoes { get; set; }
 
     }
 

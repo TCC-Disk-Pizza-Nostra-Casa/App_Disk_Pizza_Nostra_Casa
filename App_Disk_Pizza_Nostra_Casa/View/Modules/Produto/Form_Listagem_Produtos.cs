@@ -24,7 +24,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private void form_listagem_produtos_Load(object sender, EventArgs e)
+        private async void form_listagem_produtos_Load(object sender, EventArgs e)
         {
 
             try
@@ -33,6 +33,29 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 this.MinimumSize = new Size(800, 500);
 
                 this.Size = new Size(800, 500);
+
+                List<Model.Produto> lista_produtos = await Data_Service_Produto.GetListAsyncProduto();
+                
+                if (lista_produtos.Count > 0)
+                {
+
+                    for (int i = 0; i < lista_produtos.Count; i++)
+                    {
+
+                        string nome = lista_produtos[i].nome;
+
+                        string estoque = lista_produtos[i].estoque.ToString();
+
+                        string preco = lista_produtos[i].preco.ToString();
+
+                        string observacoes = lista_produtos[i].observacoes.ToString();
+
+                        dgv_listagem_produtos.Rows.Add(nome, estoque, preco, observacoes);
+
+                    }
+
+                }
+                
 
             }
 
