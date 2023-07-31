@@ -68,13 +68,35 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private void btn_pesquisar_produtos_Click(object sender, EventArgs e)
+        private async void btn_pesquisar_produtos_Click(object sender, EventArgs e)
         {
 
             try
             {
 
+                dgv_listagem_produtos.Rows.Clear();
 
+                List<Model.Produto> lista_produtos = await Data_Service_Produto.SearchAsyncProduto(txt_pesquisar_produtos.Text);
+
+                if (lista_produtos.Count > 0)
+                {
+
+                    for (int i = 0; i < lista_produtos.Count; i++)
+                    {
+
+                        string nome = lista_produtos[i].nome;
+
+                        string estoque = lista_produtos[i].estoque.ToString();
+
+                        string preco = lista_produtos[i].preco.ToString();
+
+                        string observacoes = lista_produtos[i].observacoes.ToString();
+
+                        dgv_listagem_produtos.Rows.Add(nome, estoque, preco, observacoes);
+
+                    }
+
+                }
 
             }
 
