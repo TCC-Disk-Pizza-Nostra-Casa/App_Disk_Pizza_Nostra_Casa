@@ -24,7 +24,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void form_listagem_vendas_Load(object sender, EventArgs e)
+        private async void form_listagem_vendas_Load(object sender, EventArgs e)
         {
 
             try
@@ -34,9 +34,30 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.Size = new Size(800, 500);
 
+                List<Model.Venda> lista_vendas = await Data_Service_Venda.GetListAsyncVenda();
+                
+                if (lista_vendas.Count > 0)
+                {
+
+                    for (int i = 0; i < lista_vendas.Count; i++)
+                    {
+
+                        string data_venda = lista_vendas[i].data_venda.ToString();
+
+                        string delivery = lista_vendas[i].delivery.ToString();
+
+                        string valor_total = lista_vendas[i].valor_total.ToString();
+
+                        dgv_listagem_vendas.Rows.Add(i + 1, data_venda, delivery, valor_total);
+
+                    }
+                }
+                
+
+                
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,6 +66,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+        private void dgv_listagem_vendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }
