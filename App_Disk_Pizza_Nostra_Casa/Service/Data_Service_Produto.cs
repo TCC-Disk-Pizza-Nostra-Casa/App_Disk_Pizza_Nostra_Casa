@@ -46,12 +46,18 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        /*public static async Task<List<Produto>> SearchAsyncProduto(string parametro)
+        public static async Task<List<Produto>> SearchAsyncProduto(string parametro)
         {
 
+            var post_json = JsonConvert.SerializeObject(parametro);
 
+            string json = await Data_Service.SendDataApi(post_json, "/produto/search");
 
-        }*/
+            List<Produto> model_retornada = JsonConvert.DeserializeObject<List<Produto>>(json);
+
+            return model_retornada;
+
+        }
 
     }
 
