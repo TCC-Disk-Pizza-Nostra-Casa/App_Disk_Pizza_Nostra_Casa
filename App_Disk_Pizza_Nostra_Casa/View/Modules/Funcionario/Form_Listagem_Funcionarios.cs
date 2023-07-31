@@ -36,10 +36,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 List<Model.Funcionario> lista_funcionarios = await Data_Service_Funcionario.GetListAsyncFuncionario();
 
-                if(lista_funcionarios.Count > 0)
+                if (lista_funcionarios.Count > 0)
                 {
 
-                    for(int i = 0; i < lista_funcionarios.Count; i++)
+                    for (int i = 0; i < lista_funcionarios.Count; i++)
                     {
 
                         string nome = lista_funcionarios[i].nome;
@@ -56,7 +56,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,7 +75,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -84,6 +84,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
+        private void dgv_listagem_funcionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 }

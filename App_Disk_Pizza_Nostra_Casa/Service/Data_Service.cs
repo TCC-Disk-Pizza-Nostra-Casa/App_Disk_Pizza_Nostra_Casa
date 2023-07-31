@@ -59,7 +59,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
             using (HttpClient cliente = new HttpClient())
             {
 
-                HttpResponseMessage requisicao_api = await cliente.PostAsync(uri, new StringContent(objeto_json, Encoding.UTF8, "application/json"));
+                HttpResponseMessage requisicao_api = await cliente.PostAsync(uri, new StringContent(objeto_json, Encoding.UTF8, 
+                    "application/json"));
 
                 if (requisicao_api.IsSuccessStatusCode)
                 {
