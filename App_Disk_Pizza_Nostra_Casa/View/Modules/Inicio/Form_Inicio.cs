@@ -108,28 +108,34 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                if(form_associado != null)
+                if (MessageBox.Show("Caso haja algum formulário aberto, ele será fechado! Prosseguir?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
-                    form_associado.Close();
+                    if (form_associado != null)
+                    {
+
+                        form_associado.Close();
+
+                    }
+
+                    form_associado = form_externo;
+
+                    form_externo.TopLevel = false;
+
+                    form_externo.FormBorderStyle = FormBorderStyle.None;
+
+                    form_externo.Dock = DockStyle.Fill;
+
+                    pnl_formulario_externo.Controls.Add(form_externo);
+
+                    pnl_formulario_externo.Tag = form_externo;
+
+                    form_externo.BringToFront();
+
+                    form_externo.Show();
 
                 }
-
-                form_associado = form_externo;
-
-                form_externo.TopLevel = false;
-
-                form_externo.FormBorderStyle = FormBorderStyle.None;
-
-                form_externo.Dock = DockStyle.Fill;
-
-                pnl_formulario_externo.Controls.Add(form_externo);
-
-                pnl_formulario_externo.Tag = form_externo;
-
-                form_externo.BringToFront();
-
-                form_externo.Show();
 
             }
 
