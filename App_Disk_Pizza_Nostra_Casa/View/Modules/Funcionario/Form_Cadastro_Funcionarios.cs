@@ -36,7 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
