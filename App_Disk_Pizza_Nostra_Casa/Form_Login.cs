@@ -57,42 +57,54 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
             try
             {
 
-                // Condição destinada para testes da aplicação.
-                if (txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
+                if(String.IsNullOrEmpty(txt_usuario.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
 
-                    MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                    this.Hide();
-
-                    new form_inicio().Show();
+                    throw new Exception("Preencha todos os campos antes de prosseguir.");
 
                 }
 
                 else
                 {
 
-                    string[] dados_login = { txt_usuario.Text, txt_senha.Text };
-
-                    List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
-
-                    if (usuario_encontrado.Count == 0)
+                    // Condição destinada para testes da aplicação.
+                    if(txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
                     {
 
-                        throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");
+                        MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        this.Hide();
+
+                        new form_inicio().Show();
 
                     }
 
                     else
                     {
 
-                        MessageBox.Show("Login efetuado com sucesso.", "Atenção!",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        string[] dados_login = { txt_usuario.Text, txt_senha.Text };
 
-                        this.Hide();
+                        List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
 
-                        new form_inicio().Show();
+                        if(usuario_encontrado.Count == 0)
+                        {
+
+                            throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");
+
+                        }
+
+                        else
+                        {
+
+                            MessageBox.Show("Login efetuado com sucesso.", "Atenção!",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                            this.Hide();
+
+                            new form_inicio().Show();
+
+                        }
 
                     }
 
