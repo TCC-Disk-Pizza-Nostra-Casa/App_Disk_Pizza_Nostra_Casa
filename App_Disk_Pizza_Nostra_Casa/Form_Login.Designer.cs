@@ -96,6 +96,8 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(69)))), ((int)(((byte)(34)))));
             this.label1.Location = new System.Drawing.Point(635, 179);
@@ -106,6 +108,7 @@
             // 
             // txt_usuario
             // 
+            this.txt_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_usuario.BackColor = System.Drawing.SystemColors.Control;
             this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_usuario.ForeColor = System.Drawing.Color.Black;
@@ -118,6 +121,7 @@
             // 
             // txt_senha
             // 
+            this.txt_senha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txt_senha.BackColor = System.Drawing.SystemColors.Control;
             this.txt_senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_senha.ForeColor = System.Drawing.Color.Black;
@@ -130,6 +134,8 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(69)))), ((int)(((byte)(34)))));
             this.label3.Location = new System.Drawing.Point(635, 314);
@@ -140,6 +146,7 @@
             // 
             // btn_entrar
             // 
+            this.btn_entrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_entrar.BackColor = System.Drawing.Color.Transparent;
             this.btn_entrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btn_entrar.FlatAppearance.BorderSize = 2;
