@@ -65,7 +65,7 @@
             txt_senha.TabIndex = 1;
             // 
             // txt_email
-            // 
+            //
             txt_email.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_email.Location = new Point(88, 258);
@@ -75,7 +75,7 @@
             txt_email.TabIndex = 3;
             // 
             // txt_nome
-            // 
+            //
             txt_nome.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_nome.Location = new Point(88, 12);
@@ -107,7 +107,7 @@
             lbl_nome.Text = "Nome:";
             // 
             // lbl_email
-            // 
+            //
             lbl_email.AutoSize = true;
             lbl_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lbl_email.Location = new Point(12, 261);
@@ -117,7 +117,7 @@
             lbl_email.Text = "E-mail:";
             // 
             // lbl_telefone
-            // 
+            //
             lbl_telefone.AutoSize = true;
             lbl_telefone.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lbl_telefone.Location = new Point(12, 302);

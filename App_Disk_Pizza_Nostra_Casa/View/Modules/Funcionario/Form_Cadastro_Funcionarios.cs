@@ -49,6 +49,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
+        private void txt_nome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
