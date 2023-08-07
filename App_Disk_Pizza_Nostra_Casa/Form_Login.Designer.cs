@@ -29,165 +29,163 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_login));
-            this.pnl_imagem = new System.Windows.Forms.Panel();
-            this.pctbox_imagem = new System.Windows.Forms.PictureBox();
-            this.lbl_usuario = new System.Windows.Forms.Label();
-            this.lbl_senha = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txt_usuario = new System.Windows.Forms.TextBox();
-            this.txt_senha = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btn_entrar = new System.Windows.Forms.Button();
-            this.pnl_imagem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pctbox_imagem)).BeginInit();
-            this.SuspendLayout();
+            pnl_imagem = new Panel();
+            pctbox_imagem = new PictureBox();
+            lbl_usuario = new Label();
+            lbl_senha = new Label();
+            label1 = new Label();
+            txt_usuario = new TextBox();
+            txt_senha = new TextBox();
+            label3 = new Label();
+            btn_entrar = new Button();
+            pnl_imagem.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pctbox_imagem).BeginInit();
+            SuspendLayout();
             // 
             // pnl_imagem
             // 
-            this.pnl_imagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(69)))), ((int)(((byte)(34)))));
-            this.pnl_imagem.Controls.Add(this.pctbox_imagem);
-            this.pnl_imagem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnl_imagem.Location = new System.Drawing.Point(0, 0);
-            this.pnl_imagem.Margin = new System.Windows.Forms.Padding(4);
-            this.pnl_imagem.Name = "pnl_imagem";
-            this.pnl_imagem.Size = new System.Drawing.Size(500, 540);
-            this.pnl_imagem.TabIndex = 0;
+            pnl_imagem.BackColor = Color.FromArgb(130, 69, 34);
+            pnl_imagem.Controls.Add(pctbox_imagem);
+            pnl_imagem.Dock = DockStyle.Left;
+            pnl_imagem.Location = new Point(0, 0);
+            pnl_imagem.Margin = new Padding(4);
+            pnl_imagem.Name = "pnl_imagem";
+            pnl_imagem.Size = new Size(500, 540);
+            pnl_imagem.TabIndex = 0;
             // 
             // pctbox_imagem
             // 
-            this.pctbox_imagem.BackColor = System.Drawing.Color.Transparent;
-            this.pctbox_imagem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pctbox_imagem.Image = ((System.Drawing.Image)(resources.GetObject("pctbox_imagem.Image")));
-            this.pctbox_imagem.Location = new System.Drawing.Point(0, 0);
-            this.pctbox_imagem.Margin = new System.Windows.Forms.Padding(4);
-            this.pctbox_imagem.Name = "pctbox_imagem";
-            this.pctbox_imagem.Size = new System.Drawing.Size(500, 540);
-            this.pctbox_imagem.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctbox_imagem.TabIndex = 1;
-            this.pctbox_imagem.TabStop = false;
+            pctbox_imagem.BackColor = Color.Transparent;
+            pctbox_imagem.Dock = DockStyle.Fill;
+            pctbox_imagem.Image = (Image)resources.GetObject("pctbox_imagem.Image");
+            pctbox_imagem.Location = new Point(0, 0);
+            pctbox_imagem.Margin = new Padding(4);
+            pctbox_imagem.Name = "pctbox_imagem";
+            pctbox_imagem.Size = new Size(500, 540);
+            pctbox_imagem.SizeMode = PictureBoxSizeMode.StretchImage;
+            pctbox_imagem.TabIndex = 1;
+            pctbox_imagem.TabStop = false;
             // 
             // lbl_usuario
             // 
-            this.lbl_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_usuario.AutoSize = true;
-            this.lbl_usuario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_usuario.ForeColor = System.Drawing.Color.Black;
-            this.lbl_usuario.Location = new System.Drawing.Point(734, 131);
-            this.lbl_usuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_usuario.Name = "lbl_usuario";
-            this.lbl_usuario.Size = new System.Drawing.Size(75, 19);
-            this.lbl_usuario.TabIndex = 1;
-            this.lbl_usuario.Text = "Usuário:";
-            this.lbl_usuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbl_usuario.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            lbl_usuario.AutoSize = true;
+            lbl_usuario.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_usuario.ForeColor = Color.Black;
+            lbl_usuario.Location = new Point(734, 131);
+            lbl_usuario.Margin = new Padding(4, 0, 4, 0);
+            lbl_usuario.Name = "lbl_usuario";
+            lbl_usuario.Size = new Size(75, 19);
+            lbl_usuario.TabIndex = 1;
+            lbl_usuario.Text = "Usuário:";
+            lbl_usuario.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // lbl_senha
             // 
-            this.lbl_senha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbl_senha.AutoSize = true;
-            this.lbl_senha.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_senha.ForeColor = System.Drawing.Color.Black;
-            this.lbl_senha.Location = new System.Drawing.Point(734, 272);
-            this.lbl_senha.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbl_senha.Name = "lbl_senha";
-            this.lbl_senha.Size = new System.Drawing.Size(64, 19);
-            this.lbl_senha.TabIndex = 2;
-            this.lbl_senha.Text = "Senha:";
-            this.lbl_senha.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            lbl_senha.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            lbl_senha.AutoSize = true;
+            lbl_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_senha.ForeColor = Color.Black;
+            lbl_senha.Location = new Point(734, 272);
+            lbl_senha.Margin = new Padding(4, 0, 4, 0);
+            lbl_senha.Name = "lbl_senha";
+            lbl_senha.Size = new Size(64, 19);
+            lbl_senha.TabIndex = 2;
+            lbl_senha.Text = "Senha:";
+            lbl_senha.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(69)))), ((int)(((byte)(34)))));
-            this.label1.Location = new System.Drawing.Point(635, 179);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(269, 18);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "_____________________________";
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label1.AutoSize = true;
+            label1.ForeColor = Color.FromArgb(130, 69, 34);
+            label1.Location = new Point(635, 179);
+            label1.Name = "label1";
+            label1.Size = new Size(269, 18);
+            label1.TabIndex = 6;
+            label1.Text = "_____________________________";
             // 
             // txt_usuario
             // 
-            this.txt_usuario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_usuario.BackColor = System.Drawing.SystemColors.Control;
-            this.txt_usuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_usuario.ForeColor = System.Drawing.Color.Black;
-            this.txt_usuario.Location = new System.Drawing.Point(635, 171);
-            this.txt_usuario.Name = "txt_usuario";
-            this.txt_usuario.PlaceholderText = "Digite seu nome completo";
-            this.txt_usuario.Size = new System.Drawing.Size(269, 19);
-            this.txt_usuario.TabIndex = 7;
-            this.txt_usuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txt_usuario.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txt_usuario.BackColor = SystemColors.Control;
+            txt_usuario.BorderStyle = BorderStyle.None;
+            txt_usuario.ForeColor = Color.Black;
+            txt_usuario.Location = new Point(635, 171);
+            txt_usuario.Name = "txt_usuario";
+            txt_usuario.PlaceholderText = "Digite seu nome completo";
+            txt_usuario.Size = new Size(269, 19);
+            txt_usuario.TabIndex = 7;
+            txt_usuario.TextAlign = HorizontalAlignment.Center;
             // 
             // txt_senha
             // 
-            this.txt_senha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_senha.BackColor = System.Drawing.SystemColors.Control;
-            this.txt_senha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_senha.ForeColor = System.Drawing.Color.Black;
-            this.txt_senha.Location = new System.Drawing.Point(635, 306);
-            this.txt_senha.Name = "txt_senha";
-            this.txt_senha.PlaceholderText = "Digite sua senha";
-            this.txt_senha.Size = new System.Drawing.Size(269, 19);
-            this.txt_senha.TabIndex = 9;
-            this.txt_senha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            txt_senha.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txt_senha.BackColor = SystemColors.Control;
+            txt_senha.BorderStyle = BorderStyle.None;
+            txt_senha.ForeColor = Color.Black;
+            txt_senha.Location = new Point(635, 306);
+            txt_senha.Name = "txt_senha";
+            txt_senha.PasswordChar = '*';
+            txt_senha.PlaceholderText = "Digite sua senha";
+            txt_senha.Size = new Size(269, 19);
+            txt_senha.TabIndex = 9;
+            txt_senha.TextAlign = HorizontalAlignment.Center;
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(69)))), ((int)(((byte)(34)))));
-            this.label3.Location = new System.Drawing.Point(635, 314);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(269, 18);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "_____________________________";
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            label3.AutoSize = true;
+            label3.ForeColor = Color.FromArgb(130, 69, 34);
+            label3.Location = new Point(635, 314);
+            label3.Name = "label3";
+            label3.Size = new Size(269, 18);
+            label3.TabIndex = 8;
+            label3.Text = "_____________________________";
             // 
             // btn_entrar
             // 
-            this.btn_entrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_entrar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_entrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btn_entrar.FlatAppearance.BorderSize = 2;
-            this.btn_entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_entrar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_entrar.ForeColor = System.Drawing.Color.Black;
-            this.btn_entrar.Location = new System.Drawing.Point(705, 409);
-            this.btn_entrar.Name = "btn_entrar";
-            this.btn_entrar.Size = new System.Drawing.Size(122, 36);
-            this.btn_entrar.TabIndex = 10;
-            this.btn_entrar.Text = "Entrar";
-            this.btn_entrar.UseVisualStyleBackColor = false;
-            this.btn_entrar.Click += new System.EventHandler(this.btn_entrar_Click);
+            btn_entrar.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            btn_entrar.BackColor = Color.Transparent;
+            btn_entrar.FlatAppearance.BorderColor = Color.Black;
+            btn_entrar.FlatAppearance.BorderSize = 2;
+            btn_entrar.FlatStyle = FlatStyle.Flat;
+            btn_entrar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_entrar.ForeColor = Color.Black;
+            btn_entrar.Location = new Point(705, 409);
+            btn_entrar.Name = "btn_entrar";
+            btn_entrar.Size = new Size(122, 36);
+            btn_entrar.TabIndex = 10;
+            btn_entrar.Text = "Entrar";
+            btn_entrar.UseVisualStyleBackColor = false;
+            btn_entrar.Click += btn_entrar_Click;
             // 
             // form_login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1029, 540);
-            this.Controls.Add(this.btn_entrar);
-            this.Controls.Add(this.txt_senha);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_usuario);
-            this.Controls.Add(this.lbl_senha);
-            this.Controls.Add(this.lbl_usuario);
-            this.Controls.Add(this.pnl_imagem);
-            this.Controls.Add(this.label1);
-            this.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(1045, 579);
-            this.MinimumSize = new System.Drawing.Size(1045, 579);
-            this.Name = "form_login";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Tela de Login";
-            this.Load += new System.EventHandler(this.form_login_Load);
-            this.pnl_imagem.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pctbox_imagem)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1029, 540);
+            Controls.Add(btn_entrar);
+            Controls.Add(txt_senha);
+            Controls.Add(label3);
+            Controls.Add(txt_usuario);
+            Controls.Add(lbl_senha);
+            Controls.Add(lbl_usuario);
+            Controls.Add(pnl_imagem);
+            Controls.Add(label1);
+            Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Margin = new Padding(4);
+            MaximumSize = new Size(1045, 579);
+            MinimumSize = new Size(1045, 579);
+            Name = "form_login";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Tela de Login";
+            Load += form_login_Load;
+            pnl_imagem.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pctbox_imagem).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
