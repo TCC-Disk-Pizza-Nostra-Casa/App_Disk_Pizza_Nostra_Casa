@@ -22,6 +22,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             InitializeComponent();
 
+            cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
+
+            cbbox_cargo.DataSource = new string[] { "Balconista" };
+
         }
 
         private void form_cadastro_funcionarios_Load(object sender, EventArgs e)

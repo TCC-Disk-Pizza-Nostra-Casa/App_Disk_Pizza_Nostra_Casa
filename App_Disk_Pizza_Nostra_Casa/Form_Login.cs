@@ -42,7 +42,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,8 +57,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
             try
             {
 
-                if(String.IsNullOrEmpty(txt_usuario.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                if (String.IsNullOrEmpty(txt_usuario.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
+
+                    txt_usuario.Clear();
+
+                    txt_senha.Clear();
 
                     throw new Exception("Preencha todos os campos antes de prosseguir.");
 
@@ -68,7 +72,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
                 {
 
                     // Condição destinada para testes da aplicação.
-                    if(txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
+                    if (txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
                     {
 
                         MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
@@ -87,8 +91,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
                         List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
 
-                        if(usuario_encontrado.Count == 0)
+                        if (usuario_encontrado.Count == 0)
                         {
+
+                            txt_usuario.Clear();
+
+                            txt_senha.Clear();
 
                             throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");
 
@@ -112,7 +120,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
