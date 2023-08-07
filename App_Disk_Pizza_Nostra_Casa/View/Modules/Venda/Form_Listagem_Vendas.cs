@@ -35,7 +35,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 this.Size = new Size(800, 500);
 
                 List<Model.Venda> lista_vendas = await Data_Service_Venda.GetListAsyncVenda();
-                
+
                 if (lista_vendas.Count > 0)
                 {
 
@@ -52,9 +52,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                     }
                 }
-                
 
-                
+
+
             }
 
             catch (Exception ex)

@@ -28,192 +28,190 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txt_senha = new System.Windows.Forms.TextBox();
-            this.txt_email = new System.Windows.Forms.TextBox();
-            this.txt_nome = new System.Windows.Forms.TextBox();
-            this.ckbox_administrador = new System.Windows.Forms.CheckBox();
-            this.lbl_nome = new System.Windows.Forms.Label();
-            this.lbl_email = new System.Windows.Forms.Label();
-            this.lbl_telefone = new System.Windows.Forms.Label();
-            this.mtxt_telefone = new System.Windows.Forms.MaskedTextBox();
-            this.lbl_genero = new System.Windows.Forms.Label();
-            this.txt_genero = new System.Windows.Forms.TextBox();
-            this.lbl_senha = new System.Windows.Forms.Label();
-            this.pctbox_foto = new System.Windows.Forms.PictureBox();
-            this.mtxt_cpf = new System.Windows.Forms.MaskedTextBox();
-            this.lbl_cpf = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pctbox_foto)).BeginInit();
-            this.SuspendLayout();
+            txt_senha = new TextBox();
+            txt_email = new TextBox();
+            txt_nome = new TextBox();
+            ckbox_administrador = new CheckBox();
+            lbl_nome = new Label();
+            lbl_email = new Label();
+            lbl_telefone = new Label();
+            mtxt_telefone = new MaskedTextBox();
+            lbl_genero = new Label();
+            txt_genero = new TextBox();
+            lbl_senha = new Label();
+            pctbox_foto = new PictureBox();
+            mtxt_cpf = new MaskedTextBox();
+            lbl_cpf = new Label();
+            ((System.ComponentModel.ISupportInitialize)pctbox_foto).BeginInit();
+            SuspendLayout();
             // 
             // txt_senha
             // 
-            this.txt_senha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_senha.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_senha.Location = new System.Drawing.Point(88, 380);
-            this.txt_senha.Name = "txt_senha";
-            this.txt_senha.PasswordChar = '*';
-            this.txt_senha.Size = new System.Drawing.Size(320, 26);
-            this.txt_senha.TabIndex = 1;
+            txt_senha.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txt_senha.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_senha.Location = new Point(88, 380);
+            txt_senha.Name = "txt_senha";
+            txt_senha.PasswordChar = '*';
+            txt_senha.Size = new Size(320, 26);
+            txt_senha.TabIndex = 1;
             // 
             // txt_email
             // 
-            this.txt_email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txt_email.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_email.Location = new System.Drawing.Point(88, 297);
-            this.txt_email.Name = "txt_email";
-            this.txt_email.Size = new System.Drawing.Size(320, 26);
-            this.txt_email.TabIndex = 3;
+            txt_email.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            txt_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_email.Location = new Point(88, 297);
+            txt_email.Name = "txt_email";
+            txt_email.Size = new Size(320, 26);
+            txt_email.TabIndex = 3;
             // 
             // txt_nome
             // 
-            this.txt_nome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_nome.Location = new System.Drawing.Point(88, 12);
-            this.txt_nome.Name = "txt_nome";
-            this.txt_nome.Size = new System.Drawing.Size(320, 26);
-            this.txt_nome.TabIndex = 4;
+            txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_nome.Location = new Point(88, 12);
+            txt_nome.Name = "txt_nome";
+            txt_nome.Size = new Size(320, 26);
+            txt_nome.TabIndex = 4;
+            txt_nome.TextChanged += txt_nome_TextChanged;
             // 
             // ckbox_administrador
             // 
-            this.ckbox_administrador.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ckbox_administrador.AutoSize = true;
-            this.ckbox_administrador.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ckbox_administrador.Location = new System.Drawing.Point(15, 421);
-            this.ckbox_administrador.Name = "ckbox_administrador";
-            this.ckbox_administrador.Size = new System.Drawing.Size(156, 28);
-            this.ckbox_administrador.TabIndex = 5;
-            this.ckbox_administrador.Text = "Administrador";
-            this.ckbox_administrador.UseVisualStyleBackColor = true;
+            ckbox_administrador.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            ckbox_administrador.AutoSize = true;
+            ckbox_administrador.Font = new Font("Arial", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            ckbox_administrador.Location = new Point(15, 421);
+            ckbox_administrador.Name = "ckbox_administrador";
+            ckbox_administrador.Size = new Size(156, 28);
+            ckbox_administrador.TabIndex = 5;
+            ckbox_administrador.Text = "Administrador";
+            ckbox_administrador.UseVisualStyleBackColor = true;
             // 
             // lbl_nome
             // 
-            this.lbl_nome.AutoSize = true;
-            this.lbl_nome.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_nome.Location = new System.Drawing.Point(12, 15);
-            this.lbl_nome.Name = "lbl_nome";
-            this.lbl_nome.Size = new System.Drawing.Size(54, 18);
-            this.lbl_nome.TabIndex = 6;
-            this.lbl_nome.Text = "Nome:";
+            lbl_nome.AutoSize = true;
+            lbl_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_nome.Location = new Point(12, 15);
+            lbl_nome.Name = "lbl_nome";
+            lbl_nome.Size = new Size(54, 18);
+            lbl_nome.TabIndex = 6;
+            lbl_nome.Text = "Nome:";
             // 
             // lbl_email
             // 
-            this.lbl_email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_email.AutoSize = true;
-            this.lbl_email.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_email.Location = new System.Drawing.Point(12, 300);
-            this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(57, 18);
-            this.lbl_email.TabIndex = 7;
-            this.lbl_email.Text = "E-mail:";
+            lbl_email.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_email.AutoSize = true;
+            lbl_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_email.Location = new Point(12, 300);
+            lbl_email.Name = "lbl_email";
+            lbl_email.Size = new Size(57, 18);
+            lbl_email.TabIndex = 7;
+            lbl_email.Text = "E-mail:";
             // 
             // lbl_telefone
             // 
-            this.lbl_telefone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_telefone.AutoSize = true;
-            this.lbl_telefone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_telefone.Location = new System.Drawing.Point(12, 341);
-            this.lbl_telefone.Name = "lbl_telefone";
-            this.lbl_telefone.Size = new System.Drawing.Size(70, 18);
-            this.lbl_telefone.TabIndex = 8;
-            this.lbl_telefone.Text = "Telefone:";
+            lbl_telefone.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_telefone.AutoSize = true;
+            lbl_telefone.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_telefone.Location = new Point(12, 341);
+            lbl_telefone.Name = "lbl_telefone";
+            lbl_telefone.Size = new Size(70, 18);
+            lbl_telefone.TabIndex = 8;
+            lbl_telefone.Text = "Telefone:";
             // 
             // mtxt_telefone
             // 
-            this.mtxt_telefone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.mtxt_telefone.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mtxt_telefone.Location = new System.Drawing.Point(88, 338);
-            this.mtxt_telefone.Mask = "(00) 00000-0000";
-            this.mtxt_telefone.Name = "mtxt_telefone";
-            this.mtxt_telefone.Size = new System.Drawing.Size(320, 26);
-            this.mtxt_telefone.TabIndex = 9;
+            mtxt_telefone.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            mtxt_telefone.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            mtxt_telefone.Location = new Point(88, 338);
+            mtxt_telefone.Mask = "(00) 00000-0000";
+            mtxt_telefone.Name = "mtxt_telefone";
+            mtxt_telefone.Size = new Size(320, 26);
+            mtxt_telefone.TabIndex = 9;
             // 
             // lbl_genero
             // 
-            this.lbl_genero.AutoSize = true;
-            this.lbl_genero.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_genero.Location = new System.Drawing.Point(12, 56);
-            this.lbl_genero.Name = "lbl_genero";
-            this.lbl_genero.Size = new System.Drawing.Size(60, 18);
-            this.lbl_genero.TabIndex = 11;
-            this.lbl_genero.Text = "Gênero";
+            lbl_genero.AutoSize = true;
+            lbl_genero.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_genero.Location = new Point(12, 56);
+            lbl_genero.Name = "lbl_genero";
+            lbl_genero.Size = new Size(64, 18);
+            lbl_genero.TabIndex = 11;
+            lbl_genero.Text = "Gênero:";
             // 
             // txt_genero
             // 
-            this.txt_genero.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_genero.Location = new System.Drawing.Point(88, 53);
-            this.txt_genero.Name = "txt_genero";
-            this.txt_genero.Size = new System.Drawing.Size(320, 26);
-            this.txt_genero.TabIndex = 10;
+            txt_genero.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_genero.Location = new Point(88, 53);
+            txt_genero.Name = "txt_genero";
+            txt_genero.Size = new Size(320, 26);
+            txt_genero.TabIndex = 10;
             // 
             // lbl_senha
             // 
-            this.lbl_senha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lbl_senha.AutoSize = true;
-            this.lbl_senha.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_senha.Location = new System.Drawing.Point(12, 383);
-            this.lbl_senha.Name = "lbl_senha";
-            this.lbl_senha.Size = new System.Drawing.Size(57, 18);
-            this.lbl_senha.TabIndex = 12;
-            this.lbl_senha.Text = "Senha:";
+            lbl_senha.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_senha.AutoSize = true;
+            lbl_senha.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_senha.Location = new Point(12, 383);
+            lbl_senha.Name = "lbl_senha";
+            lbl_senha.Size = new Size(57, 18);
+            lbl_senha.TabIndex = 12;
+            lbl_senha.Text = "Senha:";
             // 
             // pctbox_foto
             // 
-            this.pctbox_foto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctbox_foto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pctbox_foto.Location = new System.Drawing.Point(422, 12);
-            this.pctbox_foto.Name = "pctbox_foto";
-            this.pctbox_foto.Size = new System.Drawing.Size(350, 438);
-            this.pctbox_foto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pctbox_foto.TabIndex = 13;
-            this.pctbox_foto.TabStop = false;
+            pctbox_foto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pctbox_foto.BorderStyle = BorderStyle.FixedSingle;
+            pctbox_foto.Location = new Point(422, 12);
+            pctbox_foto.Name = "pctbox_foto";
+            pctbox_foto.Size = new Size(350, 438);
+            pctbox_foto.SizeMode = PictureBoxSizeMode.AutoSize;
+            pctbox_foto.TabIndex = 13;
+            pctbox_foto.TabStop = false;
             // 
             // mtxt_cpf
             // 
-            this.mtxt_cpf.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.mtxt_cpf.Location = new System.Drawing.Point(88, 94);
-            this.mtxt_cpf.Mask = "000,000,000-00";
-            this.mtxt_cpf.Name = "mtxt_cpf";
-            this.mtxt_cpf.Size = new System.Drawing.Size(320, 26);
-            this.mtxt_cpf.TabIndex = 17;
+            mtxt_cpf.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            mtxt_cpf.Location = new Point(88, 94);
+            mtxt_cpf.Mask = "000,000,000-00";
+            mtxt_cpf.Name = "mtxt_cpf";
+            mtxt_cpf.Size = new Size(320, 26);
+            mtxt_cpf.TabIndex = 17;
             // 
             // lbl_cpf
             // 
-            this.lbl_cpf.AutoSize = true;
-            this.lbl_cpf.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_cpf.Location = new System.Drawing.Point(12, 97);
-            this.lbl_cpf.Name = "lbl_cpf";
-            this.lbl_cpf.Size = new System.Drawing.Size(45, 18);
-            this.lbl_cpf.TabIndex = 16;
-            this.lbl_cpf.Text = "CPF:";
+            lbl_cpf.AutoSize = true;
+            lbl_cpf.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_cpf.Location = new Point(12, 97);
+            lbl_cpf.Name = "lbl_cpf";
+            lbl_cpf.Size = new Size(45, 18);
+            lbl_cpf.TabIndex = 16;
+            lbl_cpf.Text = "CPF:";
             // 
             // form_cadastro_funcionarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.mtxt_cpf);
-            this.Controls.Add(this.lbl_cpf);
-            this.Controls.Add(this.pctbox_foto);
-            this.Controls.Add(this.lbl_senha);
-            this.Controls.Add(this.lbl_genero);
-            this.Controls.Add(this.txt_genero);
-            this.Controls.Add(this.mtxt_telefone);
-            this.Controls.Add(this.lbl_telefone);
-            this.Controls.Add(this.lbl_email);
-            this.Controls.Add(this.lbl_nome);
-            this.Controls.Add(this.ckbox_administrador);
-            this.Controls.Add(this.txt_nome);
-            this.Controls.Add(this.txt_email);
-            this.Controls.Add(this.txt_senha);
-            this.MinimumSize = new System.Drawing.Size(800, 500);
-            this.Name = "form_cadastro_funcionarios";
-            this.Text = "Cadastro de Funcionários";
-            ((System.ComponentModel.ISupportInitialize)(this.pctbox_foto)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(784, 461);
+            Controls.Add(mtxt_cpf);
+            Controls.Add(lbl_cpf);
+            Controls.Add(pctbox_foto);
+            Controls.Add(lbl_senha);
+            Controls.Add(lbl_genero);
+            Controls.Add(txt_genero);
+            Controls.Add(mtxt_telefone);
+            Controls.Add(lbl_telefone);
+            Controls.Add(lbl_email);
+            Controls.Add(lbl_nome);
+            Controls.Add(ckbox_administrador);
+            Controls.Add(txt_nome);
+            Controls.Add(txt_email);
+            Controls.Add(txt_senha);
+            MinimumSize = new Size(800, 500);
+            Name = "form_cadastro_funcionarios";
+            Text = "Cadastro de Funcionários";
+            ((System.ComponentModel.ISupportInitialize)pctbox_foto).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

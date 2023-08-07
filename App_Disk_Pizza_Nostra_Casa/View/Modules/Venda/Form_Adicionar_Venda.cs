@@ -36,7 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,6 +45,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+        private void btn_Limpar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Deseja limpar todos os campos?", "Atenção", MessageBoxButtons.YesNo);
+
+            /**
+             * if
+             * se sim, limpar
+             */
+
+            cbx_cliente_addvenda.Text = "";
+            cbx_pizzas_addvenda.Text = "";
+            cbx_bebidas_addvenda.Text = "";
+
+            lbl_valortotal.Text = "";
+
+        }
+
+        private void btn_Calcular_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Salvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
