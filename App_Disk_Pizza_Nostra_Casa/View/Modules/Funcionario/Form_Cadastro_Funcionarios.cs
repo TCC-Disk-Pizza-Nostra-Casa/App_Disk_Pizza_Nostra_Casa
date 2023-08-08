@@ -22,6 +22,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             InitializeComponent();
 
+            cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
 
             cbbox_cargo.DataSource = new string[] { "Balconista" };
@@ -49,10 +53,89 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private void txt_nome_TextChanged(object sender, EventArgs e)
+        private async void btn_cadastrar_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+
+                if (String.IsNullOrEmpty(mtxt_cpf.Text.Replace(".", "").Replace("-", "")) ||
+                   String.IsNullOrEmpty(mtxt_rg.Text.Replace(".", "").Replace("-", "")) ||
+                   String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                {
+
+
+
+                }
+
+                else
+                {
+
+                    if (MessageBox.Show("Realmente deseja confirmar este cadastro?", "Atenção!",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                        await Data_Service_Funcionario.SaveAsyncFuncionario(new Model.Funcionario()
+                        {
+
+                            nome = txt_nome.Text,
+
+                            genero = cbbox_genero.SelectedText,
+
+                            cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
+
+                            rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
+
+                            cargo = cbbox_cargo.SelectedText,
+
+                            cep = mtxt_cep.Text.Replace(".", "").Replace("-", ""),
+
+                            email = txt_email.Text,
+
+                            telefone = mtxt_cep.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+
+                            senha = txt_senha.Text,
+
+                            observacoes = txt_observacoes.Text,
+
+                            administrador = ckbox_administrador.Checked
+
+                        });
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
         }
+
+        private void btn_cancelar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
     }
 
 }

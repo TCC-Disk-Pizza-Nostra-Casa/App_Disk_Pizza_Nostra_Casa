@@ -30,19 +30,19 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
             try
             {
 
-                this.MinimumSize = new Size(1045, 579);
+                this.MinimumSize = new Size(700, 400);
 
-                this.MaximumSize = new Size(1045, 579);
+                this.MaximumSize = new Size(700, 400);
 
-                this.Size = new Size(1045, 579);
+                this.Size = new Size(700, 400);
 
-                txt_usuario.BackColor = this.BackColor;
+                txt_cpf.BackColor = this.BackColor;
 
                 txt_senha.BackColor = this.BackColor;
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -57,10 +57,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
             try
             {
 
-                if (String.IsNullOrEmpty(txt_usuario.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                if(String.IsNullOrEmpty(txt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
 
-                    txt_usuario.Clear();
+                    txt_cpf.Clear();
 
                     txt_senha.Clear();
 
@@ -72,7 +72,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
                 {
 
                     // Condição destinada para testes da aplicação.
-                    if (txt_usuario.Text == "root_testes" && txt_senha.Text == "etecjau")
+                    if(txt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
                     {
 
                         MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
@@ -87,14 +87,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
                     else
                     {
 
-                        string[] dados_login = { txt_usuario.Text, txt_senha.Text };
+                        string[] dados_login = { txt_cpf.Text, txt_senha.Text };
 
                         List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
 
-                        if (usuario_encontrado.Count == 0)
+                        if(usuario_encontrado.Count == 0)
                         {
 
-                            txt_usuario.Clear();
+                            txt_cpf.Clear();
 
                             txt_senha.Clear();
 
@@ -120,7 +120,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
