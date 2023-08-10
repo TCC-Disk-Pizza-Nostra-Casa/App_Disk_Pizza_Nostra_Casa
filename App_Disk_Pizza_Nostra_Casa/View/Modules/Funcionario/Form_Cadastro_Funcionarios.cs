@@ -22,14 +22,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             InitializeComponent();
 
-            cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
-
-            cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
-
-            cbbox_cargo.DataSource = new string[] { "Balconista" };
-
         }
 
         private void form_cadastro_funcionarios_Load(object sender, EventArgs e)
@@ -41,6 +33,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 this.MinimumSize = new Size(800, 500);
 
                 this.Size = new Size(800, 500);
+
+                cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
+
+                cbbox_cargo.DataSource = new string[] { "Balconista" };
 
             }
 
@@ -64,7 +64,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                    String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
 
-
+                    MessageBox.Show("Preencha todos os campos necessários antes de prosseguir.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
 
@@ -123,7 +123,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
+                if (MessageBox.Show("Realmente deseja cancelar este cadastro?", "Atenção!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
 
+                    this.Close();
+
+                }
 
             }
 

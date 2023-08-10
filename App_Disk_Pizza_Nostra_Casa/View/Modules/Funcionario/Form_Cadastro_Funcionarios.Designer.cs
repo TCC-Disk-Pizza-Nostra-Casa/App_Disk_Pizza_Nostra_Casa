@@ -51,7 +51,6 @@
             cbbox_genero = new ComboBox();
             cbbox_cargo = new ComboBox();
             txt_observacoes = new TextBox();
-            lbl_observacoes = new Label();
             pnl_campos.SuspendLayout();
             SuspendLayout();
             // 
@@ -208,7 +207,7 @@
             mtxt_rg.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mtxt_rg.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             mtxt_rg.Location = new Point(82, 138);
-            mtxt_rg.Mask = "000,000,000-0";
+            mtxt_rg.Mask = "00,000,000-0";
             mtxt_rg.Name = "mtxt_rg";
             mtxt_rg.Size = new Size(688, 26);
             mtxt_rg.TabIndex = 20;
@@ -259,7 +258,6 @@
             pnl_campos.Controls.Add(lbl_cargo);
             pnl_campos.Controls.Add(txt_observacoes);
             pnl_campos.Controls.Add(mtxt_rg);
-            pnl_campos.Controls.Add(lbl_observacoes);
             pnl_campos.Controls.Add(lbl_rg);
             pnl_campos.Controls.Add(txt_email);
             pnl_campos.Controls.Add(lbl_email);
@@ -286,7 +284,7 @@
             btn_cancelar.FlatAppearance.BorderSize = 2;
             btn_cancelar.FlatStyle = FlatStyle.Flat;
             btn_cancelar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_cancelar.Location = new Point(523, 456);
+            btn_cancelar.Location = new Point(523, 410);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(116, 39);
             btn_cancelar.TabIndex = 33;
@@ -302,7 +300,7 @@
             btn_cadastrar.FlatAppearance.BorderSize = 2;
             btn_cadastrar.FlatStyle = FlatStyle.Flat;
             btn_cadastrar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_cadastrar.Location = new Point(654, 456);
+            btn_cadastrar.Location = new Point(654, 410);
             btn_cadastrar.Name = "btn_cadastrar";
             btn_cadastrar.Size = new Size(116, 39);
             btn_cadastrar.TabIndex = 32;
@@ -334,24 +332,12 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(12, 408);
+            txt_observacoes.Location = new Point(14, 380);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira observações sobre o(a) funcionário(a)...";
-            txt_observacoes.Size = new Size(758, 35);
+            txt_observacoes.Size = new Size(758, 15);
             txt_observacoes.TabIndex = 29;
-            // 
-            // lbl_observacoes
-            // 
-            lbl_observacoes.AutoSize = true;
-            lbl_observacoes.BackColor = Color.Transparent;
-            lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_observacoes.Location = new Point(12, 378);
-            lbl_observacoes.Name = "lbl_observacoes";
-            lbl_observacoes.Size = new Size(105, 18);
-            lbl_observacoes.TabIndex = 29;
-            lbl_observacoes.Text = "Observações:";
-            lbl_observacoes.TextAlign = ContentAlignment.MiddleRight;
             // 
             // form_cadastro_funcionarios
             // 
@@ -365,6 +351,7 @@
             MinimumSize = new Size(800, 500);
             Name = "form_cadastro_funcionarios";
             Text = "Cadastro de Funcionários";
+            Load += form_cadastro_funcionarios_Load;
             pnl_campos.ResumeLayout(false);
             pnl_campos.PerformLayout();
             ResumeLayout(false);
@@ -390,7 +377,6 @@
         private MaskedTextBox mtxt_cep;
         private Label lbl_cep;
         private Panel pnl_campos;
-        private Label lbl_observacoes;
         private TextBox txt_observacoes;
         private ComboBox cbbox_genero;
         private ComboBox cbbox_cargo;
