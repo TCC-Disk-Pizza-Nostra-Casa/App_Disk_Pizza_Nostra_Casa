@@ -22,7 +22,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
          * json é a var que recebe esse envio.
          * model_retornada é um objeto que recebe o json desserialisado.
          */
-        public static async Task<Venda> SaveAsyncVenda(Venda model)
+
+        public static async Task<Venda>? SaveAsyncVenda(Venda model)
         {
 
             var post_json = JsonConvert.SerializeObject(model);
@@ -44,7 +45,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
          * exito é gravado um valor que descreve se foi 
          * bem sucedido a deserialização e deleção.
          */
-        public static async Task<bool> DeleteAsyncVenda(int id)
+
+        public static async Task<bool>? DeleteAsyncVenda(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
@@ -62,7 +64,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
          * json é os dados da api.
          * lista_vendas é a lista de JSON.
          */
-        public static async Task<List<Venda>> GetListAsyncVenda()
+
+        public static async Task<List<Venda>>? GetListAsyncVenda()
         {
 
             string json = await Data_Service.GetDataApi("/venda/list");
@@ -80,7 +83,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
          * lista_vendas_encontradas é os dados json sendo deserializados como uma
          * lista pro c#.
          */
-        public static async Task<List<Venda>> SearchAsyncVenda(string parametro)
+
+        public static async Task<List<Venda>>? SearchAsyncVenda(string parametro)
         {
 
             var post_json = JsonConvert.SerializeObject(parametro);
@@ -92,8 +96,6 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
             return lista_vendas_encontradas;
 
         }
-
-    
 
     }
 

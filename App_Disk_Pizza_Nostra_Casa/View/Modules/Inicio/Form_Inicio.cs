@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App_Disk_Pizza_Nostra_Casa.View
+namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 {
 
     public partial class form_inicio : Form
     {
 
-        private Form form_associado = null;
+        private Form formulario_associado = null;
 
         public form_inicio()
         {
@@ -33,7 +33,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
 
                 this.Size = new Size(1200, 800);
 
-                esconder_submenus();
+                Hide_Submenus();
 
             }
 
@@ -46,7 +46,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
 
         }
 
-        private void esconder_submenus()
+        private void Hide_Submenus()
         {
 
             try
@@ -69,7 +69,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
 
         }
 
-        private void visibilidade_submenus(Panel painel)
+        private void Submenu_Visibility(Panel painel)
         {
 
             try
@@ -85,7 +85,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
                 else
                 {
 
-                    esconder_submenus();
+                    Hide_Submenus();
 
                     painel.Visible = true;
 
@@ -102,38 +102,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View
 
         }
 
-        private void associar_form_externo(Form form_externo)
+        private void External_Form_Association(Form formulario_externo)
         {
 
             try
             {
 
-                if (MessageBox.Show("Caso haja algum formulário aberto, ele será fechado! Prosseguir?",
+                if(MessageBox.Show("Caso haja algum formulário aberto, ele será fechado! Prosseguir?",
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
-                    if (form_associado != null)
+                    if(this.formulario_associado != null)
                     {
 
-                        form_associado.Close();
+                        this.formulario_associado.Close();
 
                     }
 
-                    form_associado = form_externo;
+                    this.formulario_associado = formulario_externo;
 
-                    form_externo.TopLevel = false;
+                    formulario_externo.TopLevel = false;
 
-                    form_externo.FormBorderStyle = FormBorderStyle.None;
+                    formulario_externo.FormBorderStyle = FormBorderStyle.None;
 
-                    form_externo.Dock = DockStyle.Fill;
+                    formulario_externo.Dock = DockStyle.Fill;
 
-                    pnl_formulario_externo.Controls.Add(form_externo);
+                    pnl_formulario_externo.Controls.Add(formulario_externo);
 
-                    pnl_formulario_externo.Tag = form_externo;
+                    pnl_formulario_externo.Tag = formulario_externo;
 
-                    form_externo.BringToFront();
+                    formulario_externo.BringToFront();
 
-                    form_externo.Show();
+                    formulario_externo.Show();
 
                 }
 
@@ -154,7 +154,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                visibilidade_submenus(pnl_submenu_funcionarios);
+                Submenu_Visibility(pnl_submenu_funcionarios);
 
             }
 
@@ -173,7 +173,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                associar_form_externo(new Modules.Funcionario.form_listagem_funcionarios());
+                External_Form_Association(new Modules.Funcionario.form_listagem_funcionarios());
 
             }
 
@@ -192,7 +192,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                associar_form_externo(new Modules.Funcionario.form_cadastro_funcionarios());
+                External_Form_Association(new Modules.Funcionario.form_cadastro_funcionarios());
 
             }
 
@@ -211,7 +211,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                visibilidade_submenus(pnl_submenu_produtos);
+                Submenu_Visibility(pnl_submenu_produtos);
 
             }
 
@@ -230,7 +230,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                associar_form_externo(new Modules.Produto.form_cadastro_produtos());
+                External_Form_Association(new Modules.Produto.form_cadastro_produtos());
 
             }
 
@@ -249,7 +249,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                associar_form_externo(new Modules.Produto.form_listagem_produtos());
+                External_Form_Association(new Modules.Produto.form_listagem_produtos());
 
             }
 
@@ -268,7 +268,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                visibilidade_submenus(pnl_submenu_vendas);
+                Submenu_Visibility(pnl_submenu_vendas);
 
             }
 
@@ -287,7 +287,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                associar_form_externo(new Modules.Venda.form_adicionar_venda());
+                External_Form_Association(new Modules.Venda.form_adicionar_venda());
 
             }
 
@@ -306,7 +306,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View
             try
             {
 
-                associar_form_externo(new Modules.Venda.form_listagem_vendas());
+                External_Form_Association(new Modules.Venda.form_listagem_vendas());
 
             }
 

@@ -38,13 +38,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
+                cbbox_genero.DataSource = new string[] { "Selecione uma opção", "Masculino", "Feminino", "Não informar" };
 
-                cbbox_cargo.DataSource = new string[] { "Balconista" };
+                cbbox_cargo.DataSource = new string[] { "Selecione uma opção", "Balconista" };
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -59,9 +59,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (String.IsNullOrEmpty(mtxt_cpf.Text.Replace(".", "").Replace("-", "")) ||
+                if(String.IsNullOrEmpty(mtxt_cpf.Text.Replace(".", "").Replace("-", "")) ||
                    String.IsNullOrEmpty(mtxt_rg.Text.Replace(".", "").Replace("-", "")) ||
-                   String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                   String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(txt_senha.Text) ||
+                   cbbox_genero.SelectedIndex == 0 || cbbox_cargo.SelectedIndex == 0)
                 {
 
                     MessageBox.Show("Preencha todos os campos necessários antes de prosseguir.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -71,28 +72,28 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 else
                 {
 
-                    if (MessageBox.Show("Realmente deseja confirmar este cadastro?", "Atenção!",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if(MessageBox.Show("Realmente deseja confirmar este cadastro?", "Atenção!",
+                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        await Data_Service_Funcionario.SaveAsyncFuncionario(new Model.Funcionario()
+                        Model.Funcionario objeto_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(new Model.Funcionario()
                         {
 
                             nome = txt_nome.Text,
 
-                            genero = cbbox_genero.SelectedText,
+                            genero = cbbox_genero.Text,
 
                             cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
 
                             rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
 
-                            cargo = cbbox_cargo.SelectedText,
+                            cargo = cbbox_cargo.Text,
 
                             cep = mtxt_cep.Text.Replace(".", "").Replace("-", ""),
 
                             email = txt_email.Text,
 
-                            telefone = mtxt_cep.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+                            telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
 
                             senha = txt_senha.Text,
 
@@ -102,13 +103,29 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         });
 
+                        if(objeto_retornado.id != null)
+                        {
+
+                            MessageBox.Show("Cadastro efetuado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                            this.Close();
+
+                        }
+
+                        else
+                        {
+
+                            throw new Exception("Ocorreu um erro ao tentar efetuar o cadastro! Revise os dados inseridos e tente novamente.");
+
+                        }
+
                     }
 
                 }
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -123,7 +140,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (MessageBox.Show("Realmente deseja cancelar este cadastro?", "Atenção!",
+                if(MessageBox.Show("Realmente deseja cancelar este cadastro?", "Atenção!",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
@@ -133,7 +150,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -36,6 +36,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public DateTime data_cadastro { get; set; }
 
+        public bool ativo { get; set; }
+
     }
 
 }

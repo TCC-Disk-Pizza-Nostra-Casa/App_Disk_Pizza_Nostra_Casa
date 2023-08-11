@@ -18,7 +18,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public double preco { get; set; }
 
-        public string? observacoes { get; set; }
+        public string observacoes { get; set; }
 
     }
 
