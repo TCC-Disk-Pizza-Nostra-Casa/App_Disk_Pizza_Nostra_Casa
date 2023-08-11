@@ -36,10 +36,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 List<Model.Venda> lista_vendas = await Data_Service_Venda.GetListAsyncVenda();
 
-                if (lista_vendas.Count > 0)
+                if(lista_vendas.Count > 0)
                 {
 
-                    for (int i = 0; i < lista_vendas.Count; i++)
+                    for(int i = 0; i < lista_vendas.Count; i++)
                     {
 
                         string data_venda = lista_vendas[i].data_venda.ToString();
@@ -51,13 +51,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                         dgv_listagem_vendas.Rows.Add(i + 1, data_venda, delivery, valor_total);
 
                     }
+
                 }
-
-
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -69,7 +68,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private void dgv_listagem_vendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+
+
         }
+
     }
 
 }

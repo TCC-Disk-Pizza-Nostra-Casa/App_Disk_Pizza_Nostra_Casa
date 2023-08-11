@@ -14,28 +14,28 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
     public class Data_Service_Cliente : Data_Service
     {
 
-        /*public static async Task<Cliente> SaveAsyncCliente(Cliente model)
+        /*public static async Task<Cliente>? SaveAsyncCliente(Cliente model)
         {
 
 
 
         }
 
-        public static async Task<bool> DeleteAsyncCliente(int id)
+        public static async Task<bool>? DeleteAsyncCliente(int id)
         {
 
 
 
         }
 
-        public static async Task<List<Cliente>> GetListAsyncCliente()
+        public static async Task<List<Cliente>>? GetListAsyncCliente()
         {
 
 
 
         }
 
-        public static async Task<List<Cliente>> SearchAsyncCliente(string parametro)
+        public static async Task<List<Cliente>>? SearchAsyncCliente(string parametro)
         {
 
 

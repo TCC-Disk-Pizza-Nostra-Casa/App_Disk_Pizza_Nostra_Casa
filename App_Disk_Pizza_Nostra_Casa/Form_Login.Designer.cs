@@ -1,4 +1,4 @@
-﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
+﻿namespace App_Disk_Pizza_Nostra_Casa
 {
     partial class form_login
     {

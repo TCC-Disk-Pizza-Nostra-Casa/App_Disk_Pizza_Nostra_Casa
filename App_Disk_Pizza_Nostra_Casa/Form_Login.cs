@@ -8,10 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using App_Disk_Pizza_Nostra_Casa.Model;
-using App_Disk_Pizza_Nostra_Casa.Service;
-
-namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
+namespace App_Disk_Pizza_Nostra_Casa
 {
 
     public partial class form_login : Form
@@ -80,7 +77,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
                         this.Hide();
 
-                        new form_inicio().Show();
+                        new View.Modules.Inicio.form_inicio().Show();
 
                     }
 
@@ -89,7 +86,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
                         string[] dados_login = { txt_cpf.Text, txt_senha.Text };
 
-                        List<Model.Funcionario> usuario_encontrado = await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
+                        List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
 
                         if(usuario_encontrado.Count == 0)
                         {
@@ -110,7 +107,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Login
 
                             this.Hide();
 
-                            new form_inicio().Show();
+                            new View.Modules.Inicio.form_inicio().Show();
 
                         }
 

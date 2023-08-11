@@ -15,7 +15,6 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
     {
 
         private static readonly string host = "http://localhost:8000";
-        //private static readonly string host = "";
 
         protected static async Task<string> GetDataApi(string rota)
         {
@@ -59,8 +58,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
             using (HttpClient cliente = new HttpClient())
             {
 
-                HttpResponseMessage requisicao_api = await cliente.PostAsync(uri, new StringContent(objeto_json, Encoding.UTF8, 
-                    "application/json"));
+                HttpResponseMessage requisicao_api = await cliente.PostAsync(uri, new StringContent(objeto_json, Encoding.UTF8, "application/json"));
 
                 if (requisicao_api.IsSuccessStatusCode)
                 {

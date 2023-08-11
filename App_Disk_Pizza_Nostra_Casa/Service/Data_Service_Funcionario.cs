@@ -14,7 +14,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
     public class Data_Service_Funcionario : Data_Service
     {
 
-        public static async Task<Funcionario> SaveAsyncFuncionario(Funcionario model)
+        public static async Task<Funcionario>? SaveAsyncFuncionario(Funcionario model)
         {
 
             var post_json = JsonConvert.SerializeObject(model);
@@ -27,12 +27,12 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<bool> DeleteAsyncFuncionario(int id)
+        public static async Task<bool>? EnableAsyncFuncionario(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi(post_json, "funcionario/delete");
+            string json = await Data_Service.SendDataApi(post_json, "/funcionario/enable");
 
             bool exito = JsonConvert.DeserializeObject<bool>(json);
 
@@ -40,7 +40,20 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<List<Funcionario>> GetListAsyncFuncionario()
+        public static async Task<bool>? DisableAsyncFuncionario(int id)
+        {
+
+            var post_json = JsonConvert.SerializeObject(id);
+
+            string json = await Data_Service.SendDataApi(post_json, "/funcionario/disable");
+
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
+
+            return exito;
+
+        }
+
+        public static async Task<List<Funcionario>>? GetListAsyncFuncionario()
         {
 
             string json = await Data_Service.GetDataApi("/funcionario/list");
@@ -51,7 +64,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<List<Funcionario>> SearchAsyncFuncionario(string parametro)
+        public static async Task<List<Funcionario>>? SearchAsyncFuncionario(string parametro)
         {
 
             var post_json = JsonConvert.SerializeObject(parametro);
@@ -64,7 +77,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<List<Funcionario>> LoginAsyncFuncionario(string[] dados_login)
+        public static async Task<List<Funcionario>>? LoginAsyncFuncionario(string[] dados_login)
         {
 
             var post_json = JsonConvert.SerializeObject(dados_login);
