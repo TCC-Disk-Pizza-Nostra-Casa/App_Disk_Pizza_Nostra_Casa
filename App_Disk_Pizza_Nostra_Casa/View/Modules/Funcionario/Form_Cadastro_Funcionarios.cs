@@ -17,10 +17,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        public form_cadastro_funcionarios()
+        private Model.Funcionario usuario_sessao;
+
+        public form_cadastro_funcionarios(Model.Funcionario usuario = null)
         {
 
             InitializeComponent();
+
+            this.usuario_sessao = usuario;
 
         }
 
@@ -42,6 +46,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_cargo.DataSource = new string[] { "Selecione uma opção", "Balconista" };
 
+                if(this.usuario_sessao != null)
+                {
+
+                    Preencher_Formulario(this.usuario_sessao);
+
+                }
+
             }
 
             catch(Exception ex)
@@ -53,7 +64,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void btn_cadastrar_Click(object sender, EventArgs e)
+        private void Preencher_Formulario(Model.Funcionario dados)
+        {
+
+            txt_nome.Text = dados.nome;
+
+            cbbox_genero.Text = dados.genero;
+
+            mtxt_cpf.Text = dados.cpf;
+
+            mtxt_rg.Text = dados.rg;
+
+            cbbox_cargo.Text = dados.cargo;
+
+            mtxt_cep.Text = dados.cep;
+
+            txt_email.Text = dados.email;
+
+            mtxt_telefone.Text = dados.telefone;
+
+            txt_observacoes.Text = dados.observacoes;
+
+            ckbox_administrador.Checked = dados.administrador;
+
+        }
+
+        private async void btn_salvar_Click(object sender, EventArgs e)
         {
 
             try
@@ -61,6 +97,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 if(String.IsNullOrEmpty(mtxt_cpf.Text.Replace(".", "").Replace("-", "")) ||
                    String.IsNullOrEmpty(mtxt_rg.Text.Replace(".", "").Replace("-", "")) ||
+                   String.IsNullOrEmpty(mtxt_cep.Text.Replace(".", "").Replace("-", "")) ||
+                   String.IsNullOrEmpty(mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "")) ||
                    String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(txt_senha.Text) ||
                    cbbox_genero.SelectedIndex == 0 || cbbox_cargo.SelectedIndex == 0)
                 {
@@ -72,12 +110,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 else
                 {
 
-                    if(MessageBox.Show("Realmente deseja confirmar este cadastro?", "Atenção!",
+                    if(MessageBox.Show("Realmente deseja salvar estes dados?", "Atenção!",
                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         Model.Funcionario objeto_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(new Model.Funcionario()
                         {
+
+                            id = this.usuario_sessao.id,
 
                             nome = txt_nome.Text,
 
@@ -93,7 +133,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                             email = txt_email.Text,
 
-                            telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+                            telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""),
 
                             senha = txt_senha.Text,
 
@@ -106,7 +146,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                         if(objeto_retornado.id != null)
                         {
 
-                            MessageBox.Show("Cadastro efetuado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                             this.Close();
 
@@ -115,7 +155,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                         else
                         {
 
-                            throw new Exception("Ocorreu um erro ao tentar efetuar o cadastro! Revise os dados inseridos e tente novamente.");
+                            throw new Exception("Ocorreu um erro ao tentar salvar os dados inseridos! Revise-os e tente novamente.");
 
                         }
 
@@ -140,7 +180,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if(MessageBox.Show("Realmente deseja cancelar este cadastro?", "Atenção!",
+                if(MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 

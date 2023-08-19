@@ -57,10 +57,6 @@ namespace App_Disk_Pizza_Nostra_Casa
                 if(String.IsNullOrEmpty(txt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
 
-                    txt_cpf.Clear();
-
-                    txt_senha.Clear();
-
                     throw new Exception("Preencha todos os campos antes de prosseguir.");
 
                 }
@@ -69,6 +65,7 @@ namespace App_Disk_Pizza_Nostra_Casa
                 {
 
                     // Condição destinada para testes da aplicação.
+
                     if(txt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
                     {
 
@@ -88,18 +85,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
 
-                        if(usuario_encontrado.Count == 0)
-                        {
-
-                            txt_cpf.Clear();
-
-                            txt_senha.Clear();
-
-                            throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");
-
-                        }
-
-                        else
+                        if(usuario_encontrado.Count > 0)
                         {
 
                             MessageBox.Show("Login efetuado com sucesso.", "Atenção!",
@@ -107,7 +93,18 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             this.Hide();
 
-                            new View.Modules.Inicio.form_inicio().Show();
+                            new View.Modules.Inicio.form_inicio(usuario_encontrado[0]).Show();
+
+                        }
+
+                        else
+                        {
+
+                            txt_cpf.Clear();
+
+                            txt_senha.Clear();
+
+                            throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");
 
                         }
 
