@@ -42,13 +42,18 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     for(int i = 0; i < lista_funcionarios.Count; i++)
                     {
 
-                        string nome = lista_funcionarios[i].nome;
+                        if(lista_funcionarios[i].ativo)
+                        {
 
-                        string email = lista_funcionarios[i].email;
+                            string nome = lista_funcionarios[i].nome;
 
-                        string data_contratacao = lista_funcionarios[i].data_cadastro.ToString();
+                            string email = lista_funcionarios[i].email;
 
-                        dgv_listagem_funcionarios.Rows.Add(i + 1, nome, email, data_contratacao);
+                            string data_contratacao = lista_funcionarios[i].data_cadastro.ToString();
+
+                            dgv_listagem_funcionarios.Rows.Add(i + 1, nome, email, data_contratacao);
+
+                        }
 
                     }
 

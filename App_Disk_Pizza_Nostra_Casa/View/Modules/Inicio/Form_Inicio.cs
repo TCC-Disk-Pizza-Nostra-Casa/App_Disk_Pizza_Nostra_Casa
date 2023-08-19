@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,10 +17,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         private Form formulario_associado = null;
 
-        public form_inicio()
+        private Model.Funcionario usuario_sessao;
+
+        public form_inicio(Model.Funcionario usuario = null)
         {
 
             InitializeComponent();
+
+            this.usuario_sessao = usuario;
 
         }
 
@@ -307,6 +312,63 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             {
 
                 External_Form_Association(new Modules.Venda.form_listagem_vendas());
+
+            }
+
+            catch(Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void btn_perfil_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if(this.usuario_sessao != null)
+                {
+
+                    // Fonte de Pesquisa: https://www.macoratti.net/10/10/c_inbox.htm
+
+                    string senha = Microsoft.VisualBasic.Interaction.InputBox("Insira sua senha:", "Confirmação de Usuário");
+
+                    if(senha != "")
+                    {
+
+                        string[] dados_confirmacao = { this.usuario_sessao.cpf, senha };
+
+                        List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_confirmacao);
+
+                        if(usuario_encontrado.Count > 0 && usuario_encontrado[0].senha == this.usuario_sessao.senha)
+                        {
+
+                            External_Form_Association(new Modules.Funcionario.form_cadastro_funcionarios(this.usuario_sessao));
+
+                        }
+
+                        else
+                        {
+
+                            throw new Exception("Senha incorreta! Tente novamente.");
+
+                        }
+
+                    }
+
+                }
+
+                else
+                {
+
+                    MessageBox.Show("Para acessar essa guia, utilize um perfil que esteja registrado no banco de dados!", "Atenção!",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
 
             }
 

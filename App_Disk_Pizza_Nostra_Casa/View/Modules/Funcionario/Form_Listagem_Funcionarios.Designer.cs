@@ -163,6 +163,7 @@
             this.MinimumSize = new System.Drawing.Size(912, 651);
             this.Name = "form_listagem_funcionarios";
             this.Text = "Listagem de Funcionários";
+            this.Load += new System.EventHandler(this.form_listagem_funcionarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listagem_funcionarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

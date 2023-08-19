@@ -49,6 +49,7 @@
             this.pnl_formulario_externo = new System.Windows.Forms.Panel();
             this.pctbox_icone_espera = new System.Windows.Forms.PictureBox();
             this.pnl_titulo_formulario_externo = new System.Windows.Forms.Panel();
+            this.btn_perfil = new System.Windows.Forms.Button();
             this.pnl_menu_lateral.SuspendLayout();
             this.pnl_opcoes.SuspendLayout();
             this.pnl_submenu_vendas.SuspendLayout();
@@ -74,6 +75,7 @@
             // pnl_opcoes
             // 
             this.pnl_opcoes.AutoScroll = true;
+            this.pnl_opcoes.Controls.Add(this.btn_perfil);
             this.pnl_opcoes.Controls.Add(this.btn_sair);
             this.pnl_opcoes.Controls.Add(this.pnl_submenu_vendas);
             this.pnl_opcoes.Controls.Add(this.btn_vendas);
@@ -389,6 +391,28 @@
             this.pnl_titulo_formulario_externo.Size = new System.Drawing.Size(973, 147);
             this.pnl_titulo_formulario_externo.TabIndex = 2;
             // 
+            // btn_perfil
+            // 
+            this.btn_perfil.BackColor = System.Drawing.Color.Transparent;
+            this.btn_perfil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_perfil.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btn_perfil.FlatAppearance.BorderSize = 0;
+            this.btn_perfil.FlatAppearance.CheckedBackColor = System.Drawing.Color.SaddleBrown;
+            this.btn_perfil.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SaddleBrown;
+            this.btn_perfil.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(68)))), ((int)(((byte)(0)))));
+            this.btn_perfil.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_perfil.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_perfil.ForeColor = System.Drawing.Color.White;
+            this.btn_perfil.Location = new System.Drawing.Point(0, 535);
+            this.btn_perfil.Name = "btn_perfil";
+            this.btn_perfil.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.btn_perfil.Size = new System.Drawing.Size(211, 50);
+            this.btn_perfil.TabIndex = 12;
+            this.btn_perfil.Text = "Perfil";
+            this.btn_perfil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn_perfil.UseVisualStyleBackColor = false;
+            this.btn_perfil.Click += new System.EventHandler(this.btn_perfil_Click);
+            // 
             // form_inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 19F);
@@ -441,5 +465,6 @@
         private Panel pnl_formulario_externo;
         private Panel pnl_titulo_formulario_externo;
         private PictureBox pctbox_icone_espera;
+        private Button btn_perfil;
     }
 }
