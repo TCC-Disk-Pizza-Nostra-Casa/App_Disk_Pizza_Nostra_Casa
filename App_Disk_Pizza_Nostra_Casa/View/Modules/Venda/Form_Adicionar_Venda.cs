@@ -27,21 +27,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private void form_adicionar_venda_Load(object sender, EventArgs e)
         {
 
-            try
-            {
 
-                this.MinimumSize = new Size(800, 500);
-
-                this.Size = new Size(800, 500);
-
-            }
-
-            catch(Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
 
         }
 
@@ -49,11 +35,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         {
 
             /**
-             * if
-             * se sim, limpar
+             * Limpa todos os campos
              */
 
-            if(MessageBox.Show("Realmente deseja limpar todos os campos?", "Atenção!",
+            if (MessageBox.Show("Realmente deseja limpar todos os campos?", "Atenção!",
                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
@@ -61,7 +46,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 cbx_pizzas_addvenda.Text = "";
                 cbx_bebidas_addvenda.Text = "";
 
-                lbl_valortotal.Text = "";
+                lbl_valortotal.Text = "0";
+                rdbtn_nao.Checked = false;
+                rdbtn_sim.Checked = false;
+
+                txt_observacoes.Text = "";
 
             }
 
@@ -69,6 +58,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         private void btn_Calcular_Click(object sender, EventArgs e)
         {
+            // valor pizza(s) + valor bebida(s) = lblValorTotal
 
 
 
@@ -81,6 +71,33 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    this.Close();
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private void lbl_valortotal_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
