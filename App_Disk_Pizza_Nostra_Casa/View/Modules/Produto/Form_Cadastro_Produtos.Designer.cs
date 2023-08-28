@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             pnl_fundo = new Panel();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
             btn_cancelar = new Button();
             btn_salvar = new Button();
             label4 = new Label();
@@ -39,9 +42,6 @@
             label2 = new Label();
             txt_nome_produto = new TextBox();
             label1 = new Label();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
             pnl_fundo.SuspendLayout();
             SuspendLayout();
             // 
@@ -65,6 +65,36 @@
             pnl_fundo.Name = "pnl_fundo";
             pnl_fundo.Size = new Size(784, 461);
             pnl_fundo.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.BackColor = Color.Transparent;
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(154, 12);
+            label7.Name = "label7";
+            label7.Size = new Size(11, 26);
+            label7.TabIndex = 38;
+            label7.Text = "*";
+            // 
+            // label6
+            // 
+            label6.BackColor = Color.Transparent;
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(85, 62);
+            label6.Name = "label6";
+            label6.Size = new Size(11, 26);
+            label6.TabIndex = 37;
+            label6.Text = "*";
+            // 
+            // label5
+            // 
+            label5.BackColor = Color.Transparent;
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(66, 115);
+            label5.Name = "label5";
+            label5.Size = new Size(11, 26);
+            label5.TabIndex = 36;
+            label5.Text = "*";
             // 
             // btn_cancelar
             // 
@@ -179,36 +209,6 @@
             label1.Text = "Nome do Produto:";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label5
-            // 
-            label5.BackColor = Color.Transparent;
-            label5.ForeColor = Color.Red;
-            label5.Location = new Point(66, 115);
-            label5.Name = "label5";
-            label5.Size = new Size(11, 26);
-            label5.TabIndex = 36;
-            label5.Text = "*";
-            // 
-            // label6
-            // 
-            label6.BackColor = Color.Transparent;
-            label6.ForeColor = Color.Red;
-            label6.Location = new Point(85, 62);
-            label6.Name = "label6";
-            label6.Size = new Size(11, 26);
-            label6.TabIndex = 37;
-            label6.Text = "*";
-            // 
-            // label7
-            // 
-            label7.BackColor = Color.Transparent;
-            label7.ForeColor = Color.Red;
-            label7.Location = new Point(154, 12);
-            label7.Name = "label7";
-            label7.Size = new Size(11, 26);
-            label7.TabIndex = 38;
-            label7.Text = "*";
-            // 
             // form_cadastro_produtos
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -217,6 +217,7 @@
             ClientSize = new Size(784, 461);
             Controls.Add(pnl_fundo);
             Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MinimumSize = new Size(800, 500);
             Name = "form_cadastro_produtos";
             Text = "Cadastro de Produtos";
             Load += form_cadastro_produtos_Load;

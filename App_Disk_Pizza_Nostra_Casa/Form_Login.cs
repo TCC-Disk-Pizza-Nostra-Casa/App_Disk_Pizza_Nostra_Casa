@@ -14,7 +14,7 @@ namespace App_Disk_Pizza_Nostra_Casa
     public partial class form_login : Form
     {
 
-        public form_login() 
+        public form_login()
         {
 
             InitializeComponent();
@@ -39,7 +39,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -54,7 +54,7 @@ namespace App_Disk_Pizza_Nostra_Casa
             try
             {
 
-                if(String.IsNullOrEmpty(txt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                if (String.IsNullOrEmpty(txt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
 
                     throw new Exception("Preencha todos os campos antes de prosseguir.");
@@ -66,7 +66,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                     // Condição destinada para testes da aplicação.
 
-                    if(txt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
+                    if (txt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
                     {
 
                         MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
@@ -85,7 +85,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
 
-                        if(usuario_encontrado.Count > 0)
+                        if (usuario_encontrado.Count > 0)
                         {
 
                             MessageBox.Show("Login efetuado com sucesso.", "Atenção!",
@@ -114,7 +114,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
