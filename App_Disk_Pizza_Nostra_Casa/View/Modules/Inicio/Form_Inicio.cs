@@ -42,7 +42,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -65,7 +65,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -80,7 +80,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                if(painel.Visible)
+                if (painel.Visible)
                 {
 
                     painel.Visible = false;
@@ -98,7 +98,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -113,11 +113,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                if(MessageBox.Show("Caso haja algum formulário aberto, ele será fechado! Prosseguir?",
+                if (MessageBox.Show("Caso haja algum formulário aberto, ele será fechado! Prosseguir?",
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                 {
 
-                    if(this.formulario_associado != null)
+                    if (this.formulario_associado != null)
                     {
 
                         this.formulario_associado.Close();
@@ -144,7 +144,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -163,7 +163,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -182,7 +182,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -201,7 +201,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -220,7 +220,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -239,7 +239,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -258,7 +258,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -277,7 +277,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -296,7 +296,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -315,7 +315,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -330,21 +330,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                if(this.usuario_sessao != null)
+                if (this.usuario_sessao != null)
                 {
 
                     // Fonte de Pesquisa: https://www.macoratti.net/10/10/c_inbox.htm
 
                     string senha = Microsoft.VisualBasic.Interaction.InputBox("Insira sua senha:", "Confirmação de Usuário");
 
-                    if(senha != "")
+                    if (senha != "")
                     {
 
                         string[] dados_confirmacao = { this.usuario_sessao.cpf, senha };
 
                         List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_confirmacao);
 
-                        if(usuario_encontrado.Count > 0 && usuario_encontrado[0].senha == this.usuario_sessao.senha)
+                        if (usuario_encontrado.Count > 0 && usuario_encontrado[0].senha == this.usuario_sessao.senha)
                         {
 
                             External_Form_Association(new Modules.Funcionario.form_cadastro_funcionarios(this.usuario_sessao));
@@ -372,7 +372,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -387,7 +387,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                if(MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
+                if (MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
@@ -397,7 +397,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);

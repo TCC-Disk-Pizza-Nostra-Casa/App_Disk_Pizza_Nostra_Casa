@@ -69,7 +69,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             else
             {
 
-                Model.Produto produto = new Model.Produto() 
+                Model.Produto produto = new Model.Produto()
                 {
                     nome = txt_nome_produto.Text,
                     estoque = int.Parse(txt_estoque_produto.Text),
@@ -79,7 +79,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 Model.Produto produto2 = await Data_Service_Produto.SaveAsyncProduto(produto);
 
-                if (produto2.id != null) 
+                if (produto2.id != null)
                 {
 
                     MessageBox.Show("Produto cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);

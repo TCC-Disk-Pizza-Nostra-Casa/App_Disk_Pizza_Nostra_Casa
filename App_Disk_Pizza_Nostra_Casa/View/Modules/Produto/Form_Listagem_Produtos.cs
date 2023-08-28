@@ -50,6 +50,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         string observacoes = lista_produtos[i].observacoes.ToString();
 
+                        if (observacoes == "") observacoes = "Nenhuma observação.";
+
                         dgv_listagem_produtos.Rows.Add(nome, estoque, preco, observacoes);
 
                     }

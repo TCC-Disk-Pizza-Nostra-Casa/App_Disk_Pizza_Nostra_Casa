@@ -103,6 +103,7 @@
             txt_cpf.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
             txt_cpf.ForeColor = Color.Black;
             txt_cpf.Location = new Point(27, 93);
+            txt_cpf.MaxLength = 11;
             txt_cpf.Name = "txt_cpf";
             txt_cpf.PlaceholderText = "Digite seu CPF...";
             txt_cpf.Size = new Size(278, 19);
