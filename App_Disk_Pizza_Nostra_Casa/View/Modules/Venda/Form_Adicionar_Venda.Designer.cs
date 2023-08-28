@@ -39,7 +39,6 @@
             cbx_pizzas_addvenda = new ComboBox();
             cbx_bebidas_addvenda = new ComboBox();
             btn_Salvar = new Button();
-            btn_Limpar = new Button();
             label6 = new Label();
             lbl_valortotal = new Label();
             btn_Calcular = new Button();
@@ -122,6 +121,7 @@
             // cbx_cliente_addvenda
             // 
             cbx_cliente_addvenda.AllowDrop = true;
+            cbx_cliente_addvenda.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             cbx_cliente_addvenda.FormattingEnabled = true;
             cbx_cliente_addvenda.Location = new Point(147, 9);
             cbx_cliente_addvenda.Name = "cbx_cliente_addvenda";
@@ -130,6 +130,7 @@
             // 
             // cbx_pizzas_addvenda
             // 
+            cbx_pizzas_addvenda.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             cbx_pizzas_addvenda.FormattingEnabled = true;
             cbx_pizzas_addvenda.Location = new Point(147, 53);
             cbx_pizzas_addvenda.Name = "cbx_pizzas_addvenda";
@@ -138,6 +139,7 @@
             // 
             // cbx_bebidas_addvenda
             // 
+            cbx_bebidas_addvenda.Anchor = AnchorStyles.Left | AnchorStyles.Right;
             cbx_bebidas_addvenda.FormattingEnabled = true;
             cbx_bebidas_addvenda.Location = new Point(147, 99);
             cbx_bebidas_addvenda.Name = "cbx_bebidas_addvenda";
@@ -146,12 +148,13 @@
             // 
             // btn_Salvar
             // 
+            btn_Salvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_Salvar.BackColor = SystemColors.Window;
             btn_Salvar.FlatAppearance.BorderColor = Color.Black;
             btn_Salvar.FlatAppearance.BorderSize = 2;
             btn_Salvar.FlatStyle = FlatStyle.Flat;
             btn_Salvar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Salvar.Location = new Point(641, 245);
+            btn_Salvar.Location = new Point(643, 406);
             btn_Salvar.Name = "btn_Salvar";
             btn_Salvar.Size = new Size(131, 41);
             btn_Salvar.TabIndex = 13;
@@ -159,26 +162,12 @@
             btn_Salvar.UseVisualStyleBackColor = false;
             btn_Salvar.Click += btn_Salvar_Click;
             // 
-            // btn_Limpar
-            // 
-            btn_Limpar.BackColor = SystemColors.Window;
-            btn_Limpar.FlatAppearance.BorderColor = Color.Black;
-            btn_Limpar.FlatAppearance.BorderSize = 2;
-            btn_Limpar.FlatStyle = FlatStyle.Flat;
-            btn_Limpar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Limpar.Location = new Point(12, 245);
-            btn_Limpar.Name = "btn_Limpar";
-            btn_Limpar.Size = new Size(146, 41);
-            btn_Limpar.TabIndex = 14;
-            btn_Limpar.Text = "Limpar Campos";
-            btn_Limpar.UseVisualStyleBackColor = false;
-            btn_Limpar.Click += btn_Limpar_Click;
-            // 
             // label6
             // 
+            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(555, 195);
+            label6.Location = new Point(542, 384);
             label6.Name = "label6";
             label6.Size = new Size(95, 19);
             label6.TabIndex = 15;
@@ -186,9 +175,10 @@
             // 
             // lbl_valortotal
             // 
+            lbl_valortotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lbl_valortotal.AutoSize = true;
             lbl_valortotal.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_valortotal.Location = new Point(656, 196);
+            lbl_valortotal.Location = new Point(643, 384);
             lbl_valortotal.Name = "lbl_valortotal";
             lbl_valortotal.Size = new Size(18, 19);
             lbl_valortotal.TabIndex = 16;
@@ -197,12 +187,13 @@
             // 
             // btn_Calcular
             // 
+            btn_Calcular.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_Calcular.BackColor = SystemColors.Window;
             btn_Calcular.FlatAppearance.BorderColor = Color.Black;
             btn_Calcular.FlatAppearance.BorderSize = 2;
             btn_Calcular.FlatStyle = FlatStyle.Flat;
             btn_Calcular.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Calcular.Location = new Point(519, 245);
+            btn_Calcular.Location = new Point(521, 406);
             btn_Calcular.Name = "btn_Calcular";
             btn_Calcular.Size = new Size(116, 41);
             btn_Calcular.TabIndex = 17;
@@ -212,12 +203,13 @@
             // 
             // btnCancelar
             // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btnCancelar.BackColor = SystemColors.Window;
             btnCancelar.FlatAppearance.BorderColor = Color.Black;
             btnCancelar.FlatAppearance.BorderSize = 2;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(164, 245);
+            btnCancelar.Location = new Point(12, 408);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 41);
             btnCancelar.TabIndex = 18;
@@ -233,7 +225,7 @@
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira observações sobre a(s) pizza(s)";
-            txt_observacoes.Size = new Size(758, 17);
+            txt_observacoes.Size = new Size(758, 196);
             txt_observacoes.TabIndex = 30;
             // 
             // form_adicionar_venda
@@ -247,7 +239,6 @@
             Controls.Add(btn_Calcular);
             Controls.Add(lbl_valortotal);
             Controls.Add(label6);
-            Controls.Add(btn_Limpar);
             Controls.Add(btn_Salvar);
             Controls.Add(cbx_bebidas_addvenda);
             Controls.Add(cbx_pizzas_addvenda);
@@ -280,7 +271,6 @@
         private ComboBox cbx_pizzas_addvenda;
         private ComboBox cbx_bebidas_addvenda;
         private Button btn_Salvar;
-        private Button btn_Limpar;
         private Label label6;
         private Label lbl_valortotal;
         private Button btn_Calcular;
