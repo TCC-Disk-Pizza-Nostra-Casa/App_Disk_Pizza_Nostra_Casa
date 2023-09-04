@@ -121,7 +121,7 @@
             // cbx_cliente_addvenda
             // 
             cbx_cliente_addvenda.AllowDrop = true;
-            cbx_cliente_addvenda.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            cbx_cliente_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbx_cliente_addvenda.FormattingEnabled = true;
             cbx_cliente_addvenda.Location = new Point(147, 9);
             cbx_cliente_addvenda.Name = "cbx_cliente_addvenda";
@@ -130,7 +130,7 @@
             // 
             // cbx_pizzas_addvenda
             // 
-            cbx_pizzas_addvenda.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            cbx_pizzas_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbx_pizzas_addvenda.FormattingEnabled = true;
             cbx_pizzas_addvenda.Location = new Point(147, 53);
             cbx_pizzas_addvenda.Name = "cbx_pizzas_addvenda";
@@ -139,7 +139,7 @@
             // 
             // cbx_bebidas_addvenda
             // 
-            cbx_bebidas_addvenda.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            cbx_bebidas_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbx_bebidas_addvenda.FormattingEnabled = true;
             cbx_bebidas_addvenda.Location = new Point(147, 99);
             cbx_bebidas_addvenda.Name = "cbx_bebidas_addvenda";
