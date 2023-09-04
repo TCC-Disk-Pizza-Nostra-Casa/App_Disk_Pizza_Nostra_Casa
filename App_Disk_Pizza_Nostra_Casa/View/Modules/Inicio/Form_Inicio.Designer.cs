@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_inicio));
             pnl_menu_lateral = new Panel();
             pnl_opcoes = new Panel();
+            pnl_submenu_clientes = new Panel();
+            btn_listagem_clientes = new Button();
+            btn_cadastro_cliente = new Button();
+            btn_clientes = new Button();
             btn_perfil = new Button();
             btn_sair = new Button();
             pnl_submenu_vendas = new Panel();
@@ -52,6 +56,7 @@
             pnl_titulo_formulario_externo = new Panel();
             pnl_menu_lateral.SuspendLayout();
             pnl_opcoes.SuspendLayout();
+            pnl_submenu_clientes.SuspendLayout();
             pnl_submenu_vendas.SuspendLayout();
             pnl_submenu_produtos.SuspendLayout();
             pnl_submenu_funcionarios.SuspendLayout();
@@ -75,6 +80,8 @@
             // pnl_opcoes
             // 
             pnl_opcoes.AutoScroll = true;
+            pnl_opcoes.Controls.Add(pnl_submenu_clientes);
+            pnl_opcoes.Controls.Add(btn_clientes);
             pnl_opcoes.Controls.Add(btn_perfil);
             pnl_opcoes.Controls.Add(btn_sair);
             pnl_opcoes.Controls.Add(pnl_submenu_vendas);
@@ -89,6 +96,82 @@
             pnl_opcoes.Size = new Size(211, 637);
             pnl_opcoes.TabIndex = 12;
             // 
+            // pnl_submenu_clientes
+            // 
+            pnl_submenu_clientes.Controls.Add(btn_listagem_clientes);
+            pnl_submenu_clientes.Controls.Add(btn_cadastro_cliente);
+            pnl_submenu_clientes.Dock = DockStyle.Top;
+            pnl_submenu_clientes.Location = new Point(0, 464);
+            pnl_submenu_clientes.Name = "pnl_submenu_clientes";
+            pnl_submenu_clientes.Size = new Size(194, 92);
+            pnl_submenu_clientes.TabIndex = 14;
+            // 
+            // btn_listagem_clientes
+            // 
+            btn_listagem_clientes.BackColor = Color.FromArgb(153, 88, 50);
+            btn_listagem_clientes.Cursor = Cursors.Hand;
+            btn_listagem_clientes.Dock = DockStyle.Top;
+            btn_listagem_clientes.FlatAppearance.BorderSize = 0;
+            btn_listagem_clientes.FlatAppearance.CheckedBackColor = Color.FromArgb(192, 108, 48);
+            btn_listagem_clientes.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 108, 48);
+            btn_listagem_clientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(171, 98, 55);
+            btn_listagem_clientes.FlatStyle = FlatStyle.Flat;
+            btn_listagem_clientes.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_listagem_clientes.ForeColor = Color.White;
+            btn_listagem_clientes.Location = new Point(0, 44);
+            btn_listagem_clientes.Name = "btn_listagem_clientes";
+            btn_listagem_clientes.Padding = new Padding(30, 0, 0, 0);
+            btn_listagem_clientes.Size = new Size(194, 44);
+            btn_listagem_clientes.TabIndex = 11;
+            btn_listagem_clientes.Text = "Listagem";
+            btn_listagem_clientes.TextAlign = ContentAlignment.MiddleLeft;
+            btn_listagem_clientes.UseVisualStyleBackColor = false;
+            btn_listagem_clientes.Click += btn_listagem_clientes_Click;
+            // 
+            // btn_cadastro_cliente
+            // 
+            btn_cadastro_cliente.BackColor = Color.FromArgb(153, 88, 50);
+            btn_cadastro_cliente.Cursor = Cursors.Hand;
+            btn_cadastro_cliente.Dock = DockStyle.Top;
+            btn_cadastro_cliente.FlatAppearance.BorderSize = 0;
+            btn_cadastro_cliente.FlatAppearance.CheckedBackColor = Color.FromArgb(192, 108, 48);
+            btn_cadastro_cliente.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 108, 48);
+            btn_cadastro_cliente.FlatAppearance.MouseOverBackColor = Color.FromArgb(171, 98, 55);
+            btn_cadastro_cliente.FlatStyle = FlatStyle.Flat;
+            btn_cadastro_cliente.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_cadastro_cliente.ForeColor = Color.White;
+            btn_cadastro_cliente.Location = new Point(0, 0);
+            btn_cadastro_cliente.Name = "btn_cadastro_cliente";
+            btn_cadastro_cliente.Padding = new Padding(30, 0, 0, 0);
+            btn_cadastro_cliente.Size = new Size(194, 44);
+            btn_cadastro_cliente.TabIndex = 10;
+            btn_cadastro_cliente.Text = "Cadastro";
+            btn_cadastro_cliente.TextAlign = ContentAlignment.MiddleLeft;
+            btn_cadastro_cliente.UseVisualStyleBackColor = false;
+            btn_cadastro_cliente.Click += btn_cadastro_cliente_Click;
+            // 
+            // btn_clientes
+            // 
+            btn_clientes.BackColor = Color.Transparent;
+            btn_clientes.Cursor = Cursors.Hand;
+            btn_clientes.Dock = DockStyle.Top;
+            btn_clientes.FlatAppearance.BorderSize = 0;
+            btn_clientes.FlatAppearance.CheckedBackColor = Color.SaddleBrown;
+            btn_clientes.FlatAppearance.MouseDownBackColor = Color.SaddleBrown;
+            btn_clientes.FlatAppearance.MouseOverBackColor = Color.FromArgb(153, 68, 0);
+            btn_clientes.FlatStyle = FlatStyle.Flat;
+            btn_clientes.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_clientes.ForeColor = Color.White;
+            btn_clientes.Location = new Point(0, 414);
+            btn_clientes.Name = "btn_clientes";
+            btn_clientes.Padding = new Padding(10, 0, 0, 0);
+            btn_clientes.Size = new Size(194, 50);
+            btn_clientes.TabIndex = 13;
+            btn_clientes.Text = "Clientes";
+            btn_clientes.TextAlign = ContentAlignment.MiddleLeft;
+            btn_clientes.UseVisualStyleBackColor = false;
+            btn_clientes.Click += btn_clientes_Click;
+            // 
             // btn_perfil
             // 
             btn_perfil.BackColor = Color.Transparent;
@@ -101,10 +184,10 @@
             btn_perfil.FlatStyle = FlatStyle.Flat;
             btn_perfil.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btn_perfil.ForeColor = Color.White;
-            btn_perfil.Location = new Point(0, 537);
+            btn_perfil.Location = new Point(0, 556);
             btn_perfil.Name = "btn_perfil";
             btn_perfil.Padding = new Padding(10, 0, 0, 0);
-            btn_perfil.Size = new Size(211, 50);
+            btn_perfil.Size = new Size(194, 50);
             btn_perfil.TabIndex = 12;
             btn_perfil.Text = "Perfil";
             btn_perfil.TextAlign = ContentAlignment.MiddleLeft;
@@ -123,10 +206,10 @@
             btn_sair.FlatStyle = FlatStyle.Flat;
             btn_sair.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btn_sair.ForeColor = Color.White;
-            btn_sair.Location = new Point(0, 587);
+            btn_sair.Location = new Point(0, 606);
             btn_sair.Name = "btn_sair";
             btn_sair.Padding = new Padding(10, 0, 0, 0);
-            btn_sair.Size = new Size(211, 50);
+            btn_sair.Size = new Size(194, 50);
             btn_sair.TabIndex = 2;
             btn_sair.Text = "Sair";
             btn_sair.TextAlign = ContentAlignment.MiddleLeft;
@@ -140,7 +223,7 @@
             pnl_submenu_vendas.Dock = DockStyle.Top;
             pnl_submenu_vendas.Location = new Point(0, 326);
             pnl_submenu_vendas.Name = "pnl_submenu_vendas";
-            pnl_submenu_vendas.Size = new Size(211, 88);
+            pnl_submenu_vendas.Size = new Size(194, 88);
             pnl_submenu_vendas.TabIndex = 11;
             // 
             // btn_listagem_vendas
@@ -158,7 +241,7 @@
             btn_listagem_vendas.Location = new Point(0, 44);
             btn_listagem_vendas.Name = "btn_listagem_vendas";
             btn_listagem_vendas.Padding = new Padding(30, 0, 0, 0);
-            btn_listagem_vendas.Size = new Size(211, 44);
+            btn_listagem_vendas.Size = new Size(194, 44);
             btn_listagem_vendas.TabIndex = 10;
             btn_listagem_vendas.Text = "Listagem";
             btn_listagem_vendas.TextAlign = ContentAlignment.MiddleLeft;
@@ -180,7 +263,7 @@
             btn_adicionar_venda.Location = new Point(0, 0);
             btn_adicionar_venda.Name = "btn_adicionar_venda";
             btn_adicionar_venda.Padding = new Padding(30, 0, 0, 0);
-            btn_adicionar_venda.Size = new Size(211, 44);
+            btn_adicionar_venda.Size = new Size(194, 44);
             btn_adicionar_venda.TabIndex = 9;
             btn_adicionar_venda.Text = "Adicionar venda";
             btn_adicionar_venda.TextAlign = ContentAlignment.MiddleLeft;
@@ -201,7 +284,7 @@
             btn_vendas.Location = new Point(0, 276);
             btn_vendas.Name = "btn_vendas";
             btn_vendas.Padding = new Padding(10, 0, 0, 0);
-            btn_vendas.Size = new Size(211, 50);
+            btn_vendas.Size = new Size(194, 50);
             btn_vendas.TabIndex = 8;
             btn_vendas.Text = "Vendas";
             btn_vendas.TextAlign = ContentAlignment.MiddleLeft;
@@ -215,7 +298,7 @@
             pnl_submenu_produtos.Dock = DockStyle.Top;
             pnl_submenu_produtos.Location = new Point(0, 188);
             pnl_submenu_produtos.Name = "pnl_submenu_produtos";
-            pnl_submenu_produtos.Size = new Size(211, 88);
+            pnl_submenu_produtos.Size = new Size(194, 88);
             pnl_submenu_produtos.TabIndex = 8;
             // 
             // btn_listagem_produtos
@@ -233,7 +316,7 @@
             btn_listagem_produtos.Location = new Point(0, 44);
             btn_listagem_produtos.Name = "btn_listagem_produtos";
             btn_listagem_produtos.Padding = new Padding(30, 0, 0, 0);
-            btn_listagem_produtos.Size = new Size(211, 44);
+            btn_listagem_produtos.Size = new Size(194, 44);
             btn_listagem_produtos.TabIndex = 7;
             btn_listagem_produtos.Text = "Listagem";
             btn_listagem_produtos.TextAlign = ContentAlignment.MiddleLeft;
@@ -255,7 +338,7 @@
             btn_cadastro_produtos.Location = new Point(0, 0);
             btn_cadastro_produtos.Name = "btn_cadastro_produtos";
             btn_cadastro_produtos.Padding = new Padding(30, 0, 0, 0);
-            btn_cadastro_produtos.Size = new Size(211, 44);
+            btn_cadastro_produtos.Size = new Size(194, 44);
             btn_cadastro_produtos.TabIndex = 6;
             btn_cadastro_produtos.Text = "Cadastro";
             btn_cadastro_produtos.TextAlign = ContentAlignment.MiddleLeft;
@@ -276,7 +359,7 @@
             btn_produtos.Location = new Point(0, 138);
             btn_produtos.Name = "btn_produtos";
             btn_produtos.Padding = new Padding(10, 0, 0, 0);
-            btn_produtos.Size = new Size(211, 50);
+            btn_produtos.Size = new Size(194, 50);
             btn_produtos.TabIndex = 5;
             btn_produtos.Text = "Produtos";
             btn_produtos.TextAlign = ContentAlignment.MiddleLeft;
@@ -291,7 +374,7 @@
             pnl_submenu_funcionarios.Dock = DockStyle.Top;
             pnl_submenu_funcionarios.Location = new Point(0, 50);
             pnl_submenu_funcionarios.Name = "pnl_submenu_funcionarios";
-            pnl_submenu_funcionarios.Size = new Size(211, 88);
+            pnl_submenu_funcionarios.Size = new Size(194, 88);
             pnl_submenu_funcionarios.TabIndex = 1;
             // 
             // btn_listagem_funcionarios
@@ -310,7 +393,7 @@
             btn_listagem_funcionarios.Location = new Point(0, 44);
             btn_listagem_funcionarios.Name = "btn_listagem_funcionarios";
             btn_listagem_funcionarios.Padding = new Padding(30, 0, 0, 0);
-            btn_listagem_funcionarios.Size = new Size(211, 44);
+            btn_listagem_funcionarios.Size = new Size(194, 44);
             btn_listagem_funcionarios.TabIndex = 4;
             btn_listagem_funcionarios.Text = "Listagem";
             btn_listagem_funcionarios.TextAlign = ContentAlignment.MiddleLeft;
@@ -333,7 +416,7 @@
             btn_cadastro_funcionarios.Location = new Point(0, 0);
             btn_cadastro_funcionarios.Name = "btn_cadastro_funcionarios";
             btn_cadastro_funcionarios.Padding = new Padding(30, 0, 0, 0);
-            btn_cadastro_funcionarios.Size = new Size(211, 44);
+            btn_cadastro_funcionarios.Size = new Size(194, 44);
             btn_cadastro_funcionarios.TabIndex = 3;
             btn_cadastro_funcionarios.Text = "Cadastro";
             btn_cadastro_funcionarios.TextAlign = ContentAlignment.MiddleLeft;
@@ -355,7 +438,7 @@
             btn_funcionarios.Location = new Point(0, 0);
             btn_funcionarios.Name = "btn_funcionarios";
             btn_funcionarios.Padding = new Padding(10, 0, 0, 0);
-            btn_funcionarios.Size = new Size(211, 50);
+            btn_funcionarios.Size = new Size(194, 50);
             btn_funcionarios.TabIndex = 1;
             btn_funcionarios.Text = "Funcionários";
             btn_funcionarios.TextAlign = ContentAlignment.MiddleLeft;
@@ -433,6 +516,7 @@
             Load += form_inicio_Load;
             pnl_menu_lateral.ResumeLayout(false);
             pnl_opcoes.ResumeLayout(false);
+            pnl_submenu_clientes.ResumeLayout(false);
             pnl_submenu_vendas.ResumeLayout(false);
             pnl_submenu_produtos.ResumeLayout(false);
             pnl_submenu_funcionarios.ResumeLayout(false);
@@ -466,5 +550,9 @@
         private Panel pnl_titulo_formulario_externo;
         private PictureBox pctbox_icone_espera;
         private Button btn_perfil;
+        private Panel pnl_submenu_clientes;
+        private Button btn_listagem_clientes;
+        private Button btn_cadastro_cliente;
+        private Button btn_clientes;
     }
 }

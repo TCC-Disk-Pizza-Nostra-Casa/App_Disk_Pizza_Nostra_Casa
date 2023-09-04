@@ -1,6 +1,6 @@
-﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
+﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
-    partial class Form_Edicao_Produto
+    partial class Form_Listagem_Clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,19 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // Form_Edicao_Produto
-            // 
-            AutoScaleDimensions = new SizeF(7F, 16F);
-            AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
-            ClientSize = new Size(784, 461);
-            Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MinimumSize = new Size(800, 500);
-            Name = "Form_Edicao_Produto";
-            Text = "Editar Produto";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "Form_Listagem_Clientes";
         }
 
         #endregion
