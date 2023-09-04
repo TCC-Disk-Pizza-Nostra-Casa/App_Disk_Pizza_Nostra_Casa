@@ -63,6 +63,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                 pnl_submenu_vendas.Visible = false;
 
+                pnl_submenu_clientes.Visible = false;
+
             }
 
             catch (Exception ex)
@@ -406,6 +408,62 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         }
 
+        private void btn_clientes_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Submenu_Visibility(pnl_submenu_clientes);
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_cadastro_cliente_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Cliente.Form_Cadastro_Clientes());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_listagem_clientes_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Cliente.Form_Listagem_Clientes());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
     }
 
 }

@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
+namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
-    public partial class Form_Edicao_Produto : Form
+    public partial class Form_Cadastro_Clientes : Form
     {
-        public Form_Edicao_Produto()
+        public Form_Cadastro_Clientes()
         {
             InitializeComponent();
         }
