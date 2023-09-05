@@ -74,7 +74,36 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         this.Hide();
 
-                        new View.Modules.Inicio.form_inicio().Show();
+                        View.Modules.Inicio.form_inicio tela_inical = new View.Modules.Inicio.form_inicio();
+
+                        tela_inical.usuario_sessao = new Model.Funcionario()
+                        {
+
+                            nome = "Root",
+
+                            genero = "Não informado.",
+
+                            cpf = "12345678909",
+
+                            rg = "123456789",
+
+                            cargo = "Balconista",
+
+                            cep = "17212646",
+
+                            email = "root@etec.sp.gov.br",
+
+                            telefone = "14991116468",
+
+                            senha = "1234",
+
+                            observacoes = "Usuário de testes",
+
+                            administrador = true
+
+                        };
+
+                        tela_inical.Show();
 
                     }
 
@@ -93,7 +122,11 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             this.Hide();
 
-                            new View.Modules.Inicio.form_inicio(usuario_encontrado[0]).Show();
+                            View.Modules.Inicio.form_inicio tela_inical = new View.Modules.Inicio.form_inicio();
+
+                            tela_inical.usuario_sessao = usuario_encontrado[0];
+
+                            tela_inical.Show();
 
                         }
 
