@@ -17,14 +17,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        private Model.Funcionario usuario_sessao;
+        public Model.Funcionario usuario_sessao;
 
-        public form_cadastro_funcionarios(Model.Funcionario usuario = null)
+        public form_cadastro_funcionarios()
         {
 
             InitializeComponent();
-
-            this.usuario_sessao = usuario;
 
         }
 
@@ -117,7 +115,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                         Model.Funcionario objeto_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(new Model.Funcionario()
                         {
 
-                            id = this.usuario_sessao.id,
+                            //id = this.usuario_sessao.id,
 
                             nome = txt_nome.Text,
 

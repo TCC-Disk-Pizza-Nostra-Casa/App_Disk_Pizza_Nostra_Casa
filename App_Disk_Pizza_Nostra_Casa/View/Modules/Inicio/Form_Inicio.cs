@@ -17,14 +17,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         private Form formulario_associado = null;
 
-        private Model.Funcionario usuario_sessao;
+        public Model.Funcionario usuario_sessao;
 
-        public form_inicio(Model.Funcionario usuario = null)
+        public form_inicio()
         {
 
             InitializeComponent();
-
-            this.usuario_sessao = usuario;
 
         }
 
@@ -349,7 +347,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
                         if (usuario_encontrado.Count > 0 && usuario_encontrado[0].senha == this.usuario_sessao.senha)
                         {
 
-                            External_Form_Association(new Modules.Funcionario.form_cadastro_funcionarios(this.usuario_sessao));
+                            Modules.Funcionario.form_cadastro_funcionarios form_funcionario = new Modules.Funcionario.form_cadastro_funcionarios();
+
+                            form_funcionario.usuario_sessao = this.usuario_sessao;
+
+                            External_Form_Association(form_funcionario);
 
                         }
 
