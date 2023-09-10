@@ -27,12 +27,12 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<bool>? EnableAsyncFuncionario(int id)
+        public static async Task<bool>? DisableAsyncFuncionario(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi(post_json, "/funcionario/enable");
+            string json = await Data_Service.SendDataApi(post_json, "/funcionario/disable");
 
             bool exito = JsonConvert.DeserializeObject<bool>(json);
 
@@ -40,12 +40,12 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<bool>? DisableAsyncFuncionario(int id)
+        public static async Task<bool>? EnableAsyncFuncionario(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi(post_json, "/funcionario/disable");
+            string json = await Data_Service.SendDataApi(post_json, "/funcionario/enable");
 
             bool exito = JsonConvert.DeserializeObject<bool>(json);
 

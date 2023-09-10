@@ -99,7 +99,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             observacoes = "Usuário de testes",
 
-                            administrador = true
+                            administrador = 1
 
                         };
 
