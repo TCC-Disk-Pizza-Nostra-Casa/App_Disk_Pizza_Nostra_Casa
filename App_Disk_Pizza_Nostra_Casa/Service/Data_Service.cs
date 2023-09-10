@@ -125,7 +125,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
         private static void ShowContentInConsole(string mensagem)
         {
 
-            Console.WriteLine("______________________________________________\n");
+            Console.WriteLine("\n______________________________________________\n");
 
             Console.WriteLine(mensagem + "\n");
 

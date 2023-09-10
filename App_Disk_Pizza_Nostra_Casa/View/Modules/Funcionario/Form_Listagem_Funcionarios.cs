@@ -42,7 +42,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     for(int i = 0; i < lista_funcionarios.Count; i++)
                     {
 
-                        if(lista_funcionarios[i].ativo)
+                        if(lista_funcionarios[i].ativo == 1)
                         {
 
                             string nome = lista_funcionarios[i].nome;

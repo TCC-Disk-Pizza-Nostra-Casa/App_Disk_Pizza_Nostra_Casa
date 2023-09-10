@@ -44,7 +44,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_cargo.DataSource = new string[] { "Selecione uma opção", "Balconista" };
 
-                if (this.usuario_sessao != null)
+                if(this.usuario_sessao != null)
                 {
 
                     Preencher_Formulario(this.usuario_sessao);
@@ -53,7 +53,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -83,7 +83,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             txt_observacoes.Text = dados.observacoes;
 
-            ckbox_administrador.Checked = dados.administrador;
+            ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
 
         }
 
@@ -93,77 +93,58 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (String.IsNullOrEmpty(mtxt_cpf.Text.Replace(".", "").Replace("-", "")) ||
-                   String.IsNullOrEmpty(mtxt_rg.Text.Replace(".", "").Replace("-", "")) ||
-                   String.IsNullOrEmpty(mtxt_cep.Text.Replace(".", "").Replace("-", "")) ||
-                   String.IsNullOrEmpty(mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "")) ||
-                   String.IsNullOrEmpty(txt_nome.Text) || String.IsNullOrEmpty(txt_senha.Text) ||
-                   cbbox_genero.SelectedIndex == 0 || cbbox_cargo.SelectedIndex == 0)
+                Model.Funcionario dados = new Model.Funcionario()
                 {
 
-                    MessageBox.Show("Preencha todos os campos necessários antes de prosseguir.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    nome = txt_nome.Text,
+
+                    indice_genero = cbbox_genero.SelectedIndex,
+
+                    genero = cbbox_genero.Text,
+
+                    cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
+
+                    rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
+
+                    indice_cargo = cbbox_cargo.SelectedIndex,
+
+                    cargo = cbbox_cargo.Text,
+
+                    cep = mtxt_cep.Text.Replace("-", ""),
+
+                    email = txt_email.Text,
+
+                    telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""),
+
+                    senha = txt_senha.Text,
+
+                    observacoes = txt_observacoes.Text,
+
+                    administrador = (ckbox_administrador.Checked) ? 1 : 0
+
+                };
+
+                Model.Funcionario usuario_retornado = await dados.Save();
+
+                if(usuario_retornado.id != null)
+                {
+
+                    MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    this.Close();
 
                 }
 
                 else
                 {
 
-                    if (MessageBox.Show("Realmente deseja salvar estes dados?", "Atenção!",
-                       MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                    {
-
-                        Model.Funcionario objeto_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(new Model.Funcionario()
-                        {
-
-                            //id = this.usuario_sessao.id,
-
-                            nome = txt_nome.Text,
-
-                            genero = cbbox_genero.Text,
-
-                            cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
-
-                            rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
-
-                            cargo = cbbox_cargo.Text,
-
-                            cep = mtxt_cep.Text.Replace(".", "").Replace("-", ""),
-
-                            email = txt_email.Text,
-
-                            telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""),
-
-                            senha = txt_senha.Text,
-
-                            observacoes = txt_observacoes.Text,
-
-                            administrador = ckbox_administrador.Checked
-
-                        });
-
-                        if (objeto_retornado.id != null)
-                        {
-
-                            MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                            this.Close();
-
-                        }
-
-                        else
-                        {
-
-                            throw new Exception("Ocorreu um erro ao tentar salvar os dados inseridos! Revise-os e tente novamente.");
-
-                        }
-
-                    }
+                    throw new Exception("Não foi possível salvar estes dados! Revise-os e tente novamente.");
 
                 }
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -178,8 +159,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if(MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.Close();
@@ -188,7 +169,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch (Exception ex)
+            catch(Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);

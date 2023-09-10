@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
+
 namespace App_Disk_Pizza_Nostra_Casa.Model
 {
 
@@ -14,11 +17,15 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string nome { get; set; }
 
+        public int indice_genero { get; set; }
+
         public string genero { get; set; }
 
         public string cpf { get; set; }
 
         public string rg { get; set; }
+
+        public int indice_cargo { get; set; }
 
         public string cargo { get; set; }
 
@@ -32,11 +39,61 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string observacoes { get; set; } = null;
 
-        public bool administrador { get; set; } = false;
+        public int administrador { get; set; } = 0;
 
         public DateTime data_cadastro { get; set; } = DateTime.Now;
 
-        public bool ativo { get; set; } = true;
+        public int ativo { get; set; } = 1;
+
+        public async Task<Funcionario>? Save()
+        {
+
+            if(String.IsNullOrEmpty(this.nome) || this.indice_genero == 0 ||
+               String.IsNullOrEmpty(this.cpf) || String.IsNullOrEmpty(this.rg) ||
+               this.indice_cargo == 0 || String.IsNullOrEmpty(this.cep) ||
+               String.IsNullOrEmpty(this.telefone) || String.IsNullOrEmpty(this.senha))
+            {
+
+                throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
+
+            }
+
+            else
+            {
+
+                return await Data_Service_Funcionario.SaveAsyncFuncionario(this);
+
+            }
+
+        }
+
+        public async Task<bool>? Disable(int id)
+        {
+
+            return await Data_Service_Funcionario.DisableAsyncFuncionario(id);
+
+        }
+
+        public async Task<bool>? Enable(int id)
+        {
+
+            return await Data_Service_Funcionario.EnableAsyncFuncionario(id);
+
+        }
+
+        public async Task<List<Funcionario>>? GetList()
+        {
+
+            return await Data_Service_Funcionario.GetListAsyncFuncionario();
+
+        }
+
+        public async Task<List<Funcionario>>? Search(string filtro)
+        {
+
+            return await Data_Service_Funcionario.SearchAsyncFuncionario(filtro);
+
+        }
 
     }
 
