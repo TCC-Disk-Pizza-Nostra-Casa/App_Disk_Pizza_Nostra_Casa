@@ -15,6 +15,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
     public partial class Form_Cadastro_Clientes : Form
     {
+        private Model.Cliente cliente_edicao;
         public Form_Cadastro_Clientes()
         {
             InitializeComponent();
@@ -35,23 +36,36 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
             Model.Cliente cliente = new Model.Cliente()
             {
-                
+
                 nome = txt_nome_cliente.Text,
                 email = txt_email_cliente.Text,
                 telefone = txt_telefone_cliente.Text,
-                observacoes = txt_observacoes_cliente.Text
+                observacoes = txt_observacoes_cliente.Text,
+                ativo = chk_ativo.Checked
 
             };
 
             Model.Cliente cliente_model = await Data_Service_Cliente.SaveAsyncCliente(cliente);
 
-            if (cliente_model.id != null) 
+            if (cliente_model.id != null)
             {
 
                 MessageBox.Show("Cliente cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
             }
 
+        }
+
+        void Preencher_Formulario(Model.Cliente cliente)
+        {
+
+            txt_nome_cliente.Text = cliente.nome;
+            txt_email_cliente.Text = cliente.email;
+            txt_telefone_cliente.Text = cliente.telefone;
+            txt_observacoes_cliente.Text = cliente.observacoes;
+
+            if (cliente.ativo == true) chk_ativo.Checked = true;
+            else chk_ativo.Checked = false;
 
 
         }
