@@ -36,7 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 this.Size = new Size(800, 500);
 
-                cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+                /*cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
 
                 cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -44,16 +44,16 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_cargo.DataSource = new string[] { "Selecione uma opção", "Balconista" };
 
-                if(this.usuario_sessao != null)
+                if (this.usuario_sessao != null)
                 {
 
                     Preencher_Formulario(this.usuario_sessao);
 
-                }
+                }*/
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -62,7 +62,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private void Preencher_Formulario(Model.Funcionario dados)
+        /*private void Preencher_Formulario(Model.Funcionario dados)
         {
 
             txt_nome.Text = dados.nome;
@@ -126,7 +126,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 Model.Funcionario usuario_retornado = await dados.Save();
 
-                if(usuario_retornado.id != null)
+                if (usuario_retornado.id != null)
                 {
 
                     MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -144,7 +144,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -159,7 +159,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if(MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
+                if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
@@ -169,14 +169,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
-        }
+        }*/
 
     }
 
