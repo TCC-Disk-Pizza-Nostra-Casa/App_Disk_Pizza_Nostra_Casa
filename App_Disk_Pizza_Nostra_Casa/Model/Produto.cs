@@ -20,6 +20,10 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string observacoes { get; set; }
 
+        public DateTime data_cadastro { get; set; }
+        public DateTime data_modificacao { get; set; }
+        public int id_fornecedor { get; set; }
+
     }
 
 }
