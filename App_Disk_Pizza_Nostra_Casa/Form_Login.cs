@@ -66,7 +66,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                     // Condição destinada para testes da aplicação.
 
-                    if (txt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
+                    if (txt_cpf.Text == "0" && txt_senha.Text == "0")
                     {
 
                         MessageBox.Show("Iniciando sessão de testes.", "Atenção!",

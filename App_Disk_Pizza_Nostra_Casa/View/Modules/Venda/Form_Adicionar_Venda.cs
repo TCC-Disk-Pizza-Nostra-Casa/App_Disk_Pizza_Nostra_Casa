@@ -24,10 +24,17 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void form_adicionar_venda_Load(object sender, EventArgs e)
+        private async void form_adicionar_venda_Load(object sender, EventArgs e)
         {
 
+            List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
 
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine(produtoList[0].nome);
+            Console.WriteLine("--------------------------------------------");
+
+
+            cbx_produtos_addvenda.Items.Add("");
 
         }
 
@@ -43,8 +50,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             {
 
                 cbx_cliente_addvenda.Text = "";
-                cbx_pizzas_addvenda.Text = "";
-                cbx_bebidas_addvenda.Text = "";
+                cbx_produtos_addvenda.Text = "";
 
                 lbl_valortotal.Text = "0";
                 rdbtn_nao.Checked = false;
@@ -95,6 +101,16 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         }
 
         private void lbl_valortotal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbx_cliente_addvenda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbx_produtos_addvenda_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

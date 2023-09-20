@@ -84,6 +84,7 @@
             dgv_listagem_vendas.AllowUserToDeleteRows = false;
             dgv_listagem_vendas.AllowUserToOrderColumns = true;
             dgv_listagem_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_listagem_vendas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             dgv_listagem_vendas.BackgroundColor = Color.Gray;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { dgv_listagem_produtos_nome, nome_cliente, Produto, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
@@ -106,7 +107,7 @@
             dgv_listagem_produtos_nome.Name = "dgv_listagem_produtos_nome";
             dgv_listagem_produtos_nome.ReadOnly = true;
             dgv_listagem_produtos_nome.Resizable = DataGridViewTriState.True;
-            dgv_listagem_produtos_nome.Width = 130;
+            dgv_listagem_produtos_nome.Width = 109;
             // 
             // nome_cliente
             // 
@@ -114,7 +115,7 @@
             nome_cliente.HeaderText = "Cliente";
             nome_cliente.Name = "nome_cliente";
             nome_cliente.ReadOnly = true;
-            nome_cliente.Width = 420;
+            nome_cliente.Width = 69;
             // 
             // Produto
             // 
@@ -122,7 +123,7 @@
             Produto.HeaderText = "Produto(s)";
             Produto.Name = "Produto";
             Produto.ReadOnly = true;
-            Produto.Width = 420;
+            Produto.Width = 88;
             // 
             // dgv_listagem_produtos_estoque
             // 
@@ -130,6 +131,7 @@
             dgv_listagem_produtos_estoque.HeaderText = "Delivery";
             dgv_listagem_produtos_estoque.Name = "dgv_listagem_produtos_estoque";
             dgv_listagem_produtos_estoque.ReadOnly = true;
+            dgv_listagem_produtos_estoque.Width = 76;
             // 
             // Funcionario
             // 
@@ -137,7 +139,7 @@
             Funcionario.HeaderText = "Funcionario";
             Funcionario.Name = "Funcionario";
             Funcionario.ReadOnly = true;
-            Funcionario.Width = 420;
+            Funcionario.Width = 95;
             // 
             // dgv_listagem_produtos_preco
             // 
@@ -146,7 +148,7 @@
             dgv_listagem_produtos_preco.HeaderText = "Valor Total";
             dgv_listagem_produtos_preco.Name = "dgv_listagem_produtos_preco";
             dgv_listagem_produtos_preco.ReadOnly = true;
-            dgv_listagem_produtos_preco.Width = 200;
+            dgv_listagem_produtos_preco.Width = 88;
             // 
             // form_listagem_vendas
             // 
