@@ -20,6 +20,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int id_funcionario { get; set; }
 
+        public int id_cliente { get; set; }
+
     }
 
 }

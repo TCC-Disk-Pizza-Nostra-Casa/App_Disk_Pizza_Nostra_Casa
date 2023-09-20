@@ -17,9 +17,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string nome { get; set; }
 
+        public string nome_social { get; set; }
+
         public int indice_genero { get; set; }
 
         public string genero { get; set; }
+
+        public string pronome { get; set; }
 
         public string cpf { get; set; }
 
@@ -42,6 +46,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public int administrador { get; set; } = 0;
 
         public DateTime data_cadastro { get; set; } = DateTime.Now;
+
+        public DateTime data_modificacao { get; set; } = DateTime.Now;
 
         public int ativo { get; set; } = 1;
 
@@ -88,12 +94,12 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        public async Task<List<Funcionario>>? Search(string filtro)
+        /*public async Task<List<Funcionario>>? Search(string filtro)
         {
 
             return await Data_Service_Funcionario.SearchAsyncFuncionario(filtro);
 
-        }
+        }*/
 
     }
 
