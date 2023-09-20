@@ -32,7 +32,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi("/produto/delete", post_json);
+            string json = await Data_Service.SendDataApi(post_json, "/produto/delete");
 
             bool resultado = JsonConvert.DeserializeObject<bool>(json);
 
