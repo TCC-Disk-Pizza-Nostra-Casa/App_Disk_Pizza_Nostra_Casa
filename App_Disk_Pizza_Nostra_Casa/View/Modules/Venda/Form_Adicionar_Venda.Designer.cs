@@ -43,10 +43,12 @@
             btn_Calcular = new Button();
             btnCancelar = new Button();
             txt_observacoes = new TextBox();
-            dataGridView1 = new DataGridView();
+            dgv_adicionar_vendas = new DataGridView();
             Produto = new DataGridViewTextBoxColumn();
             Preco = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            btnInserir_dgv = new Button();
+            btnExcluir_dgv = new Button();
+            ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -225,20 +227,20 @@
             txt_observacoes.Size = new Size(366, 205);
             txt_observacoes.TabIndex = 30;
             // 
-            // dataGridView1
+            // dgv_adicionar_vendas
             // 
-            dataGridView1.AllowUserToAddRows = false;
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Produto, Preco });
-            dataGridView1.Location = new Point(12, 125);
-            dataGridView1.MaximumSize = new Size(366, 205);
-            dataGridView1.MinimumSize = new Size(366, 205);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(366, 205);
-            dataGridView1.TabIndex = 31;
+            dgv_adicionar_vendas.AllowUserToAddRows = false;
+            dgv_adicionar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_adicionar_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_adicionar_vendas.Columns.AddRange(new DataGridViewColumn[] { Produto, Preco });
+            dgv_adicionar_vendas.Location = new Point(12, 125);
+            dgv_adicionar_vendas.MaximumSize = new Size(366, 205);
+            dgv_adicionar_vendas.MinimumSize = new Size(366, 205);
+            dgv_adicionar_vendas.Name = "dgv_adicionar_vendas";
+            dgv_adicionar_vendas.ReadOnly = true;
+            dgv_adicionar_vendas.RowTemplate.Height = 25;
+            dgv_adicionar_vendas.Size = new Size(366, 205);
+            dgv_adicionar_vendas.TabIndex = 31;
             // 
             // Produto
             // 
@@ -252,13 +254,48 @@
             Preco.Name = "Preco";
             Preco.ReadOnly = true;
             // 
+            // btnInserir_dgv
+            // 
+            btnInserir_dgv.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnInserir_dgv.BackColor = SystemColors.Window;
+            btnInserir_dgv.FlatAppearance.BorderColor = Color.Black;
+            btnInserir_dgv.FlatAppearance.BorderSize = 2;
+            btnInserir_dgv.FlatStyle = FlatStyle.Flat;
+            btnInserir_dgv.Font = new Font("Arial", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnInserir_dgv.ForeColor = Color.Blue;
+            btnInserir_dgv.Location = new Point(12, 336);
+            btnInserir_dgv.Name = "btnInserir_dgv";
+            btnInserir_dgv.Size = new Size(52, 47);
+            btnInserir_dgv.TabIndex = 32;
+            btnInserir_dgv.Text = "+";
+            btnInserir_dgv.UseVisualStyleBackColor = false;
+            btnInserir_dgv.Click += btnInserir_dgv_Click;
+            // 
+            // btnExcluir_dgv
+            // 
+            btnExcluir_dgv.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btnExcluir_dgv.BackColor = SystemColors.Window;
+            btnExcluir_dgv.FlatAppearance.BorderColor = Color.Black;
+            btnExcluir_dgv.FlatAppearance.BorderSize = 2;
+            btnExcluir_dgv.FlatStyle = FlatStyle.Flat;
+            btnExcluir_dgv.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
+            btnExcluir_dgv.ForeColor = Color.Red;
+            btnExcluir_dgv.Location = new Point(81, 336);
+            btnExcluir_dgv.Name = "btnExcluir_dgv";
+            btnExcluir_dgv.Size = new Size(52, 47);
+            btnExcluir_dgv.TabIndex = 33;
+            btnExcluir_dgv.Text = "X";
+            btnExcluir_dgv.UseVisualStyleBackColor = false;
+            // 
             // form_adicionar_venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
-            Controls.Add(dataGridView1);
+            Controls.Add(btnExcluir_dgv);
+            Controls.Add(btnInserir_dgv);
+            Controls.Add(dgv_adicionar_vendas);
             Controls.Add(txt_observacoes);
             Controls.Add(btnCancelar);
             Controls.Add(btn_Calcular);
@@ -278,7 +315,7 @@
             Name = "form_adicionar_venda";
             Text = "Adicionar Venda";
             Load += form_adicionar_venda_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -300,8 +337,10 @@
         private Button btn_Calcular;
         private Button btnCancelar;
         private TextBox txt_observacoes;
-        private DataGridView dataGridView1;
+        private DataGridView dgv_adicionar_vendas;
         private DataGridViewTextBoxColumn Produto;
         private DataGridViewTextBoxColumn Preco;
+        private Button btnInserir_dgv;
+        private Button btnExcluir_dgv;
     }
 }

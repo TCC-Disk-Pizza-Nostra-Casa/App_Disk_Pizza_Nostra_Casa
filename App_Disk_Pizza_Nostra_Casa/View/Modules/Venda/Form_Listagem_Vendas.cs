@@ -50,6 +50,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                         dgv_listagem_vendas.Rows.Add(i + 1, data_venda, delivery, valor_total);
 
+                        Console.WriteLine("========================================");
+                        Console.WriteLine(lista_vendas[i].delivery);
+                        Console.WriteLine("========================================");
+
                     }
 
                 }
@@ -72,6 +76,16 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+
+        private void btnInserir_Teste_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnExcluir_Teste_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }

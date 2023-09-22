@@ -39,6 +39,8 @@
             dgv_listagem_produtos_estoque = new DataGridViewTextBoxColumn();
             Funcionario = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
+            btnExcluir_Teste = new Button();
+            btnInserir_Teste = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -94,7 +96,7 @@
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(760, 400);
+            dgv_listagem_vendas.Size = new Size(760, 345);
             dgv_listagem_vendas.TabIndex = 6;
             dgv_listagem_vendas.CellContentClick += dgv_listagem_vendas_CellContentClick;
             // 
@@ -150,11 +152,33 @@
             dgv_listagem_produtos_preco.ReadOnly = true;
             dgv_listagem_produtos_preco.Width = 88;
             // 
+            // btnExcluir_Teste
+            // 
+            btnExcluir_Teste.Location = new Point(518, 400);
+            btnExcluir_Teste.Name = "btnExcluir_Teste";
+            btnExcluir_Teste.Size = new Size(123, 53);
+            btnExcluir_Teste.TabIndex = 7;
+            btnExcluir_Teste.Text = "Excluir";
+            btnExcluir_Teste.UseVisualStyleBackColor = true;
+            btnExcluir_Teste.Click += btnExcluir_Teste_Click;
+            // 
+            // btnInserir_Teste
+            // 
+            btnInserir_Teste.Location = new Point(647, 400);
+            btnInserir_Teste.Name = "btnInserir_Teste";
+            btnInserir_Teste.Size = new Size(123, 53);
+            btnInserir_Teste.TabIndex = 8;
+            btnInserir_Teste.Text = "Inserir";
+            btnInserir_Teste.UseVisualStyleBackColor = true;
+            btnInserir_Teste.Click += btnInserir_Teste_Click;
+            // 
             // form_listagem_vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 461);
+            Controls.Add(btnInserir_Teste);
+            Controls.Add(btnExcluir_Teste);
             Controls.Add(dgv_listagem_vendas);
             Controls.Add(btn_pesquisar_vendas);
             Controls.Add(txt_pesquisar_vendas_data);
@@ -186,5 +210,7 @@
         private DataGridViewTextBoxColumn dgv_listagem_produtos_estoque;
         private DataGridViewTextBoxColumn Funcionario;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_preco;
+        private Button btnExcluir_Teste;
+        private Button btnInserir_Teste;
     }
 }
