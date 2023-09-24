@@ -14,12 +14,30 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string nome { get; set; }
 
+        public string nome_social { get; set; }
+
+        public string genero { get; set; }
+
+        public string pronome { get; set; }
+
+        public string cpf { get; set; }
+
+        public string cep { get; set; }
+
         public string email { get; set; }
 
         public string telefone { get; set; }
 
         public string observacoes { get; set; }
-        public bool? ativo { get; set; }
+
+        public DateTime data_nascimento { get; set; }
+
+        public DateTime data_cadastro { get; set; } = DateTime.Now;
+
+        public DateTime data_modificacao { get; set; } = DateTime.Now;
+
+        public int ativo { get; set; }
+
     }
 
 }

@@ -28,6 +28,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public List<double> valor_total_item_venda { get; set; }
 
+        public int id_cliente { get; set; }
+
     }
 
 }

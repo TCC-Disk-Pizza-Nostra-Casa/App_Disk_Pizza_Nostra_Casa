@@ -28,10 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form_Cadastro_Fornecedor";
+            SuspendLayout();
+            // 
+            // Form_Cadastro_Fornecedor
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(784, 461);
+            Margin = new Padding(3, 2, 3, 2);
+            MinimumSize = new Size(800, 500);
+            Name = "Form_Cadastro_Fornecedor";
+            Text = "Cadastro de Fornecedores";
+            Load += Form_Cadastro_Fornecedor_Load;
+            ResumeLayout(false);
         }
 
         #endregion
