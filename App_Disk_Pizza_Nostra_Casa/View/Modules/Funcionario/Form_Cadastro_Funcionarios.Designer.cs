@@ -30,26 +30,34 @@
         {
             btn_salvar = new Button();
             btn_cancelar = new Button();
-            pnl_campos = new Panel();
-            label8 = new Label();
-            maskedTextBox4 = new MaskedTextBox();
-            label7 = new Label();
-            maskedTextBox3 = new MaskedTextBox();
-            label6 = new Label();
-            label5 = new Label();
-            maskedTextBox2 = new MaskedTextBox();
-            maskedTextBox1 = new MaskedTextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
-            label4 = new Label();
-            label3 = new Label();
-            label2 = new Label();
-            label1 = new Label();
             lbl_observacoes = new Label();
-            textBox2 = new TextBox();
+            txt_observacoes = new TextBox();
             ckbox_administrador = new CheckBox();
+            groupBox1 = new GroupBox();
+            pnl_campos = new Panel();
+            lbl_senha = new Label();
+            txt_senha = new TextBox();
+            mtxt_telefone = new MaskedTextBox();
+            lbl_telefone = new Label();
+            txt_email = new TextBox();
+            txt_cargo = new TextBox();
+            email = new Label();
+            lbl_cep = new Label();
+            mtxt_cep = new MaskedTextBox();
+            lbl_cargo = new Label();
+            lbl_rg = new Label();
+            lbl_cpf = new Label();
+            mtxt_rg = new MaskedTextBox();
+            mtxt_cpf = new MaskedTextBox();
+            txt_pronome = new TextBox();
+            txt_genero = new TextBox();
+            txt_nome_social = new TextBox();
+            txt_nome = new TextBox();
+            lbl__pronome = new Label();
+            lbl_genero = new Label();
+            lbl_nome_social = new Label();
+            lbl_nome = new Label();
+            groupBox1.SuspendLayout();
             pnl_campos.SuspendLayout();
             SuspendLayout();
             // 
@@ -67,6 +75,7 @@
             btn_salvar.TabIndex = 33;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = false;
+            btn_salvar.Click += btn_salvar_Click;
             // 
             // btn_cancelar
             // 
@@ -82,200 +91,7 @@
             btn_cancelar.TabIndex = 34;
             btn_cancelar.Text = "Cancelar";
             btn_cancelar.UseVisualStyleBackColor = false;
-            // 
-            // pnl_campos
-            // 
-            pnl_campos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            pnl_campos.AutoScroll = true;
-            pnl_campos.BorderStyle = BorderStyle.FixedSingle;
-            pnl_campos.Controls.Add(label8);
-            pnl_campos.Controls.Add(maskedTextBox4);
-            pnl_campos.Controls.Add(label7);
-            pnl_campos.Controls.Add(maskedTextBox3);
-            pnl_campos.Controls.Add(label6);
-            pnl_campos.Controls.Add(label5);
-            pnl_campos.Controls.Add(maskedTextBox2);
-            pnl_campos.Controls.Add(maskedTextBox1);
-            pnl_campos.Controls.Add(textBox5);
-            pnl_campos.Controls.Add(textBox4);
-            pnl_campos.Controls.Add(textBox3);
-            pnl_campos.Controls.Add(textBox1);
-            pnl_campos.Controls.Add(label4);
-            pnl_campos.Controls.Add(label3);
-            pnl_campos.Controls.Add(label2);
-            pnl_campos.Controls.Add(label1);
-            pnl_campos.Location = new Point(12, 12);
-            pnl_campos.Name = "pnl_campos";
-            pnl_campos.Size = new Size(760, 266);
-            pnl_campos.TabIndex = 35;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(12, 294);
-            label8.Name = "label8";
-            label8.Size = new Size(49, 19);
-            label8.TabIndex = 15;
-            label8.Text = "CEP:";
-            label8.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // maskedTextBox4
-            // 
-            maskedTextBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox4.Location = new Point(66, 292);
-            maskedTextBox4.Name = "maskedTextBox4";
-            maskedTextBox4.Size = new Size(658, 26);
-            maskedTextBox4.TabIndex = 14;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.BackColor = Color.Transparent;
-            label7.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(12, 253);
-            label7.Name = "label7";
-            label7.Size = new Size(62, 19);
-            label7.TabIndex = 13;
-            label7.Text = "Cargo:";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // maskedTextBox3
-            // 
-            maskedTextBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox3.Location = new Point(80, 250);
-            maskedTextBox3.Name = "maskedTextBox3";
-            maskedTextBox3.Size = new Size(644, 26);
-            maskedTextBox3.TabIndex = 12;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.BackColor = Color.Transparent;
-            label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(12, 215);
-            label6.Name = "label6";
-            label6.Size = new Size(39, 19);
-            label6.TabIndex = 11;
-            label6.Text = "RG:";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = Color.Transparent;
-            label5.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(12, 174);
-            label5.Name = "label5";
-            label5.Size = new Size(48, 19);
-            label5.TabIndex = 10;
-            label5.Text = "CPF:";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // maskedTextBox2
-            // 
-            maskedTextBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox2.Location = new Point(57, 212);
-            maskedTextBox2.Name = "maskedTextBox2";
-            maskedTextBox2.Size = new Size(667, 26);
-            maskedTextBox2.TabIndex = 9;
-            // 
-            // maskedTextBox1
-            // 
-            maskedTextBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            maskedTextBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            maskedTextBox1.Location = new Point(66, 171);
-            maskedTextBox1.Name = "maskedTextBox1";
-            maskedTextBox1.Size = new Size(658, 26);
-            maskedTextBox1.TabIndex = 8;
-            // 
-            // textBox5
-            // 
-            textBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox5.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox5.Location = new Point(103, 130);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(621, 26);
-            textBox5.TabIndex = 7;
-            // 
-            // textBox4
-            // 
-            textBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox4.Location = new Point(89, 89);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(635, 26);
-            textBox4.TabIndex = 6;
-            // 
-            // textBox3
-            // 
-            textBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox3.Location = new Point(129, 48);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(595, 26);
-            textBox3.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            textBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            textBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            textBox1.Location = new Point(78, 7);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(646, 26);
-            textBox1.TabIndex = 4;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.Transparent;
-            label4.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(12, 133);
-            label4.Name = "label4";
-            label4.Size = new Size(85, 19);
-            label4.TabIndex = 3;
-            label4.Text = "Pronome:";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.BackColor = Color.Transparent;
-            label3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(12, 92);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 19);
-            label3.TabIndex = 2;
-            label3.Text = "Gênero:";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(12, 51);
-            label2.Name = "label2";
-            label2.Size = new Size(111, 19);
-            label2.TabIndex = 1;
-            label2.Text = "Nome Social:";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 10);
-            label1.Name = "label1";
-            label1.Size = new Size(60, 19);
-            label1.TabIndex = 0;
-            label1.Text = "Nome:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
+            btn_cancelar.Click += btn_cancelar_Click;
             // 
             // lbl_observacoes
             // 
@@ -283,20 +99,21 @@
             lbl_observacoes.AutoSize = true;
             lbl_observacoes.BackColor = Color.Transparent;
             lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_observacoes.Location = new Point(12, 292);
+            lbl_observacoes.Location = new Point(12, 293);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(116, 19);
             lbl_observacoes.TabIndex = 36;
             lbl_observacoes.Text = "Observações:";
             // 
-            // textBox2
+            // txt_observacoes
             // 
-            textBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            textBox2.Location = new Point(12, 326);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(760, 69);
-            textBox2.TabIndex = 39;
+            txt_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_observacoes.Location = new Point(12, 326);
+            txt_observacoes.Multiline = true;
+            txt_observacoes.Name = "txt_observacoes";
+            txt_observacoes.Size = new Size(760, 69);
+            txt_observacoes.TabIndex = 39;
             // 
             // ckbox_administrador
             // 
@@ -310,22 +127,305 @@
             ckbox_administrador.Text = "Administrador";
             ckbox_administrador.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox1.Controls.Add(pnl_campos);
+            groupBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            groupBox1.Location = new Point(12, 12);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(760, 269);
+            groupBox1.TabIndex = 41;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Dados";
+            // 
+            // pnl_campos
+            // 
+            pnl_campos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnl_campos.AutoScroll = true;
+            pnl_campos.Controls.Add(lbl_senha);
+            pnl_campos.Controls.Add(txt_senha);
+            pnl_campos.Controls.Add(mtxt_telefone);
+            pnl_campos.Controls.Add(lbl_telefone);
+            pnl_campos.Controls.Add(txt_email);
+            pnl_campos.Controls.Add(txt_cargo);
+            pnl_campos.Controls.Add(email);
+            pnl_campos.Controls.Add(lbl_cep);
+            pnl_campos.Controls.Add(mtxt_cep);
+            pnl_campos.Controls.Add(lbl_cargo);
+            pnl_campos.Controls.Add(lbl_rg);
+            pnl_campos.Controls.Add(lbl_cpf);
+            pnl_campos.Controls.Add(mtxt_rg);
+            pnl_campos.Controls.Add(mtxt_cpf);
+            pnl_campos.Controls.Add(txt_pronome);
+            pnl_campos.Controls.Add(txt_genero);
+            pnl_campos.Controls.Add(txt_nome_social);
+            pnl_campos.Controls.Add(txt_nome);
+            pnl_campos.Controls.Add(lbl__pronome);
+            pnl_campos.Controls.Add(lbl_genero);
+            pnl_campos.Controls.Add(lbl_nome_social);
+            pnl_campos.Controls.Add(lbl_nome);
+            pnl_campos.Location = new Point(6, 25);
+            pnl_campos.Name = "pnl_campos";
+            pnl_campos.Padding = new Padding(0, 0, 0, 10);
+            pnl_campos.Size = new Size(748, 228);
+            pnl_campos.TabIndex = 36;
+            // 
+            // lbl_senha
+            // 
+            lbl_senha.AutoSize = true;
+            lbl_senha.BackColor = Color.Transparent;
+            lbl_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_senha.Location = new Point(13, 411);
+            lbl_senha.Name = "lbl_senha";
+            lbl_senha.Size = new Size(64, 19);
+            lbl_senha.TabIndex = 28;
+            lbl_senha.Text = "Senha:";
+            lbl_senha.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_senha
+            // 
+            txt_senha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_senha.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_senha.Location = new Point(83, 408);
+            txt_senha.Name = "txt_senha";
+            txt_senha.PasswordChar = '*';
+            txt_senha.Size = new Size(645, 26);
+            txt_senha.TabIndex = 27;
+            // 
+            // mtxt_telefone
+            // 
+            mtxt_telefone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            mtxt_telefone.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            mtxt_telefone.Location = new Point(98, 371);
+            mtxt_telefone.Mask = "(00) 00000-0000";
+            mtxt_telefone.Name = "mtxt_telefone";
+            mtxt_telefone.Size = new Size(630, 26);
+            mtxt_telefone.TabIndex = 24;
+            // 
+            // lbl_telefone
+            // 
+            lbl_telefone.AutoSize = true;
+            lbl_telefone.BackColor = Color.Transparent;
+            lbl_telefone.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_telefone.Location = new Point(12, 374);
+            lbl_telefone.Name = "lbl_telefone";
+            lbl_telefone.Size = new Size(80, 19);
+            lbl_telefone.TabIndex = 23;
+            lbl_telefone.Text = "Telefone:";
+            lbl_telefone.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_email
+            // 
+            txt_email.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_email.Location = new Point(76, 332);
+            txt_email.Name = "txt_email";
+            txt_email.Size = new Size(652, 26);
+            txt_email.TabIndex = 21;
+            // 
+            // txt_cargo
+            // 
+            txt_cargo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_cargo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_cargo.Location = new Point(81, 253);
+            txt_cargo.Name = "txt_cargo";
+            txt_cargo.PlaceholderText = "Campo obrigatório";
+            txt_cargo.Size = new Size(647, 26);
+            txt_cargo.TabIndex = 20;
+            // 
+            // email
+            // 
+            email.AutoSize = true;
+            email.BackColor = Color.Transparent;
+            email.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            email.Location = new Point(13, 335);
+            email.Name = "email";
+            email.Size = new Size(57, 19);
+            email.TabIndex = 16;
+            email.Text = "Email:";
+            email.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_cep
+            // 
+            lbl_cep.AutoSize = true;
+            lbl_cep.BackColor = Color.Transparent;
+            lbl_cep.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_cep.Location = new Point(12, 295);
+            lbl_cep.Name = "lbl_cep";
+            lbl_cep.Size = new Size(49, 19);
+            lbl_cep.TabIndex = 15;
+            lbl_cep.Text = "CEP:";
+            lbl_cep.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // mtxt_cep
+            // 
+            mtxt_cep.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            mtxt_cep.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            mtxt_cep.Location = new Point(67, 292);
+            mtxt_cep.Mask = "00000-000";
+            mtxt_cep.Name = "mtxt_cep";
+            mtxt_cep.Size = new Size(661, 26);
+            mtxt_cep.TabIndex = 14;
+            // 
+            // lbl_cargo
+            // 
+            lbl_cargo.AutoSize = true;
+            lbl_cargo.BackColor = Color.Transparent;
+            lbl_cargo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_cargo.Location = new Point(13, 256);
+            lbl_cargo.Name = "lbl_cargo";
+            lbl_cargo.Size = new Size(62, 19);
+            lbl_cargo.TabIndex = 13;
+            lbl_cargo.Text = "Cargo:";
+            lbl_cargo.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_rg
+            // 
+            lbl_rg.AutoSize = true;
+            lbl_rg.BackColor = Color.Transparent;
+            lbl_rg.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_rg.Location = new Point(12, 215);
+            lbl_rg.Name = "lbl_rg";
+            lbl_rg.Size = new Size(39, 19);
+            lbl_rg.TabIndex = 11;
+            lbl_rg.Text = "RG:";
+            lbl_rg.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_cpf
+            // 
+            lbl_cpf.AutoSize = true;
+            lbl_cpf.BackColor = Color.Transparent;
+            lbl_cpf.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_cpf.Location = new Point(12, 174);
+            lbl_cpf.Name = "lbl_cpf";
+            lbl_cpf.Size = new Size(48, 19);
+            lbl_cpf.TabIndex = 10;
+            lbl_cpf.Text = "CPF:";
+            lbl_cpf.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // mtxt_rg
+            // 
+            mtxt_rg.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            mtxt_rg.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            mtxt_rg.Location = new Point(57, 212);
+            mtxt_rg.Mask = "00,000,000-0";
+            mtxt_rg.Name = "mtxt_rg";
+            mtxt_rg.Size = new Size(671, 26);
+            mtxt_rg.TabIndex = 9;
+            // 
+            // mtxt_cpf
+            // 
+            mtxt_cpf.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            mtxt_cpf.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            mtxt_cpf.Location = new Point(66, 171);
+            mtxt_cpf.Mask = "000,000,000-00";
+            mtxt_cpf.Name = "mtxt_cpf";
+            mtxt_cpf.Size = new Size(662, 26);
+            mtxt_cpf.TabIndex = 8;
+            // 
+            // txt_pronome
+            // 
+            txt_pronome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_pronome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_pronome.Location = new Point(103, 130);
+            txt_pronome.Name = "txt_pronome";
+            txt_pronome.Size = new Size(625, 26);
+            txt_pronome.TabIndex = 7;
+            // 
+            // txt_genero
+            // 
+            txt_genero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_genero.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_genero.Location = new Point(89, 89);
+            txt_genero.Name = "txt_genero";
+            txt_genero.Size = new Size(639, 26);
+            txt_genero.TabIndex = 6;
+            // 
+            // txt_nome_social
+            // 
+            txt_nome_social.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_nome_social.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_nome_social.Location = new Point(129, 48);
+            txt_nome_social.Name = "txt_nome_social";
+            txt_nome_social.Size = new Size(599, 26);
+            txt_nome_social.TabIndex = 5;
+            // 
+            // txt_nome
+            // 
+            txt_nome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_nome.Location = new Point(78, 7);
+            txt_nome.Name = "txt_nome";
+            txt_nome.PlaceholderText = "Campo obrigatório";
+            txt_nome.Size = new Size(650, 26);
+            txt_nome.TabIndex = 4;
+            // 
+            // lbl__pronome
+            // 
+            lbl__pronome.AutoSize = true;
+            lbl__pronome.BackColor = Color.Transparent;
+            lbl__pronome.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl__pronome.Location = new Point(12, 133);
+            lbl__pronome.Name = "lbl__pronome";
+            lbl__pronome.Size = new Size(85, 19);
+            lbl__pronome.TabIndex = 3;
+            lbl__pronome.Text = "Pronome:";
+            lbl__pronome.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_genero
+            // 
+            lbl_genero.AutoSize = true;
+            lbl_genero.BackColor = Color.Transparent;
+            lbl_genero.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_genero.Location = new Point(12, 92);
+            lbl_genero.Name = "lbl_genero";
+            lbl_genero.Size = new Size(71, 19);
+            lbl_genero.TabIndex = 2;
+            lbl_genero.Text = "Gênero:";
+            lbl_genero.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_nome_social
+            // 
+            lbl_nome_social.AutoSize = true;
+            lbl_nome_social.BackColor = Color.Transparent;
+            lbl_nome_social.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_nome_social.Location = new Point(12, 51);
+            lbl_nome_social.Name = "lbl_nome_social";
+            lbl_nome_social.Size = new Size(111, 19);
+            lbl_nome_social.TabIndex = 1;
+            lbl_nome_social.Text = "Nome Social:";
+            lbl_nome_social.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // lbl_nome
+            // 
+            lbl_nome.AutoSize = true;
+            lbl_nome.BackColor = Color.Transparent;
+            lbl_nome.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_nome.Location = new Point(12, 10);
+            lbl_nome.Name = "lbl_nome";
+            lbl_nome.Size = new Size(60, 19);
+            lbl_nome.TabIndex = 0;
+            lbl_nome.Text = "Nome:";
+            lbl_nome.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // form_cadastro_funcionarios
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
-            Controls.Add(pnl_campos);
+            Controls.Add(groupBox1);
+            Controls.Add(lbl_observacoes);
+            Controls.Add(ckbox_administrador);
+            Controls.Add(txt_observacoes);
             Controls.Add(btn_cancelar);
             Controls.Add(btn_salvar);
-            Controls.Add(lbl_observacoes);
-            Controls.Add(textBox2);
-            Controls.Add(ckbox_administrador);
-            MinimumSize = new Size(800, 496);
+            MinimumSize = new Size(800, 500);
             Name = "form_cadastro_funcionarios";
             Text = "Cadastro de Funcionários";
             Load += form_cadastro_funcionarios_Load;
+            groupBox1.ResumeLayout(false);
             pnl_campos.ResumeLayout(false);
             pnl_campos.PerformLayout();
             ResumeLayout(false);
@@ -336,25 +436,32 @@
 
         private Button btn_salvar;
         private Button btn_cancelar;
-        private Panel pnl_campos;
         private Label lbl_observacoes;
-        private TextBox textBox2;
+        private TextBox txt_observacoes;
         private CheckBox ckbox_administrador;
-        private Label label1;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox1;
-        private MaskedTextBox maskedTextBox2;
-        private MaskedTextBox maskedTextBox1;
-        private Label label6;
-        private Label label5;
-        private MaskedTextBox maskedTextBox3;
-        private Label label7;
-        private MaskedTextBox maskedTextBox4;
-        private Label label8;
+        private GroupBox groupBox1;
+        private Panel pnl_campos;
+        private MaskedTextBox mtxt_telefone;
+        private Label lbl_telefone;
+        private TextBox txt_email;
+        private TextBox txt_cargo;
+        private Label email;
+        private Label lbl_cep;
+        private MaskedTextBox mtxt_cep;
+        private Label lbl_cargo;
+        private Label lbl_rg;
+        private Label lbl_cpf;
+        private MaskedTextBox mtxt_rg;
+        private MaskedTextBox mtxt_cpf;
+        private TextBox txt_pronome;
+        private TextBox txt_genero;
+        private TextBox txt_nome_social;
+        private TextBox txt_nome;
+        private Label lbl__pronome;
+        private Label lbl_genero;
+        private Label lbl_nome_social;
+        private Label lbl_nome;
+        private Label lbl_senha;
+        private TextBox txt_senha;
     }
 }

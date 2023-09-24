@@ -17,13 +17,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string nome { get; set; }
 
-        public string nome_social { get; set; }
+        public string nome_social { get; set; } = null;
 
         public int indice_genero { get; set; }
 
-        public string genero { get; set; }
+        public string genero { get; set; } = null;
 
-        public string pronome { get; set; }
+        public string pronome { get; set; } = null;
 
         public string cpf { get; set; }
 
@@ -45,9 +45,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int administrador { get; set; } = 0;
 
-        public DateTime data_cadastro { get; set; } = DateTime.Now;
+        public string data_cadastro { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        public DateTime data_modificacao { get; set; } = DateTime.Now;
+        public string data_modificacao { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
         public int ativo { get; set; } = 1;
 
@@ -73,21 +73,21 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        public async Task<bool>? Disable(int id)
+        public static async Task<bool>? Disable(int id)
         {
 
             return await Data_Service_Funcionario.DisableAsyncFuncionario(id);
 
         }
 
-        public async Task<bool>? Enable(int id)
+        public static async Task<bool>? Enable(int id)
         {
 
             return await Data_Service_Funcionario.EnableAsyncFuncionario(id);
 
         }
 
-        public async Task<List<Funcionario>>? GetList()
+        public static async Task<List<Funcionario>>? GetList()
         {
 
             return await Data_Service_Funcionario.GetListAsyncFuncionario();

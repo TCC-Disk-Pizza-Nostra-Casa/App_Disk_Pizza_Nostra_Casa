@@ -17,7 +17,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        public Model.Funcionario usuario_sessao;
+        //public Model.Funcionario usuario_sessao;
 
         public form_cadastro_funcionarios()
         {
@@ -47,7 +47,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (this.usuario_sessao != null)
                 {
 
-                    Preencher_Formulario(this.usuario_sessao);
+                    Form_Fill(this.usuario_sessao);
 
                 }*/
 
@@ -62,18 +62,22 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        /*private void Preencher_Formulario(Model.Funcionario dados)
+        private void Form_Fill(Model.Funcionario dados)
         {
 
             txt_nome.Text = dados.nome;
 
-            cbbox_genero.Text = dados.genero;
+            txt_nome_social.Text = dados.nome_social;
+
+            txt_pronome.Text = dados.pronome;
+
+            txt_genero.Text = dados.genero;
 
             mtxt_cpf.Text = dados.cpf;
 
             mtxt_rg.Text = dados.rg;
 
-            cbbox_cargo.Text = dados.cargo;
+            txt_cargo.Text = dados.cargo;
 
             mtxt_cep.Text = dados.cep;
 
@@ -98,17 +102,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                     nome = txt_nome.Text,
 
-                    indice_genero = cbbox_genero.SelectedIndex,
+                    nome_social = txt_nome_social.Text,
 
-                    genero = cbbox_genero.Text,
+                    indice_genero = 1,
+
+                    genero = txt_genero.Text,
+
+                    pronome = txt_pronome.Text,
 
                     cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
 
                     rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
 
-                    indice_cargo = cbbox_cargo.SelectedIndex,
+                    indice_cargo = 1,
 
-                    cargo = cbbox_cargo.Text,
+                    cargo = txt_cargo.Text,
 
                     cep = mtxt_cep.Text.Replace("-", ""),
 
@@ -176,7 +184,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
             }
 
-        }*/
+        }
 
     }
 
