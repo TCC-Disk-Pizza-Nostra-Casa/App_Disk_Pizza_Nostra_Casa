@@ -12,13 +12,21 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int id { get; set; }
 
-        public DateTime data_venda { get; set; }
+        public string data_venda { get; set; }
 
         public bool delivery { get; set; }
 
         public double valor_total { get; set; }
 
-        public int id_funcionario { get; set; }
+        public string funcionario { get; set; }
+
+        public string cliente { get; set; }
+
+        public List<string> produto { get; set; }
+
+        public List<int> quantidade_produto { get; set; }
+
+        public List<double> valor_total_item_venda { get; set; }
 
         public int id_cliente { get; set; }
 

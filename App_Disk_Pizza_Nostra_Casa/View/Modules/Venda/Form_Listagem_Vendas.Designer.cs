@@ -33,9 +33,9 @@
             txt_pesquisar_vendas_data = new TextBox();
             lbl_pesquisar_vendas = new Label();
             dgv_listagem_vendas = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_nome = new DataGridViewTextBoxColumn();
             nome_cliente = new DataGridViewTextBoxColumn();
-            Produto = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_estoque = new DataGridViewTextBoxColumn();
             Funcionario = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
@@ -86,7 +86,7 @@
             dgv_listagem_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_listagem_vendas.BackgroundColor = Color.Gray;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { dgv_listagem_produtos_nome, nome_cliente, Produto, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
+            dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { id, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
             dgv_listagem_vendas.Location = new Point(10, 49);
             dgv_listagem_vendas.MultiSelect = false;
             dgv_listagem_vendas.Name = "dgv_listagem_vendas";
@@ -95,13 +95,17 @@
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_vendas.Size = new Size(760, 400);
             dgv_listagem_vendas.TabIndex = 6;
-            dgv_listagem_vendas.CellContentClick += dgv_listagem_vendas_CellContentClick;
+            // 
+            // id
+            // 
+            id.HeaderText = "Código da venda";
+            id.Name = "id";
+            id.ReadOnly = true;
             // 
             // dgv_listagem_produtos_nome
             // 
             dgv_listagem_produtos_nome.DividerWidth = 2;
             dgv_listagem_produtos_nome.FillWeight = 130F;
-            dgv_listagem_produtos_nome.Frozen = true;
             dgv_listagem_produtos_nome.HeaderText = "Data da Venda";
             dgv_listagem_produtos_nome.Name = "dgv_listagem_produtos_nome";
             dgv_listagem_produtos_nome.ReadOnly = true;
@@ -115,14 +119,6 @@
             nome_cliente.Name = "nome_cliente";
             nome_cliente.ReadOnly = true;
             nome_cliente.Width = 420;
-            // 
-            // Produto
-            // 
-            Produto.FillWeight = 420F;
-            Produto.HeaderText = "Produto(s)";
-            Produto.Name = "Produto";
-            Produto.ReadOnly = true;
-            Produto.Width = 420;
             // 
             // dgv_listagem_produtos_estoque
             // 
@@ -178,9 +174,9 @@
         private DataGridView dgv_listagem_vendas;
         private TextBox textBox1;
         private TextBox textBox2;
+        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_nome;
         private DataGridViewTextBoxColumn nome_cliente;
-        private DataGridViewTextBoxColumn Produto;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_estoque;
         private DataGridViewTextBoxColumn Funcionario;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_preco;
