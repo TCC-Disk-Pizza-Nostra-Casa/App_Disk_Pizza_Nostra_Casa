@@ -13,12 +13,17 @@ using App_Disk_Pizza_Nostra_Casa.Service;
 
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
+
     public partial class Form_Cadastro_Clientes : Form
     {
+
         private Model.Cliente cliente_edicao;
+
         public Form_Cadastro_Clientes()
         {
+
             InitializeComponent();
+
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
@@ -41,7 +46,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
                 email = txt_email_cliente.Text,
                 telefone = txt_telefone_cliente.Text,
                 observacoes = txt_observacoes_cliente.Text,
-                ativo = chk_ativo.Checked
+                ativo = (chk_ativo.Checked) ? 1 : 0
 
             };
 
@@ -64,10 +69,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
             txt_telefone_cliente.Text = cliente.telefone;
             txt_observacoes_cliente.Text = cliente.observacoes;
 
-            if (cliente.ativo == true) chk_ativo.Checked = true;
+            if(Convert.ToBoolean(cliente.ativo) == true) chk_ativo.Checked = true;
             else chk_ativo.Checked = false;
 
-
         }
+
     }
+
 }

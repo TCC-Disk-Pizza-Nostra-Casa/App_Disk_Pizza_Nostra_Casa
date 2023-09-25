@@ -29,145 +29,148 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_listagem_funcionarios));
-            this.btn_pesquisar_funcionario = new System.Windows.Forms.Button();
-            this.txt_pesquisar_funcionario = new System.Windows.Forms.TextBox();
-            this.lbl_pesquisar_funcionario = new System.Windows.Forms.Label();
-            this.dgv_listagem_funcionarios = new System.Windows.Forms.DataGridView();
-            this.dgv_listagem_funcionarios_numero_linha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_listagem_funcionarios_nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_listagem_funcionarios_email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgv_listagem_funcionarios_cadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_listagem_funcionarios)).BeginInit();
-            this.SuspendLayout();
+            btn_pesquisar_funcionario = new Button();
+            txt_pesquisar_funcionario = new TextBox();
+            lbl_pesquisar_funcionario = new Label();
+            dgv_listagem_funcionarios = new DataGridView();
+            btn_desativar = new Button();
+            btn_reativar = new Button();
+            btn_voltar = new Button();
+            cbbox_condicao_funcionario = new ComboBox();
+            ((System.ComponentModel.ISupportInitialize)dgv_listagem_funcionarios).BeginInit();
+            SuspendLayout();
             // 
             // btn_pesquisar_funcionario
             // 
-            this.btn_pesquisar_funcionario.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_pesquisar_funcionario.BackColor = System.Drawing.Color.Transparent;
-            this.btn_pesquisar_funcionario.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_pesquisar_funcionario.BackgroundImage")));
-            this.btn_pesquisar_funcionario.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_pesquisar_funcionario.FlatAppearance.BorderSize = 0;
-            this.btn_pesquisar_funcionario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_pesquisar_funcionario.Location = new System.Drawing.Point(856, 15);
-            this.btn_pesquisar_funcionario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";
-            this.btn_pesquisar_funcionario.Size = new System.Drawing.Size(26, 31);
-            this.btn_pesquisar_funcionario.TabIndex = 5;
-            this.btn_pesquisar_funcionario.UseVisualStyleBackColor = false;
+            btn_pesquisar_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btn_pesquisar_funcionario.BackColor = Color.Transparent;
+            btn_pesquisar_funcionario.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_funcionario.BackgroundImage");
+            btn_pesquisar_funcionario.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_pesquisar_funcionario.FlatAppearance.BorderSize = 0;
+            btn_pesquisar_funcionario.FlatStyle = FlatStyle.Flat;
+            btn_pesquisar_funcionario.Location = new Point(749, 13);
+            btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";
+            btn_pesquisar_funcionario.Size = new Size(23, 23);
+            btn_pesquisar_funcionario.TabIndex = 5;
+            btn_pesquisar_funcionario.UseVisualStyleBackColor = false;
             // 
             // txt_pesquisar_funcionario
             // 
-            this.txt_pesquisar_funcionario.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txt_pesquisar_funcionario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_pesquisar_funcionario.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txt_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txt_pesquisar_funcionario.Location = new System.Drawing.Point(135, 16);
-            this.txt_pesquisar_funcionario.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
-            this.txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do funcionário...";
-            this.txt_pesquisar_funcionario.Size = new System.Drawing.Size(714, 26);
-            this.txt_pesquisar_funcionario.TabIndex = 4;
+            txt_pesquisar_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_pesquisar_funcionario.BorderStyle = BorderStyle.FixedSingle;
+            txt_pesquisar_funcionario.Cursor = Cursors.IBeam;
+            txt_pesquisar_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_pesquisar_funcionario.Location = new Point(110, 12);
+            txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
+            txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do funcionário...";
+            txt_pesquisar_funcionario.Size = new Size(633, 26);
+            txt_pesquisar_funcionario.TabIndex = 4;
             // 
             // lbl_pesquisar_funcionario
             // 
-            this.lbl_pesquisar_funcionario.AutoSize = true;
-            this.lbl_pesquisar_funcionario.Font = new System.Drawing.Font("Arial", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbl_pesquisar_funcionario.Location = new System.Drawing.Point(14, 16);
-            this.lbl_pesquisar_funcionario.Name = "lbl_pesquisar_funcionario";
-            this.lbl_pesquisar_funcionario.Size = new System.Drawing.Size(126, 27);
-            this.lbl_pesquisar_funcionario.TabIndex = 6;
-            this.lbl_pesquisar_funcionario.Text = "Pesquisar:";
+            lbl_pesquisar_funcionario.AutoSize = true;
+            lbl_pesquisar_funcionario.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_pesquisar_funcionario.Location = new Point(12, 14);
+            lbl_pesquisar_funcionario.Name = "lbl_pesquisar_funcionario";
+            lbl_pesquisar_funcionario.Size = new Size(92, 19);
+            lbl_pesquisar_funcionario.TabIndex = 6;
+            lbl_pesquisar_funcionario.Text = "Pesquisar:";
             // 
             // dgv_listagem_funcionarios
             // 
-            this.dgv_listagem_funcionarios.AllowUserToAddRows = false;
-            this.dgv_listagem_funcionarios.AllowUserToDeleteRows = false;
-            this.dgv_listagem_funcionarios.AllowUserToOrderColumns = true;
-            this.dgv_listagem_funcionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgv_listagem_funcionarios.BackgroundColor = System.Drawing.Color.Gray;
-            this.dgv_listagem_funcionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_listagem_funcionarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgv_listagem_funcionarios_numero_linha,
-            this.dgv_listagem_funcionarios_nome,
-            this.dgv_listagem_funcionarios_email,
-            this.dgv_listagem_funcionarios_cadastro});
-            this.dgv_listagem_funcionarios.Location = new System.Drawing.Point(14, 64);
-            this.dgv_listagem_funcionarios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dgv_listagem_funcionarios.MultiSelect = false;
-            this.dgv_listagem_funcionarios.Name = "dgv_listagem_funcionarios";
-            this.dgv_listagem_funcionarios.ReadOnly = true;
-            this.dgv_listagem_funcionarios.RowHeadersWidth = 51;
-            this.dgv_listagem_funcionarios.RowTemplate.Height = 25;
-            this.dgv_listagem_funcionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_listagem_funcionarios.Size = new System.Drawing.Size(869, 533);
-            this.dgv_listagem_funcionarios.TabIndex = 3;
+            dgv_listagem_funcionarios.AllowUserToAddRows = false;
+            dgv_listagem_funcionarios.AllowUserToDeleteRows = false;
+            dgv_listagem_funcionarios.AllowUserToOrderColumns = true;
+            dgv_listagem_funcionarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_listagem_funcionarios.BackgroundColor = Color.White;
+            dgv_listagem_funcionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_listagem_funcionarios.Location = new Point(12, 92);
+            dgv_listagem_funcionarios.MultiSelect = false;
+            dgv_listagem_funcionarios.Name = "dgv_listagem_funcionarios";
+            dgv_listagem_funcionarios.ReadOnly = true;
+            dgv_listagem_funcionarios.RowHeadersWidth = 51;
+            dgv_listagem_funcionarios.RowTemplate.Height = 25;
+            dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_listagem_funcionarios.Size = new Size(760, 299);
+            dgv_listagem_funcionarios.TabIndex = 3;
             // 
-            // dgv_listagem_funcionarios_numero_linha
+            // btn_desativar
             // 
-            this.dgv_listagem_funcionarios_numero_linha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgv_listagem_funcionarios_numero_linha.DividerWidth = 2;
-            this.dgv_listagem_funcionarios_numero_linha.FillWeight = 44.31297F;
-            this.dgv_listagem_funcionarios_numero_linha.HeaderText = "Índice:";
-            this.dgv_listagem_funcionarios_numero_linha.MinimumWidth = 6;
-            this.dgv_listagem_funcionarios_numero_linha.Name = "dgv_listagem_funcionarios_numero_linha";
-            this.dgv_listagem_funcionarios_numero_linha.ReadOnly = true;
-            this.dgv_listagem_funcionarios_numero_linha.ToolTipText = "Numeração das linhas da tabela.";
+            btn_desativar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_desativar.BackColor = Color.Transparent;
+            btn_desativar.FlatAppearance.BorderColor = Color.Black;
+            btn_desativar.FlatAppearance.BorderSize = 2;
+            btn_desativar.FlatStyle = FlatStyle.Flat;
+            btn_desativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_desativar.Location = new Point(534, 410);
+            btn_desativar.Name = "btn_desativar";
+            btn_desativar.Size = new Size(116, 39);
+            btn_desativar.TabIndex = 36;
+            btn_desativar.Text = "Desativar";
+            btn_desativar.UseVisualStyleBackColor = false;
             // 
-            // dgv_listagem_funcionarios_nome
+            // btn_reativar
             // 
-            this.dgv_listagem_funcionarios_nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgv_listagem_funcionarios_nome.DividerWidth = 2;
-            this.dgv_listagem_funcionarios_nome.FillWeight = 187.9669F;
-            this.dgv_listagem_funcionarios_nome.HeaderText = "Nome Completo:";
-            this.dgv_listagem_funcionarios_nome.MinimumWidth = 6;
-            this.dgv_listagem_funcionarios_nome.Name = "dgv_listagem_funcionarios_nome";
-            this.dgv_listagem_funcionarios_nome.ReadOnly = true;
-            this.dgv_listagem_funcionarios_nome.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_listagem_funcionarios_nome.ToolTipText = "Nome completo do funcionário.";
+            btn_reativar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_reativar.BackColor = Color.Transparent;
+            btn_reativar.FlatAppearance.BorderColor = Color.Black;
+            btn_reativar.FlatAppearance.BorderSize = 2;
+            btn_reativar.FlatStyle = FlatStyle.Flat;
+            btn_reativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_reativar.Location = new Point(656, 410);
+            btn_reativar.Name = "btn_reativar";
+            btn_reativar.Size = new Size(116, 39);
+            btn_reativar.TabIndex = 35;
+            btn_reativar.Text = "Reativar";
+            btn_reativar.UseVisualStyleBackColor = false;
             // 
-            // dgv_listagem_funcionarios_email
+            // btn_voltar
             // 
-            this.dgv_listagem_funcionarios_email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgv_listagem_funcionarios_email.DividerWidth = 2;
-            this.dgv_listagem_funcionarios_email.FillWeight = 101.5229F;
-            this.dgv_listagem_funcionarios_email.HeaderText = "E-Mail:";
-            this.dgv_listagem_funcionarios_email.MinimumWidth = 6;
-            this.dgv_listagem_funcionarios_email.Name = "dgv_listagem_funcionarios_email";
-            this.dgv_listagem_funcionarios_email.ReadOnly = true;
-            this.dgv_listagem_funcionarios_email.ToolTipText = "E-Mail do funcionário.";
+            btn_voltar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_voltar.BackColor = Color.Transparent;
+            btn_voltar.FlatAppearance.BorderColor = Color.Black;
+            btn_voltar.FlatAppearance.BorderSize = 2;
+            btn_voltar.FlatStyle = FlatStyle.Flat;
+            btn_voltar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_voltar.Location = new Point(12, 410);
+            btn_voltar.Name = "btn_voltar";
+            btn_voltar.Size = new Size(116, 39);
+            btn_voltar.TabIndex = 37;
+            btn_voltar.Text = "Voltar";
+            btn_voltar.UseVisualStyleBackColor = false;
+            btn_voltar.Click += btn_voltar_Click;
             // 
-            // dgv_listagem_funcionarios_cadastro
+            // cbbox_condicao_funcionario
             // 
-            this.dgv_listagem_funcionarios_cadastro.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dgv_listagem_funcionarios_cadastro.FillWeight = 66.19731F;
-            this.dgv_listagem_funcionarios_cadastro.HeaderText = "Cadastrado em:";
-            this.dgv_listagem_funcionarios_cadastro.MinimumWidth = 6;
-            this.dgv_listagem_funcionarios_cadastro.Name = "dgv_listagem_funcionarios_cadastro";
-            this.dgv_listagem_funcionarios_cadastro.ReadOnly = true;
-            this.dgv_listagem_funcionarios_cadastro.ToolTipText = "Data de cadastramento do funcionário";
+            cbbox_condicao_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbbox_condicao_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_condicao_funcionario.FormattingEnabled = true;
+            cbbox_condicao_funcionario.Location = new Point(613, 53);
+            cbbox_condicao_funcionario.Name = "cbbox_condicao_funcionario";
+            cbbox_condicao_funcionario.Size = new Size(159, 26);
+            cbbox_condicao_funcionario.TabIndex = 38;
             // 
             // form_listagem_funcionarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(896, 615);
-            this.Controls.Add(this.btn_pesquisar_funcionario);
-            this.Controls.Add(this.txt_pesquisar_funcionario);
-            this.Controls.Add(this.lbl_pesquisar_funcionario);
-            this.Controls.Add(this.dgv_listagem_funcionarios);
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.MinimumSize = new System.Drawing.Size(912, 651);
-            this.Name = "form_listagem_funcionarios";
-            this.Text = "Listagem de Funcionários";
-            this.Load += new System.EventHandler(this.form_listagem_funcionarios_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_listagem_funcionarios)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(784, 461);
+            Controls.Add(cbbox_condicao_funcionario);
+            Controls.Add(btn_voltar);
+            Controls.Add(btn_desativar);
+            Controls.Add(btn_reativar);
+            Controls.Add(btn_pesquisar_funcionario);
+            Controls.Add(txt_pesquisar_funcionario);
+            Controls.Add(lbl_pesquisar_funcionario);
+            Controls.Add(dgv_listagem_funcionarios);
+            MinimumSize = new Size(800, 500);
+            Name = "form_listagem_funcionarios";
+            Text = "Listagem de Funcionários";
+            Load += form_listagem_funcionarios_Load;
+            ((System.ComponentModel.ISupportInitialize)dgv_listagem_funcionarios).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -176,9 +179,9 @@
         private TextBox txt_pesquisar_funcionario;
         private Label lbl_pesquisar_funcionario;
         private DataGridView dgv_listagem_funcionarios;
-        private DataGridViewTextBoxColumn dgv_listagem_funcionarios_numero_linha;
-        private DataGridViewTextBoxColumn dgv_listagem_funcionarios_nome;
-        private DataGridViewTextBoxColumn dgv_listagem_funcionarios_email;
-        private DataGridViewTextBoxColumn dgv_listagem_funcionarios_cadastro;
+        private Button btn_desativar;
+        private Button btn_reativar;
+        private Button btn_voltar;
+        private ComboBox cbbox_condicao_funcionario;
     }
 }

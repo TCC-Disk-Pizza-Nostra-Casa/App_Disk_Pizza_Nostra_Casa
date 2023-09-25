@@ -32,7 +32,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                this.MinimumSize = new Size(1200, 800);
+                this.MinimumSize = new Size(1200, 700);
 
                 this.Size = new Size(1200, 800);
 
