@@ -31,6 +31,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_inicio));
             pnl_menu_lateral = new Panel();
             pnl_opcoes = new Panel();
+            pnl_submenu_fornecedores = new Panel();
+            btn_listagem_fornecedores = new Button();
+            btn_cadastro_fornecedor = new Button();
+            btn_fornecedores = new Button();
             pnl_submenu_clientes = new Panel();
             btn_listagem_clientes = new Button();
             btn_cadastro_cliente = new Button();
@@ -56,6 +60,7 @@
             pnl_titulo_formulario_externo = new Panel();
             pnl_menu_lateral.SuspendLayout();
             pnl_opcoes.SuspendLayout();
+            pnl_submenu_fornecedores.SuspendLayout();
             pnl_submenu_clientes.SuspendLayout();
             pnl_submenu_vendas.SuspendLayout();
             pnl_submenu_produtos.SuspendLayout();
@@ -80,6 +85,8 @@
             // pnl_opcoes
             // 
             pnl_opcoes.AutoScroll = true;
+            pnl_opcoes.Controls.Add(pnl_submenu_fornecedores);
+            pnl_opcoes.Controls.Add(btn_fornecedores);
             pnl_opcoes.Controls.Add(pnl_submenu_clientes);
             pnl_opcoes.Controls.Add(btn_clientes);
             pnl_opcoes.Controls.Add(btn_perfil);
@@ -95,6 +102,82 @@
             pnl_opcoes.Name = "pnl_opcoes";
             pnl_opcoes.Size = new Size(211, 614);
             pnl_opcoes.TabIndex = 12;
+            // 
+            // pnl_submenu_fornecedores
+            // 
+            pnl_submenu_fornecedores.Controls.Add(btn_listagem_fornecedores);
+            pnl_submenu_fornecedores.Controls.Add(btn_cadastro_fornecedor);
+            pnl_submenu_fornecedores.Dock = DockStyle.Top;
+            pnl_submenu_fornecedores.Location = new Point(0, 600);
+            pnl_submenu_fornecedores.Name = "pnl_submenu_fornecedores";
+            pnl_submenu_fornecedores.Size = new Size(194, 88);
+            pnl_submenu_fornecedores.TabIndex = 16;
+            // 
+            // btn_listagem_fornecedores
+            // 
+            btn_listagem_fornecedores.BackColor = Color.FromArgb(153, 88, 50);
+            btn_listagem_fornecedores.Cursor = Cursors.Hand;
+            btn_listagem_fornecedores.Dock = DockStyle.Top;
+            btn_listagem_fornecedores.FlatAppearance.BorderSize = 0;
+            btn_listagem_fornecedores.FlatAppearance.CheckedBackColor = Color.FromArgb(192, 108, 48);
+            btn_listagem_fornecedores.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 108, 48);
+            btn_listagem_fornecedores.FlatAppearance.MouseOverBackColor = Color.FromArgb(171, 98, 55);
+            btn_listagem_fornecedores.FlatStyle = FlatStyle.Flat;
+            btn_listagem_fornecedores.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_listagem_fornecedores.ForeColor = Color.White;
+            btn_listagem_fornecedores.Location = new Point(0, 44);
+            btn_listagem_fornecedores.Name = "btn_listagem_fornecedores";
+            btn_listagem_fornecedores.Padding = new Padding(30, 0, 0, 0);
+            btn_listagem_fornecedores.Size = new Size(194, 44);
+            btn_listagem_fornecedores.TabIndex = 13;
+            btn_listagem_fornecedores.Text = "Listagem";
+            btn_listagem_fornecedores.TextAlign = ContentAlignment.MiddleLeft;
+            btn_listagem_fornecedores.UseVisualStyleBackColor = false;
+            btn_listagem_fornecedores.Click += btn_listagem_fornecedores_Click;
+            // 
+            // btn_cadastro_fornecedor
+            // 
+            btn_cadastro_fornecedor.BackColor = Color.FromArgb(153, 88, 50);
+            btn_cadastro_fornecedor.Cursor = Cursors.Hand;
+            btn_cadastro_fornecedor.Dock = DockStyle.Top;
+            btn_cadastro_fornecedor.FlatAppearance.BorderSize = 0;
+            btn_cadastro_fornecedor.FlatAppearance.CheckedBackColor = Color.FromArgb(192, 108, 48);
+            btn_cadastro_fornecedor.FlatAppearance.MouseDownBackColor = Color.FromArgb(192, 108, 48);
+            btn_cadastro_fornecedor.FlatAppearance.MouseOverBackColor = Color.FromArgb(171, 98, 55);
+            btn_cadastro_fornecedor.FlatStyle = FlatStyle.Flat;
+            btn_cadastro_fornecedor.Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_cadastro_fornecedor.ForeColor = Color.White;
+            btn_cadastro_fornecedor.Location = new Point(0, 0);
+            btn_cadastro_fornecedor.Name = "btn_cadastro_fornecedor";
+            btn_cadastro_fornecedor.Padding = new Padding(30, 0, 0, 0);
+            btn_cadastro_fornecedor.Size = new Size(194, 44);
+            btn_cadastro_fornecedor.TabIndex = 12;
+            btn_cadastro_fornecedor.Text = "Cadastro";
+            btn_cadastro_fornecedor.TextAlign = ContentAlignment.MiddleLeft;
+            btn_cadastro_fornecedor.UseVisualStyleBackColor = false;
+            btn_cadastro_fornecedor.Click += btn_cadastro_fornecedor_Click;
+            // 
+            // btn_fornecedores
+            // 
+            btn_fornecedores.BackColor = Color.Transparent;
+            btn_fornecedores.Cursor = Cursors.Hand;
+            btn_fornecedores.Dock = DockStyle.Top;
+            btn_fornecedores.FlatAppearance.BorderSize = 0;
+            btn_fornecedores.FlatAppearance.CheckedBackColor = Color.SaddleBrown;
+            btn_fornecedores.FlatAppearance.MouseDownBackColor = Color.SaddleBrown;
+            btn_fornecedores.FlatAppearance.MouseOverBackColor = Color.FromArgb(153, 68, 0);
+            btn_fornecedores.FlatStyle = FlatStyle.Flat;
+            btn_fornecedores.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_fornecedores.ForeColor = Color.White;
+            btn_fornecedores.Location = new Point(0, 550);
+            btn_fornecedores.Name = "btn_fornecedores";
+            btn_fornecedores.Padding = new Padding(10, 0, 0, 0);
+            btn_fornecedores.Size = new Size(194, 50);
+            btn_fornecedores.TabIndex = 15;
+            btn_fornecedores.Text = "Fornecedores";
+            btn_fornecedores.TextAlign = ContentAlignment.MiddleLeft;
+            btn_fornecedores.UseVisualStyleBackColor = false;
+            btn_fornecedores.Click += btn_fornecedores_Click;
             // 
             // pnl_submenu_clientes
             // 
@@ -184,7 +267,7 @@
             btn_perfil.FlatStyle = FlatStyle.Flat;
             btn_perfil.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btn_perfil.ForeColor = Color.White;
-            btn_perfil.Location = new Point(0, 550);
+            btn_perfil.Location = new Point(0, 688);
             btn_perfil.Name = "btn_perfil";
             btn_perfil.Padding = new Padding(10, 0, 0, 0);
             btn_perfil.Size = new Size(194, 50);
@@ -206,7 +289,7 @@
             btn_sair.FlatStyle = FlatStyle.Flat;
             btn_sair.Font = new Font("Arial", 10F, FontStyle.Bold, GraphicsUnit.Point);
             btn_sair.ForeColor = Color.White;
-            btn_sair.Location = new Point(0, 600);
+            btn_sair.Location = new Point(0, 738);
             btn_sair.Name = "btn_sair";
             btn_sair.Padding = new Padding(10, 0, 0, 0);
             btn_sair.Size = new Size(194, 50);
@@ -516,6 +599,7 @@
             Load += form_inicio_Load;
             pnl_menu_lateral.ResumeLayout(false);
             pnl_opcoes.ResumeLayout(false);
+            pnl_submenu_fornecedores.ResumeLayout(false);
             pnl_submenu_clientes.ResumeLayout(false);
             pnl_submenu_vendas.ResumeLayout(false);
             pnl_submenu_produtos.ResumeLayout(false);
@@ -554,5 +638,9 @@
         private Button btn_listagem_clientes;
         private Button btn_cadastro_cliente;
         private Button btn_clientes;
+        private Panel pnl_submenu_fornecedores;
+        private Button btn_listagem_fornecedores;
+        private Button btn_cadastro_fornecedor;
+        private Button btn_fornecedores;
     }
 }

@@ -31,6 +31,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
+        public static bool CNPJValidation()
+        {
+
+            return false;
+
+        }
+
     }
 
 }
