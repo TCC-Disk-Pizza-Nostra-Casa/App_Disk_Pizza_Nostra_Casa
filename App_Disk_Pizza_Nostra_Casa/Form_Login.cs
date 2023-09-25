@@ -83,11 +83,11 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             genero = "Não informado.",
 
+                            estado_civil = "Solteiro",
+
                             cpf = "12345678909",
 
                             rg = "123456789",
-
-                            cargo = "Balconista",
 
                             cep = "17212646",
 

@@ -35,27 +35,25 @@
             ckbox_administrador = new CheckBox();
             groupBox1 = new GroupBox();
             pnl_campos = new Panel();
+            cbbox_estado_civil = new ComboBox();
+            cbbox_genero = new ComboBox();
+            lbl_estado_civil = new Label();
+            txt_confirmar_senha = new TextBox();
+            lbl_confirmar_senha = new Label();
             lbl_senha = new Label();
             txt_senha = new TextBox();
             mtxt_telefone = new MaskedTextBox();
             lbl_telefone = new Label();
             txt_email = new TextBox();
-            txt_cargo = new TextBox();
             email = new Label();
             lbl_cep = new Label();
             mtxt_cep = new MaskedTextBox();
-            lbl_cargo = new Label();
             lbl_rg = new Label();
             lbl_cpf = new Label();
             mtxt_rg = new MaskedTextBox();
             mtxt_cpf = new MaskedTextBox();
-            txt_pronome = new TextBox();
-            txt_genero = new TextBox();
-            txt_nome_social = new TextBox();
             txt_nome = new TextBox();
-            lbl__pronome = new Label();
             lbl_genero = new Label();
-            lbl_nome_social = new Label();
             lbl_nome = new Label();
             groupBox1.SuspendLayout();
             pnl_campos.SuspendLayout();
@@ -112,6 +110,7 @@
             txt_observacoes.Location = new Point(12, 326);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
+            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) funcionário(a)...";
             txt_observacoes.Size = new Size(760, 69);
             txt_observacoes.TabIndex = 39;
             // 
@@ -143,27 +142,25 @@
             // 
             pnl_campos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnl_campos.AutoScroll = true;
+            pnl_campos.Controls.Add(cbbox_estado_civil);
+            pnl_campos.Controls.Add(cbbox_genero);
+            pnl_campos.Controls.Add(lbl_estado_civil);
+            pnl_campos.Controls.Add(txt_confirmar_senha);
+            pnl_campos.Controls.Add(lbl_confirmar_senha);
             pnl_campos.Controls.Add(lbl_senha);
             pnl_campos.Controls.Add(txt_senha);
             pnl_campos.Controls.Add(mtxt_telefone);
             pnl_campos.Controls.Add(lbl_telefone);
             pnl_campos.Controls.Add(txt_email);
-            pnl_campos.Controls.Add(txt_cargo);
             pnl_campos.Controls.Add(email);
             pnl_campos.Controls.Add(lbl_cep);
             pnl_campos.Controls.Add(mtxt_cep);
-            pnl_campos.Controls.Add(lbl_cargo);
             pnl_campos.Controls.Add(lbl_rg);
             pnl_campos.Controls.Add(lbl_cpf);
             pnl_campos.Controls.Add(mtxt_rg);
             pnl_campos.Controls.Add(mtxt_cpf);
-            pnl_campos.Controls.Add(txt_pronome);
-            pnl_campos.Controls.Add(txt_genero);
-            pnl_campos.Controls.Add(txt_nome_social);
             pnl_campos.Controls.Add(txt_nome);
-            pnl_campos.Controls.Add(lbl__pronome);
             pnl_campos.Controls.Add(lbl_genero);
-            pnl_campos.Controls.Add(lbl_nome_social);
             pnl_campos.Controls.Add(lbl_nome);
             pnl_campos.Location = new Point(6, 25);
             pnl_campos.Name = "pnl_campos";
@@ -171,12 +168,66 @@
             pnl_campos.Size = new Size(748, 228);
             pnl_campos.TabIndex = 36;
             // 
+            // cbbox_estado_civil
+            // 
+            cbbox_estado_civil.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_estado_civil.FormattingEnabled = true;
+            cbbox_estado_civil.Location = new Point(124, 87);
+            cbbox_estado_civil.Name = "cbbox_estado_civil";
+            cbbox_estado_civil.Size = new Size(604, 26);
+            cbbox_estado_civil.TabIndex = 34;
+            // 
+            // cbbox_genero
+            // 
+            cbbox_genero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_genero.FormattingEnabled = true;
+            cbbox_genero.Location = new Point(89, 46);
+            cbbox_genero.Name = "cbbox_genero";
+            cbbox_genero.Size = new Size(639, 26);
+            cbbox_genero.TabIndex = 33;
+            cbbox_genero.SelectedIndexChanged += cbbox_genero_SelectedIndexChanged;
+            // 
+            // lbl_estado_civil
+            // 
+            lbl_estado_civil.AutoSize = true;
+            lbl_estado_civil.BackColor = Color.Transparent;
+            lbl_estado_civil.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_estado_civil.Location = new Point(12, 90);
+            lbl_estado_civil.Name = "lbl_estado_civil";
+            lbl_estado_civil.Size = new Size(106, 19);
+            lbl_estado_civil.TabIndex = 32;
+            lbl_estado_civil.Text = "Estado Civil:";
+            lbl_estado_civil.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // txt_confirmar_senha
+            // 
+            txt_confirmar_senha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_confirmar_senha.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_confirmar_senha.Location = new Point(161, 362);
+            txt_confirmar_senha.Name = "txt_confirmar_senha";
+            txt_confirmar_senha.PasswordChar = '*';
+            txt_confirmar_senha.PlaceholderText = "Confirme a senha...";
+            txt_confirmar_senha.Size = new Size(567, 26);
+            txt_confirmar_senha.TabIndex = 30;
+            // 
+            // lbl_confirmar_senha
+            // 
+            lbl_confirmar_senha.AutoSize = true;
+            lbl_confirmar_senha.BackColor = Color.Transparent;
+            lbl_confirmar_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_confirmar_senha.Location = new Point(13, 365);
+            lbl_confirmar_senha.Name = "lbl_confirmar_senha";
+            lbl_confirmar_senha.Size = new Size(144, 19);
+            lbl_confirmar_senha.TabIndex = 29;
+            lbl_confirmar_senha.Text = "Confirmar Senha:";
+            lbl_confirmar_senha.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // lbl_senha
             // 
             lbl_senha.AutoSize = true;
             lbl_senha.BackColor = Color.Transparent;
             lbl_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_senha.Location = new Point(13, 411);
+            lbl_senha.Location = new Point(13, 328);
             lbl_senha.Name = "lbl_senha";
             lbl_senha.Size = new Size(64, 19);
             lbl_senha.TabIndex = 28;
@@ -187,9 +238,10 @@
             // 
             txt_senha.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_senha.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_senha.Location = new Point(83, 408);
+            txt_senha.Location = new Point(83, 325);
             txt_senha.Name = "txt_senha";
             txt_senha.PasswordChar = '*';
+            txt_senha.PlaceholderText = "Crie uma senha de usuário...";
             txt_senha.Size = new Size(645, 26);
             txt_senha.TabIndex = 27;
             // 
@@ -197,7 +249,7 @@
             // 
             mtxt_telefone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mtxt_telefone.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            mtxt_telefone.Location = new Point(98, 371);
+            mtxt_telefone.Location = new Point(98, 288);
             mtxt_telefone.Mask = "(00) 00000-0000";
             mtxt_telefone.Name = "mtxt_telefone";
             mtxt_telefone.Size = new Size(630, 26);
@@ -208,7 +260,7 @@
             lbl_telefone.AutoSize = true;
             lbl_telefone.BackColor = Color.Transparent;
             lbl_telefone.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_telefone.Location = new Point(12, 374);
+            lbl_telefone.Location = new Point(12, 291);
             lbl_telefone.Name = "lbl_telefone";
             lbl_telefone.Size = new Size(80, 19);
             lbl_telefone.TabIndex = 23;
@@ -219,27 +271,18 @@
             // 
             txt_email.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_email.Location = new Point(76, 332);
+            txt_email.Location = new Point(76, 249);
             txt_email.Name = "txt_email";
+            txt_email.PlaceholderText = "Exemplo: usuario@gmail.com";
             txt_email.Size = new Size(652, 26);
             txt_email.TabIndex = 21;
-            // 
-            // txt_cargo
-            // 
-            txt_cargo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_cargo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_cargo.Location = new Point(81, 253);
-            txt_cargo.Name = "txt_cargo";
-            txt_cargo.PlaceholderText = "Campo obrigatório";
-            txt_cargo.Size = new Size(647, 26);
-            txt_cargo.TabIndex = 20;
             // 
             // email
             // 
             email.AutoSize = true;
             email.BackColor = Color.Transparent;
             email.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            email.Location = new Point(13, 335);
+            email.Location = new Point(13, 252);
             email.Name = "email";
             email.Size = new Size(57, 19);
             email.TabIndex = 16;
@@ -251,7 +294,7 @@
             lbl_cep.AutoSize = true;
             lbl_cep.BackColor = Color.Transparent;
             lbl_cep.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_cep.Location = new Point(12, 295);
+            lbl_cep.Location = new Point(12, 212);
             lbl_cep.Name = "lbl_cep";
             lbl_cep.Size = new Size(49, 19);
             lbl_cep.TabIndex = 15;
@@ -262,30 +305,18 @@
             // 
             mtxt_cep.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mtxt_cep.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            mtxt_cep.Location = new Point(67, 292);
+            mtxt_cep.Location = new Point(67, 209);
             mtxt_cep.Mask = "00000-000";
             mtxt_cep.Name = "mtxt_cep";
             mtxt_cep.Size = new Size(661, 26);
             mtxt_cep.TabIndex = 14;
-            // 
-            // lbl_cargo
-            // 
-            lbl_cargo.AutoSize = true;
-            lbl_cargo.BackColor = Color.Transparent;
-            lbl_cargo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_cargo.Location = new Point(13, 256);
-            lbl_cargo.Name = "lbl_cargo";
-            lbl_cargo.Size = new Size(62, 19);
-            lbl_cargo.TabIndex = 13;
-            lbl_cargo.Text = "Cargo:";
-            lbl_cargo.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lbl_rg
             // 
             lbl_rg.AutoSize = true;
             lbl_rg.BackColor = Color.Transparent;
             lbl_rg.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_rg.Location = new Point(12, 215);
+            lbl_rg.Location = new Point(12, 172);
             lbl_rg.Name = "lbl_rg";
             lbl_rg.Size = new Size(39, 19);
             lbl_rg.TabIndex = 11;
@@ -297,7 +328,7 @@
             lbl_cpf.AutoSize = true;
             lbl_cpf.BackColor = Color.Transparent;
             lbl_cpf.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_cpf.Location = new Point(12, 174);
+            lbl_cpf.Location = new Point(12, 131);
             lbl_cpf.Name = "lbl_cpf";
             lbl_cpf.Size = new Size(48, 19);
             lbl_cpf.TabIndex = 10;
@@ -308,7 +339,7 @@
             // 
             mtxt_rg.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mtxt_rg.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            mtxt_rg.Location = new Point(57, 212);
+            mtxt_rg.Location = new Point(57, 169);
             mtxt_rg.Mask = "00,000,000-0";
             mtxt_rg.Name = "mtxt_rg";
             mtxt_rg.Size = new Size(671, 26);
@@ -318,38 +349,11 @@
             // 
             mtxt_cpf.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mtxt_cpf.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            mtxt_cpf.Location = new Point(66, 171);
+            mtxt_cpf.Location = new Point(66, 128);
             mtxt_cpf.Mask = "000,000,000-00";
             mtxt_cpf.Name = "mtxt_cpf";
             mtxt_cpf.Size = new Size(662, 26);
             mtxt_cpf.TabIndex = 8;
-            // 
-            // txt_pronome
-            // 
-            txt_pronome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_pronome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_pronome.Location = new Point(103, 130);
-            txt_pronome.Name = "txt_pronome";
-            txt_pronome.Size = new Size(625, 26);
-            txt_pronome.TabIndex = 7;
-            // 
-            // txt_genero
-            // 
-            txt_genero.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_genero.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_genero.Location = new Point(89, 89);
-            txt_genero.Name = "txt_genero";
-            txt_genero.Size = new Size(639, 26);
-            txt_genero.TabIndex = 6;
-            // 
-            // txt_nome_social
-            // 
-            txt_nome_social.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_nome_social.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_nome_social.Location = new Point(129, 48);
-            txt_nome_social.Name = "txt_nome_social";
-            txt_nome_social.Size = new Size(599, 26);
-            txt_nome_social.TabIndex = 5;
             // 
             // txt_nome
             // 
@@ -357,45 +361,21 @@
             txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_nome.Location = new Point(78, 7);
             txt_nome.Name = "txt_nome";
-            txt_nome.PlaceholderText = "Campo obrigatório";
+            txt_nome.PlaceholderText = "Insira seu nome aqui...";
             txt_nome.Size = new Size(650, 26);
             txt_nome.TabIndex = 4;
-            // 
-            // lbl__pronome
-            // 
-            lbl__pronome.AutoSize = true;
-            lbl__pronome.BackColor = Color.Transparent;
-            lbl__pronome.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl__pronome.Location = new Point(12, 133);
-            lbl__pronome.Name = "lbl__pronome";
-            lbl__pronome.Size = new Size(85, 19);
-            lbl__pronome.TabIndex = 3;
-            lbl__pronome.Text = "Pronome:";
-            lbl__pronome.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lbl_genero
             // 
             lbl_genero.AutoSize = true;
             lbl_genero.BackColor = Color.Transparent;
             lbl_genero.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_genero.Location = new Point(12, 92);
+            lbl_genero.Location = new Point(12, 49);
             lbl_genero.Name = "lbl_genero";
             lbl_genero.Size = new Size(71, 19);
             lbl_genero.TabIndex = 2;
             lbl_genero.Text = "Gênero:";
             lbl_genero.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lbl_nome_social
-            // 
-            lbl_nome_social.AutoSize = true;
-            lbl_nome_social.BackColor = Color.Transparent;
-            lbl_nome_social.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_nome_social.Location = new Point(12, 51);
-            lbl_nome_social.Name = "lbl_nome_social";
-            lbl_nome_social.Size = new Size(111, 19);
-            lbl_nome_social.TabIndex = 1;
-            lbl_nome_social.Text = "Nome Social:";
-            lbl_nome_social.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lbl_nome
             // 
@@ -444,24 +424,22 @@
         private MaskedTextBox mtxt_telefone;
         private Label lbl_telefone;
         private TextBox txt_email;
-        private TextBox txt_cargo;
         private Label email;
         private Label lbl_cep;
         private MaskedTextBox mtxt_cep;
-        private Label lbl_cargo;
         private Label lbl_rg;
         private Label lbl_cpf;
         private MaskedTextBox mtxt_rg;
         private MaskedTextBox mtxt_cpf;
-        private TextBox txt_pronome;
-        private TextBox txt_genero;
-        private TextBox txt_nome_social;
         private TextBox txt_nome;
-        private Label lbl__pronome;
         private Label lbl_genero;
-        private Label lbl_nome_social;
         private Label lbl_nome;
         private Label lbl_senha;
         private TextBox txt_senha;
+        private TextBox txt_confirmar_senha;
+        private Label lbl_confirmar_senha;
+        private Label lbl_estado_civil;
+        private ComboBox cbbox_genero;
+        private ComboBox cbbox_estado_civil;
     }
 }

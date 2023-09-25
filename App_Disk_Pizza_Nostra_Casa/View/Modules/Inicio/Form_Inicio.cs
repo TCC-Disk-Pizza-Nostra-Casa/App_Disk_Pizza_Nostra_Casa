@@ -349,7 +349,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                             Modules.Funcionario.form_cadastro_funcionarios form_funcionario = new Modules.Funcionario.form_cadastro_funcionarios();
 
-                            form_funcionario.usuario_sessao = this.usuario_sessao;
+                            //form_funcionario.usuario_sessao = this.usuario_sessao;
 
                             External_Form_Association(form_funcionario);
 
