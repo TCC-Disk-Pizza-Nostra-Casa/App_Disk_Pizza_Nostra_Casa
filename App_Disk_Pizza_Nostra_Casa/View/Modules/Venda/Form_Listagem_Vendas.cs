@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using App_Disk_Pizza_Nostra_Casa.Model;
 using App_Disk_Pizza_Nostra_Casa.Service;
+using App_Disk_Pizza_Nostra_Casa.View.Modules.Produto;
 
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
@@ -81,15 +82,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         }
 
 
-        private void btnInserir_Teste_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnExcluir_Teste_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 
 }

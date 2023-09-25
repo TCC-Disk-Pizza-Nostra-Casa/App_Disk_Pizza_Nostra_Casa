@@ -24,7 +24,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public DateTime data_modificacao { get; set; }
 
-        public int id_fornecedor { get; set; }
+        
 
     }
 

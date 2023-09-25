@@ -29,12 +29,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
 
-            Console.WriteLine("--------------------------------------------");
-            Console.WriteLine(produtoList[0].nome);
-            Console.WriteLine("--------------------------------------------");
-
             /** Items do cbx */
-            cbx_produtos_addvenda.Items.Add("teste 1");
+            cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
 
         }
 
@@ -87,7 +83,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
          */
         private void btn_Salvar_Click(object sender, EventArgs e)
         {
-            dgv_adicionar_vendas.Rows.Add();
+            //dgv_adicionar_vendas.Rows.Add();
 
 
         }
@@ -131,11 +127,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         /**
          * ComboBox que ira recuperar uma lista de produtos cadastrados para selecioná-los
          */
-        private void cbx_produtos_addvenda_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbx_produtos_addvenda_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
             /** Adicionando o que selecionou */
             string itemSelecionado = cbx_produtos_addvenda.SelectedItem.ToString();
-            dgv_adicionar_vendas.Rows.Add(itemSelecionado);
+            dgv_adicionar_vendas.Rows.Add(itemSelecionado, produtoList[0].preco);
+
+          
         }
 
         private void btnInserir_dgv_Click(object sender, EventArgs e)

@@ -44,10 +44,10 @@
             btnCancelar = new Button();
             txt_observacoes = new TextBox();
             dgv_adicionar_vendas = new DataGridView();
-            Produto = new DataGridViewTextBoxColumn();
-            Preco = new DataGridViewTextBoxColumn();
             btnInserir_dgv = new Button();
             btnExcluir_dgv = new Button();
+            Produto = new DataGridViewTextBoxColumn();
+            Preco = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -218,7 +218,7 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(406, 125);
+            txt_observacoes.Location = new Point(408, 125);
             txt_observacoes.MaximumSize = new Size(366, 205);
             txt_observacoes.MinimumSize = new Size(366, 205);
             txt_observacoes.Multiline = true;
@@ -241,18 +241,6 @@
             dgv_adicionar_vendas.RowTemplate.Height = 25;
             dgv_adicionar_vendas.Size = new Size(366, 205);
             dgv_adicionar_vendas.TabIndex = 31;
-            // 
-            // Produto
-            // 
-            Produto.HeaderText = "Produto";
-            Produto.Name = "Produto";
-            Produto.ReadOnly = true;
-            // 
-            // Preco
-            // 
-            Preco.HeaderText = "Preço";
-            Preco.Name = "Preco";
-            Preco.ReadOnly = true;
             // 
             // btnInserir_dgv
             // 
@@ -286,6 +274,20 @@
             btnExcluir_dgv.TabIndex = 33;
             btnExcluir_dgv.Text = "X";
             btnExcluir_dgv.UseVisualStyleBackColor = false;
+            // 
+            // Produto
+            // 
+            Produto.HeaderText = "Produto";
+            Produto.MinimumWidth = 100;
+            Produto.Name = "Produto";
+            Produto.ReadOnly = true;
+            Produto.Width = 213;
+            // 
+            // Preco
+            // 
+            Preco.HeaderText = "Preço";
+            Preco.Name = "Preco";
+            Preco.ReadOnly = true;
             // 
             // form_adicionar_venda
             // 
@@ -338,9 +340,9 @@
         private Button btnCancelar;
         private TextBox txt_observacoes;
         private DataGridView dgv_adicionar_vendas;
-        private DataGridViewTextBoxColumn Produto;
-        private DataGridViewTextBoxColumn Preco;
         private Button btnInserir_dgv;
         private Button btnExcluir_dgv;
+        private DataGridViewTextBoxColumn Produto;
+        private DataGridViewTextBoxColumn Preco;
     }
 }
