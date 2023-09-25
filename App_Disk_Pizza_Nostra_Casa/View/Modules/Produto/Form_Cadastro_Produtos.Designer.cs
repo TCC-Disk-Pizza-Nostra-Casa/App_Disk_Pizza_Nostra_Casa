@@ -73,7 +73,7 @@
             // label4
             // 
             label4.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(12, 161);
+            label4.Location = new Point(12, 166);
             label4.Name = "label4";
             label4.Size = new Size(125, 26);
             label4.TabIndex = 43;
@@ -94,7 +94,7 @@
             // label3
             // 
             label3.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(17, 115);
+            label3.Location = new Point(12, 115);
             label3.Name = "label3";
             label3.Size = new Size(62, 26);
             label3.TabIndex = 41;
@@ -105,26 +105,26 @@
             // 
             txt_preco_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_preco_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_preco_produto.Location = new Point(85, 115);
+            txt_preco_produto.Location = new Point(169, 115);
             txt_preco_produto.Name = "txt_preco_produto";
             txt_preco_produto.PlaceholderText = "Insira o valor unitário...";
-            txt_preco_produto.Size = new Size(687, 26);
+            txt_preco_produto.Size = new Size(603, 26);
             txt_preco_produto.TabIndex = 40;
             // 
             // txt_estoque_produto
             // 
             txt_estoque_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_estoque_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_estoque_produto.Location = new Point(109, 62);
+            txt_estoque_produto.Location = new Point(169, 62);
             txt_estoque_produto.Name = "txt_estoque_produto";
             txt_estoque_produto.PlaceholderText = "Insira a quantidade...";
-            txt_estoque_produto.Size = new Size(663, 26);
+            txt_estoque_produto.Size = new Size(603, 26);
             txt_estoque_produto.TabIndex = 39;
             // 
             // label2
             // 
             label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(17, 62);
+            label2.Location = new Point(12, 61);
             label2.Name = "label2";
             label2.Size = new Size(86, 26);
             label2.TabIndex = 38;

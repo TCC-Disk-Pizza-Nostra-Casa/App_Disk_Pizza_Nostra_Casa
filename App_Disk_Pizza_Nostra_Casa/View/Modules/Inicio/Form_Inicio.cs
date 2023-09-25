@@ -63,6 +63,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                 pnl_submenu_clientes.Visible = false;
 
+                pnl_submenu_fornecedores.Visible = false;
+
             }
 
             catch (Exception ex)
@@ -349,7 +351,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                             Modules.Funcionario.form_cadastro_funcionarios form_funcionario = new Modules.Funcionario.form_cadastro_funcionarios();
 
-                            form_funcionario.usuario_sessao = this.usuario_sessao;
+                            //form_funcionario.usuario_sessao = this.usuario_sessao;
 
                             External_Form_Association(form_funcionario);
 
@@ -466,6 +468,64 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             }
 
         }
+
+        private void btn_fornecedores_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Submenu_Visibility(pnl_submenu_fornecedores);
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_cadastro_fornecedor_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Fornecedor.Form_Cadastro_Fornecedor());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_listagem_fornecedores_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Fornecedor.Form_Listagem_Fornecedor());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
     }
 
 }
