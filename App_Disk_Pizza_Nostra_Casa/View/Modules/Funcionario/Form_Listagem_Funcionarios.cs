@@ -40,13 +40,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_condicao_funcionario.DataSource = this.condicoes_funcionario;
 
+                DataGridView_Configuration();
+
                 cbbox_condicao_funcionario.SelectedIndex = 1;
 
                 btn_reativar.Enabled = false;
 
-                DataGridView_Configuration();
-
-                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                btn_desativar.Enabled = false;
 
             }
 
@@ -138,6 +138,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
+                dgv_listagem_funcionarios.Rows.Clear();
+
                 List<Model.Funcionario> lista_funcionarios = await Model.Funcionario.GetList();
 
                 if (lista_funcionarios.Count > 0)
@@ -159,7 +161,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                             string cpf = lista_funcionarios[i].cpf;
 
-                            string data_modificacao = lista_funcionarios[i].data_modificacao.ToString();
+                            string data_modificacao = DateTime.Parse(lista_funcionarios[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
                             dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao);
 
@@ -187,6 +189,169 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             {
 
 
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_condicao_funcionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                btn_reativar.Enabled = false;
+
+                btn_desativar.Enabled = false;
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void dgv_listagem_funcionarios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+
+                switch (cbbox_condicao_funcionario.SelectedIndex)
+                {
+
+                    case 0:
+
+                        btn_reativar.Enabled = true;
+
+                    break;
+
+                    case 1:
+
+                        btn_desativar.Enabled = true;
+
+                    break;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void User_Manipulation()
+        {
+
+            try
+            {
+
+                bool exito;
+
+                switch (cbbox_condicao_funcionario.SelectedIndex)
+                {
+
+                    case 0:
+
+                        exito = await Model.Funcionario.Enable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+
+                        if (exito)
+                        {
+
+                            MessageBox.Show("Usuário reativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                        }
+
+                        else
+                        {
+
+                            throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
+
+                        }
+
+                    break;
+
+                    case 1:
+
+                        exito = await Model.Funcionario.Disable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+
+                        if (exito)
+                        {
+
+                            MessageBox.Show("Usuário desativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                        }
+
+                        else
+                        {
+
+                            throw new Exception("Não foi possível desativar o funcionário selecionado! Tente novamente mais tarde.");
+
+                        }
+
+                    break;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void btn_reativar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                User_Manipulation();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void btn_desativar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                User_Manipulation();
 
             }
 

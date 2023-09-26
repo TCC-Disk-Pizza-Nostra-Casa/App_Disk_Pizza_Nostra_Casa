@@ -51,7 +51,7 @@
             pnl_imagem.Location = new Point(0, 0);
             pnl_imagem.Margin = new Padding(4);
             pnl_imagem.Name = "pnl_imagem";
-            pnl_imagem.Size = new Size(349, 361);
+            pnl_imagem.Size = new Size(349, 353);
             pnl_imagem.TabIndex = 0;
             // 
             // pctbox_imagem
@@ -62,7 +62,7 @@
             pctbox_imagem.Location = new Point(0, 0);
             pctbox_imagem.Margin = new Padding(4);
             pctbox_imagem.Name = "pctbox_imagem";
-            pctbox_imagem.Size = new Size(347, 359);
+            pctbox_imagem.Size = new Size(347, 351);
             pctbox_imagem.SizeMode = PictureBoxSizeMode.Zoom;
             pctbox_imagem.TabIndex = 1;
             pctbox_imagem.TabStop = false;
@@ -73,10 +73,10 @@
             lbl_cep.AutoSize = true;
             lbl_cep.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_cep.ForeColor = Color.Black;
-            lbl_cep.Location = new Point(145, 49);
+            lbl_cep.Location = new Point(144, 45);
             lbl_cep.Margin = new Padding(4, 0, 4, 0);
             lbl_cep.Name = "lbl_cep";
-            lbl_cep.Size = new Size(48, 19);
+            lbl_cep.Size = new Size(56, 24);
             lbl_cep.TabIndex = 1;
             lbl_cep.Text = "CPF:";
             lbl_cep.TextAlign = ContentAlignment.MiddleCenter;
@@ -87,10 +87,10 @@
             lbl_senha.AutoSize = true;
             lbl_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_senha.ForeColor = Color.Black;
-            lbl_senha.Location = new Point(133, 172);
+            lbl_senha.Location = new Point(132, 168);
             lbl_senha.Margin = new Padding(4, 0, 4, 0);
             lbl_senha.Name = "lbl_senha";
-            lbl_senha.Size = new Size(64, 19);
+            lbl_senha.Size = new Size(76, 24);
             lbl_senha.TabIndex = 2;
             lbl_senha.Text = "Senha:";
             lbl_senha.TextAlign = ContentAlignment.MiddleCenter;
@@ -102,11 +102,11 @@
             txt_cpf.BorderStyle = BorderStyle.None;
             txt_cpf.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
             txt_cpf.ForeColor = Color.Black;
-            txt_cpf.Location = new Point(27, 93);
+            txt_cpf.Location = new Point(26, 89);
             txt_cpf.MaxLength = 11;
             txt_cpf.Name = "txt_cpf";
             txt_cpf.PlaceholderText = "Digite seu CPF...";
-            txt_cpf.Size = new Size(278, 19);
+            txt_cpf.Size = new Size(278, 23);
             txt_cpf.TabIndex = 7;
             txt_cpf.TextAlign = HorizontalAlignment.Center;
             // 
@@ -117,11 +117,12 @@
             txt_senha.BorderStyle = BorderStyle.None;
             txt_senha.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
             txt_senha.ForeColor = Color.Black;
-            txt_senha.Location = new Point(27, 216);
+            txt_senha.Location = new Point(26, 212);
+            txt_senha.MaxLength = 20;
             txt_senha.Name = "txt_senha";
             txt_senha.PasswordChar = '*';
             txt_senha.PlaceholderText = "Digite sua senha...";
-            txt_senha.Size = new Size(278, 19);
+            txt_senha.Size = new Size(278, 23);
             txt_senha.TabIndex = 9;
             txt_senha.TextAlign = HorizontalAlignment.Center;
             // 
@@ -134,7 +135,7 @@
             btn_entrar.FlatStyle = FlatStyle.Flat;
             btn_entrar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_entrar.ForeColor = Color.Black;
-            btn_entrar.Location = new Point(105, 286);
+            btn_entrar.Location = new Point(104, 282);
             btn_entrar.Name = "btn_entrar";
             btn_entrar.Size = new Size(122, 36);
             btn_entrar.TabIndex = 10;
@@ -154,15 +155,15 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(349, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(335, 361);
+            panel1.Size = new Size(333, 353);
             panel1.TabIndex = 11;
             // 
             // form_login
             // 
-            AutoScaleDimensions = new SizeF(9F, 18F);
+            AutoScaleDimensions = new SizeF(11F, 23F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(684, 361);
+            ClientSize = new Size(682, 353);
             Controls.Add(panel1);
             Controls.Add(pnl_imagem);
             Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);

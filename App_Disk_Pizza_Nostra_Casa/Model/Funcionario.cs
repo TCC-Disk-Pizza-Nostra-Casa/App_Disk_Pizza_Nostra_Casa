@@ -102,6 +102,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }*/
 
+        public static async Task<Funcionario>? Login(string[] dados_login)
+        {
+
+            return await Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
+
+        }
+
     }
 
 }
