@@ -77,14 +77,14 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<List<Funcionario>>? LoginAsyncFuncionario(string[] dados_login)
+        public static async Task<Funcionario>? LoginAsyncFuncionario(string[] dados_login)
         {
 
             var post_json = JsonConvert.SerializeObject(dados_login);
 
             string json = await Data_Service.SendDataApi(post_json, "/funcionario/login");
 
-            List<Funcionario> usuario_correspondente = JsonConvert.DeserializeObject<List<Funcionario>>(json);
+            Funcionario usuario_correspondente = JsonConvert.DeserializeObject<Funcionario>(json);
 
             return usuario_correspondente;
 

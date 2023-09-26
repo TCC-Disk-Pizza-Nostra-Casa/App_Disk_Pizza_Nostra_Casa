@@ -40,7 +40,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_estado_civil.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_genero.DataSource = new string[] { "Selecione uma opção", "Masculino", "Feminino", "Não informar", "Outro" };
+                cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar", "Outro" };
 
                 cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
 
@@ -108,17 +108,17 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 switch (cbbox_genero.SelectedIndex)
                 {
 
-                    case 4:
+                    case 3:
 
-                        cbbox_genero.DropDownStyle = ComboBoxStyle.DropDown;
+                        cbbox_genero.DropDownStyle = ComboBoxStyle.Simple;
 
-                    break;
+                        break;
 
                     default:
 
                         cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                    break;
+                        break;
 
                 }
 
@@ -142,7 +142,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 Model.Funcionario dados = new Model.Funcionario()
                 {
 
-                    //id = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0,
+                    id = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0,
 
                     nome = txt_nome.Text,
 

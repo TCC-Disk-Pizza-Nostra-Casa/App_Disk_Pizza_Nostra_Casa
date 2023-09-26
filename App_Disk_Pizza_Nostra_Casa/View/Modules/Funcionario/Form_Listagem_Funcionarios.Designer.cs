@@ -48,9 +48,10 @@
             btn_pesquisar_funcionario.BackgroundImageLayout = ImageLayout.Zoom;
             btn_pesquisar_funcionario.FlatAppearance.BorderSize = 0;
             btn_pesquisar_funcionario.FlatStyle = FlatStyle.Flat;
-            btn_pesquisar_funcionario.Location = new Point(749, 13);
+            btn_pesquisar_funcionario.Location = new Point(856, 17);
+            btn_pesquisar_funcionario.Margin = new Padding(3, 4, 3, 4);
             btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";
-            btn_pesquisar_funcionario.Size = new Size(23, 23);
+            btn_pesquisar_funcionario.Size = new Size(26, 31);
             btn_pesquisar_funcionario.TabIndex = 5;
             btn_pesquisar_funcionario.UseVisualStyleBackColor = false;
             // 
@@ -60,19 +61,20 @@
             txt_pesquisar_funcionario.BorderStyle = BorderStyle.FixedSingle;
             txt_pesquisar_funcionario.Cursor = Cursors.IBeam;
             txt_pesquisar_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_pesquisar_funcionario.Location = new Point(110, 12);
+            txt_pesquisar_funcionario.Location = new Point(126, 16);
+            txt_pesquisar_funcionario.Margin = new Padding(3, 4, 3, 4);
             txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
             txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do funcionário...";
-            txt_pesquisar_funcionario.Size = new Size(633, 26);
+            txt_pesquisar_funcionario.Size = new Size(723, 30);
             txt_pesquisar_funcionario.TabIndex = 4;
             // 
             // lbl_pesquisar_funcionario
             // 
             lbl_pesquisar_funcionario.AutoSize = true;
             lbl_pesquisar_funcionario.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_pesquisar_funcionario.Location = new Point(12, 14);
+            lbl_pesquisar_funcionario.Location = new Point(14, 19);
             lbl_pesquisar_funcionario.Name = "lbl_pesquisar_funcionario";
-            lbl_pesquisar_funcionario.Size = new Size(92, 19);
+            lbl_pesquisar_funcionario.Size = new Size(111, 24);
             lbl_pesquisar_funcionario.TabIndex = 6;
             lbl_pesquisar_funcionario.Text = "Pesquisar:";
             // 
@@ -84,15 +86,17 @@
             dgv_listagem_funcionarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_listagem_funcionarios.BackgroundColor = Color.White;
             dgv_listagem_funcionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_funcionarios.Location = new Point(12, 92);
+            dgv_listagem_funcionarios.Location = new Point(14, 123);
+            dgv_listagem_funcionarios.Margin = new Padding(3, 4, 3, 4);
             dgv_listagem_funcionarios.MultiSelect = false;
             dgv_listagem_funcionarios.Name = "dgv_listagem_funcionarios";
             dgv_listagem_funcionarios.ReadOnly = true;
             dgv_listagem_funcionarios.RowHeadersWidth = 51;
             dgv_listagem_funcionarios.RowTemplate.Height = 25;
             dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_funcionarios.Size = new Size(760, 299);
+            dgv_listagem_funcionarios.Size = new Size(869, 399);
             dgv_listagem_funcionarios.TabIndex = 3;
+            dgv_listagem_funcionarios.CellContentDoubleClick += dgv_listagem_funcionarios_CellContentDoubleClick;
             // 
             // btn_desativar
             // 
@@ -102,12 +106,14 @@
             btn_desativar.FlatAppearance.BorderSize = 2;
             btn_desativar.FlatStyle = FlatStyle.Flat;
             btn_desativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_desativar.Location = new Point(534, 410);
+            btn_desativar.Location = new Point(610, 547);
+            btn_desativar.Margin = new Padding(3, 4, 3, 4);
             btn_desativar.Name = "btn_desativar";
-            btn_desativar.Size = new Size(116, 39);
+            btn_desativar.Size = new Size(133, 52);
             btn_desativar.TabIndex = 36;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
+            btn_desativar.Click += btn_desativar_Click;
             // 
             // btn_reativar
             // 
@@ -117,12 +123,14 @@
             btn_reativar.FlatAppearance.BorderSize = 2;
             btn_reativar.FlatStyle = FlatStyle.Flat;
             btn_reativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_reativar.Location = new Point(656, 410);
+            btn_reativar.Location = new Point(750, 547);
+            btn_reativar.Margin = new Padding(3, 4, 3, 4);
             btn_reativar.Name = "btn_reativar";
-            btn_reativar.Size = new Size(116, 39);
+            btn_reativar.Size = new Size(133, 52);
             btn_reativar.TabIndex = 35;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
+            btn_reativar.Click += btn_reativar_Click;
             // 
             // btn_voltar
             // 
@@ -132,9 +140,10 @@
             btn_voltar.FlatAppearance.BorderSize = 2;
             btn_voltar.FlatStyle = FlatStyle.Flat;
             btn_voltar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_voltar.Location = new Point(12, 410);
+            btn_voltar.Location = new Point(14, 547);
+            btn_voltar.Margin = new Padding(3, 4, 3, 4);
             btn_voltar.Name = "btn_voltar";
-            btn_voltar.Size = new Size(116, 39);
+            btn_voltar.Size = new Size(133, 52);
             btn_voltar.TabIndex = 37;
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
@@ -145,17 +154,19 @@
             cbbox_condicao_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cbbox_condicao_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_funcionario.FormattingEnabled = true;
-            cbbox_condicao_funcionario.Location = new Point(613, 53);
+            cbbox_condicao_funcionario.Location = new Point(701, 71);
+            cbbox_condicao_funcionario.Margin = new Padding(3, 4, 3, 4);
             cbbox_condicao_funcionario.Name = "cbbox_condicao_funcionario";
-            cbbox_condicao_funcionario.Size = new Size(159, 26);
+            cbbox_condicao_funcionario.Size = new Size(181, 31);
             cbbox_condicao_funcionario.TabIndex = 38;
+            cbbox_condicao_funcionario.SelectedIndexChanged += cbbox_condicao_funcionario_SelectedIndexChanged;
             // 
             // form_listagem_funcionarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(784, 461);
+            ClientSize = new Size(896, 615);
             Controls.Add(cbbox_condicao_funcionario);
             Controls.Add(btn_voltar);
             Controls.Add(btn_desativar);
@@ -164,7 +175,8 @@
             Controls.Add(txt_pesquisar_funcionario);
             Controls.Add(lbl_pesquisar_funcionario);
             Controls.Add(dgv_listagem_funcionarios);
-            MinimumSize = new Size(800, 500);
+            Margin = new Padding(3, 4, 3, 4);
+            MinimumSize = new Size(912, 651);
             Name = "form_listagem_funcionarios";
             Text = "Listagem de Funcionários";
             Load += form_listagem_funcionarios_Load;

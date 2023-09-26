@@ -74,9 +74,9 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         this.Hide();
 
-                        View.Modules.Inicio.form_inicio tela_inical = new View.Modules.Inicio.form_inicio();
+                        View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
 
-                        tela_inical.usuario_sessao = new Model.Funcionario()
+                        tela_inicial.usuario_sessao = new Model.Funcionario()
                         {
 
                             nome = "Root",
@@ -103,7 +103,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         };
 
-                        tela_inical.Show();
+                        tela_inicial.Show();
 
                     }
 
@@ -112,9 +112,9 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         string[] dados_login = { txt_cpf.Text, txt_senha.Text };
 
-                        List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_login);
+                        Model.Funcionario usuario_encontrado = await Model.Funcionario.Login(dados_login);
 
-                        if (usuario_encontrado.Count > 0)
+                        if (usuario_encontrado != null)
                         {
 
                             MessageBox.Show("Login efetuado com sucesso.", "Atenção!",
@@ -122,11 +122,11 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             this.Hide();
 
-                            View.Modules.Inicio.form_inicio tela_inical = new View.Modules.Inicio.form_inicio();
+                            View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
 
-                            tela_inical.usuario_sessao = usuario_encontrado[0];
+                            tela_inicial.usuario_sessao = usuario_encontrado;
 
-                            tela_inical.Show();
+                            tela_inicial.Show();
 
                         }
 

@@ -38,6 +38,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                 Hide_Submenus();
 
+                Hide_Confidential_Content();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void Hide_Confidential_Content()
+        {
+
+            try
+            {
+
+                if (this.usuario_sessao.administrador == 0)
+                {
+
+                    btn_funcionarios.Visible = false;
+
+                    btn_produtos.Visible = false;
+
+                    btn_clientes.Visible = false;
+
+                    btn_fornecedores.Visible = false;
+
+                }
+
             }
 
             catch (Exception ex)
@@ -326,92 +358,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         }
 
-        private async void btn_perfil_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                if (this.usuario_sessao != null)
-                {
-
-                    // Fonte de Pesquisa: https://www.macoratti.net/10/10/c_inbox.htm
-
-                    string senha = Microsoft.VisualBasic.Interaction.InputBox("Insira sua senha:", "Confirmação de Usuário");
-
-                    if (senha != "")
-                    {
-
-                        string[] dados_confirmacao = { this.usuario_sessao.cpf, senha };
-
-                        List<Model.Funcionario> usuario_encontrado = await Service.Data_Service_Funcionario.LoginAsyncFuncionario(dados_confirmacao);
-
-                        if (usuario_encontrado.Count > 0 && usuario_encontrado[0].senha == this.usuario_sessao.senha)
-                        {
-
-                            Modules.Funcionario.form_cadastro_funcionarios form_funcionario = new Modules.Funcionario.form_cadastro_funcionarios();
-
-                            //form_funcionario.usuario_sessao = this.usuario_sessao;
-
-                            External_Form_Association(form_funcionario);
-
-                        }
-
-                        else
-                        {
-
-                            throw new Exception("Senha incorreta! Tente novamente.");
-
-                        }
-
-                    }
-
-                }
-
-                else
-                {
-
-                    MessageBox.Show("Para acessar essa guia, utilize um perfil que esteja registrado no banco de dados!", "Atenção!",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_sair_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                if (MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
-                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-                {
-
-                    Application.Exit();
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
         private void btn_clientes_Click(object sender, EventArgs e)
         {
 
@@ -514,6 +460,92 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             {
 
                 External_Form_Association(new Modules.Fornecedor.Form_Listagem_Fornecedor());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void btn_perfil_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (this.usuario_sessao != null)
+                {
+
+                    // Fonte de Pesquisa: https://www.macoratti.net/10/10/c_inbox.htm
+
+                    string senha = Microsoft.VisualBasic.Interaction.InputBox("Insira sua senha:", "Confirmação de Usuário");
+
+                    if (senha != "")
+                    {
+
+                        string[] dados_confirmacao = { this.usuario_sessao.cpf, senha };
+
+                        Model.Funcionario usuario_encontrado = await Model.Funcionario.Login(dados_confirmacao);
+
+                        if (usuario_encontrado != null && usuario_encontrado.senha == this.usuario_sessao.senha)
+                        {
+
+                            Modules.Funcionario.form_cadastro_funcionarios form_funcionario = new Modules.Funcionario.form_cadastro_funcionarios();
+
+                            form_funcionario.usuario_sessao = this.usuario_sessao;
+
+                            External_Form_Association(form_funcionario);
+
+                        }
+
+                        else
+                        {
+
+                            throw new Exception("Senha incorreta! Tente novamente.");
+
+                        }
+
+                    }
+
+                }
+
+                else
+                {
+
+                    MessageBox.Show("Para acessar essa guia, utilize um perfil que esteja registrado no banco de dados!", "Atenção!",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_sair_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (MessageBox.Show("Realmente deseja fechar a aplicação?", "Atenção!",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Application.Exit();
+
+                }
 
             }
 
