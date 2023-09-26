@@ -17,21 +17,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string nome { get; set; }
 
-        public string nome_social { get; set; } = null;
+        public string genero { get; set; }
 
-        public int indice_genero { get; set; }
-
-        public string genero { get; set; } = null;
-
-        public string pronome { get; set; } = null;
+        public string estado_civil { get; set; }
 
         public string cpf { get; set; }
 
         public string rg { get; set; }
-
-        public int indice_cargo { get; set; }
-
-        public string cargo { get; set; }
 
         public string cep { get; set; }
 
@@ -40,6 +32,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public string telefone { get; set; }
 
         public string senha { get; set; }
+
+        public string confirmacao_senha { get; set; }
 
         public string observacoes { get; set; } = null;
 
@@ -54,13 +48,20 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public async Task<Funcionario>? Save()
         {
 
-            if(String.IsNullOrEmpty(this.nome) || this.indice_genero == 0 ||
-               String.IsNullOrEmpty(this.cpf) || String.IsNullOrEmpty(this.rg) ||
-               this.indice_cargo == 0 || String.IsNullOrEmpty(this.cep) ||
-               String.IsNullOrEmpty(this.telefone) || String.IsNullOrEmpty(this.senha))
+            if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.genero) ||
+                String.IsNullOrEmpty(this.estado_civil) || String.IsNullOrEmpty(this.cpf) ||
+                String.IsNullOrEmpty(this.rg) || String.IsNullOrEmpty(this.cep) ||
+                String.IsNullOrEmpty(this.telefone) || String.IsNullOrEmpty(this.senha))
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
+
+            }
+
+            else if(senha != confirmacao_senha)
+            {
+
+                throw new Exception("As senhas fornecidas divergem! Revise-as e tente novamente.");
 
             }
 

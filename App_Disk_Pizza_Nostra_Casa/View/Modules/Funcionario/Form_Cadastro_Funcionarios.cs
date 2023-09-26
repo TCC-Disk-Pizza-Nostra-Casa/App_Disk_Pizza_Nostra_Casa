@@ -17,7 +17,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        //public Model.Funcionario usuario_sessao;
+        public Model.Funcionario usuario_sessao = null;
 
         public form_cadastro_funcionarios()
         {
@@ -36,20 +36,20 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 this.Size = new Size(800, 500);
 
-                /*cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbbox_estado_civil.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_genero.DataSource = new string[] { "Selecione uma opção", "Masculino", "Feminino", "Não informar" };
+                cbbox_genero.DataSource = new string[] { "Selecione uma opção", "Masculino", "Feminino", "Não informar", "Outro" };
 
-                cbbox_cargo.DataSource = new string[] { "Selecione uma opção", "Balconista" };
+                cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
 
                 if (this.usuario_sessao != null)
                 {
 
                     Form_Fill(this.usuario_sessao);
 
-                }*/
+                }
 
             }
 
@@ -65,29 +65,71 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
         private void Form_Fill(Model.Funcionario dados)
         {
 
-            txt_nome.Text = dados.nome;
+            try
+            {
 
-            txt_nome_social.Text = dados.nome_social;
+                txt_nome.Text = dados.nome;
 
-            txt_pronome.Text = dados.pronome;
+                cbbox_genero.Text = dados.genero;
 
-            txt_genero.Text = dados.genero;
+                cbbox_estado_civil.Text = dados.estado_civil;
 
-            mtxt_cpf.Text = dados.cpf;
+                mtxt_cpf.Text = dados.cpf;
 
-            mtxt_rg.Text = dados.rg;
+                mtxt_rg.Text = dados.rg;
 
-            txt_cargo.Text = dados.cargo;
+                mtxt_cep.Text = dados.cep;
 
-            mtxt_cep.Text = dados.cep;
+                txt_email.Text = dados.email;
 
-            txt_email.Text = dados.email;
+                mtxt_telefone.Text = dados.telefone;
 
-            mtxt_telefone.Text = dados.telefone;
+                txt_observacoes.Text = dados.observacoes;
 
-            txt_observacoes.Text = dados.observacoes;
+                ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
 
-            ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_genero_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                switch (cbbox_genero.SelectedIndex)
+                {
+
+                    case 4:
+
+                        cbbox_genero.DropDownStyle = ComboBoxStyle.DropDown;
+
+                    break;
+
+                    default:
+
+                        cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                    break;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -100,23 +142,17 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 Model.Funcionario dados = new Model.Funcionario()
                 {
 
+                    //id = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0,
+
                     nome = txt_nome.Text,
 
-                    nome_social = txt_nome_social.Text,
+                    genero = cbbox_genero.Text,
 
-                    indice_genero = 1,
-
-                    genero = txt_genero.Text,
-
-                    pronome = txt_pronome.Text,
+                    estado_civil = cbbox_estado_civil.Text,
 
                     cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
 
                     rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
-
-                    indice_cargo = 1,
-
-                    cargo = txt_cargo.Text,
 
                     cep = mtxt_cep.Text.Replace("-", ""),
 
@@ -125,6 +161,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""),
 
                     senha = txt_senha.Text,
+
+                    confirmacao_senha = txt_confirmar_senha.Text,
 
                     observacoes = txt_observacoes.Text,
 
