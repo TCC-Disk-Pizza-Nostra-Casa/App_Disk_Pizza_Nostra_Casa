@@ -35,7 +35,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 this.Size = new Size(800, 500);
 
                 List<Model.Produto> lista_produtos = await Data_Service_Produto.GetListAsyncProduto();
-                
+
                 if (lista_produtos.Count > 0)
                 {
 
@@ -57,11 +57,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     }
 
                 }
-                
+
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -102,7 +102,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
