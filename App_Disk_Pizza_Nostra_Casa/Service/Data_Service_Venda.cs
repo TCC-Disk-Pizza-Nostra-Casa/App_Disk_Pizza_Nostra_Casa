@@ -33,6 +33,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
             Venda model_retornada = JsonConvert.DeserializeObject<Venda>(json);
 
             return model_retornada;
+            Console.WriteLine("==========");
+            Console.WriteLine(json);
 
         }
 
