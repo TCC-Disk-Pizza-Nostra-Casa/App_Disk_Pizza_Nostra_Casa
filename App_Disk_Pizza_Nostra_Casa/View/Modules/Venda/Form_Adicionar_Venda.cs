@@ -28,9 +28,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         {
 
             List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
+            List<Model.Cliente>? clienteList = await Data_Service_Cliente.GetListAsyncCliente();
 
-            /** Items do cbx */
+            /** Items do cbx de Produto */
             cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
+            cbx_produtos_addvenda.Items.Add(produtoList[1].nome);
+
+            /** Items do cbx de cliente */
+            cbx_clientes_addvenda.Items.Add(clienteList[0].nome);
+
+            foreach (Model.Cliente nomeCliente in clienteList)
+            {
+                Console.WriteLine("===================================");
+                Console.WriteLine(nomeCliente);
+                Console.WriteLine("===================================");
+            }
 
         }
 
@@ -45,7 +57,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
 
-                cbx_cliente_addvenda.Text = "";
+                cbx_clientes_addvenda.Text = "";
                 cbx_produtos_addvenda.Text = "";
 
                 lbl_valortotal.Text = "0";
@@ -134,7 +146,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             string itemSelecionado = cbx_produtos_addvenda.SelectedItem.ToString();
             dgv_adicionar_vendas.Rows.Add(itemSelecionado, produtoList[0].preco);
 
-          
+
         }
 
         private void btnInserir_dgv_Click(object sender, EventArgs e)

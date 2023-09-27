@@ -35,7 +35,7 @@
             rdbtn_sim = new RadioButton();
             rdbtn_nao = new RadioButton();
             label5 = new Label();
-            cbx_cliente_addvenda = new ComboBox();
+            cbx_clientes_addvenda = new ComboBox();
             cbx_produtos_addvenda = new ComboBox();
             btn_Salvar = new Button();
             label6 = new Label();
@@ -44,10 +44,10 @@
             btnCancelar = new Button();
             txt_observacoes = new TextBox();
             dgv_adicionar_vendas = new DataGridView();
-            btnInserir_dgv = new Button();
-            btnExcluir_dgv = new Button();
             Produto = new DataGridViewTextBoxColumn();
             Preco = new DataGridViewTextBoxColumn();
+            btnInserir_dgv = new Button();
+            btnExcluir_dgv = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -122,16 +122,16 @@
             label5.Size = new Size(0, 18);
             label5.TabIndex = 8;
             // 
-            // cbx_cliente_addvenda
+            // cbx_clientes_addvenda
             // 
-            cbx_cliente_addvenda.AllowDrop = true;
-            cbx_cliente_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbx_cliente_addvenda.FormattingEnabled = true;
-            cbx_cliente_addvenda.Location = new Point(147, 9);
-            cbx_cliente_addvenda.Name = "cbx_cliente_addvenda";
-            cbx_cliente_addvenda.Size = new Size(625, 23);
-            cbx_cliente_addvenda.TabIndex = 10;
-            cbx_cliente_addvenda.SelectedIndexChanged += cbx_cliente_addvenda_SelectedIndexChanged;
+            cbx_clientes_addvenda.AllowDrop = true;
+            cbx_clientes_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_clientes_addvenda.FormattingEnabled = true;
+            cbx_clientes_addvenda.Location = new Point(147, 9);
+            cbx_clientes_addvenda.Name = "cbx_clientes_addvenda";
+            cbx_clientes_addvenda.Size = new Size(625, 23);
+            cbx_clientes_addvenda.TabIndex = 10;
+            cbx_clientes_addvenda.SelectedIndexChanged += cbx_cliente_addvenda_SelectedIndexChanged;
             // 
             // cbx_produtos_addvenda
             // 
@@ -242,6 +242,20 @@
             dgv_adicionar_vendas.Size = new Size(366, 205);
             dgv_adicionar_vendas.TabIndex = 31;
             // 
+            // Produto
+            // 
+            Produto.HeaderText = "Produto";
+            Produto.MinimumWidth = 100;
+            Produto.Name = "Produto";
+            Produto.ReadOnly = true;
+            Produto.Width = 213;
+            // 
+            // Preco
+            // 
+            Preco.HeaderText = "Preço";
+            Preco.Name = "Preco";
+            Preco.ReadOnly = true;
+            // 
             // btnInserir_dgv
             // 
             btnInserir_dgv.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
@@ -275,20 +289,6 @@
             btnExcluir_dgv.Text = "X";
             btnExcluir_dgv.UseVisualStyleBackColor = false;
             // 
-            // Produto
-            // 
-            Produto.HeaderText = "Produto";
-            Produto.MinimumWidth = 100;
-            Produto.Name = "Produto";
-            Produto.ReadOnly = true;
-            Produto.Width = 213;
-            // 
-            // Preco
-            // 
-            Preco.HeaderText = "Preço";
-            Preco.Name = "Preco";
-            Preco.ReadOnly = true;
-            // 
             // form_adicionar_venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -305,7 +305,7 @@
             Controls.Add(label6);
             Controls.Add(btn_Salvar);
             Controls.Add(cbx_produtos_addvenda);
-            Controls.Add(cbx_cliente_addvenda);
+            Controls.Add(cbx_clientes_addvenda);
             Controls.Add(label5);
             Controls.Add(rdbtn_nao);
             Controls.Add(rdbtn_sim);
@@ -331,7 +331,7 @@
         private RadioButton rdbtn_sim;
         private RadioButton rdbtn_nao;
         private Label label5;
-        private ComboBox cbx_cliente_addvenda;
+        private ComboBox cbx_clientes_addvenda;
         private ComboBox cbx_produtos_addvenda;
         private Button btn_Salvar;
         private Label label6;
