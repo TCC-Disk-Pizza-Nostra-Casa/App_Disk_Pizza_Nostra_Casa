@@ -60,6 +60,27 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
+        public static async Task<bool> EnableAsyncFornecedor(int id)
+        {
+            var post_json = JsonConvert.SerializeObject(id);
+
+            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/enable");
+
+            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+
+            return resultado;
+        }
+
+        public static async Task<bool> DisableAsyncFornecedor(int id)
+        {
+            var post_json = JsonConvert.SerializeObject(id);
+
+            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/disable");
+
+            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+
+            return resultado;
+        }
 
     }
 }
