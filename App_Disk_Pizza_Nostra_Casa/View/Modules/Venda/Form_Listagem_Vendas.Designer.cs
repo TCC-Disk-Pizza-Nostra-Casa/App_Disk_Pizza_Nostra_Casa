@@ -30,10 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_listagem_vendas));
             btn_pesquisar_vendas = new Button();
-            txt_pesquisar_vendas_data = new TextBox();
+            txt_pesquisar_vendas = new TextBox();
             lbl_pesquisar_vendas = new Label();
             dgv_listagem_vendas = new DataGridView();
-            id = new DataGridViewTextBoxColumn();
+            codigo = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_nome = new DataGridViewTextBoxColumn();
             nome_cliente = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_estoque = new DataGridViewTextBoxColumn();
@@ -50,23 +50,24 @@
             btn_pesquisar_vendas.BackgroundImageLayout = ImageLayout.Zoom;
             btn_pesquisar_vendas.FlatAppearance.BorderSize = 0;
             btn_pesquisar_vendas.FlatStyle = FlatStyle.Flat;
-            btn_pesquisar_vendas.Location = new Point(747, 11);
+            btn_pesquisar_vendas.Location = new Point(1047, 11);
             btn_pesquisar_vendas.Name = "btn_pesquisar_vendas";
             btn_pesquisar_vendas.Size = new Size(23, 23);
             btn_pesquisar_vendas.TabIndex = 4;
             btn_pesquisar_vendas.UseVisualStyleBackColor = false;
+            btn_pesquisar_vendas.Click += btn_pesquisar_vendas_Click;
             // 
-            // txt_pesquisar_vendas_data
+            // txt_pesquisar_vendas
             // 
-            txt_pesquisar_vendas_data.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_pesquisar_vendas_data.BorderStyle = BorderStyle.FixedSingle;
-            txt_pesquisar_vendas_data.Cursor = Cursors.IBeam;
-            txt_pesquisar_vendas_data.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_pesquisar_vendas_data.Location = new Point(116, 12);
-            txt_pesquisar_vendas_data.Name = "txt_pesquisar_vendas_data";
-            txt_pesquisar_vendas_data.PlaceholderText = "Digite a data da venda...";
-            txt_pesquisar_vendas_data.Size = new Size(625, 22);
-            txt_pesquisar_vendas_data.TabIndex = 3;
+            txt_pesquisar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_pesquisar_vendas.BorderStyle = BorderStyle.FixedSingle;
+            txt_pesquisar_vendas.Cursor = Cursors.IBeam;
+            txt_pesquisar_vendas.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_pesquisar_vendas.Location = new Point(116, 12);
+            txt_pesquisar_vendas.Name = "txt_pesquisar_vendas";
+            txt_pesquisar_vendas.PlaceholderText = "Digite a data da venda...";
+            txt_pesquisar_vendas.Size = new Size(925, 22);
+            txt_pesquisar_vendas.TabIndex = 3;
             // 
             // lbl_pesquisar_vendas
             // 
@@ -84,23 +85,23 @@
             dgv_listagem_vendas.AllowUserToDeleteRows = false;
             dgv_listagem_vendas.AllowUserToOrderColumns = true;
             dgv_listagem_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv_listagem_vendas.BackgroundColor = Color.Gray;
+            dgv_listagem_vendas.BackgroundColor = Color.White;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { id, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
+            dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { codigo, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
             dgv_listagem_vendas.Location = new Point(10, 49);
             dgv_listagem_vendas.MultiSelect = false;
             dgv_listagem_vendas.Name = "dgv_listagem_vendas";
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(760, 400);
+            dgv_listagem_vendas.Size = new Size(1060, 500);
             dgv_listagem_vendas.TabIndex = 6;
             // 
-            // id
+            // codigo
             // 
-            id.HeaderText = "Código da venda";
-            id.Name = "id";
-            id.ReadOnly = true;
+            codigo.HeaderText = "Código";
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
             // 
             // dgv_listagem_produtos_nome
             // 
@@ -110,7 +111,7 @@
             dgv_listagem_produtos_nome.Name = "dgv_listagem_produtos_nome";
             dgv_listagem_produtos_nome.ReadOnly = true;
             dgv_listagem_produtos_nome.Resizable = DataGridViewTriState.True;
-            dgv_listagem_produtos_nome.Width = 130;
+            dgv_listagem_produtos_nome.Width = 250;
             // 
             // nome_cliente
             // 
@@ -118,7 +119,7 @@
             nome_cliente.HeaderText = "Cliente";
             nome_cliente.Name = "nome_cliente";
             nome_cliente.ReadOnly = true;
-            nome_cliente.Width = 420;
+            nome_cliente.Width = 200;
             // 
             // dgv_listagem_produtos_estoque
             // 
@@ -133,7 +134,7 @@
             Funcionario.HeaderText = "Funcionario";
             Funcionario.Name = "Funcionario";
             Funcionario.ReadOnly = true;
-            Funcionario.Width = 420;
+            Funcionario.Width = 200;
             // 
             // dgv_listagem_produtos_preco
             // 
@@ -142,18 +143,17 @@
             dgv_listagem_produtos_preco.HeaderText = "Valor Total";
             dgv_listagem_produtos_preco.Name = "dgv_listagem_produtos_preco";
             dgv_listagem_produtos_preco.ReadOnly = true;
-            dgv_listagem_produtos_preco.Width = 200;
             // 
             // form_listagem_vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(784, 461);
+            ClientSize = new Size(1084, 561);
             Controls.Add(dgv_listagem_vendas);
             Controls.Add(btn_pesquisar_vendas);
-            Controls.Add(txt_pesquisar_vendas_data);
+            Controls.Add(txt_pesquisar_vendas);
             Controls.Add(lbl_pesquisar_vendas);
-            MinimumSize = new Size(800, 500);
+            MinimumSize = new Size(800, 600);
             Name = "form_listagem_vendas";
             Text = "Listagem de Vendas";
             Load += form_listagem_vendas_Load;
@@ -170,11 +170,11 @@
         private DataGridView dgv_listagem_produtos;
         private Label lbl_pesquisar_vendas;
         private Button btn_pesquisar_vendas;
-        private TextBox txt_pesquisar_vendas_data;
+        private TextBox txt_pesquisar_vendas;
         private DataGridView dgv_listagem_vendas;
         private TextBox textBox1;
         private TextBox textBox2;
-        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_nome;
         private DataGridViewTextBoxColumn nome_cliente;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_estoque;

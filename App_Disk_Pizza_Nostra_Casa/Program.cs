@@ -1,3 +1,4 @@
+using App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio;
 using App_Disk_Pizza_Nostra_Casa.View.Modules.Venda;
 
 namespace App_Disk_Pizza_Nostra_Casa
@@ -16,10 +17,10 @@ namespace App_Disk_Pizza_Nostra_Casa
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            // Fonte e tamanho padr„o da aplicaÁ„o.
+            // Fonte e tamanho padr√£o da aplica√ß√£o.
             Application.SetDefaultFont(new Font(new FontFamily("Arial"), 12f));
 
-            // Inicializando a aplicaÁ„o.
+            // Inicializando a aplica√ß√£o.
             Application.Run(new form_login());
 
         }
