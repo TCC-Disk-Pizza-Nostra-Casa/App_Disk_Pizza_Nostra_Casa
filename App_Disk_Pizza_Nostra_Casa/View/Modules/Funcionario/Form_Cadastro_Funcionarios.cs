@@ -19,6 +19,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         public Model.Funcionario usuario_sessao = null;
 
+        private string genero_personalizado;
+
         public form_cadastro_funcionarios()
         {
 
@@ -36,11 +38,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 this.Size = new Size(800, 500);
 
-                cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbbox_sexo.DropDownStyle = ComboBoxStyle.DropDownList;
 
                 cbbox_estado_civil.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_genero.DataSource = new string[] { "Masculino", "Feminino", "Não informar", "Outro" };
+                cbbox_sexo.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
 
                 cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
 
@@ -70,13 +72,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 txt_nome.Text = dados.nome;
 
-                cbbox_genero.Text = dados.genero;
+                cbbox_sexo.Text = dados.sexo;
 
                 cbbox_estado_civil.Text = dados.estado_civil;
 
                 mtxt_cpf.Text = dados.cpf;
-
-                mtxt_rg.Text = dados.rg;
 
                 mtxt_cep.Text = dados.cep;
 
@@ -87,40 +87,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 txt_observacoes.Text = dados.observacoes;
 
                 ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void cbbox_genero_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                switch (cbbox_genero.SelectedIndex)
-                {
-
-                    case 3:
-
-                        cbbox_genero.DropDownStyle = ComboBoxStyle.Simple;
-
-                        break;
-
-                    default:
-
-                        cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
-
-                        break;
-
-                }
 
             }
 
@@ -146,19 +112,17 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                     nome = txt_nome.Text,
 
-                    genero = cbbox_genero.Text,
+                    sexo = (cbbox_sexo.Text == "Não informar") ? "Não informado" : cbbox_sexo.Text,
 
                     estado_civil = cbbox_estado_civil.Text,
 
-                    cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
+                    cpf = mtxt_cpf.Text,
 
-                    rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
-
-                    cep = mtxt_cep.Text.Replace("-", ""),
+                    cep = mtxt_cep.Text,
 
                     email = txt_email.Text,
 
-                    telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""),
+                    telefone = mtxt_telefone.Text,
 
                     senha = txt_senha.Text,
 

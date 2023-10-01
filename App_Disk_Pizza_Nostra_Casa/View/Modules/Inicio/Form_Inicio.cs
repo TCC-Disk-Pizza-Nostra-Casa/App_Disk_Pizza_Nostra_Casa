@@ -160,19 +160,19 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                     this.formulario_associado = formulario_externo;
 
-                    formulario_externo.TopLevel = false;
+                    this.formulario_associado.TopLevel = false;
 
-                    formulario_externo.FormBorderStyle = FormBorderStyle.None;
+                    this.formulario_associado.FormBorderStyle = FormBorderStyle.None;
 
-                    formulario_externo.Dock = DockStyle.Fill;
+                    this.formulario_associado.Dock = DockStyle.Fill;
 
-                    pnl_formulario_externo.Controls.Add(formulario_externo);
+                    pnl_formulario_externo.Controls.Add(this.formulario_associado);
 
-                    pnl_formulario_externo.Tag = formulario_externo;
+                    pnl_formulario_externo.Tag = this.formulario_associado;
 
-                    formulario_externo.BringToFront();
+                    this.formulario_associado.BringToFront();
 
-                    formulario_externo.Show();
+                    this.formulario_associado.Show();
 
                 }
 
@@ -206,13 +206,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         }
 
-        private void btn_listagem_funcionario_Click(object sender, EventArgs e)
+        private void btn_cadastro_funcionario_Click(object sender, EventArgs e)
         {
 
             try
             {
 
-                External_Form_Association(new Modules.Funcionario.form_listagem_funcionarios());
+                External_Form_Association(new Modules.Funcionario.form_cadastro_funcionarios());
 
             }
 
@@ -225,13 +225,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         }
 
-        private void btn_cadastro_funcionario_Click(object sender, EventArgs e)
+        private void btn_listagem_funcionarios_Click(object sender, EventArgs e)
         {
 
             try
             {
 
-                External_Form_Association(new Modules.Funcionario.form_cadastro_funcionarios());
+                External_Form_Association(new Modules.Funcionario.form_listagem_funcionarios());
 
             }
 

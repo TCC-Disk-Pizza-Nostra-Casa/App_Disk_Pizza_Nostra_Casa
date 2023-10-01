@@ -481,7 +481,7 @@
             btn_listagem_funcionarios.Text = "Listagem";
             btn_listagem_funcionarios.TextAlign = ContentAlignment.MiddleLeft;
             btn_listagem_funcionarios.UseVisualStyleBackColor = false;
-            btn_listagem_funcionarios.Click += btn_listagem_funcionario_Click;
+            btn_listagem_funcionarios.Click += btn_listagem_funcionarios_Click;
             // 
             // btn_cadastro_funcionarios
             // 
