@@ -33,7 +33,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                 this.Size = new Size(700, 400);
 
-                txt_cpf.BackColor = this.BackColor;
+                mtxt_cpf.BackColor = this.BackColor;
 
                 txt_senha.BackColor = this.BackColor;
 
@@ -54,7 +54,7 @@ namespace App_Disk_Pizza_Nostra_Casa
             try
             {
 
-                if (String.IsNullOrEmpty(txt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                if (String.IsNullOrEmpty(mtxt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
                 {
 
                     throw new Exception("Preencha todos os campos antes de prosseguir.");
@@ -66,7 +66,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                     // Condição destinada para testes da aplicação.
 
-                    if (txt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
+                    if (mtxt_cpf.Text == "12345678909" && txt_senha.Text == "etecjau")
                     {
 
                         MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
@@ -81,13 +81,11 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             nome = "Root",
 
-                            genero = "Não informado.",
+                            sexo = "Não informado.",
 
                             estado_civil = "Solteiro",
 
                             cpf = "12345678909",
-
-                            rg = "123456789",
 
                             cep = "17212646",
 
@@ -110,7 +108,7 @@ namespace App_Disk_Pizza_Nostra_Casa
                     else
                     {
 
-                        string[] dados_login = { txt_cpf.Text, txt_senha.Text };
+                        string[] dados_login = { mtxt_cpf.Text, txt_senha.Text };
 
                         Model.Funcionario usuario_encontrado = await Model.Funcionario.Login(dados_login);
 
@@ -133,7 +131,7 @@ namespace App_Disk_Pizza_Nostra_Casa
                         else
                         {
 
-                            txt_cpf.Clear();
+                            mtxt_cpf.Clear();
 
                             txt_senha.Clear();
 

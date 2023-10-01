@@ -29,9 +29,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
 
-            Console.WriteLine("--------------------------------------------");
-            Console.WriteLine(produtoList[0].nome);
-            Console.WriteLine("--------------------------------------------");
+            if (produtoList.Count > 0)
+            {
+
+                Console.WriteLine("--------------------------------------------");
+                Console.WriteLine(produtoList[0].nome);
+                Console.WriteLine("--------------------------------------------");
+
+            }
 
             /** Items do cbx */
             cbx_produtos_addvenda.Items.Add("teste 1");
