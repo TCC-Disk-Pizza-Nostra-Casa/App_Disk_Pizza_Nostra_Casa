@@ -37,6 +37,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                     for (int i = 0; i < lista_fornecedor.Count; i++)
                     {
+                        int id = lista_fornecedor[i].id;
 
                         string nome = lista_fornecedor[i].nome;
 
@@ -54,7 +55,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         if (lista_fornecedor[i].ativo == 0) ativo = false;
 
-                        if (ativo == true) dgv_listagem_fornecedor.Rows.Add(nome, cnpj, telefone, data_cadastro, observacoes);
+                        if (ativo == true) dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
 
                     }
 
@@ -92,6 +93,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                     for (int i = 0; i < lista_fornecedor.Count; i++)
                     {
 
+                        int id = lista_fornecedor[i].id;
+
                         string nome = lista_fornecedor[i].nome;
 
                         string cnpj = lista_fornecedor[i].cnpj.ToString();
@@ -104,7 +107,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         if (observacoes == "") observacoes = "Nenhuma observação.";
 
-                        dgv_listagem_fornecedor.Rows.Add(nome, cnpj, telefone, data_cadastro, observacoes);
+                        dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
 
                     }
 
@@ -137,6 +140,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         if (lista_fornecedor[i].ativo == 0)
                         {
+                            int id = lista_fornecedor[i].id;
 
                             string nome = lista_fornecedor[i].nome;
 
@@ -150,7 +154,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                             if (observacoes == "") observacoes = "Nenhuma observação.";
 
-                            dgv_listagem_fornecedor.Rows.Add(nome, cnpj, telefone, data_cadastro, observacoes);
+                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
 
                         }
 
@@ -171,6 +175,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         if (lista_fornecedor[i].ativo == 1)
                         {
+                            int id = lista_fornecedor[i].id;
 
                             string nome = lista_fornecedor[i].nome;
 
@@ -184,7 +189,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                             if (observacoes == "") observacoes = "Nenhuma observação.";
 
-                            dgv_listagem_fornecedor.Rows.Add(nome, cnpj, telefone, data_cadastro, observacoes);
+                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
 
                         }
 
@@ -224,5 +229,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
         {
 
         }
+
     }
 }
