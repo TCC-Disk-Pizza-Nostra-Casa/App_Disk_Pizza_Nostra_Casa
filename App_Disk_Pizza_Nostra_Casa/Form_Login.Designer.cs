@@ -108,7 +108,7 @@
             txt_senha.PasswordChar = '*';
             txt_senha.PlaceholderText = "Digite sua senha...";
             txt_senha.Size = new Size(278, 19);
-            txt_senha.TabIndex = 9;
+            txt_senha.TabIndex = 2;
             txt_senha.TextAlign = HorizontalAlignment.Center;
             // 
             // btn_entrar
@@ -123,7 +123,7 @@
             btn_entrar.Location = new Point(105, 286);
             btn_entrar.Name = "btn_entrar";
             btn_entrar.Size = new Size(122, 36);
-            btn_entrar.TabIndex = 10;
+            btn_entrar.TabIndex = 3;
             btn_entrar.Text = "Entrar";
             btn_entrar.UseVisualStyleBackColor = false;
             btn_entrar.Click += btn_entrar_Click;
@@ -153,7 +153,7 @@
             mtxt_cpf.Mask = "000,000,000-00";
             mtxt_cpf.Name = "mtxt_cpf";
             mtxt_cpf.Size = new Size(278, 19);
-            mtxt_cpf.TabIndex = 11;
+            mtxt_cpf.TabIndex = 1;
             mtxt_cpf.TextAlign = HorizontalAlignment.Center;
             // 
             // form_login

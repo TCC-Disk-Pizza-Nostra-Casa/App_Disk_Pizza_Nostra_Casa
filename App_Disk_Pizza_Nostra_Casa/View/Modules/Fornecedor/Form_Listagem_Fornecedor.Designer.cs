@@ -38,6 +38,11 @@
             btn_pesquisar_fornecedor = new Button();
             txt_pesquisar_fornecedor = new TextBox();
             lbl_pesquisar_produtos = new Label();
+            cbx_ativo = new ComboBox();
+            btn_desativar = new Button();
+            btn_reativar = new Button();
+            btn_limpar = new Button();
+            btn_voltar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_fornecedor).BeginInit();
             SuspendLayout();
             // 
@@ -50,13 +55,13 @@
             dgv_listagem_fornecedor.BackgroundColor = Color.White;
             dgv_listagem_fornecedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listagem_fornecedor.Columns.AddRange(new DataGridViewColumn[] { dgv_listagem_fornecedor_nome, dgv_listagem_fornecedor_cnpj, dgv_listagem_fornecedor_telefone, dgv_listagem_fornecedor_data_cadastro, dgv_listagem_fornecedor_observacoes });
-            dgv_listagem_fornecedor.Location = new Point(12, 49);
+            dgv_listagem_fornecedor.Location = new Point(12, 105);
             dgv_listagem_fornecedor.MultiSelect = false;
             dgv_listagem_fornecedor.Name = "dgv_listagem_fornecedor";
             dgv_listagem_fornecedor.ReadOnly = true;
             dgv_listagem_fornecedor.RowTemplate.Height = 25;
             dgv_listagem_fornecedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_fornecedor.Size = new Size(760, 400);
+            dgv_listagem_fornecedor.Size = new Size(760, 285);
             dgv_listagem_fornecedor.TabIndex = 1;
             // 
             // dgv_listagem_fornecedor_nome
@@ -98,6 +103,7 @@
             // dgv_listagem_fornecedor_observacoes
             // 
             dgv_listagem_fornecedor_observacoes.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_listagem_fornecedor_observacoes.DividerWidth = 2;
             dgv_listagem_fornecedor_observacoes.FillWeight = 149.8212F;
             dgv_listagem_fornecedor_observacoes.HeaderText = "Observações";
             dgv_listagem_fornecedor_observacoes.Name = "dgv_listagem_fornecedor_observacoes";
@@ -114,7 +120,7 @@
             btn_pesquisar_fornecedor.Location = new Point(751, 11);
             btn_pesquisar_fornecedor.Name = "btn_pesquisar_fornecedor";
             btn_pesquisar_fornecedor.Size = new Size(23, 23);
-            btn_pesquisar_fornecedor.TabIndex = 4;
+            btn_pesquisar_fornecedor.TabIndex = 2;
             btn_pesquisar_fornecedor.UseVisualStyleBackColor = false;
             btn_pesquisar_fornecedor.Click += btn_pesquisar_fornecedor_Click;
             // 
@@ -128,7 +134,7 @@
             txt_pesquisar_fornecedor.Name = "txt_pesquisar_fornecedor";
             txt_pesquisar_fornecedor.PlaceholderText = "Digite o nome do fornecedor...";
             txt_pesquisar_fornecedor.Size = new Size(625, 22);
-            txt_pesquisar_fornecedor.TabIndex = 3;
+            txt_pesquisar_fornecedor.TabIndex = 1;
             // 
             // lbl_pesquisar_produtos
             // 
@@ -140,12 +146,91 @@
             lbl_pesquisar_produtos.TabIndex = 5;
             lbl_pesquisar_produtos.Text = "Pesquisar:";
             // 
+            // cbx_ativo
+            // 
+            cbx_ativo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbx_ativo.BackColor = SystemColors.Window;
+            cbx_ativo.Font = new Font("Arial", 11F, FontStyle.Bold, GraphicsUnit.Point);
+            cbx_ativo.FormattingEnabled = true;
+            cbx_ativo.Location = new Point(614, 54);
+            cbx_ativo.Name = "cbx_ativo";
+            cbx_ativo.Size = new Size(158, 26);
+            cbx_ativo.TabIndex = 3;
+            cbx_ativo.SelectedIndexChanged += cbx_ativo_SelectedIndexChanged;
+            // 
+            // btn_desativar
+            // 
+            btn_desativar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_desativar.BackColor = Color.Transparent;
+            btn_desativar.FlatAppearance.BorderColor = Color.Black;
+            btn_desativar.FlatAppearance.BorderSize = 2;
+            btn_desativar.FlatStyle = FlatStyle.Flat;
+            btn_desativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_desativar.Location = new Point(528, 410);
+            btn_desativar.Name = "btn_desativar";
+            btn_desativar.Size = new Size(116, 39);
+            btn_desativar.TabIndex = 38;
+            btn_desativar.Text = "Desativar";
+            btn_desativar.UseVisualStyleBackColor = false;
+            // 
+            // btn_reativar
+            // 
+            btn_reativar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_reativar.BackColor = Color.Transparent;
+            btn_reativar.FlatAppearance.BorderColor = Color.Black;
+            btn_reativar.FlatAppearance.BorderSize = 2;
+            btn_reativar.FlatStyle = FlatStyle.Flat;
+            btn_reativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_reativar.Location = new Point(658, 410);
+            btn_reativar.Name = "btn_reativar";
+            btn_reativar.Size = new Size(116, 39);
+            btn_reativar.TabIndex = 37;
+            btn_reativar.Text = "Reativar";
+            btn_reativar.UseVisualStyleBackColor = false;
+            // 
+            // btn_limpar
+            // 
+            btn_limpar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_limpar.BackColor = Color.Transparent;
+            btn_limpar.FlatAppearance.BorderColor = Color.Black;
+            btn_limpar.FlatAppearance.BorderSize = 2;
+            btn_limpar.FlatStyle = FlatStyle.Flat;
+            btn_limpar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_limpar.Location = new Point(142, 410);
+            btn_limpar.Name = "btn_limpar";
+            btn_limpar.Size = new Size(116, 39);
+            btn_limpar.TabIndex = 41;
+            btn_limpar.Text = "Limpar";
+            btn_limpar.UseVisualStyleBackColor = false;
+            btn_limpar.Click += btn_limpar_Click;
+            // 
+            // btn_voltar
+            // 
+            btn_voltar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_voltar.BackColor = Color.Transparent;
+            btn_voltar.FlatAppearance.BorderColor = Color.Black;
+            btn_voltar.FlatAppearance.BorderSize = 2;
+            btn_voltar.FlatStyle = FlatStyle.Flat;
+            btn_voltar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_voltar.Location = new Point(11, 410);
+            btn_voltar.Name = "btn_voltar";
+            btn_voltar.Size = new Size(116, 39);
+            btn_voltar.TabIndex = 40;
+            btn_voltar.Text = "Voltar";
+            btn_voltar.UseVisualStyleBackColor = false;
+            btn_voltar.Click += btn_voltar_Click;
+            // 
             // Form_Listagem_Fornecedor
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
+            Controls.Add(btn_limpar);
+            Controls.Add(btn_voltar);
+            Controls.Add(btn_desativar);
+            Controls.Add(btn_reativar);
+            Controls.Add(cbx_ativo);
             Controls.Add(btn_pesquisar_fornecedor);
             Controls.Add(txt_pesquisar_fornecedor);
             Controls.Add(lbl_pesquisar_produtos);
@@ -166,10 +251,15 @@
         private Button btn_pesquisar_fornecedor;
         private TextBox txt_pesquisar_fornecedor;
         private Label lbl_pesquisar_produtos;
+        private ComboBox cbx_ativo;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_nome;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_cnpj;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_telefone;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_data_cadastro;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_observacoes;
+        private Button btn_desativar;
+        private Button btn_reativar;
+        private Button btn_limpar;
+        private Button btn_voltar;
     }
 }
