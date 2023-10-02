@@ -82,10 +82,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         /**
          * Ira calcular os produtos e mostrar na lbl_valortotal
          */
-        private void btn_Calcular_Click(object sender, EventArgs e)
+        private async void btn_Calcular_Click(object sender, EventArgs e)
         {
             // valor pizza(s) + valor bebida(s) = lbltalortotal
+            //List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
 
+            //cbx_produtos_addvenda.Items.Add(produtoList[0].preco);
+
+            //lbl_valortotal = 
 
 
         }
@@ -165,6 +169,19 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbx_produtos_addvenda.Text = "";
 
 
+
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)
+        {
+            if (dgv_adicionar_vendas.RowCount > 0)
+            {
+                dgv_adicionar_vendas.Rows.RemoveAt(dgv_adicionar_vendas.CurrentRow.Index);
+            }
+            else if (dgv_adicionar_vendas.RowCount == 0)
+            {
+                MessageBox.Show("Não existem registros a serem removidos.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

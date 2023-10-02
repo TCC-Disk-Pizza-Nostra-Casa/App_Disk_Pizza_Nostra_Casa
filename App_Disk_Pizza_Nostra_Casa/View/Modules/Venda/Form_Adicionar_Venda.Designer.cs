@@ -46,8 +46,12 @@
             dgv_adicionar_vendas = new DataGridView();
             Produto = new DataGridViewTextBoxColumn();
             Preco = new DataGridViewTextBoxColumn();
-            btnInserir_dgv = new Button();
-            btnExcluir_dgv = new Button();
+            btn_Remover = new Button();
+            comboBox1 = new ComboBox();
+            comboBox2 = new ComboBox();
+            comboBox3 = new ComboBox();
+            label7 = new Label();
+            comboBox4 = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -83,7 +87,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(12, 99);
+            label4.Location = new Point(14, 144);
             label4.Name = "label4";
             label4.Size = new Size(116, 18);
             label4.TabIndex = 5;
@@ -93,7 +97,7 @@
             // 
             rdbtn_sim.AutoSize = true;
             rdbtn_sim.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbtn_sim.Location = new Point(147, 97);
+            rdbtn_sim.Location = new Point(149, 142);
             rdbtn_sim.Name = "rdbtn_sim";
             rdbtn_sim.Size = new Size(54, 22);
             rdbtn_sim.TabIndex = 6;
@@ -105,7 +109,7 @@
             // 
             rdbtn_nao.AutoSize = true;
             rdbtn_nao.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbtn_nao.Location = new Point(209, 97);
+            rdbtn_nao.Location = new Point(211, 142);
             rdbtn_nao.Name = "rdbtn_nao";
             rdbtn_nao.Size = new Size(55, 22);
             rdbtn_nao.TabIndex = 7;
@@ -137,9 +141,9 @@
             // 
             cbx_produtos_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbx_produtos_addvenda.FormattingEnabled = true;
-            cbx_produtos_addvenda.Location = new Point(147, 53);
+            cbx_produtos_addvenda.Location = new Point(297, 104);
             cbx_produtos_addvenda.Name = "cbx_produtos_addvenda";
-            cbx_produtos_addvenda.Size = new Size(625, 23);
+            cbx_produtos_addvenda.Size = new Size(142, 23);
             cbx_produtos_addvenda.TabIndex = 11;
             cbx_produtos_addvenda.SelectedIndexChanged += cbx_produtos_addvenda_SelectedIndexChanged;
             // 
@@ -218,7 +222,7 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(408, 125);
+            txt_observacoes.Location = new Point(406, 176);
             txt_observacoes.MaximumSize = new Size(366, 205);
             txt_observacoes.MinimumSize = new Size(366, 205);
             txt_observacoes.Multiline = true;
@@ -233,7 +237,7 @@
             dgv_adicionar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_adicionar_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_adicionar_vendas.Columns.AddRange(new DataGridViewColumn[] { Produto, Preco });
-            dgv_adicionar_vendas.Location = new Point(12, 125);
+            dgv_adicionar_vendas.Location = new Point(16, 176);
             dgv_adicionar_vendas.MaximumSize = new Size(366, 205);
             dgv_adicionar_vendas.MinimumSize = new Size(366, 205);
             dgv_adicionar_vendas.Name = "dgv_adicionar_vendas";
@@ -256,38 +260,69 @@
             Preco.Name = "Preco";
             Preco.ReadOnly = true;
             // 
-            // btnInserir_dgv
+            // btn_Remover
             // 
-            btnInserir_dgv.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnInserir_dgv.BackColor = SystemColors.Window;
-            btnInserir_dgv.FlatAppearance.BorderColor = Color.Black;
-            btnInserir_dgv.FlatAppearance.BorderSize = 2;
-            btnInserir_dgv.FlatStyle = FlatStyle.Flat;
-            btnInserir_dgv.Font = new Font("Arial", 26.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnInserir_dgv.ForeColor = Color.Blue;
-            btnInserir_dgv.Location = new Point(12, 336);
-            btnInserir_dgv.Name = "btnInserir_dgv";
-            btnInserir_dgv.Size = new Size(52, 47);
-            btnInserir_dgv.TabIndex = 32;
-            btnInserir_dgv.Text = "+";
-            btnInserir_dgv.UseVisualStyleBackColor = false;
-            btnInserir_dgv.Click += btnInserir_dgv_Click;
+            btn_Remover.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_Remover.BackColor = SystemColors.Window;
+            btn_Remover.FlatAppearance.BorderColor = Color.Black;
+            btn_Remover.FlatAppearance.BorderSize = 2;
+            btn_Remover.FlatStyle = FlatStyle.Flat;
+            btn_Remover.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_Remover.Location = new Point(134, 408);
+            btn_Remover.Name = "btn_Remover";
+            btn_Remover.Size = new Size(116, 41);
+            btn_Remover.TabIndex = 32;
+            btn_Remover.Text = "Remover";
+            btn_Remover.UseVisualStyleBackColor = false;
+            btn_Remover.Click += btn_Remover_Click;
             // 
-            // btnExcluir_dgv
+            // comboBox1
             // 
-            btnExcluir_dgv.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnExcluir_dgv.BackColor = SystemColors.Window;
-            btnExcluir_dgv.FlatAppearance.BorderColor = Color.Black;
-            btnExcluir_dgv.FlatAppearance.BorderSize = 2;
-            btnExcluir_dgv.FlatStyle = FlatStyle.Flat;
-            btnExcluir_dgv.Font = new Font("Arial", 20.25F, FontStyle.Bold, GraphicsUnit.Point);
-            btnExcluir_dgv.ForeColor = Color.Red;
-            btnExcluir_dgv.Location = new Point(81, 336);
-            btnExcluir_dgv.Name = "btnExcluir_dgv";
-            btnExcluir_dgv.Size = new Size(52, 47);
-            btnExcluir_dgv.TabIndex = 33;
-            btnExcluir_dgv.Text = "X";
-            btnExcluir_dgv.UseVisualStyleBackColor = false;
+            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(149, 75);
+            comboBox1.MaximumSize = new Size(300, 0);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(142, 23);
+            comboBox1.TabIndex = 33;
+            // 
+            // comboBox2
+            // 
+            comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox2.FormattingEnabled = true;
+            comboBox2.Location = new Point(445, 75);
+            comboBox2.Name = "comboBox2";
+            comboBox2.Size = new Size(142, 23);
+            comboBox2.TabIndex = 34;
+            // 
+            // comboBox3
+            // 
+            comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox3.FormattingEnabled = true;
+            comboBox3.Location = new Point(593, 75);
+            comboBox3.Name = "comboBox3";
+            comboBox3.Size = new Size(142, 23);
+            comboBox3.TabIndex = 35;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label7.Location = new Point(149, 53);
+            label7.Name = "label7";
+            label7.Size = new Size(46, 18);
+            label7.TabIndex = 36;
+            label7.Text = "Broto";
+            // 
+            // comboBox4
+            // 
+            comboBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox4.FormattingEnabled = true;
+            comboBox4.Location = new Point(149, 104);
+            comboBox4.MaximumSize = new Size(300, 0);
+            comboBox4.Name = "comboBox4";
+            comboBox4.Size = new Size(142, 23);
+            comboBox4.TabIndex = 37;
             // 
             // form_adicionar_venda
             // 
@@ -295,8 +330,12 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
-            Controls.Add(btnExcluir_dgv);
-            Controls.Add(btnInserir_dgv);
+            Controls.Add(comboBox4);
+            Controls.Add(label7);
+            Controls.Add(comboBox3);
+            Controls.Add(comboBox2);
+            Controls.Add(comboBox1);
+            Controls.Add(btn_Remover);
             Controls.Add(dgv_adicionar_vendas);
             Controls.Add(txt_observacoes);
             Controls.Add(btnCancelar);
@@ -344,5 +383,12 @@
         private Button btnExcluir_dgv;
         private DataGridViewTextBoxColumn Produto;
         private DataGridViewTextBoxColumn Preco;
+        private Button btn_Remover;
+        private Button button1;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private ComboBox comboBox3;
+        private Label label7;
+        private ComboBox comboBox4;
     }
 }
