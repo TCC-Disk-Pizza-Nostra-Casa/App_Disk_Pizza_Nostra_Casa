@@ -33,7 +33,7 @@
             lbl_observacoes = new Label();
             txt_observacoes = new TextBox();
             ckbox_administrador = new CheckBox();
-            groupBox1 = new GroupBox();
+            grp_dados = new GroupBox();
             pnl_campos = new Panel();
             cbbox_estado_civil = new ComboBox();
             cbbox_sexo = new ComboBox();
@@ -53,7 +53,7 @@
             txt_nome = new TextBox();
             lbl_sexo = new Label();
             lbl_nome = new Label();
-            groupBox1.SuspendLayout();
+            grp_dados.SuspendLayout();
             pnl_campos.SuspendLayout();
             SuspendLayout();
             // 
@@ -125,17 +125,17 @@
             ckbox_administrador.Text = "Administrador";
             ckbox_administrador.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
+            // grp_dados
             // 
-            groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox1.Controls.Add(pnl_campos);
-            groupBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox1.Location = new Point(12, 12);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(760, 269);
-            groupBox1.TabIndex = 41;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Dados";
+            grp_dados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grp_dados.Controls.Add(pnl_campos);
+            grp_dados.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            grp_dados.Location = new Point(12, 12);
+            grp_dados.Name = "grp_dados";
+            grp_dados.Size = new Size(760, 269);
+            grp_dados.TabIndex = 41;
+            grp_dados.TabStop = false;
+            grp_dados.Text = "Dados";
             // 
             // pnl_campos
             // 
@@ -375,7 +375,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
-            Controls.Add(groupBox1);
+            Controls.Add(grp_dados);
             Controls.Add(lbl_observacoes);
             Controls.Add(ckbox_administrador);
             Controls.Add(txt_observacoes);
@@ -385,7 +385,7 @@
             Name = "form_cadastro_funcionarios";
             Text = "Cadastro de Funcionários";
             Load += form_cadastro_funcionarios_Load;
-            groupBox1.ResumeLayout(false);
+            grp_dados.ResumeLayout(false);
             pnl_campos.ResumeLayout(false);
             pnl_campos.PerformLayout();
             ResumeLayout(false);
@@ -399,7 +399,7 @@
         private Label lbl_observacoes;
         private TextBox txt_observacoes;
         private CheckBox ckbox_administrador;
-        private GroupBox groupBox1;
+        private GroupBox grp_dados;
         private Panel pnl_campos;
         private MaskedTextBox mtxt_telefone;
         private Label lbl_telefone;
