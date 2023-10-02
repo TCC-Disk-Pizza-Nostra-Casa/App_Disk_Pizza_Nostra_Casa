@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using App_Disk_Pizza_Nostra_Casa.Model;
 using App_Disk_Pizza_Nostra_Casa.Service;
+
+using App_Disk_Pizza_Nostra_Casa.Model;
 
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
@@ -34,28 +35,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.Size = new Size(800, 500);
 
-                List<Model.Venda> lista_vendas = await Data_Service_Venda.GetListAsyncVenda();
+                List<Model.Venda>? lista_vendas = await Model.Venda.GetList();
 
-                if (lista_vendas.Count > 0)
-                {
-                    for (int i = 0; i < lista_vendas.Count; i++)
-                    {
-
-                        string data_venda = lista_vendas[i].data_venda.ToString();
-
-                        string delivery = (lista_vendas[i].delivery == true) ? "Sim" : "Não";
-
-                        string cliente = lista_vendas[i].cliente.ToString();
-
-                        string funcionario = lista_vendas[i].funcionario.ToString();
-
-                        string valor_total = lista_vendas[i].valor_total.ToString();
-
-                        dgv_listagem_vendas.Rows.Add(i + 1, data_venda, cliente, delivery, funcionario, valor_total);
-
-                    }
-
-                }
+                this.fillDgvVenda(lista_vendas);
 
             }
 
@@ -71,34 +53,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         {
             try
             {
+
+                this.MinimumSize = new Size(800, 500);
+                this.Size = new Size(800, 500);
+
                 dgv_listagem_vendas.Rows.Clear();
                 string parametro = txt_pesquisar_vendas.Text.ToString();
                 List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchAsyncVenda(parametro);
 
-                this.MinimumSize = new Size(800, 500);
-
-                this.Size = new Size(800, 500);
-
-                if (lista_vendas.Count > 0)
-                {
-                    for (int i = 0; i < lista_vendas.Count; i++)
-                    {
-
-                        string data_venda = lista_vendas[i].data_venda.ToString();
-
-                        string delivery = (lista_vendas[i].delivery == true) ? "Sim" : "Não";
-
-                        string cliente = lista_vendas[i].cliente.ToString();
-
-                        string funcionario = lista_vendas[i].funcionario.ToString();
-
-                        string valor_total = lista_vendas[i].valor_total.ToString();
-
-                        dgv_listagem_vendas.Rows.Add(i + 1, data_venda, cliente, delivery, funcionario, valor_total);
-
-                    }
-
-                }
+                this.fillDgvVenda(lista_vendas);
 
             }
 
@@ -106,6 +69,43 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
+        private async void btn_excluir_Click(object sender, EventArgs e)
+        {
+            if( (MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
+            {
+                int id = int.Parse(dgv_listagem_vendas.CurrentRow.Cells["id"].Value.ToString());
+
+                await Data_Service_Venda.DeleteAsyncVenda(id);
+
+                dgv_listagem_vendas.Rows.RemoveAt(dgv_listagem_vendas.CurrentRow.Index);
+            }
+        }
+
+        public void fillDgvVenda(List<Model.Venda> lista_vendas)
+        {
+            if (lista_vendas.Count > 0)
+            {
+                for (int i = 0; i < lista_vendas.Count; i++)
+                {
+
+                    string id = lista_vendas[i].id.ToString();
+                    string data_venda = lista_vendas[i].data_venda.ToString();
+
+                    string delivery = (lista_vendas[i].delivery == true) ? "Sim" : "Não";
+
+                    string cliente = lista_vendas[i].cliente.ToString();
+
+                    string funcionario = lista_vendas[i].funcionario.ToString();
+
+                    string valor_total = lista_vendas[i].valor_total.ToString();
+
+                    dgv_listagem_vendas.Rows.Add(id, i + 1, data_venda, cliente, delivery, funcionario, valor_total);
+
+                }
 
             }
         }
