@@ -17,7 +17,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        //public Model.Funcionario usuario_sessao;
+        public Model.Funcionario usuario_sessao = null;
+
+        private string genero_personalizado;
 
         public form_cadastro_funcionarios()
         {
@@ -36,20 +38,20 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 this.Size = new Size(800, 500);
 
-                /*cbbox_genero.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbbox_sexo.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_cargo.DropDownStyle = ComboBoxStyle.DropDownList;
+                cbbox_estado_civil.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_genero.DataSource = new string[] { "Selecione uma opção", "Masculino", "Feminino", "Não informar" };
+                cbbox_sexo.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
 
-                cbbox_cargo.DataSource = new string[] { "Selecione uma opção", "Balconista" };
+                cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
 
                 if (this.usuario_sessao != null)
                 {
 
                     Form_Fill(this.usuario_sessao);
 
-                }*/
+                }
 
             }
 
@@ -65,29 +67,35 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
         private void Form_Fill(Model.Funcionario dados)
         {
 
-            txt_nome.Text = dados.nome;
+            try
+            {
 
-            txt_nome_social.Text = dados.nome_social;
+                txt_nome.Text = dados.nome;
 
-            txt_pronome.Text = dados.pronome;
+                cbbox_sexo.Text = dados.sexo;
 
-            txt_genero.Text = dados.genero;
+                cbbox_estado_civil.Text = dados.estado_civil;
 
-            mtxt_cpf.Text = dados.cpf;
+                mtxt_cpf.Text = dados.cpf;
 
-            mtxt_rg.Text = dados.rg;
+                mtxt_cep.Text = dados.cep;
 
-            txt_cargo.Text = dados.cargo;
+                txt_email.Text = dados.email;
 
-            mtxt_cep.Text = dados.cep;
+                mtxt_telefone.Text = dados.telefone;
 
-            txt_email.Text = dados.email;
+                txt_observacoes.Text = dados.observacoes;
 
-            mtxt_telefone.Text = dados.telefone;
+                ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
 
-            txt_observacoes.Text = dados.observacoes;
+            }
 
-            ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -100,31 +108,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 Model.Funcionario dados = new Model.Funcionario()
                 {
 
+                    id = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0,
+
                     nome = txt_nome.Text,
 
-                    nome_social = txt_nome_social.Text,
+                    sexo = (cbbox_sexo.Text == "Não informar") ? "Não informado" : cbbox_sexo.Text,
 
-                    indice_genero = 1,
+                    estado_civil = cbbox_estado_civil.Text,
 
-                    genero = txt_genero.Text,
+                    cpf = mtxt_cpf.Text,
 
-                    pronome = txt_pronome.Text,
-
-                    cpf = mtxt_cpf.Text.Replace(".", "").Replace("-", ""),
-
-                    rg = mtxt_rg.Text.Replace(".", "").Replace("-", ""),
-
-                    indice_cargo = 1,
-
-                    cargo = txt_cargo.Text,
-
-                    cep = mtxt_cep.Text.Replace("-", ""),
+                    cep = mtxt_cep.Text,
 
                     email = txt_email.Text,
 
-                    telefone = mtxt_telefone.Text.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", ""),
+                    telefone = mtxt_telefone.Text,
 
                     senha = txt_senha.Text,
+
+                    confirmacao_senha = txt_confirmar_senha.Text,
 
                     observacoes = txt_observacoes.Text,
 

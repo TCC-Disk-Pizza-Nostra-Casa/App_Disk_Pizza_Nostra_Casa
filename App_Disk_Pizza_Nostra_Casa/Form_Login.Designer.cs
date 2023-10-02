@@ -33,10 +33,10 @@
             pctbox_imagem = new PictureBox();
             lbl_cep = new Label();
             lbl_senha = new Label();
-            txt_cpf = new TextBox();
             txt_senha = new TextBox();
             btn_entrar = new Button();
             panel1 = new Panel();
+            mtxt_cpf = new MaskedTextBox();
             pnl_imagem.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pctbox_imagem).BeginInit();
             panel1.SuspendLayout();
@@ -87,7 +87,7 @@
             lbl_senha.AutoSize = true;
             lbl_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_senha.ForeColor = Color.Black;
-            lbl_senha.Location = new Point(133, 172);
+            lbl_senha.Location = new Point(134, 172);
             lbl_senha.Margin = new Padding(4, 0, 4, 0);
             lbl_senha.Name = "lbl_senha";
             lbl_senha.Size = new Size(64, 19);
@@ -95,29 +95,15 @@
             lbl_senha.Text = "Senha:";
             lbl_senha.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // txt_cpf
-            // 
-            txt_cpf.Anchor = AnchorStyles.None;
-            txt_cpf.BackColor = SystemColors.Control;
-            txt_cpf.BorderStyle = BorderStyle.None;
-            txt_cpf.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
-            txt_cpf.ForeColor = Color.Black;
-            txt_cpf.Location = new Point(27, 93);
-            txt_cpf.MaxLength = 11;
-            txt_cpf.Name = "txt_cpf";
-            txt_cpf.PlaceholderText = "Digite seu CPF...";
-            txt_cpf.Size = new Size(278, 19);
-            txt_cpf.TabIndex = 7;
-            txt_cpf.TextAlign = HorizontalAlignment.Center;
-            // 
             // txt_senha
             // 
             txt_senha.Anchor = AnchorStyles.None;
-            txt_senha.BackColor = SystemColors.Control;
+            txt_senha.BackColor = Color.White;
             txt_senha.BorderStyle = BorderStyle.None;
             txt_senha.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
             txt_senha.ForeColor = Color.Black;
             txt_senha.Location = new Point(27, 216);
+            txt_senha.MaxLength = 20;
             txt_senha.Name = "txt_senha";
             txt_senha.PasswordChar = '*';
             txt_senha.PlaceholderText = "Digite sua senha...";
@@ -146,9 +132,9 @@
             // 
             panel1.BackColor = Color.Transparent;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(mtxt_cpf);
             panel1.Controls.Add(lbl_senha);
             panel1.Controls.Add(btn_entrar);
-            panel1.Controls.Add(txt_cpf);
             panel1.Controls.Add(txt_senha);
             panel1.Controls.Add(lbl_cep);
             panel1.Dock = DockStyle.Fill;
@@ -157,11 +143,24 @@
             panel1.Size = new Size(335, 361);
             panel1.TabIndex = 11;
             // 
+            // mtxt_cpf
+            // 
+            mtxt_cpf.BackColor = Color.White;
+            mtxt_cpf.BorderStyle = BorderStyle.None;
+            mtxt_cpf.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            mtxt_cpf.ForeColor = Color.Black;
+            mtxt_cpf.Location = new Point(27, 90);
+            mtxt_cpf.Mask = "000,000,000-00";
+            mtxt_cpf.Name = "mtxt_cpf";
+            mtxt_cpf.Size = new Size(278, 19);
+            mtxt_cpf.TabIndex = 11;
+            mtxt_cpf.TextAlign = HorizontalAlignment.Center;
+            // 
             // form_login
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = SystemColors.Control;
+            BackColor = Color.White;
             ClientSize = new Size(684, 361);
             Controls.Add(panel1);
             Controls.Add(pnl_imagem);
@@ -186,9 +185,9 @@
         private PictureBox pctbox_imagem;
         private Label lbl_cep;
         private Label lbl_senha;
-        private TextBox txt_cpf;
         private TextBox txt_senha;
         private Button btn_entrar;
         private Panel panel1;
+        private MaskedTextBox mtxt_cpf;
     }
 }

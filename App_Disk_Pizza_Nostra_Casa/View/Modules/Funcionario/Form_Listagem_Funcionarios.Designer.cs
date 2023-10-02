@@ -37,6 +37,7 @@
             btn_reativar = new Button();
             btn_voltar = new Button();
             cbbox_condicao_funcionario = new ComboBox();
+            btn_limpar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_funcionarios).BeginInit();
             SuspendLayout();
             // 
@@ -53,6 +54,7 @@
             btn_pesquisar_funcionario.Size = new Size(23, 23);
             btn_pesquisar_funcionario.TabIndex = 5;
             btn_pesquisar_funcionario.UseVisualStyleBackColor = false;
+            btn_pesquisar_funcionario.Click += btn_pesquisar_funcionario_Click;
             // 
             // txt_pesquisar_funcionario
             // 
@@ -84,15 +86,16 @@
             dgv_listagem_funcionarios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_listagem_funcionarios.BackgroundColor = Color.White;
             dgv_listagem_funcionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_funcionarios.Location = new Point(12, 92);
+            dgv_listagem_funcionarios.Location = new Point(12, 96);
             dgv_listagem_funcionarios.MultiSelect = false;
             dgv_listagem_funcionarios.Name = "dgv_listagem_funcionarios";
             dgv_listagem_funcionarios.ReadOnly = true;
             dgv_listagem_funcionarios.RowHeadersWidth = 51;
             dgv_listagem_funcionarios.RowTemplate.Height = 25;
             dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_funcionarios.Size = new Size(760, 299);
+            dgv_listagem_funcionarios.Size = new Size(760, 301);
             dgv_listagem_funcionarios.TabIndex = 3;
+            dgv_listagem_funcionarios.CellContentDoubleClick += dgv_listagem_funcionarios_CellContentDoubleClick;
             // 
             // btn_desativar
             // 
@@ -102,12 +105,13 @@
             btn_desativar.FlatAppearance.BorderSize = 2;
             btn_desativar.FlatStyle = FlatStyle.Flat;
             btn_desativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_desativar.Location = new Point(534, 410);
+            btn_desativar.Location = new Point(525, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
             btn_desativar.TabIndex = 36;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
+            btn_desativar.Click += btn_desativar_Click;
             // 
             // btn_reativar
             // 
@@ -123,6 +127,7 @@
             btn_reativar.TabIndex = 35;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
+            btn_reativar.Click += btn_reativar_Click;
             // 
             // btn_voltar
             // 
@@ -149,6 +154,23 @@
             cbbox_condicao_funcionario.Name = "cbbox_condicao_funcionario";
             cbbox_condicao_funcionario.Size = new Size(159, 26);
             cbbox_condicao_funcionario.TabIndex = 38;
+            cbbox_condicao_funcionario.SelectedIndexChanged += cbbox_condicao_funcionario_SelectedIndexChanged;
+            // 
+            // btn_limpar
+            // 
+            btn_limpar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_limpar.BackColor = Color.Transparent;
+            btn_limpar.FlatAppearance.BorderColor = Color.Black;
+            btn_limpar.FlatAppearance.BorderSize = 2;
+            btn_limpar.FlatStyle = FlatStyle.Flat;
+            btn_limpar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_limpar.Location = new Point(143, 410);
+            btn_limpar.Name = "btn_limpar";
+            btn_limpar.Size = new Size(116, 39);
+            btn_limpar.TabIndex = 39;
+            btn_limpar.Text = "Limpar";
+            btn_limpar.UseVisualStyleBackColor = false;
+            btn_limpar.Click += btn_limpar_Click;
             // 
             // form_listagem_funcionarios
             // 
@@ -156,6 +178,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
+            Controls.Add(btn_limpar);
             Controls.Add(cbbox_condicao_funcionario);
             Controls.Add(btn_voltar);
             Controls.Add(btn_desativar);
@@ -164,7 +187,7 @@
             Controls.Add(txt_pesquisar_funcionario);
             Controls.Add(lbl_pesquisar_funcionario);
             Controls.Add(dgv_listagem_funcionarios);
-            MinimumSize = new Size(800, 500);
+            MinimumSize = new Size(800, 498);
             Name = "form_listagem_funcionarios";
             Text = "Listagem de Funcionários";
             Load += form_listagem_funcionarios_Load;
@@ -183,5 +206,6 @@
         private Button btn_reativar;
         private Button btn_voltar;
         private ComboBox cbbox_condicao_funcionario;
+        private Button btn_limpar;
     }
 }
