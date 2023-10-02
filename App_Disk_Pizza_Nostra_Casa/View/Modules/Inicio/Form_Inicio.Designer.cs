@@ -58,7 +58,6 @@
             pnl_formulario_externo = new Panel();
             pctbox_icone_espera = new PictureBox();
             pnl_titulo_formulario_externo = new Panel();
-            label1 = new Label();
             pnl_menu_lateral.SuspendLayout();
             pnl_opcoes.SuspendLayout();
             pnl_submenu_fornecedores.SuspendLayout();
@@ -553,7 +552,6 @@
             // 
             pnl_formulario_externo.AutoScroll = true;
             pnl_formulario_externo.BackColor = Color.White;
-            pnl_formulario_externo.Controls.Add(label1);
             pnl_formulario_externo.Controls.Add(pctbox_icone_espera);
             pnl_formulario_externo.Dock = DockStyle.Fill;
             pnl_formulario_externo.Location = new Point(211, 147);
@@ -582,15 +580,6 @@
             pnl_titulo_formulario_externo.Size = new Size(973, 147);
             pnl_titulo_formulario_externo.TabIndex = 2;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(412, 64);
-            label1.Name = "label1";
-            label1.Size = new Size(113, 16);
-            label1.TabIndex = 1;
-            label1.Text = "Apenas um teste";
-            // 
             // form_inicio
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -618,7 +607,6 @@
             pnl_logo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pctbox_logo).EndInit();
             pnl_formulario_externo.ResumeLayout(false);
-            pnl_formulario_externo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pctbox_icone_espera).EndInit();
             ResumeLayout(false);
         }
@@ -654,6 +642,5 @@
         private Button btn_listagem_fornecedores;
         private Button btn_cadastro_fornecedor;
         private Button btn_fornecedores;
-        private Label label1;
     }
 }
