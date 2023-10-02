@@ -31,8 +31,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             List<Model.Cliente>? clienteList = await Data_Service_Cliente.GetListAsyncCliente();
 
             /** Items do cbx de Produto */
-            cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
-            cbx_produtos_addvenda.Items.Add(produtoList[1].nome);
+            //cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
+            //cbx_produtos_addvenda.Items.Add(produtoList[1].nome);
 
             if (produtoList.Count > 0)
             {
@@ -44,7 +44,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             }
 
             /** Items do cbx de cliente */
-            cbx_clientes_addvenda.Items.Add(clienteList[0].nome);
+            //cbx_clientes_addvenda.Items.Add(clienteList[0].nome);
 
             foreach (Model.Cliente nomeCliente in clienteList)
             {
@@ -174,15 +174,52 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         private void btn_Remover_Click(object sender, EventArgs e)
         {
+
             if (dgv_adicionar_vendas.RowCount > 0)
             {
-                dgv_adicionar_vendas.Rows.RemoveAt(dgv_adicionar_vendas.CurrentRow.Index);
+
+                if ((MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
+                {
+                    dgv_adicionar_vendas.Rows.RemoveAt(dgv_adicionar_vendas.CurrentRow.Index);
+                }
+
             }
             else if (dgv_adicionar_vendas.RowCount == 0)
             {
                 MessageBox.Show("Não existem registros a serem removidos.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
+        }
+
+        private void dgv_adicionar_vendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_observacoes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbtn_nao_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void rdbtn_sim_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 
