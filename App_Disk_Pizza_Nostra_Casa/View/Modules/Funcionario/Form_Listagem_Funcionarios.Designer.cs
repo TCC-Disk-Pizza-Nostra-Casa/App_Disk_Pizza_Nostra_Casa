@@ -95,6 +95,7 @@
             dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_funcionarios.Size = new Size(760, 301);
             dgv_listagem_funcionarios.TabIndex = 3;
+            dgv_listagem_funcionarios.CellContentClick += dgv_listagem_funcionarios_CellContentClick;
             dgv_listagem_funcionarios.CellContentDoubleClick += dgv_listagem_funcionarios_CellContentDoubleClick;
             // 
             // btn_desativar
