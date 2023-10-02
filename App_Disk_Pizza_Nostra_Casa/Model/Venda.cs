@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App_Disk_Pizza_Nostra_Casa.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,7 +30,11 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public List<double> valor_total_item_venda { get; set; }
 
         public int id_cliente { get; set; }
-
+        
+        public static async Task<List<Venda>>? GetList()
+        {
+            return await Data_Service_Venda.GetListAsyncVenda();
+        }
     }
 
 }
