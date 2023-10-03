@@ -18,13 +18,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string telefone { get; set; }
 
-        public string observacoes { get; set; }
+        public string? observacoes { get; set; }
 
-        public DateTime data_cadastro { get; set; }
+        public string data_cadastro { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        public DateTime data_modificacao { get; set; }
+        public string data_modificacao { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        public int ativo { get;  set; }
+        public int ativo { get; set; } = 1;
 
     }
 

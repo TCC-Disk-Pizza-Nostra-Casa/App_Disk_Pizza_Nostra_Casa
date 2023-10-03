@@ -8,9 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using App_Disk_Pizza_Nostra_Casa.Service;
-
 using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
 
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
@@ -75,9 +74,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         private async void btn_excluir_Click(object sender, EventArgs e)
         {
-            if( (MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
+            if (MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int id = int.Parse(dgv_listagem_vendas.CurrentRow.Cells["id"].Value.ToString());
+                int id = Convert.ToInt32(dgv_listagem_vendas.CurrentRow.Cells["id"].Value);
 
                 await Data_Service_Venda.DeleteAsyncVenda(id);
 
@@ -95,7 +94,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                     string id = lista_vendas[i].id.ToString();
                     string data_venda = lista_vendas[i].data_venda.ToString();
 
-                    string delivery = (lista_vendas[i].delivery == true) ? "Sim" : "Não";
+                    string delivery = (Convert.ToBoolean(lista_vendas[i].delivery)) ? "Sim" : "Não";
 
                     string cliente = lista_vendas[i].cliente.ToString();
 
