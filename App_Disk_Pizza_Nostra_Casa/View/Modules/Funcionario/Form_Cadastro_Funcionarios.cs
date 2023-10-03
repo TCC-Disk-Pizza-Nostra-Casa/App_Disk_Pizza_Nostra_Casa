@@ -19,8 +19,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         public Model.Funcionario usuario_sessao = null;
 
-        private string genero_personalizado;
-
         public form_cadastro_funcionarios()
         {
 
@@ -134,21 +132,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 };
 
-                Model.Funcionario usuario_retornado = await dados.Save();
-
-                if (usuario_retornado.id != null)
+                if (Convert.ToBoolean(await dados.Save()))
                 {
-
-                    MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                     this.Close();
-
-                }
-
-                else
-                {
-
-                    throw new Exception("Não foi possível salvar estes dados! Revise-os e tente novamente.");
 
                 }
 

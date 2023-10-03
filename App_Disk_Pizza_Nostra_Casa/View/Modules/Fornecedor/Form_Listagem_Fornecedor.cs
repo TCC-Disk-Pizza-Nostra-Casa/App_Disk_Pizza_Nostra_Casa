@@ -41,13 +41,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         string nome = lista_fornecedor[i].nome;
 
-                        string cnpj = lista_fornecedor[i].cnpj.ToString();
+                        string cnpj = lista_fornecedor[i].cnpj;
 
-                        string telefone = lista_fornecedor[i].telefone.ToString();
+                        string telefone = lista_fornecedor[i].telefone;
 
-                        string data_cadastro = lista_fornecedor[i].data_modificacao.ToString("dd/MM/yyyy HH:mm:ss");
+                        string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        string observacoes = lista_fornecedor[i].observacoes.ToString();
+                        string observacoes = lista_fornecedor[i].observacoes;
 
                         if (observacoes == "") observacoes = "Nenhuma observação.";
 
@@ -97,13 +97,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         string nome = lista_fornecedor[i].nome;
 
-                        string cnpj = lista_fornecedor[i].cnpj.ToString();
+                        string cnpj = lista_fornecedor[i].cnpj;
 
-                        string telefone = lista_fornecedor[i].telefone.ToString();
+                        string telefone = lista_fornecedor[i].telefone;
 
-                        string data_cadastro = lista_fornecedor[i].data_modificacao.ToString("dd/MM/yyyy HH:mm:ss");
+                        string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        string observacoes = lista_fornecedor[i].observacoes.ToString();
+                        string observacoes = lista_fornecedor[i].observacoes;
 
                         if (observacoes == "") observacoes = "Nenhuma observação.";
 
@@ -144,13 +144,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                             string nome = lista_fornecedor[i].nome;
 
-                            string cnpj = lista_fornecedor[i].cnpj.ToString();
+                            string cnpj = lista_fornecedor[i].cnpj;
 
-                            string telefone = lista_fornecedor[i].telefone.ToString();
+                            string telefone = lista_fornecedor[i].telefone;
 
-                            string data_cadastro = lista_fornecedor[i].data_modificacao.ToString("dd/MM/yyyy HH:mm:ss");
+                            string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                            string observacoes = lista_fornecedor[i].observacoes.ToString();
+                            string observacoes = lista_fornecedor[i].observacoes;
 
                             if (observacoes == "") observacoes = "Nenhuma observação.";
 
@@ -167,6 +167,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             else
             {
                 dgv_listagem_fornecedor.Rows.Clear();
+
                 if (lista_fornecedor.Count > 0)
                 {
 
@@ -183,16 +184,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                             string telefone = lista_fornecedor[i].telefone.ToString();
 
-                            string data_cadastro = lista_fornecedor[i].data_modificacao.ToString("dd/MM/yyyy HH:mm:ss");
+                            string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                            string observacoes = lista_fornecedor[i].observacoes.ToString();
+                            string observacoes = lista_fornecedor[i].observacoes;
 
                             if (observacoes == "") observacoes = "Nenhuma observação.";
 
                             dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
 
                         }
-
 
                     }
 
@@ -228,7 +228,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
         private void btn_limpar_Click(object sender, EventArgs e)
         {
 
+
+
         }
 
     }
+
 }

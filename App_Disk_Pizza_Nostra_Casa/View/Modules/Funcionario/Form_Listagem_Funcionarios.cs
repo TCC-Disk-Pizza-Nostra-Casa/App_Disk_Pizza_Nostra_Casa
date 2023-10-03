@@ -153,7 +153,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.Rows.Clear();
 
-                btn_limpar.Enabled = false;
+                btn_resetar.Enabled = false;
 
                 btn_reativar.Enabled = false;
 
@@ -259,7 +259,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                         if (dgv_listagem_funcionarios.RowCount > 0)
                         {
 
-                            btn_limpar.Enabled = true;
+                            btn_resetar.Enabled = true;
 
                         }
 
@@ -353,37 +353,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if(dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 6)
+                if (dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 6)
                 {
 
-                    if(MessageBox.Show("Realmente deseja alterar a permissão de administrador desse usuário?",
+                    if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse usuário?",
                        "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
                         bool exito;
 
-                        if(Convert.ToBoolean(dgv_listagem_funcionarios.CurrentCell.Value) == true)
+                        if (Convert.ToBoolean(dgv_listagem_funcionarios.CurrentCell.Value))
                         {
 
                             dgv_listagem_funcionarios.CurrentCell.Value = false;
 
-                            exito = await Model.Funcionario.Demote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
-
-                            if (exito)
-                            {
-
-                                MessageBox.Show("Usuário rebaixado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
-
-                            }
-
-                            else
-                            {
-
-                                throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
-
-                            }
+                            Model.Funcionario.Demote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
 
                         }
 
@@ -392,23 +376,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                             dgv_listagem_funcionarios.CurrentCell.Value = true;
 
-                            exito = await Model.Funcionario.Promote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
-
-                            if (exito)
-                            {
-
-                                MessageBox.Show("Usuário promovido com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
-
-                            }
-
-                            else
-                            {
-
-                                throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
-
-                            }
+                            Model.Funcionario.Promote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
 
                         }
 
@@ -433,54 +401,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                bool exito;
-
-                switch (cbbox_condicao_funcionario.SelectedIndex)
+                if (MessageBox.Show("Realmente deseja modificar a ativação desse usuário?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    case 0:
+                    bool exito;
 
-                        exito = await Model.Funcionario.Enable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+                    switch (cbbox_condicao_funcionario.SelectedIndex)
+                    {
 
-                        if (exito)
-                        {
+                        case 0:
 
-                            MessageBox.Show("Usuário reativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            if (Convert.ToBoolean(await Model.Funcionario.Enable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value))))
+                            {
 
-                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
 
-                        }
+                            }
 
-                        else
-                        {
+                            break;
 
-                            throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
+                        case 1:
 
-                        }
+                            if (Convert.ToBoolean(await Model.Funcionario.Disable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value))))
+                            {
 
-                        break;
+                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
 
-                    case 1:
+                            }
 
-                        exito = await Model.Funcionario.Disable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+                            break;
 
-                        if (exito)
-                        {
-
-                            MessageBox.Show("Usuário desativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
-
-                        }
-
-                        else
-                        {
-
-                            throw new Exception("Não foi possível desativar o funcionário selecionado! Tente novamente mais tarde.");
-
-                        }
-
-                        break;
+                    }
 
                 }
 
@@ -533,13 +485,19 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private void btn_limpar_Click(object sender, EventArgs e)
+        private void btn_resetar_Click(object sender, EventArgs e)
         {
 
             try
             {
 
-                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                if (MessageBox.Show("Realmente deseja resetar a tabela de funcionários?", "Atenção!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                }
 
             }
 
