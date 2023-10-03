@@ -25,7 +25,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string cep { get; set; }
 
-        public string email { get; set; } = null;
+        public string? email { get; set; } = null;
 
         public string telefone { get; set; }
 
@@ -33,7 +33,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string confirmacao_senha { get; set; }
 
-        public string observacoes { get; set; } = null;
+        public string? observacoes { get; set; } = null;
 
         public int administrador { get; set; } = 0;
 
@@ -43,7 +43,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int ativo { get; set; } = 1;
 
-        public async Task<Funcionario>? Save()
+        public async Task<bool>? Save()
         {
 
             if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.sexo) ||
@@ -80,7 +80,36 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                return await Data_Service_Funcionario.SaveAsyncFuncionario(this);
+                if (MessageBox.Show("Realmente deseja salvar esses dados?", "Atenção!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    Model.Funcionario usuario_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(this);
+
+                    if (usuario_retornado.id != null)
+                    {
+
+                        MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                        return true;
+
+                    }
+
+                    else
+                    {
+
+                        throw new Exception("Não foi possível salvar estes dados! Revise-os e tente novamente.");
+
+                    }
+
+                }
+
+                else
+                {
+
+                    return false;
+
+                }
 
             }
 
@@ -89,28 +118,88 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public static async Task<bool>? Enable(int id)
         {
 
-            return await Data_Service_Funcionario.EnableAsyncFuncionario(id);
+            bool exito = await Data_Service_Funcionario.EnableAsyncFuncionario(id);
+
+            if (exito)
+            {
+
+                MessageBox.Show("Funcionário reativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                return true;
+
+            }
+
+            else
+            {
+
+                throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
+
+            }
 
         }
 
         public static async Task<bool>? Disable(int id)
         {
 
-            return await Data_Service_Funcionario.DisableAsyncFuncionario(id);
+            bool exito =  await Data_Service_Funcionario.DisableAsyncFuncionario(id);
+
+            if (exito)
+            {
+
+                MessageBox.Show("Funcionário desativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                return true;
+
+            }
+
+            else
+            {
+
+                throw new Exception("Não foi possível desativar o funcionário selecionado! Tente novamente mais tarde.");
+
+            }
 
         }
 
-        public static async Task<bool>? Promote(int id)
+        public static async void Promote(int id)
         {
 
-            return await Data_Service_Funcionario.PromoteAsyncFuncionario(id);
+            bool exito = await Data_Service_Funcionario.PromoteAsyncFuncionario(id);
+
+            if (exito)
+            {
+
+                MessageBox.Show("Funcionário promovido com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+
+            else
+            {
+
+                throw new Exception("Não foi possível promover o funcionário selecionado! Tente novamente mais tarde.");
+
+            }
 
         }
 
-        public static async Task<bool>? Demote(int id)
+        public static async void Demote(int id)
         {
 
-            return await Data_Service_Funcionario.DemoteAsyncFuncionario(id);
+            bool exito = await Data_Service_Funcionario.DemoteAsyncFuncionario(id);
+
+            if (exito)
+            {
+
+                MessageBox.Show("Funcionário rebaixado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            }
+
+            else
+            {
+
+                throw new Exception("Não foi possível rebaixar o funcionário selecionado! Tente novamente mais tarde.");
+
+            }
 
         }
 

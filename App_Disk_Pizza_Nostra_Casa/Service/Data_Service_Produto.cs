@@ -27,16 +27,29 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<bool>? DeleteAsyncProduto(int id)
+        public static async Task<bool>? EnableAsyncProduto(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi(post_json, "/produto/delete");
+            string json = await Data_Service.SendDataApi(post_json, "/produto/enable");
 
-            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
 
-            return resultado;
+            return exito;
+
+        }
+
+        public static async Task<bool>? DisableAsyncProduto(int id)
+        {
+
+            var post_json = JsonConvert.SerializeObject(id);
+
+            string json = await Data_Service.SendDataApi(post_json, "/produto/disable");
+
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
+
+            return exito;
 
         }
 

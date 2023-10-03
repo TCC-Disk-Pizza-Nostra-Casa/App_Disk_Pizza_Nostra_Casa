@@ -25,7 +25,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private void form_cadastro_produtos_Load(object sender, EventArgs e)
+        private async void form_cadastro_produtos_Load(object sender, EventArgs e)
         {
 
             try
@@ -34,6 +34,105 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 this.MinimumSize = new Size(800, 500);
 
                 this.Size = new Size(800, 500);
+
+                cbbox_fornecedor.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_fornecedor.DisplayMember = "nome";
+
+                cbbox_fornecedor.ValueMember = "id";
+
+                List<Model.Fornecedor> fornecedores_cadastrados = await Data_Service_Fornecedor.GetListAsyncFornecedor();
+
+                if (fornecedores_cadastrados.Count > 0)
+                {
+
+                    List<Model.Fornecedor> fornecedores_ativos = new List<Model.Fornecedor>();
+
+                    for (int i = 0; i < fornecedores_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(fornecedores_cadastrados[i].ativo))
+                        {
+
+                            fornecedores_ativos.Add(fornecedores_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    cbbox_fornecedor.DataSource = fornecedores_ativos;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void txt_preco_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            try
+            {
+
+                if(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsPunctuation(e.KeyChar))
+                {
+
+                    e.Handled = false;
+
+                }
+
+                else
+                {
+
+                    e.Handled = true;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void btn_salvar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Model.Produto dados = new Model.Produto()
+                {
+
+                    nome = txt_nome.Text,
+
+                    estoque = Convert.ToInt32(nud_estoque.Value),
+
+                    preco = txt_preco.Text,
+
+                    observacoes = txt_observacoes.Text,
+
+                    fk_fornecedor = Convert.ToInt32(cbbox_fornecedor.SelectedValue)
+
+                };
+
+                if (await dados.Save())
+                {
+
+                    this.Close();
+
+                }
 
             }
 
@@ -49,45 +148,28 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
 
-            txt_nome_produto.Clear();
-            txt_estoque_produto.Clear();
-            txt_preco_produto.Clear();
-            txt_observacoes_produto.Clear();
-
-        }
-
-        private async void btn_salvar_Click(object sender, EventArgs e)
-        {
-
-            if (txt_nome_produto.Text == "" || txt_estoque_produto.Text == "" || txt_preco_produto.Text == "")
+            try
             {
 
-                MessageBox.Show("Preencha os campos obrigatórios.", "Cadastro incompleto!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-
-            else
-            {
-
-                Model.Produto produto = new Model.Produto()
-                {
-                    nome = txt_nome_produto.Text,
-                    estoque = int.Parse(txt_estoque_produto.Text),
-                    preco = double.Parse(txt_preco_produto.Text),
-                    observacoes = txt_observacoes_produto.Text
-                };
-
-                Model.Produto produto2 = await Data_Service_Produto.SaveAsyncProduto(produto);
-
-                if (produto2.id != null)
+                if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
+                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    MessageBox.Show("Produto cadastrado com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    this.Close();
 
                 }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
 
         }
+
     }
 
 }

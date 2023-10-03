@@ -37,7 +37,7 @@
             btn_reativar = new Button();
             btn_voltar = new Button();
             cbbox_condicao_funcionario = new ComboBox();
-            btn_limpar = new Button();
+            btn_resetar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_funcionarios).BeginInit();
             SuspendLayout();
             // 
@@ -106,7 +106,7 @@
             btn_desativar.FlatAppearance.BorderSize = 2;
             btn_desativar.FlatStyle = FlatStyle.Flat;
             btn_desativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_desativar.Location = new Point(525, 410);
+            btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
             btn_desativar.TabIndex = 36;
@@ -157,21 +157,21 @@
             cbbox_condicao_funcionario.TabIndex = 38;
             cbbox_condicao_funcionario.SelectedIndexChanged += cbbox_condicao_funcionario_SelectedIndexChanged;
             // 
-            // btn_limpar
+            // btn_resetar
             // 
-            btn_limpar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btn_limpar.BackColor = Color.Transparent;
-            btn_limpar.FlatAppearance.BorderColor = Color.Black;
-            btn_limpar.FlatAppearance.BorderSize = 2;
-            btn_limpar.FlatStyle = FlatStyle.Flat;
-            btn_limpar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_limpar.Location = new Point(143, 410);
-            btn_limpar.Name = "btn_limpar";
-            btn_limpar.Size = new Size(116, 39);
-            btn_limpar.TabIndex = 39;
-            btn_limpar.Text = "Limpar";
-            btn_limpar.UseVisualStyleBackColor = false;
-            btn_limpar.Click += btn_limpar_Click;
+            btn_resetar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_resetar.BackColor = Color.Transparent;
+            btn_resetar.FlatAppearance.BorderColor = Color.Black;
+            btn_resetar.FlatAppearance.BorderSize = 2;
+            btn_resetar.FlatStyle = FlatStyle.Flat;
+            btn_resetar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_resetar.Location = new Point(134, 410);
+            btn_resetar.Name = "btn_resetar";
+            btn_resetar.Size = new Size(116, 39);
+            btn_resetar.TabIndex = 39;
+            btn_resetar.Text = "Resetar";
+            btn_resetar.UseVisualStyleBackColor = false;
+            btn_resetar.Click += btn_resetar_Click;
             // 
             // form_listagem_funcionarios
             // 
@@ -179,7 +179,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
-            Controls.Add(btn_limpar);
+            Controls.Add(btn_resetar);
             Controls.Add(cbbox_condicao_funcionario);
             Controls.Add(btn_voltar);
             Controls.Add(btn_desativar);
@@ -207,6 +207,6 @@
         private Button btn_reativar;
         private Button btn_voltar;
         private ComboBox cbbox_condicao_funcionario;
-        private Button btn_limpar;
+        private Button btn_resetar;
     }
 }

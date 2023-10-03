@@ -135,7 +135,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                             txt_senha.Clear();
 
-                            throw new Exception("Nenhum usuário encontrado! Verifique seu usuário e senha.");
+                            throw new Exception("Nenhum usuário encontrado! Verifique seu CPF e senha.");
 
                         }
 
