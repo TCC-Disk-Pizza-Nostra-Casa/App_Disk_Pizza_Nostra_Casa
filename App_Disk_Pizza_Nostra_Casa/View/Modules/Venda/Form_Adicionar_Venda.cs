@@ -28,40 +28,87 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         {
 
             List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
+            List<Model.Cliente>? clienteList = await Data_Service_Cliente.GetListAsyncCliente();
+
+            /** Items do cbx de Produto */
+            //cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
+            //cbx_produtos_addvenda.Items.Add(produtoList[1].nome);
+
+            /** Preenchendo os combo boxs */
 
             if (produtoList.Count > 0)
             {
+                //Bebidas
+                for (int i = 0; i <= 11; i++)
+                {
 
-                Console.WriteLine("--------------------------------------------");
-                Console.WriteLine(produtoList[0].nome);
-                Console.WriteLine("--------------------------------------------");
+                    cbx_bebidas_add_venda.Items.Add(produtoList[i].nome);
 
-            }
+                }
 
-            /** Items do cbx */
-            cbx_produtos_addvenda.Items.Add("teste 1");
+                //Pizzas 1) Grande
+                for (int i = 12; i <= 23; i++)
+                {
 
-        }
+                    cbx_pizza1_grande_addvenda.Items.Add(produtoList[i].nome);
 
-        private void btn_Limpar_Click(object sender, EventArgs e)
-        {
+                }
 
-            /**
-             * Limpa todos os campos
-             */
+                //Pizzas 1) Broto
+                for (int i = 24; i <= 35; i++)
+                {
 
-            if (MessageBox.Show("Realmente deseja limpar todos os campos?", "Atenção!",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+                    cbx_pizza1_broto_addvenda.Items.Add(produtoList[i].nome);
 
-                cbx_cliente_addvenda.Text = "";
-                cbx_produtos_addvenda.Text = "";
+                }
 
-                lbl_valortotal.Text = "0";
-                rdbtn_nao.Checked = false;
-                rdbtn_sim.Checked = false;
+                //Pizzas 2) Grande
+                for (int i = 36; i <= 42; i++)
+                {
 
-                txt_observacoes.Text = "";
+                    cbx_pizza2_grande_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Pizzas 2) Broto
+                for (int i = 43; i <= 49; i++)
+                {
+
+                    cbx_pizza2_broto_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Especiais Grande
+                for (int i = 50; i <= 79; i++)
+                {
+
+                    cbx_especiais_grande_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Especiais Broto
+                for (int i = 79; i <= 98; i++)
+                {
+
+                    cbx_especiais_broto_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Doces Grande
+                for (int i = 99; i <= 105; i++)
+                {
+
+                    cbx_doces_grande_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Doces Broto
+                for (int i = 106; i <= 112; i++)
+                {
+
+                    cbx_doces_broto_addvenda.Items.Add(produtoList[i].nome);
+
+                }
 
             }
 
@@ -70,10 +117,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         /**
          * Ira calcular os produtos e mostrar na lbl_valortotal
          */
-        private void btn_Calcular_Click(object sender, EventArgs e)
+        private async void btn_Calcular_Click(object sender, EventArgs e)
         {
             // valor pizza(s) + valor bebida(s) = lbltalortotal
+            //List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
 
+            //cbx_produtos_addvenda.Items.Add(produtoList[0].preco);
+
+            //lbl_valortotal = 
 
 
         }
@@ -90,9 +141,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
          * se a resposta for afirmativa, a venda é feita, sendo cadastrada.
          * 
          */
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private async void btn_Salvar_Click(object sender, EventArgs e)
         {
-            dgv_adicionar_vendas.Rows.Add();
+
+            Model.Venda venda = new Model.Venda()
+            {
+                /**
+                data_venda = // data_atual
+                delivery = cbox_delivery.checked,
+                valor_total = // soma
+                funcionario = // funcionario atual
+                cliente = cbx_clientes_addvenda,
+                produto = // dgv_adicionar_vendas.produtoList[];
+                quantidade_produto = dgv_adicionar_vendas.RowCount,
+                valor_total_item_venda = // produtoList[].preco + [...].preco;
+                */
+
+            };
+
+            Model.Venda venda_model = await Data_Service_Venda.SaveAsyncVenda(venda);
+
+            if (venda_model.id != null)
+            {
+
+                MessageBox.Show("Venda feita com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
 
 
         }
@@ -136,11 +210,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         /**
          * ComboBox que ira recuperar uma lista de produtos cadastrados para selecioná-los
          */
-        private void cbx_produtos_addvenda_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbx_produtos_addvenda_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
             /** Adicionando o que selecionou */
             string itemSelecionado = cbx_produtos_addvenda.SelectedItem.ToString();
-            dgv_adicionar_vendas.Rows.Add(itemSelecionado);
+            dgv_adicionar_vendas.Rows.Add(itemSelecionado, produtoList[0].preco);
+
+
         }
 
         private void btnInserir_dgv_Click(object sender, EventArgs e)
@@ -151,6 +228,56 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
 
 
+        }
+
+        private void btn_Remover_Click(object sender, EventArgs e)
+        {
+
+            if (dgv_adicionar_vendas.RowCount > 0)
+            {
+
+                if ((MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
+                {
+                    dgv_adicionar_vendas.Rows.RemoveAt(dgv_adicionar_vendas.CurrentRow.Index);
+                }
+
+            }
+            else if (dgv_adicionar_vendas.RowCount == 0)
+            {
+                MessageBox.Show("Não existem registros a serem removidos.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void dgv_adicionar_vendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void txt_observacoes_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbtn_nao_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void rdbtn_sim_CheckedChanged(object sender, EventArgs e)
+        {
         }
     }
 

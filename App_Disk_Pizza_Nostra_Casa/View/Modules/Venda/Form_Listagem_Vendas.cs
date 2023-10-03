@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using App_Disk_Pizza_Nostra_Casa.Service;
+using App_Disk_Pizza_Nostra_Casa.View.Modules.Produto;
+
 using App_Disk_Pizza_Nostra_Casa.Model;
 using App_Disk_Pizza_Nostra_Casa.Service;
 
@@ -70,11 +73,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-        }
 
+        }
         private async void btn_excluir_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+
+            if ((MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(dgv_listagem_vendas.CurrentRow.Cells["id"].Value);
 
@@ -108,6 +112,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             }
         }
+
     }
 
 }

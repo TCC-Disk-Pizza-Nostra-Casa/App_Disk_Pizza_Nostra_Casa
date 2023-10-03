@@ -155,9 +155,10 @@
             // 
             // btn_excluir
             // 
+            btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_excluir.BackColor = Color.White;
             btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
-            btn_excluir.Location = new Point(887, 473);
+            btn_excluir.Location = new Point(965, 509);
             btn_excluir.Name = "btn_excluir";
             btn_excluir.Size = new Size(107, 40);
             btn_excluir.TabIndex = 7;
