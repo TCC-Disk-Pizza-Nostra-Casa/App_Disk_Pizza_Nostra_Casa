@@ -34,46 +34,81 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             //cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
             //cbx_produtos_addvenda.Items.Add(produtoList[1].nome);
 
+            /** Preenchendo os combo boxs */
+
             if (produtoList.Count > 0)
             {
+                //Bebidas
+                for (int i = 0; i <= 11; i++)
+                {
 
-                Console.WriteLine("--------------------------------------------");
-                Console.WriteLine(produtoList[0].nome);
-                Console.WriteLine("--------------------------------------------");
+                    cbx_bebidas_add_venda.Items.Add(produtoList[i].nome);
 
-            }
+                }
 
-            /** Items do cbx de cliente */
-            //cbx_clientes_addvenda.Items.Add(clienteList[0].nome);
+                //Pizzas 1) Grande
+                for (int i = 12; i <= 23; i++)
+                {
 
-            foreach (Model.Cliente nomeCliente in clienteList)
-            {
-                Console.WriteLine("===================================");
-                Console.WriteLine(nomeCliente);
-                Console.WriteLine("===================================");
-            }
+                    cbx_pizza1_grande_addvenda.Items.Add(produtoList[i].nome);
 
-        }
+                }
 
-        private void btn_Limpar_Click(object sender, EventArgs e)
-        {
+                //Pizzas 1) Broto
+                for (int i = 24; i <= 35; i++)
+                {
 
-            /**
-             * Limpa todos os campos
-             */
+                    cbx_pizza1_broto_addvenda.Items.Add(produtoList[i].nome);
 
-            if (MessageBox.Show("Realmente deseja limpar todos os campos?", "Atenção!",
-               MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
+                }
 
-                cbx_clientes_addvenda.Text = "";
-                cbx_produtos_addvenda.Text = "";
+                //Pizzas 2) Grande
+                for (int i = 36; i <= 42; i++)
+                {
 
-                lbl_valortotal.Text = "0";
-                rdbtn_nao.Checked = false;
-                rdbtn_sim.Checked = false;
+                    cbx_pizza2_grande_addvenda.Items.Add(produtoList[i].nome);
 
-                txt_observacoes.Text = "";
+                }
+
+                //Pizzas 2) Broto
+                for (int i = 43; i <= 49; i++)
+                {
+
+                    cbx_pizza2_broto_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Especiais Grande
+                for (int i = 50; i <= 79; i++)
+                {
+
+                    cbx_especiais_grande_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Especiais Broto
+                for (int i = 79; i <= 98; i++)
+                {
+
+                    cbx_especiais_broto_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Doces Grande
+                for (int i = 99; i <= 105; i++)
+                {
+
+                    cbx_doces_grande_addvenda.Items.Add(produtoList[i].nome);
+
+                }
+
+                //Doces Broto
+                for (int i = 106; i <= 112; i++)
+                {
+
+                    cbx_doces_broto_addvenda.Items.Add(produtoList[i].nome);
+
+                }
 
             }
 
@@ -106,9 +141,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
          * se a resposta for afirmativa, a venda é feita, sendo cadastrada.
          * 
          */
-        private void btn_Salvar_Click(object sender, EventArgs e)
+        private async void btn_Salvar_Click(object sender, EventArgs e)
         {
-            //dgv_adicionar_vendas.Rows.Add();
+
+            Model.Venda venda = new Model.Venda()
+            {
+                /**
+                data_venda = // data_atual
+                delivery = cbox_delivery.checked,
+                valor_total = // soma
+                funcionario = // funcionario atual
+                cliente = cbx_clientes_addvenda,
+                produto = // dgv_adicionar_vendas.produtoList[];
+                quantidade_produto = dgv_adicionar_vendas.RowCount,
+                valor_total_item_venda = // produtoList[].preco + [...].preco;
+                */
+
+            };
+
+            Model.Venda venda_model = await Data_Service_Venda.SaveAsyncVenda(venda);
+
+            if (venda_model.id != null)
+            {
+
+                MessageBox.Show("Venda feita com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
 
 
         }

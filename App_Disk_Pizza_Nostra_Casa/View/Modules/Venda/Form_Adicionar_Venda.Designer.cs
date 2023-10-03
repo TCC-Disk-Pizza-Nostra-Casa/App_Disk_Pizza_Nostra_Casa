@@ -32,8 +32,6 @@
             label2 = new Label();
             label3 = new Label();
             label4 = new Label();
-            rdbtn_sim = new RadioButton();
-            rdbtn_nao = new RadioButton();
             label5 = new Label();
             cbx_clientes_addvenda = new ComboBox();
             btn_Salvar = new Button();
@@ -46,23 +44,24 @@
             Produto = new DataGridViewTextBoxColumn();
             Preco = new DataGridViewTextBoxColumn();
             btn_Remover = new Button();
-            cbx_produtos_addvenda = new ComboBox();
+            cbx_pizza1_grande_addvenda = new ComboBox();
             label7 = new Label();
-            comboBox4 = new ComboBox();
-            comboBox1 = new ComboBox();
+            cbx_pizza2_grande_addvenda = new ComboBox();
+            cbx_pizza2_broto_addvenda = new ComboBox();
             label8 = new Label();
-            comboBox2 = new ComboBox();
+            cbx_pizza1_broto_addvenda = new ComboBox();
             label9 = new Label();
             label10 = new Label();
             label11 = new Label();
             label12 = new Label();
-            comboBox3 = new ComboBox();
-            comboBox5 = new ComboBox();
-            comboBox6 = new ComboBox();
-            comboBox7 = new ComboBox();
+            cbx_doces_broto_addvenda = new ComboBox();
+            cbx_especiais_broto_addvenda = new ComboBox();
+            cbx_doces_grande_addvenda = new ComboBox();
+            cbx_especiais_grande_addvenda = new ComboBox();
             label14 = new Label();
-            comboBox8 = new ComboBox();
+            cbx_bebidas_add_venda = new ComboBox();
             groupBox1 = new GroupBox();
+            cbox_delivery = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
@@ -105,34 +104,6 @@
             label4.TabIndex = 5;
             label4.Text = "Fazer Entrega?";
             label4.Click += label4_Click;
-            // 
-            // rdbtn_sim
-            // 
-            rdbtn_sim.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            rdbtn_sim.AutoSize = true;
-            rdbtn_sim.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbtn_sim.Location = new Point(634, 132);
-            rdbtn_sim.Name = "rdbtn_sim";
-            rdbtn_sim.Size = new Size(54, 22);
-            rdbtn_sim.TabIndex = 6;
-            rdbtn_sim.TabStop = true;
-            rdbtn_sim.Text = "Sim";
-            rdbtn_sim.UseVisualStyleBackColor = true;
-            rdbtn_sim.CheckedChanged += rdbtn_sim_CheckedChanged;
-            // 
-            // rdbtn_nao
-            // 
-            rdbtn_nao.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            rdbtn_nao.AutoSize = true;
-            rdbtn_nao.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            rdbtn_nao.Location = new Point(694, 132);
-            rdbtn_nao.Name = "rdbtn_nao";
-            rdbtn_nao.Size = new Size(55, 22);
-            rdbtn_nao.TabIndex = 7;
-            rdbtn_nao.TabStop = true;
-            rdbtn_nao.Text = "Não";
-            rdbtn_nao.UseVisualStyleBackColor = true;
-            rdbtn_nao.CheckedChanged += rdbtn_nao_CheckedChanged;
             // 
             // label5
             // 
@@ -253,17 +224,19 @@
             // 
             // Produto
             // 
+            Produto.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
             Produto.HeaderText = "Produto";
             Produto.MinimumWidth = 100;
             Produto.Name = "Produto";
             Produto.ReadOnly = true;
-            Produto.Width = 213;
+            Produto.Resizable = DataGridViewTriState.True;
             // 
             // Preco
             // 
             Preco.HeaderText = "Preço";
             Preco.Name = "Preco";
             Preco.ReadOnly = true;
+            Preco.Width = 175;
             // 
             // btn_Remover
             // 
@@ -281,15 +254,15 @@
             btn_Remover.UseVisualStyleBackColor = false;
             btn_Remover.Click += btn_Remover_Click;
             // 
-            // cbx_produtos_addvenda
+            // cbx_pizza1_grande_addvenda
             // 
-            cbx_produtos_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbx_produtos_addvenda.FormattingEnabled = true;
-            cbx_produtos_addvenda.Location = new Point(97, 45);
-            cbx_produtos_addvenda.MaximumSize = new Size(300, 0);
-            cbx_produtos_addvenda.Name = "cbx_produtos_addvenda";
-            cbx_produtos_addvenda.Size = new Size(238, 26);
-            cbx_produtos_addvenda.TabIndex = 33;
+            cbx_pizza1_grande_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_pizza1_grande_addvenda.FormattingEnabled = true;
+            cbx_pizza1_grande_addvenda.Location = new Point(97, 45);
+            cbx_pizza1_grande_addvenda.MaximumSize = new Size(300, 0);
+            cbx_pizza1_grande_addvenda.Name = "cbx_pizza1_grande_addvenda";
+            cbx_pizza1_grande_addvenda.Size = new Size(238, 26);
+            cbx_pizza1_grande_addvenda.TabIndex = 33;
             // 
             // label7
             // 
@@ -301,25 +274,25 @@
             label7.TabIndex = 36;
             label7.Text = "Grande";
             // 
-            // comboBox4
+            // cbx_pizza2_grande_addvenda
             // 
-            comboBox4.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox4.FormattingEnabled = true;
-            comboBox4.Location = new Point(97, 70);
-            comboBox4.MaximumSize = new Size(300, 0);
-            comboBox4.Name = "comboBox4";
-            comboBox4.Size = new Size(238, 26);
-            comboBox4.TabIndex = 37;
+            cbx_pizza2_grande_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_pizza2_grande_addvenda.FormattingEnabled = true;
+            cbx_pizza2_grande_addvenda.Location = new Point(97, 70);
+            cbx_pizza2_grande_addvenda.MaximumSize = new Size(300, 0);
+            cbx_pizza2_grande_addvenda.Name = "cbx_pizza2_grande_addvenda";
+            cbx_pizza2_grande_addvenda.Size = new Size(238, 26);
+            cbx_pizza2_grande_addvenda.TabIndex = 37;
             // 
-            // comboBox1
+            // cbx_pizza2_broto_addvenda
             // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(341, 70);
-            comboBox1.MaximumSize = new Size(300, 0);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(236, 26);
-            comboBox1.TabIndex = 40;
+            cbx_pizza2_broto_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_pizza2_broto_addvenda.FormattingEnabled = true;
+            cbx_pizza2_broto_addvenda.Location = new Point(341, 70);
+            cbx_pizza2_broto_addvenda.MaximumSize = new Size(300, 0);
+            cbx_pizza2_broto_addvenda.Name = "cbx_pizza2_broto_addvenda";
+            cbx_pizza2_broto_addvenda.Size = new Size(236, 26);
+            cbx_pizza2_broto_addvenda.TabIndex = 40;
             // 
             // label8
             // 
@@ -331,15 +304,15 @@
             label8.TabIndex = 39;
             label8.Text = "Broto";
             // 
-            // comboBox2
+            // cbx_pizza1_broto_addvenda
             // 
-            comboBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(341, 45);
-            comboBox2.MaximumSize = new Size(300, 0);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(236, 26);
-            comboBox2.TabIndex = 38;
+            cbx_pizza1_broto_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_pizza1_broto_addvenda.FormattingEnabled = true;
+            cbx_pizza1_broto_addvenda.Location = new Point(341, 45);
+            cbx_pizza1_broto_addvenda.MaximumSize = new Size(300, 0);
+            cbx_pizza1_broto_addvenda.Name = "cbx_pizza1_broto_addvenda";
+            cbx_pizza1_broto_addvenda.Size = new Size(236, 26);
+            cbx_pizza1_broto_addvenda.TabIndex = 38;
             // 
             // label9
             // 
@@ -381,45 +354,45 @@
             label12.TabIndex = 44;
             label12.Text = "Doces";
             // 
-            // comboBox3
+            // cbx_doces_broto_addvenda
             // 
-            comboBox3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(341, 120);
-            comboBox3.MaximumSize = new Size(300, 0);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(236, 26);
-            comboBox3.TabIndex = 48;
+            cbx_doces_broto_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_doces_broto_addvenda.FormattingEnabled = true;
+            cbx_doces_broto_addvenda.Location = new Point(341, 120);
+            cbx_doces_broto_addvenda.MaximumSize = new Size(300, 0);
+            cbx_doces_broto_addvenda.Name = "cbx_doces_broto_addvenda";
+            cbx_doces_broto_addvenda.Size = new Size(236, 26);
+            cbx_doces_broto_addvenda.TabIndex = 48;
             // 
-            // comboBox5
+            // cbx_especiais_broto_addvenda
             // 
-            comboBox5.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox5.FormattingEnabled = true;
-            comboBox5.Location = new Point(341, 95);
-            comboBox5.MaximumSize = new Size(300, 0);
-            comboBox5.Name = "comboBox5";
-            comboBox5.Size = new Size(236, 26);
-            comboBox5.TabIndex = 47;
+            cbx_especiais_broto_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_especiais_broto_addvenda.FormattingEnabled = true;
+            cbx_especiais_broto_addvenda.Location = new Point(341, 95);
+            cbx_especiais_broto_addvenda.MaximumSize = new Size(300, 0);
+            cbx_especiais_broto_addvenda.Name = "cbx_especiais_broto_addvenda";
+            cbx_especiais_broto_addvenda.Size = new Size(236, 26);
+            cbx_especiais_broto_addvenda.TabIndex = 47;
             // 
-            // comboBox6
+            // cbx_doces_grande_addvenda
             // 
-            comboBox6.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox6.FormattingEnabled = true;
-            comboBox6.Location = new Point(97, 120);
-            comboBox6.MaximumSize = new Size(300, 0);
-            comboBox6.Name = "comboBox6";
-            comboBox6.Size = new Size(238, 26);
-            comboBox6.TabIndex = 46;
+            cbx_doces_grande_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_doces_grande_addvenda.FormattingEnabled = true;
+            cbx_doces_grande_addvenda.Location = new Point(97, 120);
+            cbx_doces_grande_addvenda.MaximumSize = new Size(300, 0);
+            cbx_doces_grande_addvenda.Name = "cbx_doces_grande_addvenda";
+            cbx_doces_grande_addvenda.Size = new Size(238, 26);
+            cbx_doces_grande_addvenda.TabIndex = 46;
             // 
-            // comboBox7
+            // cbx_especiais_grande_addvenda
             // 
-            comboBox7.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox7.FormattingEnabled = true;
-            comboBox7.Location = new Point(97, 95);
-            comboBox7.MaximumSize = new Size(300, 0);
-            comboBox7.Name = "comboBox7";
-            comboBox7.Size = new Size(238, 26);
-            comboBox7.TabIndex = 45;
+            cbx_especiais_grande_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_especiais_grande_addvenda.FormattingEnabled = true;
+            cbx_especiais_grande_addvenda.Location = new Point(97, 95);
+            cbx_especiais_grande_addvenda.MaximumSize = new Size(300, 0);
+            cbx_especiais_grande_addvenda.Name = "cbx_especiais_grande_addvenda";
+            cbx_especiais_grande_addvenda.Size = new Size(238, 26);
+            cbx_especiais_grande_addvenda.TabIndex = 45;
             // 
             // label14
             // 
@@ -433,30 +406,30 @@
             label14.Text = "Bebidas";
             label14.Click += label14_Click;
             // 
-            // comboBox8
+            // cbx_bebidas_add_venda
             // 
-            comboBox8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox8.FormattingEnabled = true;
-            comboBox8.Location = new Point(612, 66);
-            comboBox8.MaximumSize = new Size(300, 0);
-            comboBox8.Name = "comboBox8";
-            comboBox8.Size = new Size(160, 23);
-            comboBox8.TabIndex = 49;
-            comboBox8.SelectedIndexChanged += comboBox8_SelectedIndexChanged;
+            cbx_bebidas_add_venda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbx_bebidas_add_venda.FormattingEnabled = true;
+            cbx_bebidas_add_venda.Location = new Point(612, 66);
+            cbx_bebidas_add_venda.MaximumSize = new Size(300, 0);
+            cbx_bebidas_add_venda.Name = "cbx_bebidas_add_venda";
+            cbx_bebidas_add_venda.Size = new Size(160, 23);
+            cbx_bebidas_add_venda.TabIndex = 49;
+            cbx_bebidas_add_venda.SelectedIndexChanged += comboBox8_SelectedIndexChanged;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(comboBox7);
-            groupBox1.Controls.Add(cbx_produtos_addvenda);
-            groupBox1.Controls.Add(comboBox3);
+            groupBox1.Controls.Add(cbx_especiais_grande_addvenda);
+            groupBox1.Controls.Add(cbx_pizza1_grande_addvenda);
+            groupBox1.Controls.Add(cbx_doces_broto_addvenda);
             groupBox1.Controls.Add(label7);
-            groupBox1.Controls.Add(comboBox5);
-            groupBox1.Controls.Add(comboBox4);
-            groupBox1.Controls.Add(comboBox6);
-            groupBox1.Controls.Add(comboBox2);
+            groupBox1.Controls.Add(cbx_especiais_broto_addvenda);
+            groupBox1.Controls.Add(cbx_pizza2_grande_addvenda);
+            groupBox1.Controls.Add(cbx_doces_grande_addvenda);
+            groupBox1.Controls.Add(cbx_pizza1_broto_addvenda);
             groupBox1.Controls.Add(label8);
             groupBox1.Controls.Add(label12);
-            groupBox1.Controls.Add(comboBox1);
+            groupBox1.Controls.Add(cbx_pizza2_broto_addvenda);
             groupBox1.Controls.Add(label11);
             groupBox1.Controls.Add(label9);
             groupBox1.Controls.Add(label10);
@@ -469,14 +442,27 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Pizzas:";
             // 
+            // cbox_delivery
+            // 
+            cbox_delivery.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbox_delivery.AutoSize = true;
+            cbox_delivery.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbox_delivery.Location = new Point(658, 144);
+            cbox_delivery.Name = "cbox_delivery";
+            cbox_delivery.Size = new Size(55, 22);
+            cbox_delivery.TabIndex = 52;
+            cbox_delivery.Text = "Sim";
+            cbox_delivery.UseVisualStyleBackColor = true;
+            // 
             // form_adicionar_venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 577);
+            Controls.Add(cbox_delivery);
             Controls.Add(label14);
-            Controls.Add(comboBox8);
+            Controls.Add(cbx_bebidas_add_venda);
             Controls.Add(btn_Remover);
             Controls.Add(dgv_adicionar_vendas);
             Controls.Add(txt_observacoes);
@@ -487,8 +473,6 @@
             Controls.Add(btn_Salvar);
             Controls.Add(cbx_clientes_addvenda);
             Controls.Add(label5);
-            Controls.Add(rdbtn_nao);
-            Controls.Add(rdbtn_sim);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -524,8 +508,6 @@
         private DataGridView dgv_adicionar_vendas;
         private Button btnInserir_dgv;
         private Button btnExcluir_dgv;
-        private DataGridViewTextBoxColumn Produto;
-        private DataGridViewTextBoxColumn Preco;
         private Button btn_Remover;
         private Button button1;
         private ComboBox cbx_produtos_addvenda;
@@ -545,5 +527,18 @@
         private Label label14;
         private ComboBox comboBox8;
         private GroupBox groupBox1;
+        private CheckBox checkBox1;
+        private ComboBox cbx_pizza1_grande_addvenda;
+        private ComboBox cbx_pizza2_grande_addvenda;
+        private ComboBox cbx_pizza2_broto_addvenda;
+        private ComboBox cbx_pizza1_broto_addvenda;
+        private ComboBox cbx_doces_broto_addvenda;
+        private ComboBox cbx_especiais_broto_addvenda;
+        private ComboBox cbx_doces_grande_addvenda;
+        private ComboBox cbx_especiais_grande_addvenda;
+        private ComboBox cbx_bebidas_add_venda;
+        private CheckBox cbox_delivery;
+        private DataGridViewTextBoxColumn Produto;
+        private DataGridViewTextBoxColumn Preco;
     }
 }

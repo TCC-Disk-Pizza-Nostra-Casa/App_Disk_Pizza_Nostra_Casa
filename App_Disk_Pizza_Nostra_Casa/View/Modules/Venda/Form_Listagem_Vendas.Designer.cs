@@ -33,12 +33,14 @@
             txt_pesquisar_vendas = new TextBox();
             lbl_pesquisar_vendas = new Label();
             dgv_listagem_vendas = new DataGridView();
+            id = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_nome = new DataGridViewTextBoxColumn();
             nome_cliente = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_estoque = new DataGridViewTextBoxColumn();
             Funcionario = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
+            btn_excluir = new Button();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -87,15 +89,22 @@
             dgv_listagem_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_listagem_vendas.BackgroundColor = Color.White;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { codigo, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
+            dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { id, codigo, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
             dgv_listagem_vendas.Location = new Point(10, 49);
             dgv_listagem_vendas.MultiSelect = false;
             dgv_listagem_vendas.Name = "dgv_listagem_vendas";
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(1060, 500);
+            dgv_listagem_vendas.Size = new Size(1062, 392);
             dgv_listagem_vendas.TabIndex = 6;
+            // 
+            // id
+            // 
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
             // 
             // codigo
             // 
@@ -144,11 +153,25 @@
             dgv_listagem_produtos_preco.Name = "dgv_listagem_produtos_preco";
             dgv_listagem_produtos_preco.ReadOnly = true;
             // 
+            // btn_excluir
+            // 
+            btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_excluir.BackColor = Color.White;
+            btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
+            btn_excluir.Location = new Point(965, 509);
+            btn_excluir.Name = "btn_excluir";
+            btn_excluir.Size = new Size(107, 40);
+            btn_excluir.TabIndex = 7;
+            btn_excluir.Text = "Excluir";
+            btn_excluir.UseVisualStyleBackColor = false;
+            btn_excluir.Click += btn_excluir_Click;
+            // 
             // form_listagem_vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1084, 561);
+            Controls.Add(btn_excluir);
             Controls.Add(dgv_listagem_vendas);
             Controls.Add(btn_pesquisar_vendas);
             Controls.Add(txt_pesquisar_vendas);
@@ -167,13 +190,14 @@
         private Button btn_pesquisar_produtos;
         private TextBox txt_pesquisar_produtos;
         private Label lbl_pesquisar_produtos;
-        private DataGridView dgv_listagem_produtos;
         private Label lbl_pesquisar_vendas;
         private Button btn_pesquisar_vendas;
         private TextBox txt_pesquisar_vendas;
         private DataGridView dgv_listagem_vendas;
         private TextBox textBox1;
         private TextBox textBox2;
+        private Button btn_excluir;
+        private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_nome;
         private DataGridViewTextBoxColumn nome_cliente;

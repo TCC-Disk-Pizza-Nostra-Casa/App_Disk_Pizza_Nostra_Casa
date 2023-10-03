@@ -40,7 +40,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 DataGridView_Configuration();
 
-                cbbox_condicao_funcionario.SelectedIndex = 1;
+                if (dgv_listagem_funcionarios.Rows.Count == 0)
+                {
+
+                    dgv_listagem_funcionarios.Rows.Clear();
+
+                    cbbox_condicao_funcionario.SelectedIndex = 1;
+
+                }
 
             }
 
@@ -93,6 +100,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.Columns.Insert(4, new DataGridViewTextBoxColumn());
 
+                dgv_listagem_funcionarios.Columns.Insert(5, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_funcionarios.Columns.Insert(6, new DataGridViewCheckBoxColumn());
+
                 // Dados das colunas.
 
                 dgv_listagem_funcionarios.Columns[0].HeaderText = "ID:";
@@ -114,6 +125,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 dgv_listagem_funcionarios.Columns[4].HeaderText = "Última modificação:";
                 dgv_listagem_funcionarios.Columns[4].Name = "dgv_listagem_funcionarios_data_modificacao";
                 dgv_listagem_funcionarios.Columns[4].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[5].HeaderText = "Observações:";
+                dgv_listagem_funcionarios.Columns[5].Name = "dgv_listagem_funcionarios_observacoes";
+                dgv_listagem_funcionarios.Columns[5].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[6].HeaderText = "Administrador:";
+                dgv_listagem_funcionarios.Columns[6].Name = "dgv_listagem_funcionarios_administrador";
+                dgv_listagem_funcionarios.Columns[6].Visible = true;
 
             }
 
@@ -163,7 +182,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                             string data_modificacao = DateTime.Parse(lista_funcionarios[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                            dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao);
+                            string observacoes = lista_funcionarios[i].observacoes;
+
+                            bool administrador = Convert.ToBoolean(lista_funcionarios[i].administrador);
+
+                            dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao, observacoes, administrador);
 
                         }
 
@@ -240,6 +263,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         }
 
+                        else
+                        {
+
+                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                            throw new Exception("Nenhum usuário encontrado.");
+
+                        }
+
                     }
 
                     else
@@ -294,13 +326,93 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         btn_reativar.Enabled = true;
 
-                    break;
+                        break;
 
                     case 1:
 
                         btn_desativar.Enabled = true;
 
-                    break;
+                        break;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void dgv_listagem_funcionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+
+                if(dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 6)
+                {
+
+                    if(MessageBox.Show("Realmente deseja alterar a permissão de administrador desse usuário?",
+                       "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+
+                        bool exito;
+
+                        if(Convert.ToBoolean(dgv_listagem_funcionarios.CurrentCell.Value) == true)
+                        {
+
+                            dgv_listagem_funcionarios.CurrentCell.Value = false;
+
+                            exito = await Model.Funcionario.Demote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+
+                            if (exito)
+                            {
+
+                                MessageBox.Show("Usuário rebaixado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                            }
+
+                            else
+                            {
+
+                                throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
+
+                            }
+
+                        }
+
+                        else
+                        {
+
+                            dgv_listagem_funcionarios.CurrentCell.Value = true;
+
+                            exito = await Model.Funcionario.Promote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+
+                            if (exito)
+                            {
+
+                                MessageBox.Show("Usuário promovido com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                            }
+
+                            else
+                            {
+
+                                throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
+
+                            }
+
+                        }
+
+                    }
 
                 }
 
@@ -346,7 +458,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         }
 
-                    break;
+                        break;
 
                     case 1:
 
@@ -368,7 +480,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         }
 
-                    break;
+                        break;
 
                 }
 

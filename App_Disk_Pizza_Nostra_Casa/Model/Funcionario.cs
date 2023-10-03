@@ -86,6 +86,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
+        public static async Task<bool>? Enable(int id)
+        {
+
+            return await Data_Service_Funcionario.EnableAsyncFuncionario(id);
+
+        }
+
         public static async Task<bool>? Disable(int id)
         {
 
@@ -93,10 +100,17 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        public static async Task<bool>? Enable(int id)
+        public static async Task<bool>? Promote(int id)
         {
 
-            return await Data_Service_Funcionario.EnableAsyncFuncionario(id);
+            return await Data_Service_Funcionario.PromoteAsyncFuncionario(id);
+
+        }
+
+        public static async Task<bool>? Demote(int id)
+        {
+
+            return await Data_Service_Funcionario.DemoteAsyncFuncionario(id);
 
         }
 
