@@ -17,7 +17,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        public Model.Funcionario usuario_sessao = null;
+        public Model.Funcionario? usuario_sessao = null;
 
         public form_cadastro_funcionarios()
         {
@@ -132,7 +132,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 };
 
-                if (Convert.ToBoolean(await dados.Save()))
+                if (await dados.Save())
                 {
 
                     this.Close();
