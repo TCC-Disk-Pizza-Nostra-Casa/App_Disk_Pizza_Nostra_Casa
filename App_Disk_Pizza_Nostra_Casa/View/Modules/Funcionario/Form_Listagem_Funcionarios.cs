@@ -24,7 +24,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void form_listagem_funcionarios_Load(object sender, EventArgs e)
+        private void form_listagem_funcionarios_Load(object sender, EventArgs e)
         {
 
             try
@@ -60,6 +60,118 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
+        private async void btn_pesquisar_funcionario_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (String.IsNullOrEmpty(txt_pesquisar_funcionario.Text))
+                {
+
+                    throw new Exception("Preencha o campo de pesquisa para prosseguir.");
+
+                }
+
+                else
+                {
+
+                    string texto = txt_pesquisar_funcionario.Text;
+
+                    txt_pesquisar_funcionario.Clear();
+
+                    List<Model.Funcionario> lista_funcionarios_encontrados = await Model.Funcionario.Search(texto);
+
+                    if (lista_funcionarios_encontrados.Count > 0)
+                    {
+
+                        dgv_listagem_funcionarios.Rows.Clear();
+
+                        int indice_linha = 0;
+
+                        for (int i = 0; i < lista_funcionarios_encontrados.Count; i++)
+                        {
+
+                            if (lista_funcionarios_encontrados[i].ativo == cbbox_condicao_funcionario.SelectedIndex)
+                            {
+
+                                indice_linha++;
+
+                                int id = lista_funcionarios_encontrados[i].id;
+
+                                string nome = lista_funcionarios_encontrados[i].nome;
+
+                                string cpf = lista_funcionarios_encontrados[i].cpf;
+
+                                string data_modificacao = DateTime.Parse(lista_funcionarios_encontrados[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
+
+                                string? observacoes = lista_funcionarios_encontrados[i].observacoes;
+
+                                bool administrador = Convert.ToBoolean(lista_funcionarios_encontrados[i].administrador);
+
+                                dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao, observacoes, administrador);
+
+                            }
+
+                        }
+
+                        if (dgv_listagem_funcionarios.RowCount > 0)
+                        {
+
+                            btn_resetar.Enabled = true;
+
+                        }
+
+                        else
+                        {
+
+                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+                            throw new Exception("Nenhum funcionário encontrado.");
+
+                        }
+
+                    }
+
+                    else
+                    {
+
+                        throw new Exception("Nenhum funcionário encontrado.");
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_condicao_funcionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
         private void DataGridView_Configuration()
         {
 
@@ -68,7 +180,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 // Configurações iniciais.
 
-                dgv_listagem_funcionarios.Font = new Font(new FontFamily("Arial"), 10f);
+                dgv_listagem_funcionarios.Font = new Font(new FontFamily("Arial"), 12f);
 
                 dgv_listagem_funcionarios.ForeColor = Color.Black;
 
@@ -182,7 +294,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                             string data_modificacao = DateTime.Parse(lista_funcionarios[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                            string observacoes = lista_funcionarios[i].observacoes;
+                            string? observacoes = lista_funcionarios[i].observacoes;
 
                             bool administrador = Convert.ToBoolean(lista_funcionarios[i].administrador);
 
@@ -205,115 +317,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void btn_pesquisar_funcionario_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                if (String.IsNullOrEmpty(txt_pesquisar_funcionario.Text))
-                {
-
-                    throw new Exception("Preencha o campo de pesquisa para prosseguir.");
-
-                }
-
-                else
-                {
-
-                    string texto = txt_pesquisar_funcionario.Text;
-
-                    txt_pesquisar_funcionario.Clear();
-
-                    List<Model.Funcionario> lista_funcionarios_encontrado = await Model.Funcionario.Search(texto);
-
-                    if (lista_funcionarios_encontrado.Count > 0)
-                    {
-
-                        dgv_listagem_funcionarios.Rows.Clear();
-
-                        int indice_linha = 0;
-
-                        for (int i = 0; i < lista_funcionarios_encontrado.Count; i++)
-                        {
-
-                            if (lista_funcionarios_encontrado[i].ativo == cbbox_condicao_funcionario.SelectedIndex)
-                            {
-
-                                indice_linha++;
-
-                                int id = lista_funcionarios_encontrado[i].id;
-
-                                string nome = lista_funcionarios_encontrado[i].nome;
-
-                                string cpf = lista_funcionarios_encontrado[i].cpf;
-
-                                string data_modificacao = DateTime.Parse(lista_funcionarios_encontrado[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                                dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao);
-
-                            }
-
-                        }
-
-                        if (dgv_listagem_funcionarios.RowCount > 0)
-                        {
-
-                            btn_resetar.Enabled = true;
-
-                        }
-
-                        else
-                        {
-
-                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
-
-                            throw new Exception("Nenhum usuário encontrado.");
-
-                        }
-
-                    }
-
-                    else
-                    {
-
-                        throw new Exception("Nenhum usuário encontrado.");
-
-                    }
-
-                }
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void cbbox_condicao_funcionario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void dgv_listagem_funcionarios_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_listagem_funcionarios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
 
             try
@@ -347,7 +351,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void dgv_listagem_funcionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_listagem_funcionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
             try
@@ -356,7 +360,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 6)
                 {
 
-                    if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse usuário?",
+                    if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse funcionário?",
                        "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
@@ -401,7 +405,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (MessageBox.Show("Realmente deseja modificar a ativação desse usuário?",
+                if (MessageBox.Show("Realmente deseja modificar a ativação desse funcionário?",
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
@@ -447,7 +451,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void btn_reativar_Click(object sender, EventArgs e)
+        private void btn_reativar_Click(object sender, EventArgs e)
         {
 
             try
@@ -466,7 +470,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void btn_desativar_Click(object sender, EventArgs e)
+        private void btn_desativar_Click(object sender, EventArgs e)
         {
 
             try
