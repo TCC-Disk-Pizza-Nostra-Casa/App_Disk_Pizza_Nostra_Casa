@@ -30,41 +30,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 this.Size = new Size(800, 500);
 
-                List<Model.Fornecedor> lista_fornecedor = await Data_Service_Fornecedor.GetListAsyncFornecedor();
-
-                if (lista_fornecedor.Count > 0)
-                {
-
-                    for (int i = 0; i < lista_fornecedor.Count; i++)
-                    {
-                        int id = lista_fornecedor[i].id;
-
-                        string nome = lista_fornecedor[i].nome;
-
-                        string cnpj = lista_fornecedor[i].cnpj;
-
-                        string telefone = lista_fornecedor[i].telefone;
-
-                        string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                        string observacoes = lista_fornecedor[i].observacoes;
-
-                        if (observacoes == "") observacoes = "Nenhuma observação.";
-
-                        bool ativo = true;
-
-                        if (lista_fornecedor[i].ativo == 0) ativo = false;
-
-                        if (ativo == true) dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
-
-                    }
-
-                }
-
                 cbx_ativo.DropDownStyle = ComboBoxStyle.DropDownList;
-                cbx_ativo.DataSource = new string[] { "Ativos", "Não Ativos" };
+                cbx_ativo.DataSource = new string[] { "Não Ativos", "Ativos" };
 
-                cbx_ativo.SelectedIndex = 0;
+                cbx_ativo.SelectedIndex = 1;
 
             }
 
@@ -75,6 +44,53 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
             }
 
+        }
+
+        private async void PreencherDGV(int condicao)
+        {
+            try
+            {
+                dgv_listagem_fornecedor.Rows.Clear();
+
+                btn_limpar.Enabled = false;
+                btn_desativar.Enabled = false;
+                btn_reativar.Enabled = false;
+
+                List<Model.Fornecedor> lista_fornecedor = await Data_Service_Fornecedor.GetListAsyncFornecedor();
+
+                if (lista_fornecedor.Count > 0)
+                {
+
+                    for (int i = 0; i < lista_fornecedor.Count; i++)
+                    {
+
+                        if (lista_fornecedor[i].ativo == condicao)
+                        {
+                            int id = lista_fornecedor[i].id;
+
+                            string nome = lista_fornecedor[i].nome;
+
+                            string cnpj = lista_fornecedor[i].cnpj;
+
+                            string telefone = lista_fornecedor[i].telefone;
+
+                            string data_modificacao = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
+
+                            string? observacoes = lista_fornecedor[i].observacoes;
+
+                            if (observacoes == "") observacoes = "Nenhuma observação.";
+
+                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_modificacao, observacoes);
+                        }
+
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async void btn_pesquisar_fornecedor_Click(object sender, EventArgs e)
@@ -103,7 +119,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        string observacoes = lista_fornecedor[i].observacoes;
+                        string? observacoes = lista_fornecedor[i].observacoes;
 
                         if (observacoes == "") observacoes = "Nenhuma observação.";
 
@@ -126,78 +142,16 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
         private async void cbx_ativo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            List<Model.Fornecedor> lista_fornecedor = await Data_Service_Fornecedor.GetListAsyncFornecedor();
-
-            if (cbx_ativo.SelectedIndex == 1)
+            
+            try
             {
-                dgv_listagem_fornecedor.Rows.Clear();
-
-                if (lista_fornecedor.Count > 0)
-                {
-
-                    for (int i = 0; i < lista_fornecedor.Count; i++)
-                    {
-
-                        if (lista_fornecedor[i].ativo == 0)
-                        {
-                            int id = lista_fornecedor[i].id;
-
-                            string nome = lista_fornecedor[i].nome;
-
-                            string cnpj = lista_fornecedor[i].cnpj;
-
-                            string telefone = lista_fornecedor[i].telefone;
-
-                            string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                            string observacoes = lista_fornecedor[i].observacoes;
-
-                            if (observacoes == "") observacoes = "Nenhuma observação.";
-
-                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
-
-                        }
-
-
-                    }
-
-                }
-
+                PreencherDGV(cbx_ativo.SelectedIndex);
             }
-            else
+            catch (Exception ex)
             {
-                dgv_listagem_fornecedor.Rows.Clear();
-
-                if (lista_fornecedor.Count > 0)
-                {
-
-                    for (int i = 0; i < lista_fornecedor.Count; i++)
-                    {
-
-                        if (lista_fornecedor[i].ativo == 1)
-                        {
-                            int id = lista_fornecedor[i].id;
-
-                            string nome = lista_fornecedor[i].nome;
-
-                            string cnpj = lista_fornecedor[i].cnpj.ToString();
-
-                            string telefone = lista_fornecedor[i].telefone.ToString();
-
-                            string data_cadastro = DateTime.Parse(lista_fornecedor[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                            string observacoes = lista_fornecedor[i].observacoes;
-
-                            if (observacoes == "") observacoes = "Nenhuma observação.";
-
-                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
-
-                        }
-
-                    }
-
-                }
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btn_voltar_Click(object sender, EventArgs e)
