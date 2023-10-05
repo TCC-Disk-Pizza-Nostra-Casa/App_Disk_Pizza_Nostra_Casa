@@ -31,6 +31,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                 this.Size = new Size(800, 500);
 
                 cbx_ativo.DropDownStyle = ComboBoxStyle.DropDownList;
+
                 cbx_ativo.DataSource = new string[] { "Não Ativos", "Ativos" };
 
                 cbx_ativo.SelectedIndex = 1;
@@ -86,6 +87,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                     }
 
                 }
+
+                if (cbx_ativo.SelectedIndex == 0)
+                    btn_limpar.Enabled = true;
+                else
+                    btn_limpar.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -145,7 +151,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             
             try
             {
-                PreencherDGV(cbx_ativo.SelectedIndex);
+                //MessageBox.Show(cbx_ativo.SelectedIndex.ToString(), "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                PreencherDGV(this.cbx_ativo.SelectedIndex);
             }
             catch (Exception ex)
             {
@@ -182,7 +190,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
         private void btn_limpar_Click(object sender, EventArgs e)
         {
 
-
+            try
+            {
+                cbx_ativo.SelectedIndex = 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 
