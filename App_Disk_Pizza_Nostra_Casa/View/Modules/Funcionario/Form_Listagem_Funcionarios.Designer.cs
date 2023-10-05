@@ -188,7 +188,7 @@
             Controls.Add(txt_pesquisar_funcionario);
             Controls.Add(lbl_pesquisar_funcionario);
             Controls.Add(dgv_listagem_funcionarios);
-            MinimumSize = new Size(800, 498);
+            MinimumSize = new Size(800, 500);
             Name = "form_listagem_funcionarios";
             Text = "Listagem de Funcionários";
             Load += form_listagem_funcionarios_Load;

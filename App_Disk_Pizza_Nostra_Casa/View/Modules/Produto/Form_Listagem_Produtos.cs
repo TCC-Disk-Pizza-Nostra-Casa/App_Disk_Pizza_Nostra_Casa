@@ -24,7 +24,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private async void form_listagem_produtos_Load(object sender, EventArgs e)
+        private void form_listagem_produtos_Load(object sender, EventArgs e)
         {
 
             try
@@ -85,35 +85,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     if (lista_produtos_encontrados.Count > 0)
                     {
 
-                        dgv_listagem_produtos.Rows.Clear();
-
-                        int indice_linha = 0;
-
-                        for (int i = 0; i < lista_produtos_encontrados.Count; i++)
-                        {
-
-                            if (lista_produtos_encontrados[i].ativo == cbbox_condicao_produto.SelectedIndex)
-                            {
-
-                                indice_linha++;
-
-                                int id = lista_produtos_encontrados[i].id;
-
-                                string nome = lista_produtos_encontrados[i].nome;
-
-                                string estoque = lista_produtos_encontrados[i].estoque.ToString();
-
-                                string preco = double.Parse(lista_produtos_encontrados[i].preco).ToString("C2");
-
-                                string data_modificacao = DateTime.Parse(lista_produtos_encontrados[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                                string? observacoes = lista_produtos_encontrados[i].observacoes;
-
-                                dgv_listagem_produtos.Rows.Add(id, indice_linha, nome, estoque, preco, data_modificacao, observacoes);
-
-                            }
-
-                        }
+                        ValuesAssociation(lista_produtos_encontrados, cbbox_condicao_produto.SelectedIndex);
 
                         if (dgv_listagem_produtos.RowCount > 0)
                         {
@@ -125,7 +97,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                         else
                         {
 
-                            DataGridView_Fill(cbbox_condicao_produto.SelectedIndex);
+                            DataGridView_Fill();
 
                             throw new Exception("Nenhum produto encontrado.");
 
@@ -159,7 +131,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                DataGridView_Fill(cbbox_condicao_produto.SelectedIndex);
+                DataGridView_Fill();
 
             }
 
@@ -238,12 +210,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 dgv_listagem_produtos.Columns[4].Name = "dgv_listagem_produtos_preco";
                 dgv_listagem_produtos.Columns[4].Visible = true;
 
-                dgv_listagem_produtos.Columns[5].HeaderText = "Última modificação:";
-                dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_data_modificacao";
+                dgv_listagem_produtos.Columns[5].HeaderText = "Observações:";
+                dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_observacoes";
                 dgv_listagem_produtos.Columns[5].Visible = true;
 
-                dgv_listagem_produtos.Columns[6].HeaderText = "Observações:";
-                dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_observacoes";
+                dgv_listagem_produtos.Columns[6].HeaderText = "Última modificação:";
+                dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_data_modificacao";
                 dgv_listagem_produtos.Columns[6].Visible = true;
 
             }
@@ -257,13 +229,58 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private async void DataGridView_Fill(int condicao)
+        private void ValuesAssociation(List<Model.Produto> lista, int condicao)
         {
 
             try
             {
 
                 dgv_listagem_produtos.Rows.Clear();
+
+                int indice_linha = 0;
+
+                for (int i = 0; i < lista.Count; i++)
+                {
+
+                    if (lista[i].ativo == condicao)
+                    {
+
+                        indice_linha++;
+
+                        int id = lista[i].id;
+
+                        string nome = lista[i].nome;
+
+                        string estoque = lista[i].estoque.ToString();
+
+                        string preco = lista[i].preco.ToString("C2");
+
+                        string? observacoes = lista[i].observacoes;
+
+                        string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
+
+                        dgv_listagem_produtos.Rows.Add(id, indice_linha, nome, estoque, preco, observacoes, data_modificacao);
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void DataGridView_Fill()
+        {
+
+            try
+            {
 
                 btn_resetar.Enabled = false;
 
@@ -276,33 +293,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 if (lista_produtos.Count > 0)
                 {
 
-                    int indice_linha = 0;
-
-                    for (int i = 0; i < lista_produtos.Count; i++)
-                    {
-
-                        if (lista_produtos[i].ativo == condicao)
-                        {
-
-                            indice_linha++;
-
-                            int id = lista_produtos[i].id;
-
-                            string nome = lista_produtos[i].nome;
-
-                            string estoque = lista_produtos[i].estoque.ToString();
-
-                            string preco = double.Parse(lista_produtos[i].preco).ToString("C2");
-
-                            string data_modificacao = DateTime.Parse(lista_produtos[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                            string? observacoes = lista_produtos[i].observacoes;
-
-                            dgv_listagem_produtos.Rows.Add(id, indice_linha, nome, estoque, preco, data_modificacao, observacoes);
-
-                        }
-
-                    }
+                    ValuesAssociation(lista_produtos, cbbox_condicao_produto.SelectedIndex);
 
                 }
 
@@ -371,7 +362,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                             if (Convert.ToBoolean(await Model.Produto.Enable(Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))))
                             {
 
-                                DataGridView_Fill(cbbox_condicao_produto.SelectedIndex);
+                                DataGridView_Fill();
 
                             }
 
@@ -382,7 +373,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                             if (Convert.ToBoolean(await Model.Produto.Disable(Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))))
                             {
 
-                                DataGridView_Fill(cbbox_condicao_produto.SelectedIndex);
+                                DataGridView_Fill();
 
                             }
 
@@ -451,7 +442,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    DataGridView_Fill(cbbox_condicao_produto.SelectedIndex);
+                    DataGridView_Fill();
 
                 }
 

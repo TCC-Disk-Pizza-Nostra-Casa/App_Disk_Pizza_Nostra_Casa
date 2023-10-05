@@ -19,7 +19,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int estoque { get; set; }
 
-        public string preco { get; set; }
+        public double preco { get; set; }
 
         public string? observacoes { get; set; } = null;
 
@@ -35,7 +35,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         {
 
             if (String.IsNullOrEmpty(this.nome) || this.estoque < 1 ||
-                String.IsNullOrEmpty(this.preco) || this.fk_fornecedor < 1)
+                String.IsNullOrEmpty(this.preco.ToString()) || this.fk_fornecedor < 1)
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");

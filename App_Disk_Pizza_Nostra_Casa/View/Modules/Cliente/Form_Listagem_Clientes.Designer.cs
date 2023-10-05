@@ -1,6 +1,6 @@
 ﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
-    partial class Form_Listagem_Clientes
+    partial class form_listagem_clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form_Listagem_Clientes";
+            SuspendLayout();
+            // 
+            // form_listagem_clientes
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
+            ClientSize = new Size(784, 461);
+            MinimumSize = new Size(800, 500);
+            Name = "form_listagem_clientes";
+            Text = "Listagem de Clientes";
+            ResumeLayout(false);
         }
 
         #endregion

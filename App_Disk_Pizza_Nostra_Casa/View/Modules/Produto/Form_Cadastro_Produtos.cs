@@ -119,7 +119,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                     estoque = Convert.ToInt32(nud_estoque.Value),
 
-                    preco = txt_preco.Text,
+                    preco = double.Parse(txt_preco.Text),
 
                     observacoes = txt_observacoes.Text,
 

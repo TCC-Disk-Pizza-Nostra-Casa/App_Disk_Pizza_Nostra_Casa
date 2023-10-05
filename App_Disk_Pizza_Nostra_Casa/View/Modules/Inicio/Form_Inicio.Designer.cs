@@ -591,7 +591,7 @@
             Controls.Add(pnl_titulo_formulario_externo);
             Controls.Add(pnl_menu_lateral);
             Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
-            MinimumSize = new Size(1200, 700);
+            MinimumSize = new Size(1200, 800);
             Name = "form_inicio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Disk Pizza Nostra Casa's Application";

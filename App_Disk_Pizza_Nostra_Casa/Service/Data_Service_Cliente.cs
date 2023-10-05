@@ -28,12 +28,25 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<bool>? DeleteAsyncCliente(int id)
+        public static async Task<bool>? EnableAsyncCliente(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi(post_json, "/cliente/delete");
+            string json = await Data_Service.SendDataApi(post_json, "/cliente/enable");
+
+            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+
+            return resultado;
+
+        }
+
+        public static async Task<bool>? DisableAsyncCliente(int id)
+        {
+
+            var post_json = JsonConvert.SerializeObject(id);
+
+            string json = await Data_Service.SendDataApi(post_json, "/cliente/disable");
 
             bool resultado = JsonConvert.DeserializeObject<bool>(json);
 
