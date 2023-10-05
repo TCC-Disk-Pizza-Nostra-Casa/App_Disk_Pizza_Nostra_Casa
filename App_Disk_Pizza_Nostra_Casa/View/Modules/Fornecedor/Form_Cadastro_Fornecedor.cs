@@ -31,31 +31,45 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
         }
 
+        void Limpar_Campos()
+        {
+            txt_nome_fornecedor.Clear();
+            msk_cnpj_fornecedor.Clear();
+            msk_telefone_fornecedor.Clear();
+            txt_observacoes_fornecedor.Clear();
+        }
+
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
 
-            txt_nome_fornecedor.Clear();
-            txt_cnpj_fornecedor.Clear();
-            txt_telefone_fornecedor.Clear();
-            txt_observacoes_fornecedor.Clear();
+            Limpar_Campos();
 
         }
 
         private async void btn_salvar_Click(object sender, EventArgs e)
         {
 
-            Model.Fornecedor fornecedor = new Model.Fornecedor()
+            try
             {
-                nome = txt_nome_fornecedor.Text,
-                cnpj = txt_cnpj_fornecedor.Text,
-                telefone = txt_telefone_fornecedor.Text,
-                observacoes = txt_observacoes_fornecedor.Text
-            };
+                Model.Fornecedor fornecedor = new Model.Fornecedor()
+                {
+                    nome = txt_nome_fornecedor.Text,
+                    cnpj = msk_cnpj_fornecedor.Text.Replace(".", "").Replace("/", "").Replace("-", "").Replace(",", ""),
+                    telefone = msk_telefone_fornecedor.Text.Replace("(", "").Replace(")", "").Replace("-", ""),
+                    observacoes = txt_observacoes_fornecedor.Text
+                };
 
-            Model.Fornecedor fornecedor2 = await Data_Service_Fornecedor.SaveAsyncFornecedor(fornecedor);
+                Model.Fornecedor fornecedor2 = await Data_Service_Fornecedor.SaveAsyncFornecedor(fornecedor);
 
-            if (fornecedor2.id != null)
-                MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                if (fornecedor2.id != null)
+                    MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                Limpar_Campos();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
     }

@@ -34,9 +34,9 @@
             txt_observacoes_fornecedor = new TextBox();
             grp_dados = new GroupBox();
             pnl_dados = new Panel();
+            msk_cnpj_fornecedor = new MaskedTextBox();
+            msk_telefone_fornecedor = new MaskedTextBox();
             label3 = new Label();
-            txt_telefone_fornecedor = new TextBox();
-            txt_cnpj_fornecedor = new TextBox();
             label2 = new Label();
             txt_nome_fornecedor = new TextBox();
             label1 = new Label();
@@ -55,7 +55,7 @@
             btn_cancelar.Location = new Point(525, 406);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(116, 42);
-            btn_cancelar.TabIndex = 55;
+            btn_cancelar.TabIndex = 6;
             btn_cancelar.Text = "Cancelar";
             btn_cancelar.UseVisualStyleBackColor = false;
             btn_cancelar.Click += btn_cancelar_Click;
@@ -71,7 +71,7 @@
             btn_salvar.Location = new Point(656, 406);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(116, 42);
-            btn_salvar.TabIndex = 54;
+            btn_salvar.TabIndex = 5;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = false;
             btn_salvar.Click += btn_salvar_Click;
@@ -95,7 +95,7 @@
             txt_observacoes_fornecedor.Name = "txt_observacoes_fornecedor";
             txt_observacoes_fornecedor.PlaceholderText = "Insira observações sobre o fornecedor...(campo não obrigatório).";
             txt_observacoes_fornecedor.Size = new Size(760, 119);
-            txt_observacoes_fornecedor.TabIndex = 52;
+            txt_observacoes_fornecedor.TabIndex = 4;
             // 
             // grp_dados
             // 
@@ -112,9 +112,9 @@
             // 
             pnl_dados.AutoScroll = true;
             pnl_dados.BackColor = Color.Transparent;
+            pnl_dados.Controls.Add(msk_cnpj_fornecedor);
+            pnl_dados.Controls.Add(msk_telefone_fornecedor);
             pnl_dados.Controls.Add(label3);
-            pnl_dados.Controls.Add(txt_telefone_fornecedor);
-            pnl_dados.Controls.Add(txt_cnpj_fornecedor);
             pnl_dados.Controls.Add(label2);
             pnl_dados.Controls.Add(txt_nome_fornecedor);
             pnl_dados.Controls.Add(label1);
@@ -123,6 +123,24 @@
             pnl_dados.Name = "pnl_dados";
             pnl_dados.Size = new Size(754, 179);
             pnl_dados.TabIndex = 57;
+            // 
+            // msk_cnpj_fornecedor
+            // 
+            msk_cnpj_fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            msk_cnpj_fornecedor.Location = new Point(77, 74);
+            msk_cnpj_fornecedor.Mask = "00.000.000/0000-00";
+            msk_cnpj_fornecedor.Name = "msk_cnpj_fornecedor";
+            msk_cnpj_fornecedor.Size = new Size(670, 23);
+            msk_cnpj_fornecedor.TabIndex = 2;
+            // 
+            // msk_telefone_fornecedor
+            // 
+            msk_telefone_fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            msk_telefone_fornecedor.Location = new Point(101, 133);
+            msk_telefone_fornecedor.Mask = "(99) 00000-0000";
+            msk_telefone_fornecedor.Name = "msk_telefone_fornecedor";
+            msk_telefone_fornecedor.Size = new Size(646, 23);
+            msk_telefone_fornecedor.TabIndex = 3;
             // 
             // label3
             // 
@@ -133,27 +151,6 @@
             label3.TabIndex = 53;
             label3.Text = "Telefone:";
             label3.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txt_telefone_fornecedor
-            // 
-            txt_telefone_fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_telefone_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_telefone_fornecedor.Location = new Point(101, 130);
-            txt_telefone_fornecedor.Name = "txt_telefone_fornecedor";
-            txt_telefone_fornecedor.PlaceholderText = "Insira o telefone...";
-            txt_telefone_fornecedor.Size = new Size(646, 26);
-            txt_telefone_fornecedor.TabIndex = 52;
-            // 
-            // txt_cnpj_fornecedor
-            // 
-            txt_cnpj_fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_cnpj_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_cnpj_fornecedor.Location = new Point(78, 71);
-            txt_cnpj_fornecedor.MaxLength = 14;
-            txt_cnpj_fornecedor.Name = "txt_cnpj_fornecedor";
-            txt_cnpj_fornecedor.PlaceholderText = "Insira o CNPJ...";
-            txt_cnpj_fornecedor.Size = new Size(669, 26);
-            txt_cnpj_fornecedor.TabIndex = 51;
             // 
             // label2
             // 
@@ -173,7 +170,7 @@
             txt_nome_fornecedor.Name = "txt_nome_fornecedor";
             txt_nome_fornecedor.PlaceholderText = "Insira o nome do fornecedor...";
             txt_nome_fornecedor.Size = new Size(551, 26);
-            txt_nome_fornecedor.TabIndex = 49;
+            txt_nome_fornecedor.TabIndex = 1;
             // 
             // label1
             // 
@@ -218,10 +215,10 @@
         private GroupBox grp_dados;
         private Panel pnl_dados;
         private Label label3;
-        private TextBox txt_telefone_fornecedor;
-        private TextBox txt_cnpj_fornecedor;
         private Label label2;
         private TextBox txt_nome_fornecedor;
         private Label label1;
+        private MaskedTextBox msk_telefone_fornecedor;
+        private MaskedTextBox msk_cnpj_fornecedor;
     }
 }
