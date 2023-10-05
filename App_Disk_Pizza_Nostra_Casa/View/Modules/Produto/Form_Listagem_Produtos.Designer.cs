@@ -188,6 +188,7 @@
             Controls.Add(lbl_pesquisar_produto);
             Controls.Add(dgv_listagem_produtos);
             Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            MinimumSize = new Size(800, 500);
             Name = "form_listagem_produtos";
             Text = "Listagem de Produtos";
             Load += form_listagem_produtos_Load;

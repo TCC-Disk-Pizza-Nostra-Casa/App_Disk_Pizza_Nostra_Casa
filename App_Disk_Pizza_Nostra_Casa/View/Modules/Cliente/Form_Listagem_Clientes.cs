@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
-    public partial class Form_Listagem_Clientes : Form
+    public partial class form_listagem_clientes : Form
     {
-        public Form_Listagem_Clientes()
+        public form_listagem_clientes()
         {
             InitializeComponent();
         }

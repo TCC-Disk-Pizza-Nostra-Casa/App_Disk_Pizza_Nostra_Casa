@@ -40,14 +40,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 DataGridView_Configuration();
 
-                if (dgv_listagem_funcionarios.Rows.Count == 0)
-                {
-
-                    dgv_listagem_funcionarios.Rows.Clear();
-
-                    cbbox_condicao_funcionario.SelectedIndex = 1;
-
-                }
+                cbbox_condicao_funcionario.SelectedIndex = 1;
 
             }
 
@@ -87,33 +80,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         dgv_listagem_funcionarios.Rows.Clear();
 
-                        int indice_linha = 0;
-
-                        for (int i = 0; i < lista_funcionarios_encontrados.Count; i++)
-                        {
-
-                            if (lista_funcionarios_encontrados[i].ativo == cbbox_condicao_funcionario.SelectedIndex)
-                            {
-
-                                indice_linha++;
-
-                                int id = lista_funcionarios_encontrados[i].id;
-
-                                string nome = lista_funcionarios_encontrados[i].nome;
-
-                                string cpf = lista_funcionarios_encontrados[i].cpf;
-
-                                string data_modificacao = DateTime.Parse(lista_funcionarios_encontrados[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                                string? observacoes = lista_funcionarios_encontrados[i].observacoes;
-
-                                bool administrador = Convert.ToBoolean(lista_funcionarios_encontrados[i].administrador);
-
-                                dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao, observacoes, administrador);
-
-                            }
-
-                        }
+                        ValuesAssociation(lista_funcionarios_encontrados, cbbox_condicao_funcionario.SelectedIndex);
 
                         if (dgv_listagem_funcionarios.RowCount > 0)
                         {
@@ -125,7 +92,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                         else
                         {
 
-                            DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                            DataGridView_Fill();
 
                             throw new Exception("Nenhum funcionário encontrado.");
 
@@ -159,7 +126,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                DataGridView_Fill();
 
             }
 
@@ -214,7 +181,17 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.Columns.Insert(5, new DataGridViewTextBoxColumn());
 
-                dgv_listagem_funcionarios.Columns.Insert(6, new DataGridViewCheckBoxColumn());
+                dgv_listagem_funcionarios.Columns.Insert(6, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_funcionarios.Columns.Insert(7, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_funcionarios.Columns.Insert(8, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_funcionarios.Columns.Insert(9, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_funcionarios.Columns.Insert(10, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_funcionarios.Columns.Insert(11, new DataGridViewCheckBoxColumn());
 
                 // Dados das colunas.
 
@@ -226,25 +203,45 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 dgv_listagem_funcionarios.Columns[1].Name = "dgv_listagem_funcionarios_indice_linha";
                 dgv_listagem_funcionarios.Columns[1].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[2].HeaderText = "Nome do funcionário(a):";
+                dgv_listagem_funcionarios.Columns[2].HeaderText = "Nome:";
                 dgv_listagem_funcionarios.Columns[2].Name = "dgv_listagem_funcionarios_nome";
                 dgv_listagem_funcionarios.Columns[2].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[3].HeaderText = "CPF:";
-                dgv_listagem_funcionarios.Columns[3].Name = "dgv_listagem_funcionarios_cpf";
+                dgv_listagem_funcionarios.Columns[3].HeaderText = "Sexo:";
+                dgv_listagem_funcionarios.Columns[3].Name = "sexo";
                 dgv_listagem_funcionarios.Columns[3].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[4].HeaderText = "Última modificação:";
-                dgv_listagem_funcionarios.Columns[4].Name = "dgv_listagem_funcionarios_data_modificacao";
+                dgv_listagem_funcionarios.Columns[4].HeaderText = "Estado civil:";
+                dgv_listagem_funcionarios.Columns[4].Name = "dgv_listagem_funcionarios_estado_civil";
                 dgv_listagem_funcionarios.Columns[4].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[5].HeaderText = "Observações:";
-                dgv_listagem_funcionarios.Columns[5].Name = "dgv_listagem_funcionarios_observacoes";
+                dgv_listagem_funcionarios.Columns[5].HeaderText = "CPF:";
+                dgv_listagem_funcionarios.Columns[5].Name = "dgv_listagem_funcionarios_cpf";
                 dgv_listagem_funcionarios.Columns[5].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[6].HeaderText = "Administrador:";
-                dgv_listagem_funcionarios.Columns[6].Name = "dgv_listagem_funcionarios_administrador";
+                dgv_listagem_funcionarios.Columns[6].HeaderText = "CEP:";
+                dgv_listagem_funcionarios.Columns[6].Name = "dgv_listagem_funcionarios_cep";
                 dgv_listagem_funcionarios.Columns[6].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[7].HeaderText = "E-mail:";
+                dgv_listagem_funcionarios.Columns[7].Name = "dgv_listagem_funcionarios_email";
+                dgv_listagem_funcionarios.Columns[7].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[8].HeaderText = "Telefone:";
+                dgv_listagem_funcionarios.Columns[8].Name = "dgv_listagem_funcionarios_telefone";
+                dgv_listagem_funcionarios.Columns[8].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[9].HeaderText = "Observações:";
+                dgv_listagem_funcionarios.Columns[9].Name = "dgv_listagem_funcionarios_observacoes";
+                dgv_listagem_funcionarios.Columns[9].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[10].HeaderText = "Última modificação:";
+                dgv_listagem_funcionarios.Columns[10].Name = "dgv_listagem_funcionarios_data_modificacao";
+                dgv_listagem_funcionarios.Columns[10].Visible = true;
+
+                dgv_listagem_funcionarios.Columns[11].HeaderText = "Administrador:";
+                dgv_listagem_funcionarios.Columns[11].Name = "dgv_listagem_funcionarios_administrador";
+                dgv_listagem_funcionarios.Columns[11].Visible = true;
 
             }
 
@@ -257,13 +254,68 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void DataGridView_Fill(int condicao)
+        private void ValuesAssociation(List<Model.Funcionario> lista, int condicao)
         {
 
             try
             {
 
                 dgv_listagem_funcionarios.Rows.Clear();
+
+                int indice_linha = 0;
+
+                for (int i = 0; i < lista.Count; i++)
+                {
+
+                    if (lista[i].ativo == condicao)
+                    {
+
+                        indice_linha++;
+
+                        int id = lista[i].id;
+
+                        string nome = lista[i].nome;
+
+                        string sexo = lista[i].sexo;
+
+                        string estado_civil = lista[i].estado_civil;
+
+                        string cpf = lista[i].cpf;
+
+                        string cep = lista[i].cep;
+
+                        string email = lista[i].email;
+
+                        string telefone = lista[i].telefone;
+
+                        string? observacoes = lista[i].observacoes;
+
+                        string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
+
+                        bool administrador = Convert.ToBoolean(lista[i].administrador);
+
+                        dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, sexo, estado_civil, cpf, cep, email, telefone, observacoes, data_modificacao, administrador);
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void DataGridView_Fill()
+        {
+
+            try
+            {
 
                 btn_resetar.Enabled = false;
 
@@ -276,33 +328,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (lista_funcionarios.Count > 0)
                 {
 
-                    int indice_linha = 0;
-
-                    for (int i = 0; i < lista_funcionarios.Count; i++)
-                    {
-
-                        if (lista_funcionarios[i].ativo == condicao)
-                        {
-
-                            indice_linha++;
-
-                            int id = lista_funcionarios[i].id;
-
-                            string nome = lista_funcionarios[i].nome;
-
-                            string cpf = lista_funcionarios[i].cpf;
-
-                            string data_modificacao = DateTime.Parse(lista_funcionarios[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
-
-                            string? observacoes = lista_funcionarios[i].observacoes;
-
-                            bool administrador = Convert.ToBoolean(lista_funcionarios[i].administrador);
-
-                            dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, cpf, data_modificacao, observacoes, administrador);
-
-                        }
-
-                    }
+                    ValuesAssociation(lista_funcionarios, cbbox_condicao_funcionario.SelectedIndex);
 
                 }
 
@@ -357,7 +383,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 6)
+                if (dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 11)
                 {
 
                     if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse funcionário?",
@@ -419,7 +445,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                             if (Convert.ToBoolean(await Model.Funcionario.Enable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value))))
                             {
 
-                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                                DataGridView_Fill();
 
                             }
 
@@ -430,7 +456,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                             if (Convert.ToBoolean(await Model.Funcionario.Disable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value))))
                             {
 
-                                DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                                DataGridView_Fill();
 
                             }
 
@@ -499,7 +525,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    DataGridView_Fill(cbbox_condicao_funcionario.SelectedIndex);
+                    DataGridView_Fill();
 
                 }
 

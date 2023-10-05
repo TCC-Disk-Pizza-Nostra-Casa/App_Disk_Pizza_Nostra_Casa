@@ -1,6 +1,6 @@
 ﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 {
-    partial class Form_Cadastro_Clientes
+    partial class form_cadastro_clientes
     {
         /// <summary>
         /// Required designer variable.
@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            chk_ativo = new CheckBox();
-            lbl_ativo = new Label();
             btn_cancelar = new Button();
             btn_salvar = new Button();
             label2 = new Label();
@@ -46,8 +44,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(chk_ativo);
-            panel1.Controls.Add(lbl_ativo);
             panel1.Controls.Add(btn_cancelar);
             panel1.Controls.Add(btn_salvar);
             panel1.Controls.Add(label2);
@@ -63,29 +59,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(784, 461);
             panel1.TabIndex = 0;
-            // 
-            // chk_ativo
-            // 
-            chk_ativo.Checked = true;
-            chk_ativo.CheckState = CheckState.Checked;
-            chk_ativo.Enabled = false;
-            chk_ativo.Location = new Point(183, 134);
-            chk_ativo.Name = "chk_ativo";
-            chk_ativo.Size = new Size(28, 25);
-            chk_ativo.TabIndex = 44;
-            chk_ativo.UseVisualStyleBackColor = true;
-            chk_ativo.Visible = false;
-            // 
-            // lbl_ativo
-            // 
-            lbl_ativo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_ativo.Location = new Point(12, 134);
-            lbl_ativo.Name = "lbl_ativo";
-            lbl_ativo.Size = new Size(80, 26);
-            lbl_ativo.TabIndex = 43;
-            lbl_ativo.Text = "Ativo:";
-            lbl_ativo.TextAlign = ContentAlignment.MiddleLeft;
-            lbl_ativo.Visible = false;
             // 
             // btn_cancelar
             // 
@@ -200,7 +173,7 @@
             label1.Text = "Nome do Cliente:";
             label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // Form_Cadastro_Clientes
+            // form_cadastro_clientes
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -209,8 +182,8 @@
             Controls.Add(panel1);
             Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             MinimumSize = new Size(800, 500);
-            Name = "Form_Cadastro_Clientes";
-            Text = "Form_Cadastro_Clientes";
+            Name = "form_cadastro_clientes";
+            Text = "Cadastro de Clientes";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -229,7 +202,5 @@
         private TextBox txt_observacoes_cliente;
         private Button btn_cancelar;
         private Button btn_salvar;
-        private CheckBox chk_ativo;
-        private Label lbl_ativo;
     }
 }

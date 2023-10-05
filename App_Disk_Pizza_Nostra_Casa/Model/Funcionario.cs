@@ -84,9 +84,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
                     MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    Model.Funcionario usuario_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(this);
+                    Model.Funcionario funcionario_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(this);
 
-                    if (usuario_retornado.id != null)
+                    if (funcionario_retornado.id != null)
                     {
 
                         MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

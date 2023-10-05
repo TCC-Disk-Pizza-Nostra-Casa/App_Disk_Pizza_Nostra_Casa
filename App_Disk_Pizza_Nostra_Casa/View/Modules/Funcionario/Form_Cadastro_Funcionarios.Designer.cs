@@ -381,7 +381,7 @@
             Controls.Add(txt_observacoes);
             Controls.Add(btn_cancelar);
             Controls.Add(btn_salvar);
-            MinimumSize = new Size(800, 498);
+            MinimumSize = new Size(800, 500);
             Name = "form_cadastro_funcionarios";
             Text = "Cadastro de Funcionários";
             Load += form_cadastro_funcionarios_Load;
