@@ -45,8 +45,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
                 nome = txt_nome_cliente.Text,
                 email = txt_email_cliente.Text,
                 telefone = txt_telefone_cliente.Text,
-                observacoes = txt_observacoes_cliente.Text,
-                ativo = (chk_ativo.Checked) ? 1 : 0
+                observacoes = txt_observacoes_cliente.Text
 
             };
 
@@ -68,9 +67,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
             txt_email_cliente.Text = cliente.email;
             txt_telefone_cliente.Text = cliente.telefone;
             txt_observacoes_cliente.Text = cliente.observacoes;
-
-            if (Convert.ToBoolean(cliente.ativo) == true) chk_ativo.Checked = true;
-            else chk_ativo.Checked = false;
 
         }
 

@@ -41,6 +41,7 @@
             Funcionario = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
             btn_excluir = new Button();
+            dtp_to_search = new DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -166,11 +167,20 @@
             btn_excluir.UseVisualStyleBackColor = false;
             btn_excluir.Click += btn_excluir_Click;
             // 
+            // dtp_to_search
+            // 
+            dtp_to_search.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            dtp_to_search.Location = new Point(10, 526);
+            dtp_to_search.Name = "dtp_to_search";
+            dtp_to_search.Size = new Size(271, 23);
+            dtp_to_search.TabIndex = 8;
+            // 
             // form_listagem_vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1084, 561);
+            Controls.Add(dtp_to_search);
             Controls.Add(btn_excluir);
             Controls.Add(dgv_listagem_vendas);
             Controls.Add(btn_pesquisar_vendas);
@@ -204,5 +214,6 @@
         private DataGridViewTextBoxColumn dgv_listagem_produtos_estoque;
         private DataGridViewTextBoxColumn Funcionario;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_preco;
+        private DateTimePicker dtp_to_search;
     }
 }
