@@ -249,36 +249,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void dgv_adicionar_vendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txt_observacoes_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rdbtn_nao_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void rdbtn_sim_CheckedChanged(object sender, EventArgs e)
-        {
-        }
     }
 
 }

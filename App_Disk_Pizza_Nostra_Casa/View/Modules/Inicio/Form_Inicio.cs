@@ -383,7 +383,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                External_Form_Association(new Modules.Cliente.form_cadastro_cliente());
+                External_Form_Association(new Modules.Cliente.form_cadastro_clientes());
 
             }
 
