@@ -103,7 +103,6 @@
             label4.Size = new Size(116, 18);
             label4.TabIndex = 5;
             label4.Text = "Fazer Entrega?";
-            label4.Click += label4_Click;
             // 
             // label5
             // 
@@ -206,7 +205,6 @@
             txt_observacoes.PlaceholderText = "Insira observações sobre a(s) pizza(s)";
             txt_observacoes.Size = new Size(760, 113);
             txt_observacoes.TabIndex = 30;
-            txt_observacoes.TextChanged += txt_observacoes_TextChanged;
             // 
             // dgv_adicionar_vendas
             // 
@@ -220,7 +218,6 @@
             dgv_adicionar_vendas.RowTemplate.Height = 25;
             dgv_adicionar_vendas.Size = new Size(760, 161);
             dgv_adicionar_vendas.TabIndex = 31;
-            dgv_adicionar_vendas.CellContentClick += dgv_adicionar_vendas_CellContentClick;
             // 
             // Produto
             // 
@@ -404,7 +401,6 @@
             label14.Size = new Size(67, 18);
             label14.TabIndex = 50;
             label14.Text = "Bebidas";
-            label14.Click += label14_Click;
             // 
             // cbx_bebidas_add_venda
             // 
@@ -415,7 +411,6 @@
             cbx_bebidas_add_venda.Name = "cbx_bebidas_add_venda";
             cbx_bebidas_add_venda.Size = new Size(160, 23);
             cbx_bebidas_add_venda.TabIndex = 49;
-            cbx_bebidas_add_venda.SelectedIndexChanged += comboBox8_SelectedIndexChanged;
             // 
             // groupBox1
             // 

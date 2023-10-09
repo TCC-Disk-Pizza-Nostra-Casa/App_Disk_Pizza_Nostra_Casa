@@ -28,37 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel1 = new Panel();
+            grpbox_dados = new GroupBox();
+            lbl_observacoes = new Label();
+            txt_observacoes = new TextBox();
             btn_cancelar = new Button();
             btn_salvar = new Button();
-            label2 = new Label();
-            txt_observacoes_cliente = new TextBox();
-            label5 = new Label();
-            txt_telefone_cliente = new TextBox();
-            label4 = new Label();
-            txt_email_cliente = new TextBox();
-            txt_nome_cliente = new TextBox();
-            label1 = new Label();
-            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // panel1
+            // grpbox_dados
             // 
-            panel1.Controls.Add(btn_cancelar);
-            panel1.Controls.Add(btn_salvar);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(txt_observacoes_cliente);
-            panel1.Controls.Add(label5);
-            panel1.Controls.Add(txt_telefone_cliente);
-            panel1.Controls.Add(label4);
-            panel1.Controls.Add(txt_email_cliente);
-            panel1.Controls.Add(txt_nome_cliente);
-            panel1.Controls.Add(label1);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(784, 461);
-            panel1.TabIndex = 0;
+            grpbox_dados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grpbox_dados.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            grpbox_dados.Location = new Point(12, 12);
+            grpbox_dados.Name = "grpbox_dados";
+            grpbox_dados.Size = new Size(760, 269);
+            grpbox_dados.TabIndex = 46;
+            grpbox_dados.TabStop = false;
+            grpbox_dados.Text = "Dados";
+            // 
+            // lbl_observacoes
+            // 
+            lbl_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_observacoes.AutoSize = true;
+            lbl_observacoes.BackColor = Color.Transparent;
+            lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_observacoes.Location = new Point(12, 293);
+            lbl_observacoes.Name = "lbl_observacoes";
+            lbl_observacoes.Size = new Size(116, 19);
+            lbl_observacoes.TabIndex = 44;
+            lbl_observacoes.Text = "Observações:";
+            // 
+            // txt_observacoes
+            // 
+            txt_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_observacoes.Location = new Point(12, 326);
+            txt_observacoes.MaxLength = 255;
+            txt_observacoes.Multiline = true;
+            txt_observacoes.Name = "txt_observacoes";
+            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) funcionário(a)...";
+            txt_observacoes.Size = new Size(760, 69);
+            txt_observacoes.TabIndex = 45;
             // 
             // btn_cancelar
             // 
@@ -68,13 +78,12 @@
             btn_cancelar.FlatAppearance.BorderSize = 2;
             btn_cancelar.FlatStyle = FlatStyle.Flat;
             btn_cancelar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_cancelar.Location = new Point(525, 410);
+            btn_cancelar.Location = new Point(534, 410);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(116, 39);
-            btn_cancelar.TabIndex = 42;
+            btn_cancelar.TabIndex = 43;
             btn_cancelar.Text = "Cancelar";
             btn_cancelar.UseVisualStyleBackColor = false;
-            btn_cancelar.Click += btn_cancelar_Click;
             // 
             // btn_salvar
             // 
@@ -87,91 +96,9 @@
             btn_salvar.Location = new Point(656, 410);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(116, 39);
-            btn_salvar.TabIndex = 41;
+            btn_salvar.TabIndex = 42;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = false;
-            btn_salvar.Click += btn_salvar_Click;
-            // 
-            // label2
-            // 
-            label2.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(10, 175);
-            label2.Name = "label2";
-            label2.Size = new Size(125, 26);
-            label2.TabIndex = 40;
-            label2.Text = "Observações:";
-            label2.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txt_observacoes_cliente
-            // 
-            txt_observacoes_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txt_observacoes_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes_cliente.Location = new Point(12, 207);
-            txt_observacoes_cliente.Multiline = true;
-            txt_observacoes_cliente.Name = "txt_observacoes_cliente";
-            txt_observacoes_cliente.PlaceholderText = "Insira observações sobre o cliente...(campo não obrigatório).";
-            txt_observacoes_cliente.Size = new Size(760, 179);
-            txt_observacoes_cliente.TabIndex = 39;
-            // 
-            // label5
-            // 
-            label5.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(10, 94);
-            label5.Name = "label5";
-            label5.Size = new Size(80, 26);
-            label5.TabIndex = 38;
-            label5.Text = "Telefone:";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txt_telefone_cliente
-            // 
-            txt_telefone_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_telefone_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_telefone_cliente.Location = new Point(183, 94);
-            txt_telefone_cliente.Name = "txt_telefone_cliente";
-            txt_telefone_cliente.PlaceholderText = "Insira o telefone...";
-            txt_telefone_cliente.Size = new Size(589, 26);
-            txt_telefone_cliente.TabIndex = 37;
-            // 
-            // label4
-            // 
-            label4.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(12, 52);
-            label4.Name = "label4";
-            label4.Size = new Size(72, 26);
-            label4.TabIndex = 36;
-            label4.Text = "E-mail:";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // txt_email_cliente
-            // 
-            txt_email_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_email_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_email_cliente.Location = new Point(183, 53);
-            txt_email_cliente.Name = "txt_email_cliente";
-            txt_email_cliente.PlaceholderText = "Insira o e-mail...";
-            txt_email_cliente.Size = new Size(589, 26);
-            txt_email_cliente.TabIndex = 35;
-            // 
-            // txt_nome_cliente
-            // 
-            txt_nome_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            txt_nome_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_nome_cliente.Location = new Point(183, 12);
-            txt_nome_cliente.Name = "txt_nome_cliente";
-            txt_nome_cliente.PlaceholderText = "Insira o nome do cliente...";
-            txt_nome_cliente.Size = new Size(589, 26);
-            txt_nome_cliente.TabIndex = 12;
-            // 
-            // label1
-            // 
-            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(12, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(141, 26);
-            label1.TabIndex = 10;
-            label1.Text = "Nome do Cliente:";
-            label1.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // form_cadastro_clientes
             // 
@@ -179,27 +106,24 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(784, 461);
-            Controls.Add(panel1);
+            Controls.Add(grpbox_dados);
+            Controls.Add(lbl_observacoes);
+            Controls.Add(txt_observacoes);
+            Controls.Add(btn_cancelar);
+            Controls.Add(btn_salvar);
             Font = new Font("Arial", 10F, FontStyle.Regular, GraphicsUnit.Point);
             MinimumSize = new Size(800, 500);
             Name = "form_cadastro_clientes";
             Text = "Cadastro de Clientes";
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Panel panel1;
-        private Label label1;
-        private TextBox txt_nome_cliente;
-        private TextBox txt_email_cliente;
-        private Label label4;
-        private Label label5;
-        private TextBox txt_telefone_cliente;
-        private Label label2;
-        private TextBox txt_observacoes_cliente;
+        private GroupBox grpbox_dados;
+        private Label lbl_observacoes;
+        private TextBox txt_observacoes;
         private Button btn_cancelar;
         private Button btn_salvar;
     }

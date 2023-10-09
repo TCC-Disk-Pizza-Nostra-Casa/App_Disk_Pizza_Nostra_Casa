@@ -39,9 +39,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         {
 
             if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.sexo) ||
-                /*String.IsNullOrEmpty(this.estado_civil) ||*/ String.IsNullOrEmpty(this.cpf) ||
-                String.IsNullOrEmpty(this.cep) || String.IsNullOrEmpty(this.telefone) ||
-                String.IsNullOrEmpty(data_nascimento.ToString()))
+                String.IsNullOrEmpty(this.cpf) || String.IsNullOrEmpty(this.cep) ||
+                String.IsNullOrEmpty(this.telefone) || String.IsNullOrEmpty(data_nascimento.ToString()))
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");

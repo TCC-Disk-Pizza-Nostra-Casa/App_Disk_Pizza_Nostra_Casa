@@ -21,6 +21,10 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public double preco { get; set; }
 
+        public string tamanho { get; set; }
+
+        public string categoria { get; set; }
+
         public string? observacoes { get; set; } = null;
 
         public string data_cadastro { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -35,7 +39,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         {
 
             if (String.IsNullOrEmpty(this.nome) || this.estoque < 1 ||
-                String.IsNullOrEmpty(this.preco.ToString()) || this.fk_fornecedor < 1)
+                String.IsNullOrEmpty(this.preco.ToString()) || String.IsNullOrEmpty(this.tamanho) ||
+                String.IsNullOrEmpty(this.categoria) || this.fk_fornecedor < 1)
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");

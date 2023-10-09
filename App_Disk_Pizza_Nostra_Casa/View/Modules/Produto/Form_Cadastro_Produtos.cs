@@ -35,7 +35,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 this.Size = new Size(800, 500);
 
+                cbbox_tamanho.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_categoria.DropDownStyle = ComboBoxStyle.DropDownList;
+
                 cbbox_fornecedor.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_tamanho.DataSource = new string[] { "Grande", "Broto" };
+
+                cbbox_categoria.DataSource = new string[] { "Pizza comum", "Pizza comum", "Pizza doce", "Bebida", "Doce" };
 
                 cbbox_fornecedor.DisplayMember = "nome";
 
@@ -81,7 +89,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if(Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsPunctuation(e.KeyChar))
+                if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsPunctuation(e.KeyChar))
                 {
 
                     e.Handled = false;
@@ -92,6 +100,37 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 {
 
                     e.Handled = true;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_categoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (cbbox_categoria.SelectedIndex == 3 || cbbox_categoria.SelectedIndex == 4)
+                {
+
+                    cbbox_tamanho.DataSource = new string[] { "Único" };
+
+                }
+
+                else
+                {
+
+                    cbbox_tamanho.DataSource = new string[] { "Grande", "Broto" };
 
                 }
 
@@ -120,6 +159,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     estoque = Convert.ToInt32(nud_estoque.Value),
 
                     preco = double.Parse(txt_preco.Text),
+
+                    tamanho = cbbox_tamanho.Text,
+
+                    categoria = cbbox_categoria.Text,
 
                     observacoes = txt_observacoes.Text,
 
