@@ -51,7 +51,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
         {
             try
             {
-                
+
 
                 btn_limpar.Enabled = false;
                 btn_desativar.Enabled = false;
@@ -82,7 +82,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                             if (observacoes == "") observacoes = "Nenhuma observação.";
 
-                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_modificacao, observacoes);
+                            string ativo = lista_fornecedor[i].ativo.ToString();
+
+                            dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_modificacao, observacoes, ativo);
                         }
 
                     }
@@ -130,7 +132,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         if (observacoes == "") observacoes = "Nenhuma observação.";
 
-                        dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes);
+                        string ativo = lista_fornecedor[i].ativo.ToString();
+
+                        dgv_listagem_fornecedor.Rows.Add(id, nome, cnpj, telefone, data_cadastro, observacoes, ativo);
 
                     }
 
@@ -152,8 +156,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
             try
             {
-                //MessageBox.Show(cbx_ativo.SelectedIndex.ToString(), "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 PreencherDGV(this.cbx_ativo.SelectedIndex);
             }
             catch (Exception ex)
@@ -194,6 +196,94 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
                 cbx_ativo.SelectedIndex = 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        int id_fornecedor = 0;
+        int fornecedor_ativo = 0;
+        private void dgv_listagem_fornecedor_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                id_fornecedor = int.Parse(dgv_listagem_fornecedor.CurrentRow.Cells[0].Value.ToString());
+                fornecedor_ativo = int.Parse(dgv_listagem_fornecedor.CurrentRow.Cells[6].Value.ToString());
+
+                switch (cbx_ativo.SelectedIndex)
+                {
+                    case 0:
+                        btn_reativar.Enabled = true;
+                        break;
+
+                    case 1:
+                        btn_desativar.Enabled = true;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_desativar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ManipulacaoUsuario(id_fornecedor, fornecedor_ativo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btn_reativar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ManipulacaoUsuario(id_fornecedor, fornecedor_ativo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void ManipulacaoUsuario(int id, int ativar_desativar)
+        {
+            try
+            {
+                if (MessageBox.Show("Realmente deseja modificar a ativação desse funcionário?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    bool exito;
+
+                    switch (ativar_desativar)
+                    {
+                        case 0:
+                            exito = await Data_Service_Fornecedor.EnableAsyncFornecedor(id);
+
+                            if (exito)
+                            {
+                                cbx_ativo.SelectedIndex = 1;
+                            }
+                            break;
+
+                        case 1:
+                            exito = await Data_Service_Fornecedor.DisableAsyncFornecedor(id);
+
+                            if (exito)
+                            {
+                                cbx_ativo.SelectedIndex = 0;
+                            }
+                            break;
+                    }
+                }
             }
             catch (Exception ex)
             {

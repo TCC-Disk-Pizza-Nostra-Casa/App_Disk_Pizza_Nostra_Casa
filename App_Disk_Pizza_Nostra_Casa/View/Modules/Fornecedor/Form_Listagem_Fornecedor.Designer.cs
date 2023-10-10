@@ -30,12 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Listagem_Fornecedor));
             dgv_listagem_fornecedor = new DataGridView();
-            dgv_listagem_fornecedor_id = new DataGridViewTextBoxColumn();
-            dgv_listagem_fornecedor_nome = new DataGridViewTextBoxColumn();
-            dgv_listagem_fornecedor_cnpj = new DataGridViewTextBoxColumn();
-            dgv_listagem_fornecedor_telefone = new DataGridViewTextBoxColumn();
-            dgv_listagem_fornecedor_data_cadastro = new DataGridViewTextBoxColumn();
-            dgv_listagem_fornecedor_observacoes = new DataGridViewTextBoxColumn();
             btn_pesquisar_fornecedor = new Button();
             txt_pesquisar_fornecedor = new TextBox();
             lbl_pesquisar_produtos = new Label();
@@ -44,6 +38,13 @@
             btn_reativar = new Button();
             btn_limpar = new Button();
             btn_voltar = new Button();
+            dgv_listagem_fornecedor_id = new DataGridViewTextBoxColumn();
+            dgv_listagem_fornecedor_nome = new DataGridViewTextBoxColumn();
+            dgv_listagem_fornecedor_cnpj = new DataGridViewTextBoxColumn();
+            dgv_listagem_fornecedor_telefone = new DataGridViewTextBoxColumn();
+            dgv_listagem_fornecedor_data_cadastro = new DataGridViewTextBoxColumn();
+            dgv_listagem_fornecedor_observacoes = new DataGridViewTextBoxColumn();
+            dgv_listagem_fornecedor_ativo = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_fornecedor).BeginInit();
             SuspendLayout();
             // 
@@ -55,67 +56,16 @@
             dgv_listagem_fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_listagem_fornecedor.BackgroundColor = Color.White;
             dgv_listagem_fornecedor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_fornecedor.Columns.AddRange(new DataGridViewColumn[] { dgv_listagem_fornecedor_id, dgv_listagem_fornecedor_nome, dgv_listagem_fornecedor_cnpj, dgv_listagem_fornecedor_telefone, dgv_listagem_fornecedor_data_cadastro, dgv_listagem_fornecedor_observacoes });
+            dgv_listagem_fornecedor.Columns.AddRange(new DataGridViewColumn[] { dgv_listagem_fornecedor_id, dgv_listagem_fornecedor_nome, dgv_listagem_fornecedor_cnpj, dgv_listagem_fornecedor_telefone, dgv_listagem_fornecedor_data_cadastro, dgv_listagem_fornecedor_observacoes, dgv_listagem_fornecedor_ativo });
+            dgv_listagem_fornecedor.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgv_listagem_fornecedor.Location = new Point(12, 105);
             dgv_listagem_fornecedor.MultiSelect = false;
             dgv_listagem_fornecedor.Name = "dgv_listagem_fornecedor";
-            dgv_listagem_fornecedor.ReadOnly = true;
             dgv_listagem_fornecedor.RowTemplate.Height = 25;
             dgv_listagem_fornecedor.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_fornecedor.Size = new Size(760, 285);
             dgv_listagem_fornecedor.TabIndex = 1;
-            // 
-            // dgv_listagem_fornecedor_id
-            // 
-            dgv_listagem_fornecedor_id.HeaderText = "id";
-            dgv_listagem_fornecedor_id.Name = "dgv_listagem_fornecedor_id";
-            dgv_listagem_fornecedor_id.ReadOnly = true;
-            dgv_listagem_fornecedor_id.Visible = false;
-            // 
-            // dgv_listagem_fornecedor_nome
-            // 
-            dgv_listagem_fornecedor_nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_listagem_fornecedor_nome.DividerWidth = 2;
-            dgv_listagem_fornecedor_nome.FillWeight = 121.8274F;
-            dgv_listagem_fornecedor_nome.HeaderText = "Nome";
-            dgv_listagem_fornecedor_nome.Name = "dgv_listagem_fornecedor_nome";
-            dgv_listagem_fornecedor_nome.ReadOnly = true;
-            dgv_listagem_fornecedor_nome.Resizable = DataGridViewTriState.True;
-            // 
-            // dgv_listagem_fornecedor_cnpj
-            // 
-            dgv_listagem_fornecedor_cnpj.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_listagem_fornecedor_cnpj.DividerWidth = 2;
-            dgv_listagem_fornecedor_cnpj.FillWeight = 59.83022F;
-            dgv_listagem_fornecedor_cnpj.HeaderText = "CNPJ";
-            dgv_listagem_fornecedor_cnpj.Name = "dgv_listagem_fornecedor_cnpj";
-            dgv_listagem_fornecedor_cnpj.ReadOnly = true;
-            // 
-            // dgv_listagem_fornecedor_telefone
-            // 
-            dgv_listagem_fornecedor_telefone.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_listagem_fornecedor_telefone.DividerWidth = 2;
-            dgv_listagem_fornecedor_telefone.FillWeight = 68.52115F;
-            dgv_listagem_fornecedor_telefone.HeaderText = "Telefone";
-            dgv_listagem_fornecedor_telefone.Name = "dgv_listagem_fornecedor_telefone";
-            dgv_listagem_fornecedor_telefone.ReadOnly = true;
-            // 
-            // dgv_listagem_fornecedor_data_cadastro
-            // 
-            dgv_listagem_fornecedor_data_cadastro.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_listagem_fornecedor_data_cadastro.DividerWidth = 2;
-            dgv_listagem_fornecedor_data_cadastro.HeaderText = "Data de Cadastro";
-            dgv_listagem_fornecedor_data_cadastro.Name = "dgv_listagem_fornecedor_data_cadastro";
-            dgv_listagem_fornecedor_data_cadastro.ReadOnly = true;
-            // 
-            // dgv_listagem_fornecedor_observacoes
-            // 
-            dgv_listagem_fornecedor_observacoes.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv_listagem_fornecedor_observacoes.DividerWidth = 2;
-            dgv_listagem_fornecedor_observacoes.FillWeight = 149.8212F;
-            dgv_listagem_fornecedor_observacoes.HeaderText = "Observações";
-            dgv_listagem_fornecedor_observacoes.Name = "dgv_listagem_fornecedor_observacoes";
-            dgv_listagem_fornecedor_observacoes.ReadOnly = true;
+            dgv_listagem_fornecedor.CellContentDoubleClick += dgv_listagem_fornecedor_CellContentDoubleClick;
             // 
             // btn_pesquisar_fornecedor
             // 
@@ -174,12 +124,13 @@
             btn_desativar.FlatAppearance.BorderSize = 2;
             btn_desativar.FlatStyle = FlatStyle.Flat;
             btn_desativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_desativar.Location = new Point(528, 410);
+            btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
             btn_desativar.TabIndex = 38;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
+            btn_desativar.Click += btn_desativar_Click;
             // 
             // btn_reativar
             // 
@@ -189,12 +140,13 @@
             btn_reativar.FlatAppearance.BorderSize = 2;
             btn_reativar.FlatStyle = FlatStyle.Flat;
             btn_reativar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_reativar.Location = new Point(658, 410);
+            btn_reativar.Location = new Point(656, 410);
             btn_reativar.Name = "btn_reativar";
             btn_reativar.Size = new Size(116, 39);
             btn_reativar.TabIndex = 37;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
+            btn_reativar.Click += btn_reativar_Click;
             // 
             // btn_limpar
             // 
@@ -227,6 +179,58 @@
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
             btn_voltar.Click += btn_voltar_Click;
+            // 
+            // dgv_listagem_fornecedor_id
+            // 
+            dgv_listagem_fornecedor_id.HeaderText = "id";
+            dgv_listagem_fornecedor_id.Name = "dgv_listagem_fornecedor_id";
+            dgv_listagem_fornecedor_id.Visible = false;
+            // 
+            // dgv_listagem_fornecedor_nome
+            // 
+            dgv_listagem_fornecedor_nome.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_listagem_fornecedor_nome.DividerWidth = 2;
+            dgv_listagem_fornecedor_nome.FillWeight = 121.8274F;
+            dgv_listagem_fornecedor_nome.HeaderText = "Nome";
+            dgv_listagem_fornecedor_nome.Name = "dgv_listagem_fornecedor_nome";
+            dgv_listagem_fornecedor_nome.Resizable = DataGridViewTriState.True;
+            // 
+            // dgv_listagem_fornecedor_cnpj
+            // 
+            dgv_listagem_fornecedor_cnpj.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_listagem_fornecedor_cnpj.DividerWidth = 2;
+            dgv_listagem_fornecedor_cnpj.FillWeight = 59.83022F;
+            dgv_listagem_fornecedor_cnpj.HeaderText = "CNPJ";
+            dgv_listagem_fornecedor_cnpj.Name = "dgv_listagem_fornecedor_cnpj";
+            // 
+            // dgv_listagem_fornecedor_telefone
+            // 
+            dgv_listagem_fornecedor_telefone.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_listagem_fornecedor_telefone.DividerWidth = 2;
+            dgv_listagem_fornecedor_telefone.FillWeight = 68.52115F;
+            dgv_listagem_fornecedor_telefone.HeaderText = "Telefone";
+            dgv_listagem_fornecedor_telefone.Name = "dgv_listagem_fornecedor_telefone";
+            // 
+            // dgv_listagem_fornecedor_data_cadastro
+            // 
+            dgv_listagem_fornecedor_data_cadastro.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_listagem_fornecedor_data_cadastro.DividerWidth = 2;
+            dgv_listagem_fornecedor_data_cadastro.HeaderText = "Data de Cadastro";
+            dgv_listagem_fornecedor_data_cadastro.Name = "dgv_listagem_fornecedor_data_cadastro";
+            // 
+            // dgv_listagem_fornecedor_observacoes
+            // 
+            dgv_listagem_fornecedor_observacoes.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv_listagem_fornecedor_observacoes.DividerWidth = 2;
+            dgv_listagem_fornecedor_observacoes.FillWeight = 149.8212F;
+            dgv_listagem_fornecedor_observacoes.HeaderText = "Observações";
+            dgv_listagem_fornecedor_observacoes.Name = "dgv_listagem_fornecedor_observacoes";
+            // 
+            // dgv_listagem_fornecedor_ativo
+            // 
+            dgv_listagem_fornecedor_ativo.HeaderText = "Ativo";
+            dgv_listagem_fornecedor_ativo.Name = "dgv_listagem_fornecedor_ativo";
+            dgv_listagem_fornecedor_ativo.Visible = false;
             // 
             // Form_Listagem_Fornecedor
             // 
@@ -270,5 +274,6 @@
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_telefone;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_data_cadastro;
         private DataGridViewTextBoxColumn dgv_listagem_fornecedor_observacoes;
+        private DataGridViewTextBoxColumn dgv_listagem_fornecedor_ativo;
     }
 }
