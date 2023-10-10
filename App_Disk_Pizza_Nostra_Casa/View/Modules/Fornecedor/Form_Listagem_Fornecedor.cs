@@ -148,7 +148,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
         private async void cbx_ativo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             try
             {
                 //MessageBox.Show(cbx_ativo.SelectedIndex.ToString(), "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
