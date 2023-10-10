@@ -51,7 +51,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
         {
             try
             {
-                dgv_listagem_fornecedor.Rows.Clear();
+                
 
                 btn_limpar.Enabled = false;
                 btn_desativar.Enabled = false;
@@ -61,6 +61,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 if (lista_fornecedor.Count > 0)
                 {
+                    dgv_listagem_fornecedor.Rows.Clear();
 
                     for (int i = 0; i < lista_fornecedor.Count; i++)
                     {
