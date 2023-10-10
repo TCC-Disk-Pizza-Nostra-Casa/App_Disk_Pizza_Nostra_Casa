@@ -29,165 +29,149 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(form_login));
-            pnl_imagem = new Panel();
-            pctbox_imagem = new PictureBox();
-            lbl_cep = new Label();
-            lbl_senha = new Label();
-            txt_senha = new TextBox();
-            btn_entrar = new Button();
-            panel1 = new Panel();
             mtxt_cpf = new MaskedTextBox();
-            pnl_imagem.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pctbox_imagem).BeginInit();
-            panel1.SuspendLayout();
+            lbl_senha = new Label();
+            btn_entrar = new Button();
+            txt_senha = new TextBox();
+            lbl_cep = new Label();
+            pctbox_boneco = new PictureBox();
+            lbl_saudacao = new Label();
+            ((System.ComponentModel.ISupportInitialize)pctbox_boneco).BeginInit();
             SuspendLayout();
             // 
-            // pnl_imagem
+            // mtxt_cpf
             // 
-            pnl_imagem.BackColor = Color.FromArgb(130, 69, 34);
-            pnl_imagem.BorderStyle = BorderStyle.FixedSingle;
-            pnl_imagem.Controls.Add(pctbox_imagem);
-            pnl_imagem.Dock = DockStyle.Left;
-            pnl_imagem.Location = new Point(0, 0);
-            pnl_imagem.Margin = new Padding(4);
-            pnl_imagem.Name = "pnl_imagem";
-            pnl_imagem.Size = new Size(349, 361);
-            pnl_imagem.TabIndex = 0;
-            // 
-            // pctbox_imagem
-            // 
-            pctbox_imagem.BackColor = Color.Transparent;
-            pctbox_imagem.Dock = DockStyle.Fill;
-            pctbox_imagem.Image = (Image)resources.GetObject("pctbox_imagem.Image");
-            pctbox_imagem.Location = new Point(0, 0);
-            pctbox_imagem.Margin = new Padding(4);
-            pctbox_imagem.Name = "pctbox_imagem";
-            pctbox_imagem.Size = new Size(347, 359);
-            pctbox_imagem.SizeMode = PictureBoxSizeMode.Zoom;
-            pctbox_imagem.TabIndex = 1;
-            pctbox_imagem.TabStop = false;
-            // 
-            // lbl_cep
-            // 
-            lbl_cep.Anchor = AnchorStyles.None;
-            lbl_cep.AutoSize = true;
-            lbl_cep.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_cep.ForeColor = Color.Black;
-            lbl_cep.Location = new Point(145, 49);
-            lbl_cep.Margin = new Padding(4, 0, 4, 0);
-            lbl_cep.Name = "lbl_cep";
-            lbl_cep.Size = new Size(48, 19);
-            lbl_cep.TabIndex = 1;
-            lbl_cep.Text = "CPF:";
-            lbl_cep.TextAlign = ContentAlignment.MiddleCenter;
+            mtxt_cpf.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            mtxt_cpf.BackColor = Color.White;
+            mtxt_cpf.BorderStyle = BorderStyle.FixedSingle;
+            mtxt_cpf.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            mtxt_cpf.ForeColor = Color.Black;
+            mtxt_cpf.Location = new Point(297, 124);
+            mtxt_cpf.Mask = "000,000,000-00";
+            mtxt_cpf.Name = "mtxt_cpf";
+            mtxt_cpf.Size = new Size(263, 26);
+            mtxt_cpf.TabIndex = 4;
+            mtxt_cpf.TextAlign = HorizontalAlignment.Center;
             // 
             // lbl_senha
             // 
-            lbl_senha.Anchor = AnchorStyles.None;
+            lbl_senha.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lbl_senha.AutoSize = true;
             lbl_senha.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_senha.ForeColor = Color.Black;
-            lbl_senha.Location = new Point(134, 172);
+            lbl_senha.Location = new Point(292, 205);
             lbl_senha.Margin = new Padding(4, 0, 4, 0);
             lbl_senha.Name = "lbl_senha";
             lbl_senha.Size = new Size(64, 19);
-            lbl_senha.TabIndex = 2;
+            lbl_senha.TabIndex = 6;
             lbl_senha.Text = "Senha:";
-            lbl_senha.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // txt_senha
-            // 
-            txt_senha.Anchor = AnchorStyles.None;
-            txt_senha.BackColor = Color.White;
-            txt_senha.BorderStyle = BorderStyle.None;
-            txt_senha.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
-            txt_senha.ForeColor = Color.Black;
-            txt_senha.Location = new Point(27, 216);
-            txt_senha.MaxLength = 20;
-            txt_senha.Name = "txt_senha";
-            txt_senha.PasswordChar = '*';
-            txt_senha.PlaceholderText = "Digite sua senha...";
-            txt_senha.Size = new Size(278, 19);
-            txt_senha.TabIndex = 2;
-            txt_senha.TextAlign = HorizontalAlignment.Center;
+            lbl_senha.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // btn_entrar
             // 
-            btn_entrar.Anchor = AnchorStyles.None;
+            btn_entrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_entrar.BackColor = Color.Transparent;
             btn_entrar.FlatAppearance.BorderColor = Color.Black;
             btn_entrar.FlatAppearance.BorderSize = 2;
             btn_entrar.FlatStyle = FlatStyle.Flat;
             btn_entrar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             btn_entrar.ForeColor = Color.Black;
-            btn_entrar.Location = new Point(105, 286);
+            btn_entrar.Location = new Point(370, 313);
             btn_entrar.Name = "btn_entrar";
             btn_entrar.Size = new Size(122, 36);
-            btn_entrar.TabIndex = 3;
+            btn_entrar.TabIndex = 8;
             btn_entrar.Text = "Entrar";
             btn_entrar.UseVisualStyleBackColor = false;
             btn_entrar.Click += btn_entrar_Click;
             // 
-            // panel1
+            // txt_senha
             // 
-            panel1.BackColor = Color.Transparent;
-            panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(mtxt_cpf);
-            panel1.Controls.Add(lbl_senha);
-            panel1.Controls.Add(btn_entrar);
-            panel1.Controls.Add(txt_senha);
-            panel1.Controls.Add(lbl_cep);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(349, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(335, 361);
-            panel1.TabIndex = 11;
+            txt_senha.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txt_senha.BackColor = Color.White;
+            txt_senha.BorderStyle = BorderStyle.FixedSingle;
+            txt_senha.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
+            txt_senha.ForeColor = Color.Black;
+            txt_senha.Location = new Point(297, 236);
+            txt_senha.MaxLength = 20;
+            txt_senha.Name = "txt_senha";
+            txt_senha.PasswordChar = '*';
+            txt_senha.PlaceholderText = "Digite sua senha...";
+            txt_senha.Size = new Size(263, 26);
+            txt_senha.TabIndex = 7;
+            txt_senha.TextAlign = HorizontalAlignment.Center;
             // 
-            // mtxt_cpf
+            // lbl_cep
             // 
-            mtxt_cpf.BackColor = Color.White;
-            mtxt_cpf.BorderStyle = BorderStyle.None;
-            mtxt_cpf.Font = new Font("Arial", 12F, FontStyle.Underline, GraphicsUnit.Point);
-            mtxt_cpf.ForeColor = Color.Black;
-            mtxt_cpf.Location = new Point(27, 90);
-            mtxt_cpf.Mask = "000,000,000-00";
-            mtxt_cpf.Name = "mtxt_cpf";
-            mtxt_cpf.Size = new Size(278, 19);
-            mtxt_cpf.TabIndex = 1;
-            mtxt_cpf.TextAlign = HorizontalAlignment.Center;
+            lbl_cep.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_cep.AutoSize = true;
+            lbl_cep.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_cep.ForeColor = Color.Black;
+            lbl_cep.Location = new Point(292, 93);
+            lbl_cep.Margin = new Padding(4, 0, 4, 0);
+            lbl_cep.Name = "lbl_cep";
+            lbl_cep.Size = new Size(48, 19);
+            lbl_cep.TabIndex = 5;
+            lbl_cep.Text = "CPF:";
+            lbl_cep.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pctbox_boneco
+            // 
+            pctbox_boneco.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            pctbox_boneco.BackColor = Color.Transparent;
+            pctbox_boneco.Image = (Image)resources.GetObject("pctbox_boneco.Image");
+            pctbox_boneco.Location = new Point(12, 12);
+            pctbox_boneco.Name = "pctbox_boneco";
+            pctbox_boneco.Size = new Size(265, 337);
+            pctbox_boneco.SizeMode = PictureBoxSizeMode.StretchImage;
+            pctbox_boneco.TabIndex = 9;
+            pctbox_boneco.TabStop = false;
+            // 
+            // lbl_saudacao
+            // 
+            lbl_saudacao.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            lbl_saudacao.AutoSize = true;
+            lbl_saudacao.Font = new Font("Arial", 24F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_saudacao.Location = new Point(297, 12);
+            lbl_saudacao.Name = "lbl_saudacao";
+            lbl_saudacao.Size = new Size(263, 37);
+            lbl_saudacao.TabIndex = 10;
+            lbl_saudacao.Text = "Seja bem-vindo!";
+            lbl_saudacao.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // form_login
             // 
             AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(684, 361);
-            Controls.Add(panel1);
-            Controls.Add(pnl_imagem);
+            ClientSize = new Size(584, 361);
+            Controls.Add(lbl_saudacao);
+            Controls.Add(pctbox_boneco);
+            Controls.Add(mtxt_cpf);
+            Controls.Add(lbl_senha);
+            Controls.Add(btn_entrar);
+            Controls.Add(txt_senha);
+            Controls.Add(lbl_cep);
             Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Margin = new Padding(4);
-            MaximumSize = new Size(700, 400);
-            MinimumSize = new Size(700, 400);
+            MaximumSize = new Size(600, 400);
+            MinimumSize = new Size(600, 400);
             Name = "form_login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Tela de Login";
             Load += form_login_Load;
-            pnl_imagem.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pctbox_imagem).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pctbox_boneco).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private Panel pnl_imagem;
-        private PictureBox pctbox_imagem;
-        private Label lbl_cep;
-        private Label lbl_senha;
-        private TextBox txt_senha;
-        private Button btn_entrar;
-        private Panel panel1;
         private MaskedTextBox mtxt_cpf;
+        private Label lbl_senha;
+        private Button btn_entrar;
+        private TextBox txt_senha;
+        private Label lbl_cep;
+        private PictureBox pctbox_boneco;
+        private Label lbl_saudacao;
     }
 }

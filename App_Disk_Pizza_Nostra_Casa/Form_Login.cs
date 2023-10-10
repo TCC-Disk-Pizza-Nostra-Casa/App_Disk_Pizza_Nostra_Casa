@@ -27,11 +27,11 @@ namespace App_Disk_Pizza_Nostra_Casa
             try
             {
 
-                this.MinimumSize = new Size(700, 400);
+                this.MinimumSize = new Size(600, 400);
 
-                this.MaximumSize = new Size(700, 400);
+                this.MaximumSize = new Size(600, 400);
 
-                this.Size = new Size(700, 400);
+                this.Size = new Size(600, 400);
 
                 mtxt_cpf.BackColor = this.BackColor;
 
