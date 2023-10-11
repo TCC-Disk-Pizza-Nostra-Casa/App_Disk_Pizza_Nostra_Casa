@@ -18,6 +18,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
     public partial class form_cadastro_produtos : Form
     {
 
+        public Model.Produto? produto_selecionado = null;
+
         public form_cadastro_produtos()
         {
 
@@ -43,7 +45,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 cbbox_tamanho.DataSource = new string[] { "Grande", "Broto" };
 
-                cbbox_categoria.DataSource = new string[] { "Pizza comum", "Pizza comum", "Pizza doce", "Bebida", "Doce" };
+                cbbox_categoria.DataSource = new string[] { "Pizza comum", "Pizza especial", "Pizza doce", "Bebida", "Doce" };
 
                 cbbox_fornecedor.DisplayMember = "nome";
 
@@ -69,6 +71,42 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     }
 
                     cbbox_fornecedor.DataSource = fornecedores_ativos;
+
+                }
+
+                Form_Fill();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void Form_Fill()
+        {
+
+            try
+            {
+
+                if (this.produto_selecionado != null)
+                {
+
+                    txt_nome.Text = this.produto_selecionado.nome;
+
+                    txt_preco.Text = this.produto_selecionado.preco.ToString();
+
+                    nud_estoque.Value = this.produto_selecionado.estoque;
+
+                    cbbox_tamanho.Text = this.produto_selecionado.tamanho;
+
+                    cbbox_categoria.Text = this.produto_selecionado.categoria;
+
+                    cbbox_fornecedor.SelectedValue = this.produto_selecionado.fk_fornecedor;
 
                 }
 
@@ -153,6 +191,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 Model.Produto dados = new Model.Produto()
                 {
+
+                    id = (this.produto_selecionado != null) ? this.produto_selecionado.id : 0,
 
                     nome = txt_nome.Text,
 

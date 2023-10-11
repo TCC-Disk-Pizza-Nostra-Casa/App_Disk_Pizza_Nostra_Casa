@@ -60,7 +60,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 if (nome != "")
                 {
-                    if (Model.Funcoes_Globais.CNPJValidation(cnpj))
+                    if (Global.CNPJValidation(cnpj))
                     {
                         Model.Fornecedor fornecedor = new Model.Fornecedor()
                         {

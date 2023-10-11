@@ -17,6 +17,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
     public partial class form_listagem_produtos : Form
     {
 
+        private List<Model.Produto>? produtos_cadastrados = null;
+
         public form_listagem_produtos()
         {
 
@@ -192,6 +194,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 dgv_listagem_produtos.Columns.Insert(8, new DataGridViewTextBoxColumn());
 
+                dgv_listagem_produtos.Columns.Insert(9, new DataGridViewTextBoxColumn());
+
                 // Dados das colunas.
 
                 dgv_listagem_produtos.Columns[0].HeaderText = "ID:";
@@ -210,15 +214,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 dgv_listagem_produtos.Columns[3].Name = "dgv_listagem_produtos_estoque";
                 dgv_listagem_produtos.Columns[3].Visible = true;
 
-                dgv_listagem_produtos.Columns[4].HeaderText = "Preço";
+                dgv_listagem_produtos.Columns[4].HeaderText = "Preço:";
                 dgv_listagem_produtos.Columns[4].Name = "dgv_listagem_produtos_preco";
                 dgv_listagem_produtos.Columns[4].Visible = true;
 
-                dgv_listagem_produtos.Columns[5].HeaderText = "Tamanho";
+                dgv_listagem_produtos.Columns[5].HeaderText = "Tamanho:";
                 dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_tamanho";
                 dgv_listagem_produtos.Columns[5].Visible = true;
 
-                dgv_listagem_produtos.Columns[6].HeaderText = "Categoria";
+                dgv_listagem_produtos.Columns[6].HeaderText = "Categoria:";
                 dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_categoria";
                 dgv_listagem_produtos.Columns[6].Visible = true;
 
@@ -229,6 +233,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 dgv_listagem_produtos.Columns[8].HeaderText = "Última modificação:";
                 dgv_listagem_produtos.Columns[8].Name = "dgv_listagem_produtos_data_modificacao";
                 dgv_listagem_produtos.Columns[8].Visible = true;
+
+                dgv_listagem_produtos.Columns[9].HeaderText = "Editar:";
+                dgv_listagem_produtos.Columns[9].Name = "dgv_listagem_produtos_editar";
+                dgv_listagem_produtos.Columns[9].Visible = true;
 
             }
 
@@ -275,7 +283,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_produtos.Rows.Add(id, indice_linha, nome, estoque, preco, tamanho, categoria, observacoes, data_modificacao);
+                        dgv_listagem_produtos.Rows.Add(id, indice_linha, nome, estoque, preco, tamanho, categoria, observacoes, data_modificacao, "Clique aqui.");
 
                     }
 
@@ -304,12 +312,72 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 btn_desativar.Enabled = false;
 
-                List<Model.Produto> lista_produtos = await Model.Produto.GetList();
+                this.produtos_cadastrados = await Model.Produto.GetList();
 
-                if (lista_produtos.Count > 0)
+                if (this.produtos_cadastrados.Count > 0)
                 {
 
-                    ValuesAssociation(lista_produtos, cbbox_condicao_produto.SelectedIndex);
+                    ValuesAssociation(this.produtos_cadastrados, cbbox_condicao_produto.SelectedIndex);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void dgv_listagem_produtos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+
+                if (dgv_listagem_produtos.RowCount > 0)
+                {
+
+                    if (dgv_listagem_produtos.CurrentCell.ColumnIndex == 9)
+                    {
+
+                        if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+
+                            Modules.Produto.form_cadastro_produtos form_produto = new form_cadastro_produtos();
+
+                            Model.Produto? produto_selecionado = null;
+
+                            for (int i = 0; i < this.produtos_cadastrados.Count; i++)
+                            {
+
+                                if (this.produtos_cadastrados[i].id == Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))
+                                {
+
+                                    produto_selecionado = this.produtos_cadastrados[i];
+
+                                    break;
+
+                                }
+
+                            }
+
+                            form_produto.produto_selecionado = produto_selecionado;
+
+                            if (Global.formulario_global != null)
+                            {
+
+                                Global.formulario_global.External_Form_Association(form_produto);
+
+                            }
+
+                        }
+
+                    }
 
                 }
 
@@ -330,20 +398,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                switch (cbbox_condicao_produto.SelectedIndex)
+                if (dgv_listagem_produtos.RowCount > 0)
                 {
 
-                    case 0:
+                    switch (cbbox_condicao_produto.SelectedIndex)
+                    {
 
-                        btn_reativar.Enabled = true;
+                        case 0:
 
-                        break;
+                            btn_reativar.Enabled = true;
 
-                    case 1:
+                            break;
 
-                        btn_desativar.Enabled = true;
+                        case 1:
 
-                        break;
+                            btn_desativar.Enabled = true;
+
+                            break;
+
+                    }
 
                 }
 
