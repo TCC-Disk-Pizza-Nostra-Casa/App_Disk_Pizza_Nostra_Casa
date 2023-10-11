@@ -17,6 +17,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_listagem_funcionarios : Form
     {
 
+        private List<Model.Funcionario>? funcionarios_cadastrados = null;
+
         public form_listagem_funcionarios()
         {
 
@@ -284,7 +286,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         string cep = lista[i].cep;
 
-                        string email = lista[i].email;
+                        string? email = lista[i].email;
 
                         string telefone = lista[i].telefone;
 
@@ -323,12 +325,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 btn_desativar.Enabled = false;
 
-                List<Model.Funcionario> lista_funcionarios = await Model.Funcionario.GetList();
+                this.funcionarios_cadastrados = await Model.Funcionario.GetList();
 
-                if (lista_funcionarios.Count > 0)
+                if (this.funcionarios_cadastrados.Count > 0)
                 {
 
-                    ValuesAssociation(lista_funcionarios, cbbox_condicao_funcionario.SelectedIndex);
+                    ValuesAssociation(this.funcionarios_cadastrados, cbbox_condicao_funcionario.SelectedIndex);
 
                 }
 

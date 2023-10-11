@@ -1,16 +1,20 @@
-﻿using Newtonsoft.Json.Linq;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace App_Disk_Pizza_Nostra_Casa.Model
+using App_Disk_Pizza_Nostra_Casa.View;
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
+
+namespace App_Disk_Pizza_Nostra_Casa
 {
 
-    public class Funcoes_Globais
+    public class Global
     {
+
+        public static View.Modules.Inicio.form_inicio? formulario_global = null;
 
         public static bool CPFValidation(string value)
         {
@@ -33,7 +37,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 // Verificando o CPF.
 
-                string [] cpfs_automaticamente_invalidos = { "00000000000", "11111111111", "22222222222",
+                string[] cpfs_automaticamente_invalidos = { "00000000000", "11111111111", "22222222222",
                                                              "33333333333", "44444444444", "55555555555",
                                                              "66666666666", "77777777777", "88888888888",
                                                              "99999999999" };
@@ -68,7 +72,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                     // Calculando o primeiro dígito verificador.
 
-                    int [] resultados_primeira_verificacao = new int[9];
+                    int[] resultados_primeira_verificacao = new int[9];
 
                     for (int i = 0; i < 9; i++)
                     {
@@ -97,7 +101,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                     // Calculando o segundo dígito verificador.
 
-                    int [] resultados_segunda_verificacao = new int[10];
+                    int[] resultados_segunda_verificacao = new int[10];
 
                     for (int i = 0; i < 10; i++)
                     {
@@ -147,30 +151,6 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        public static bool CEPValidation(string value)
-        {
-
-            string cep = value.Replace("-", "");
-
-            if(cep.Length < 8 || cep.Length > 8)
-            {
-
-                return false;
-
-            }
-
-            else
-            {
-
-                return true;
-
-            }
-
-            /* Esta função é relativamente simples, pois o único orgão que detém o método de
-             * validação de um cep, caso exista, são os Correios. */
-
-        }
-
         public static bool CNPJValidation(string cnpj)
         {
 
@@ -208,7 +188,31 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             digito = digito + resto.ToString();
 
             return cnpj.EndsWith(digito);
-            
+
+        }
+
+        public static bool CEPValidation(string value)
+        {
+
+            string cep = value.Replace("-", "");
+
+            if (cep.Length < 8 || cep.Length > 8)
+            {
+
+                return false;
+
+            }
+
+            else
+            {
+
+                return true;
+
+            }
+
+            /* Esta função é relativamente simples, pois o único orgão que detém o método de
+             * validação de um cep, caso exista, são os Correios. */
+
         }
 
         public static bool PasswordVerification()

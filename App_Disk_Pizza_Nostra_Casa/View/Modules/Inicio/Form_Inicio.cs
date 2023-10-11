@@ -141,7 +141,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         }
 
-        private void External_Form_Association(Form formulario_externo)
+        public void External_Form_Association(Form formulario_externo)
         {
 
             try

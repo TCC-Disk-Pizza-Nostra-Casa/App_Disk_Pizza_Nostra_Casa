@@ -56,14 +56,14 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
-            else if (!Model.Funcoes_Globais.CPFValidation(this.cpf))
+            else if (!Global.CPFValidation(this.cpf))
             {
 
                 throw new Exception("CPF inválido! Revise-o e tente novamente.");
 
             }
 
-            else if (!Model.Funcoes_Globais.CEPValidation(this.cep))
+            else if (!Global.CEPValidation(this.cep))
             {
 
                 throw new Exception("Um CEP possui 8 dígitos! Revise-o e tente novamente.");
