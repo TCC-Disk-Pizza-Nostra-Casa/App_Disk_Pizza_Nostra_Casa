@@ -36,6 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             /** Preenchendo os combo boxs */
 
+            /**
             if (produtoList.Count > 0)
             {
                 //Bebidas
@@ -111,6 +112,27 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 }
 
             }
+
+            */
+
+
+            /** Selecionando pizzas grandes */
+            if(cbox_grande.Checked)
+            {
+
+                
+
+            }
+
+            /** Selecionando pizzas broto */
+            if (cbox_broto.Checked)
+            {
+
+
+
+            }
+
+            /** Bebidas */
 
         }
 
