@@ -86,7 +86,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                     Model.Funcionario funcionario_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(this);
 
-                    if (funcionario_retornado.id != null)
+                    if (funcionario_retornado != null)
                     {
 
                         MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

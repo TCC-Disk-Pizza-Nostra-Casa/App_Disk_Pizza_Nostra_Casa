@@ -96,7 +96,7 @@
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(384, 522);
+            label4.Location = new Point(384, 406);
             label4.Name = "label4";
             label4.Size = new Size(116, 18);
             label4.TabIndex = 5;
@@ -130,7 +130,7 @@
             btn_Salvar.FlatAppearance.BorderSize = 2;
             btn_Salvar.FlatStyle = FlatStyle.Flat;
             btn_Salvar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Salvar.Location = new Point(643, 519);
+            btn_Salvar.Location = new Point(643, 403);
             btn_Salvar.Name = "btn_Salvar";
             btn_Salvar.Size = new Size(131, 41);
             btn_Salvar.TabIndex = 13;
@@ -143,7 +143,7 @@
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(542, 500);
+            label6.Location = new Point(542, 384);
             label6.Name = "label6";
             label6.Size = new Size(95, 19);
             label6.TabIndex = 15;
@@ -154,7 +154,7 @@
             lbl_valortotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lbl_valortotal.AutoSize = true;
             lbl_valortotal.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_valortotal.Location = new Point(643, 500);
+            lbl_valortotal.Location = new Point(643, 384);
             lbl_valortotal.Name = "lbl_valortotal";
             lbl_valortotal.Size = new Size(18, 19);
             lbl_valortotal.TabIndex = 16;
@@ -169,7 +169,7 @@
             btn_Calcular.FlatAppearance.BorderSize = 2;
             btn_Calcular.FlatStyle = FlatStyle.Flat;
             btn_Calcular.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Calcular.Location = new Point(521, 519);
+            btn_Calcular.Location = new Point(521, 403);
             btn_Calcular.Name = "btn_Calcular";
             btn_Calcular.Size = new Size(116, 41);
             btn_Calcular.TabIndex = 17;
@@ -185,7 +185,7 @@
             btnCancelar.FlatAppearance.BorderSize = 2;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(12, 519);
+            btnCancelar.Location = new Point(12, 403);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 41);
             btnCancelar.TabIndex = 18;
@@ -197,11 +197,11 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(12, 345);
+            txt_observacoes.Location = new Point(12, 291);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira observações sobre a(s) pizza(s)";
-            txt_observacoes.Size = new Size(760, 150);
+            txt_observacoes.Size = new Size(760, 88);
             txt_observacoes.TabIndex = 30;
             // 
             // dgv_adicionar_vendas
@@ -214,7 +214,7 @@
             dgv_adicionar_vendas.Name = "dgv_adicionar_vendas";
             dgv_adicionar_vendas.ReadOnly = true;
             dgv_adicionar_vendas.RowTemplate.Height = 25;
-            dgv_adicionar_vendas.Size = new Size(760, 161);
+            dgv_adicionar_vendas.Size = new Size(760, 98);
             dgv_adicionar_vendas.TabIndex = 31;
             // 
             // Produto
@@ -241,7 +241,7 @@
             btn_Remover.FlatAppearance.BorderSize = 2;
             btn_Remover.FlatStyle = FlatStyle.Flat;
             btn_Remover.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Remover.Location = new Point(134, 519);
+            btn_Remover.Location = new Point(134, 403);
             btn_Remover.Name = "btn_Remover";
             btn_Remover.Size = new Size(116, 41);
             btn_Remover.TabIndex = 32;
@@ -327,7 +327,7 @@
             cbox_delivery.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cbox_delivery.AutoSize = true;
             cbox_delivery.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_delivery.Location = new Point(387, 539);
+            cbox_delivery.Location = new Point(387, 423);
             cbox_delivery.Name = "cbox_delivery";
             cbox_delivery.Size = new Size(55, 22);
             cbox_delivery.TabIndex = 52;
@@ -434,7 +434,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(784, 577);
+            ClientSize = new Size(784, 461);
             Controls.Add(cbox_delivery);
             Controls.Add(label7);
             Controls.Add(btn_Remover);

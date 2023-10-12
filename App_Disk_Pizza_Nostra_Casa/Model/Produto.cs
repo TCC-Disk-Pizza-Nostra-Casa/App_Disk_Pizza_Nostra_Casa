@@ -56,7 +56,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                     Model.Produto produto_retornado = await Data_Service_Produto.SaveAsyncProduto(this);
 
-                    if (produto_retornado.id != null)
+                    if (produto_retornado != null)
                     {
 
                         MessageBox.Show("Dados salvos com sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

@@ -91,7 +91,6 @@
             // 
             // lbl_observacoes
             // 
-            lbl_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             lbl_observacoes.AutoSize = true;
             lbl_observacoes.BackColor = Color.Transparent;
             lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
@@ -103,7 +102,7 @@
             // 
             // txt_observacoes
             // 
-            txt_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_observacoes.Location = new Point(12, 326);
             txt_observacoes.MaxLength = 255;
@@ -127,7 +126,7 @@
             // 
             // grpbox_dados
             // 
-            grpbox_dados.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            grpbox_dados.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             grpbox_dados.Controls.Add(pnl_campos);
             grpbox_dados.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             grpbox_dados.Location = new Point(12, 12);
@@ -274,7 +273,7 @@
             txt_email.Location = new Point(75, 210);
             txt_email.MaxLength = 60;
             txt_email.Name = "txt_email";
-            txt_email.PlaceholderText = "Exemplo: usuario@gmail.com";
+            txt_email.PlaceholderText = "Exemplo: funcionario@gmail.com";
             txt_email.Size = new Size(653, 26);
             txt_email.TabIndex = 21;
             // 

@@ -88,7 +88,7 @@
             txt_observacoes.Location = new Point(12, 353);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
-            txt_observacoes.PlaceholderText = "Insira observações sobre o produto...(campo não obrigatório).";
+            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o produto...";
             txt_observacoes.Size = new Size(760, 41);
             txt_observacoes.TabIndex = 42;
             // 
@@ -143,7 +143,7 @@
             txt_preco.Location = new Point(86, 75);
             txt_preco.MaxLength = 14;
             txt_preco.Name = "txt_preco";
-            txt_preco.PlaceholderText = "Insira o preço do produto...";
+            txt_preco.PlaceholderText = "Insira o preço do produto aqui...";
             txt_preco.Size = new Size(655, 26);
             txt_preco.TabIndex = 51;
             txt_preco.KeyPress += txt_preco_KeyPress;
@@ -165,7 +165,7 @@
             txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_nome.Location = new Point(80, 34);
             txt_nome.Name = "txt_nome";
-            txt_nome.PlaceholderText = "Insira o nome do produto...";
+            txt_nome.PlaceholderText = "Insira o nome do produto aqui...";
             txt_nome.Size = new Size(661, 26);
             txt_nome.TabIndex = 49;
             // 

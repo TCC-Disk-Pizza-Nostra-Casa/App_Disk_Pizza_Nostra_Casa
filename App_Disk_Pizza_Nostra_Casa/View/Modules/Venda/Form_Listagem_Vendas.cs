@@ -8,9 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using App_Disk_Pizza_Nostra_Casa.Service;
-using App_Disk_Pizza_Nostra_Casa.View.Modules.Produto;
-
 using App_Disk_Pizza_Nostra_Casa.Model;
 using App_Disk_Pizza_Nostra_Casa.Service;
 
