@@ -17,8 +17,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
     public partial class form_listagem_produtos : Form
     {
 
-        private List<Model.Produto>? produtos_cadastrados = null;
-
         public form_listagem_produtos()
         {
 
@@ -42,14 +40,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 DataGridView_Configuration();
 
-                if (dgv_listagem_produtos.Rows.Count == 0)
-                {
-
-                    dgv_listagem_produtos.Rows.Clear();
-
-                    cbbox_condicao_produto.SelectedIndex = 1;
-
-                }
+                cbbox_condicao_produto.SelectedIndex = 1;
 
             }
 
@@ -312,12 +303,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 btn_desativar.Enabled = false;
 
-                this.produtos_cadastrados = await Model.Produto.GetList();
+                Global.produtos_cadastrados = await Model.Produto.GetList();
 
-                if (this.produtos_cadastrados.Count > 0)
+                if (Global.produtos_cadastrados.Count > 0)
                 {
 
-                    ValuesAssociation(this.produtos_cadastrados, cbbox_condicao_produto.SelectedIndex);
+                    ValuesAssociation(Global.produtos_cadastrados, cbbox_condicao_produto.SelectedIndex);
 
                 }
 
@@ -338,42 +329,37 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if (dgv_listagem_produtos.RowCount > 0)
+                if (dgv_listagem_produtos.RowCount > 0 && dgv_listagem_produtos.CurrentCell.ColumnIndex == 9)
                 {
 
-                    if (dgv_listagem_produtos.CurrentCell.ColumnIndex == 9)
+                    if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",
+                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        Modules.Produto.form_cadastro_produtos form_produto = new form_cadastro_produtos();
+
+                        Model.Produto? produto_selecionado = null;
+
+                        for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
                         {
 
-                            Modules.Produto.form_cadastro_produtos form_produto = new form_cadastro_produtos();
-
-                            Model.Produto? produto_selecionado = null;
-
-                            for (int i = 0; i < this.produtos_cadastrados.Count; i++)
+                            if (Global.produtos_cadastrados[i].id == Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))
                             {
 
-                                if (this.produtos_cadastrados[i].id == Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))
-                                {
+                                produto_selecionado = Global.produtos_cadastrados[i];
 
-                                    produto_selecionado = this.produtos_cadastrados[i];
-
-                                    break;
-
-                                }
+                                break;
 
                             }
 
-                            form_produto.produto_selecionado = produto_selecionado;
+                        }
 
-                            if (Global.formulario_global != null)
-                            {
+                        form_produto.produto_selecionado = produto_selecionado;
 
-                                Global.formulario_global.External_Form_Association(form_produto);
+                        if (Global.formulario_global != null)
+                        {
 
-                            }
+                            Global.formulario_global.External_Form_Association(form_produto);
 
                         }
 
@@ -431,7 +417,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private async void User_Manipulation()
+        private async void Product_Manipulation()
         {
 
             try
@@ -440,8 +426,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 if (MessageBox.Show("Realmente deseja modificar a ativação desse produto?",
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-                    bool exito;
 
                     switch (cbbox_condicao_produto.SelectedIndex)
                     {
@@ -489,7 +473,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                User_Manipulation();
+                Product_Manipulation();
 
             }
 
@@ -508,7 +492,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                User_Manipulation();
+                Product_Manipulation();
 
             }
 
@@ -553,7 +537,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             {
 
                 if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
-                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.Close();

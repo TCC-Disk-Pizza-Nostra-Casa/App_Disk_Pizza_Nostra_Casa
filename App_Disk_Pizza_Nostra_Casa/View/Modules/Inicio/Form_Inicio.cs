@@ -244,6 +244,120 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
         }
 
+        private void btn_clientes_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Submenu_Visibility(pnl_submenu_clientes);
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_cadastro_cliente_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Cliente.form_cadastro_clientes());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_listagem_clientes_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Cliente.form_listagem_clientes());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_fornecedores_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Submenu_Visibility(pnl_submenu_fornecedores);
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_cadastro_fornecedor_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Fornecedor.form_cadastro_fornecedores());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_listagem_fornecedores_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                External_Form_Association(new Modules.Fornecedor.form_listagem_fornecedores());
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
         private void btn_produtos_Click(object sender, EventArgs e)
         {
 
@@ -346,120 +460,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             {
 
                 External_Form_Association(new Modules.Venda.form_listagem_vendas());
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_clientes_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                Submenu_Visibility(pnl_submenu_clientes);
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_cadastro_cliente_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                External_Form_Association(new Modules.Cliente.form_cadastro_clientes());
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_listagem_clientes_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                External_Form_Association(new Modules.Cliente.form_listagem_clientes());
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_fornecedores_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                Submenu_Visibility(pnl_submenu_fornecedores);
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_cadastro_fornecedor_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                External_Form_Association(new Modules.Fornecedor.Form_Cadastro_Fornecedor());
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_listagem_fornecedores_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                External_Form_Association(new Modules.Fornecedor.Form_Listagem_Fornecedor());
 
             }
 

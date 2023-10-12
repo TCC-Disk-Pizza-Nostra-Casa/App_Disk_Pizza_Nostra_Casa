@@ -117,10 +117,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
 
             /** Selecionando pizzas grandes */
-            if(cbox_grande.Checked)
+            if (cbox_grande.Checked)
             {
 
-                
+
 
             }
 
@@ -139,7 +139,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         /**
          * Ira calcular os produtos e mostrar na lbl_valortotal
          */
-        private async void btn_Calcular_Click(object sender, EventArgs e)
+        private void btn_Calcular_Click(object sender, EventArgs e)
         {
             // valor pizza(s) + valor bebida(s) = lbltalortotal
             //List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
@@ -183,7 +183,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             Model.Venda venda_model = await Data_Service_Venda.SaveAsyncVenda(venda);
 
-            if (venda_model.id != null)
+            if (venda_model != null)
             {
 
                 MessageBox.Show("Venda feita com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -236,7 +236,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         {
             List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
             /** Adicionando o que selecionou */
-            string itemSelecionado = cbx_produtos_addvenda.SelectedItem.ToString();
+            string itemSelecionado = cbx_produtos_addvenda.Text;
             dgv_adicionar_vendas.Rows.Add(itemSelecionado, produtoList[0].preco);
 
 

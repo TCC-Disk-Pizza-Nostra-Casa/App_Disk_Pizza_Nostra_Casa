@@ -135,6 +135,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (await dados.Save())
                 {
 
+                    /*if (this.usuario_sessao != null)
+                    {
+
+                        Global.formulario_global.usuario_sessao = (await Data_Service_Funcionario.SearchAsyncFuncionario(txt_nome.Text))[0];
+
+                    }*/
+
                     this.Close();
 
                 }
