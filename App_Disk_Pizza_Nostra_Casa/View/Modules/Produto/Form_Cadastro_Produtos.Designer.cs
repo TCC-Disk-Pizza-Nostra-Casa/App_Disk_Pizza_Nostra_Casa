@@ -34,18 +34,15 @@
             lbl_nome = new Label();
             lbl_fornecedor = new Label();
             cbbox_fornecedor = new ComboBox();
-            lbl_estoque = new Label();
             txt_preco = new TextBox();
             lbl_preco = new Label();
             txt_nome = new TextBox();
             lbl_observacoes = new Label();
-            nud_estoque = new NumericUpDown();
             grpbox_dados = new GroupBox();
             lbl_categoria = new Label();
             cbbox_categoria = new ComboBox();
             cbbox_tamanho = new ComboBox();
             lbl_tamanho = new Label();
-            ((System.ComponentModel.ISupportInitialize)nud_estoque).BeginInit();
             grpbox_dados.SuspendLayout();
             SuspendLayout();
             // 
@@ -53,6 +50,7 @@
             // 
             btn_cancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_cancelar.BackColor = Color.Transparent;
+            btn_cancelar.Cursor = Cursors.Hand;
             btn_cancelar.FlatAppearance.BorderColor = Color.Black;
             btn_cancelar.FlatAppearance.BorderSize = 2;
             btn_cancelar.FlatStyle = FlatStyle.Flat;
@@ -69,6 +67,7 @@
             // 
             btn_salvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_salvar.BackColor = Color.Transparent;
+            btn_salvar.Cursor = Cursors.Hand;
             btn_salvar.FlatAppearance.BorderColor = Color.Black;
             btn_salvar.FlatAppearance.BorderSize = 2;
             btn_salvar.FlatStyle = FlatStyle.Flat;
@@ -85,11 +84,11 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(12, 353);
+            txt_observacoes.Location = new Point(12, 309);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o produto...";
-            txt_observacoes.Size = new Size(760, 41);
+            txt_observacoes.Size = new Size(760, 85);
             txt_observacoes.TabIndex = 42;
             // 
             // lbl_nome
@@ -108,7 +107,7 @@
             // 
             lbl_fornecedor.BackColor = Color.Transparent;
             lbl_fornecedor.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_fornecedor.Location = new Point(14, 241);
+            lbl_fornecedor.Location = new Point(14, 197);
             lbl_fornecedor.Name = "lbl_fornecedor";
             lbl_fornecedor.Size = new Size(109, 26);
             lbl_fornecedor.TabIndex = 55;
@@ -120,21 +119,10 @@
             cbbox_fornecedor.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbbox_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_fornecedor.FormattingEnabled = true;
-            cbbox_fornecedor.Location = new Point(129, 241);
+            cbbox_fornecedor.Location = new Point(129, 197);
             cbbox_fornecedor.Name = "cbbox_fornecedor";
             cbbox_fornecedor.Size = new Size(612, 26);
             cbbox_fornecedor.TabIndex = 54;
-            // 
-            // lbl_estoque
-            // 
-            lbl_estoque.BackColor = Color.Transparent;
-            lbl_estoque.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_estoque.Location = new Point(14, 116);
-            lbl_estoque.Name = "lbl_estoque";
-            lbl_estoque.Size = new Size(82, 26);
-            lbl_estoque.TabIndex = 53;
-            lbl_estoque.Text = "Estoque:";
-            lbl_estoque.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txt_preco
             // 
@@ -173,21 +161,12 @@
             // 
             lbl_observacoes.BackColor = Color.Transparent;
             lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_observacoes.Location = new Point(12, 311);
+            lbl_observacoes.Location = new Point(10, 269);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(125, 28);
             lbl_observacoes.TabIndex = 58;
             lbl_observacoes.Text = "Observações:";
             lbl_observacoes.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // nud_estoque
-            // 
-            nud_estoque.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            nud_estoque.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nud_estoque.Location = new Point(102, 116);
-            nud_estoque.Name = "nud_estoque";
-            nud_estoque.Size = new Size(639, 26);
-            nud_estoque.TabIndex = 57;
             // 
             // grpbox_dados
             // 
@@ -196,19 +175,17 @@
             grpbox_dados.Controls.Add(lbl_categoria);
             grpbox_dados.Controls.Add(cbbox_categoria);
             grpbox_dados.Controls.Add(cbbox_fornecedor);
-            grpbox_dados.Controls.Add(nud_estoque);
             grpbox_dados.Controls.Add(txt_nome);
             grpbox_dados.Controls.Add(lbl_nome);
             grpbox_dados.Controls.Add(lbl_preco);
             grpbox_dados.Controls.Add(lbl_fornecedor);
             grpbox_dados.Controls.Add(txt_preco);
-            grpbox_dados.Controls.Add(lbl_estoque);
             grpbox_dados.Controls.Add(cbbox_tamanho);
             grpbox_dados.Controls.Add(lbl_tamanho);
             grpbox_dados.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             grpbox_dados.Location = new Point(12, 12);
             grpbox_dados.Name = "grpbox_dados";
-            grpbox_dados.Size = new Size(760, 287);
+            grpbox_dados.Size = new Size(760, 245);
             grpbox_dados.TabIndex = 59;
             grpbox_dados.TabStop = false;
             grpbox_dados.Text = "Dados";
@@ -217,7 +194,7 @@
             // 
             lbl_categoria.BackColor = Color.Transparent;
             lbl_categoria.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_categoria.Location = new Point(14, 200);
+            lbl_categoria.Location = new Point(14, 156);
             lbl_categoria.Name = "lbl_categoria";
             lbl_categoria.Size = new Size(93, 26);
             lbl_categoria.TabIndex = 61;
@@ -229,7 +206,7 @@
             cbbox_categoria.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbbox_categoria.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_categoria.FormattingEnabled = true;
-            cbbox_categoria.Location = new Point(113, 200);
+            cbbox_categoria.Location = new Point(113, 156);
             cbbox_categoria.Name = "cbbox_categoria";
             cbbox_categoria.Size = new Size(628, 26);
             cbbox_categoria.TabIndex = 58;
@@ -240,7 +217,7 @@
             cbbox_tamanho.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbbox_tamanho.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_tamanho.FormattingEnabled = true;
-            cbbox_tamanho.Location = new Point(113, 159);
+            cbbox_tamanho.Location = new Point(113, 115);
             cbbox_tamanho.Name = "cbbox_tamanho";
             cbbox_tamanho.Size = new Size(628, 26);
             cbbox_tamanho.TabIndex = 60;
@@ -249,7 +226,7 @@
             // 
             lbl_tamanho.BackColor = Color.Transparent;
             lbl_tamanho.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_tamanho.Location = new Point(14, 159);
+            lbl_tamanho.Location = new Point(14, 115);
             lbl_tamanho.Name = "lbl_tamanho";
             lbl_tamanho.Size = new Size(93, 26);
             lbl_tamanho.TabIndex = 59;
@@ -272,7 +249,6 @@
             Name = "form_cadastro_produtos";
             Text = "Cadastro de Produtos";
             Load += form_cadastro_produtos_Load;
-            ((System.ComponentModel.ISupportInitialize)nud_estoque).EndInit();
             grpbox_dados.ResumeLayout(false);
             grpbox_dados.PerformLayout();
             ResumeLayout(false);
@@ -284,7 +260,6 @@
         private Button btn_cancelar;
         private Button btn_salvar;
         private TextBox txt_observacoes;
-        private Label lbl_estoque;
         private TextBox txt_preco;
         private Label lbl_preco;
         private TextBox txt_nome;
@@ -292,7 +267,6 @@
         private ComboBox cbbox_fornecedor;
         private Label lbl_observacoes;
         private Label lbl_nome;
-        private NumericUpDown nud_estoque;
         private GroupBox grpbox_dados;
         private ComboBox cbbox_tamanho;
         private Label lbl_categoria;

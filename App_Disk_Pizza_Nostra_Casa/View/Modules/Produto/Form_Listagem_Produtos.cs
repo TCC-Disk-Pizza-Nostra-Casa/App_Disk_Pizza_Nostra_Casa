@@ -183,51 +183,39 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 dgv_listagem_produtos.Columns.Insert(7, new DataGridViewTextBoxColumn());
 
-                dgv_listagem_produtos.Columns.Insert(8, new DataGridViewTextBoxColumn());
-
-                dgv_listagem_produtos.Columns.Insert(9, new DataGridViewTextBoxColumn());
-
                 // Dados das colunas.
 
                 dgv_listagem_produtos.Columns[0].HeaderText = "ID:";
                 dgv_listagem_produtos.Columns[0].Name = "dgv_listagem_produtos_id";
                 dgv_listagem_produtos.Columns[0].Visible = false;
 
-                dgv_listagem_produtos.Columns[1].HeaderText = "Índice:";
-                dgv_listagem_produtos.Columns[1].Name = "dgv_listagem_produtos_indice_linha";
+                dgv_listagem_produtos.Columns[1].HeaderText = "Nome do produto:";
+                dgv_listagem_produtos.Columns[1].Name = "dgv_listagem_produtos_nome";
                 dgv_listagem_produtos.Columns[1].Visible = true;
 
-                dgv_listagem_produtos.Columns[2].HeaderText = "Nome do produto:";
-                dgv_listagem_produtos.Columns[2].Name = "dgv_listagem_produtos_nome";
+                dgv_listagem_produtos.Columns[2].HeaderText = "Preço:";
+                dgv_listagem_produtos.Columns[2].Name = "dgv_listagem_produtos_preco";
                 dgv_listagem_produtos.Columns[2].Visible = true;
 
-                dgv_listagem_produtos.Columns[3].HeaderText = "Estoque:";
-                dgv_listagem_produtos.Columns[3].Name = "dgv_listagem_produtos_estoque";
+                dgv_listagem_produtos.Columns[3].HeaderText = "Tamanho:";
+                dgv_listagem_produtos.Columns[3].Name = "dgv_listagem_produtos_tamanho";
                 dgv_listagem_produtos.Columns[3].Visible = true;
 
-                dgv_listagem_produtos.Columns[4].HeaderText = "Preço:";
-                dgv_listagem_produtos.Columns[4].Name = "dgv_listagem_produtos_preco";
+                dgv_listagem_produtos.Columns[4].HeaderText = "Categoria:";
+                dgv_listagem_produtos.Columns[4].Name = "dgv_listagem_produtos_categoria";
                 dgv_listagem_produtos.Columns[4].Visible = true;
 
-                dgv_listagem_produtos.Columns[5].HeaderText = "Tamanho:";
-                dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_tamanho";
+                dgv_listagem_produtos.Columns[5].HeaderText = "Observações:";
+                dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_observacoes";
                 dgv_listagem_produtos.Columns[5].Visible = true;
 
-                dgv_listagem_produtos.Columns[6].HeaderText = "Categoria:";
-                dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_categoria";
+                dgv_listagem_produtos.Columns[6].HeaderText = "Última modificação:";
+                dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_data_modificacao";
                 dgv_listagem_produtos.Columns[6].Visible = true;
 
-                dgv_listagem_produtos.Columns[7].HeaderText = "Observações:";
-                dgv_listagem_produtos.Columns[7].Name = "dgv_listagem_produtos_observacoes";
+                dgv_listagem_produtos.Columns[7].HeaderText = "Editar:";
+                dgv_listagem_produtos.Columns[7].Name = "dgv_listagem_produtos_editar";
                 dgv_listagem_produtos.Columns[7].Visible = true;
-
-                dgv_listagem_produtos.Columns[8].HeaderText = "Última modificação:";
-                dgv_listagem_produtos.Columns[8].Name = "dgv_listagem_produtos_data_modificacao";
-                dgv_listagem_produtos.Columns[8].Visible = true;
-
-                dgv_listagem_produtos.Columns[9].HeaderText = "Editar:";
-                dgv_listagem_produtos.Columns[9].Name = "dgv_listagem_produtos_editar";
-                dgv_listagem_produtos.Columns[9].Visible = true;
 
             }
 
@@ -262,8 +250,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         string nome = lista[i].nome;
 
-                        string estoque = lista[i].estoque.ToString();
-
                         string preco = lista[i].preco.ToString("C2");
 
                         string tamanho = lista[i].tamanho;
@@ -274,7 +260,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_produtos.Rows.Add(id, indice_linha, nome, estoque, preco, tamanho, categoria, observacoes, data_modificacao, "Clique aqui.");
+                        dgv_listagem_produtos.Rows.Add(id, nome, preco, tamanho, categoria, observacoes, data_modificacao, "Clique aqui.");
 
                     }
 

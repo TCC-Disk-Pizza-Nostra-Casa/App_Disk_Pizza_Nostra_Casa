@@ -71,6 +71,7 @@
             // 
             btn_entrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btn_entrar.BackColor = Color.Transparent;
+            btn_entrar.Cursor = Cursors.Hand;
             btn_entrar.FlatAppearance.BorderColor = Color.Black;
             btn_entrar.FlatAppearance.BorderSize = 2;
             btn_entrar.FlatStyle = FlatStyle.Flat;

@@ -61,6 +61,7 @@
             // 
             btn_salvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_salvar.BackColor = Color.Transparent;
+            btn_salvar.Cursor = Cursors.Hand;
             btn_salvar.FlatAppearance.BorderColor = Color.Black;
             btn_salvar.FlatAppearance.BorderSize = 2;
             btn_salvar.FlatStyle = FlatStyle.Flat;
@@ -77,6 +78,7 @@
             // 
             btn_cancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_cancelar.BackColor = Color.Transparent;
+            btn_cancelar.Cursor = Cursors.Hand;
             btn_cancelar.FlatAppearance.BorderColor = Color.Black;
             btn_cancelar.FlatAppearance.BorderSize = 2;
             btn_cancelar.FlatStyle = FlatStyle.Flat;
@@ -116,6 +118,7 @@
             // 
             ckbox_administrador.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             ckbox_administrador.AutoSize = true;
+            ckbox_administrador.Cursor = Cursors.Hand;
             ckbox_administrador.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ckbox_administrador.Location = new Point(12, 426);
             ckbox_administrador.Name = "ckbox_administrador";

@@ -193,61 +193,55 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                 dgv_listagem_clientes.Columns.Insert(11, new DataGridViewTextBoxColumn());
 
-                dgv_listagem_clientes.Columns.Insert(12, new DataGridViewTextBoxColumn());
-
                 // Dados das colunas.
 
                 dgv_listagem_clientes.Columns[0].HeaderText = "ID:";
                 dgv_listagem_clientes.Columns[0].Name = "dgv_listagem_clientes_id";
                 dgv_listagem_clientes.Columns[0].Visible = false;
 
-                dgv_listagem_clientes.Columns[1].HeaderText = "Índice:";
-                dgv_listagem_clientes.Columns[1].Name = "dgv_listagem_clientes_indice_linha";
+                dgv_listagem_clientes.Columns[1].HeaderText = "Nome:";
+                dgv_listagem_clientes.Columns[1].Name = "dgv_listagem_clientes_nome";
                 dgv_listagem_clientes.Columns[1].Visible = true;
 
-                dgv_listagem_clientes.Columns[2].HeaderText = "Nome:";
-                dgv_listagem_clientes.Columns[2].Name = "dgv_listagem_clientes_nome";
+                dgv_listagem_clientes.Columns[2].HeaderText = "Sexo:";
+                dgv_listagem_clientes.Columns[2].Name = "dgv_listagem_clientes_sexo";
                 dgv_listagem_clientes.Columns[2].Visible = true;
 
-                dgv_listagem_clientes.Columns[3].HeaderText = "Sexo:";
-                dgv_listagem_clientes.Columns[3].Name = "dgv_listagem_clientes_sexo";
+                dgv_listagem_clientes.Columns[3].HeaderText = "Estado civil:";
+                dgv_listagem_clientes.Columns[3].Name = "dgv_listagem_clientes_estado_civil";
                 dgv_listagem_clientes.Columns[3].Visible = true;
 
-                dgv_listagem_clientes.Columns[4].HeaderText = "Estado civil:";
-                dgv_listagem_clientes.Columns[4].Name = "dgv_listagem_clientes_estado_civil";
+                dgv_listagem_clientes.Columns[4].HeaderText = "CPF:";
+                dgv_listagem_clientes.Columns[4].Name = "dgv_listagem_clientes_cpf";
                 dgv_listagem_clientes.Columns[4].Visible = true;
 
-                dgv_listagem_clientes.Columns[5].HeaderText = "CPF:";
-                dgv_listagem_clientes.Columns[5].Name = "dgv_listagem_clientes_cpf";
+                dgv_listagem_clientes.Columns[5].HeaderText = "CEP:";
+                dgv_listagem_clientes.Columns[5].Name = "dgv_listagem_clientes_cep";
                 dgv_listagem_clientes.Columns[5].Visible = true;
 
-                dgv_listagem_clientes.Columns[6].HeaderText = "CEP:";
-                dgv_listagem_clientes.Columns[6].Name = "dgv_listagem_clientes_cep";
+                dgv_listagem_clientes.Columns[6].HeaderText = "E-mail:";
+                dgv_listagem_clientes.Columns[6].Name = "dgv_listagem_clientes_email";
                 dgv_listagem_clientes.Columns[6].Visible = true;
 
-                dgv_listagem_clientes.Columns[7].HeaderText = "E-mail:";
-                dgv_listagem_clientes.Columns[7].Name = "dgv_listagem_clientes_email";
+                dgv_listagem_clientes.Columns[7].HeaderText = "Telefone:";
+                dgv_listagem_clientes.Columns[7].Name = "dgv_listagem_clientes_telefone";
                 dgv_listagem_clientes.Columns[7].Visible = true;
 
-                dgv_listagem_clientes.Columns[8].HeaderText = "Telefone:";
-                dgv_listagem_clientes.Columns[8].Name = "dgv_listagem_clientes_telefone";
+                dgv_listagem_clientes.Columns[8].HeaderText = "Data de nascimento:";
+                dgv_listagem_clientes.Columns[8].Name = "dgv_listagem_clientes_data_nascimento";
                 dgv_listagem_clientes.Columns[8].Visible = true;
 
-                dgv_listagem_clientes.Columns[9].HeaderText = "Data de nascimento:";
-                dgv_listagem_clientes.Columns[9].Name = "dgv_listagem_clientes_data_nascimento";
+                dgv_listagem_clientes.Columns[9].HeaderText = "Observações:";
+                dgv_listagem_clientes.Columns[9].Name = "dgv_listagem_clientes_observacoes";
                 dgv_listagem_clientes.Columns[9].Visible = true;
 
-                dgv_listagem_clientes.Columns[10].HeaderText = "Observações:";
-                dgv_listagem_clientes.Columns[10].Name = "dgv_listagem_clientes_observacoes";
+                dgv_listagem_clientes.Columns[10].HeaderText = "Última modificação:";
+                dgv_listagem_clientes.Columns[10].Name = "dgv_listagem_clientes_data_modificacao";
                 dgv_listagem_clientes.Columns[10].Visible = true;
 
-                dgv_listagem_clientes.Columns[11].HeaderText = "Última modificação:";
-                dgv_listagem_clientes.Columns[11].Name = "dgv_listagem_clientes_data_modificacao";
+                dgv_listagem_clientes.Columns[11].HeaderText = "Editar:";
+                dgv_listagem_clientes.Columns[11].Name = "dgv_listagem_clientes_editar";
                 dgv_listagem_clientes.Columns[11].Visible = true;
-
-                dgv_listagem_clientes.Columns[12].HeaderText = "Editar:";
-                dgv_listagem_clientes.Columns[12].Name = "dgv_listagem_clientes_editar";
-                dgv_listagem_clientes.Columns[12].Visible = true;
 
             }
 
@@ -300,7 +294,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_clientes.Rows.Add(id, indice_linha, nome, sexo, estado_civil, cpf, cep, email, telefone, data_nascimento, observacoes, data_modificacao, "Clique aqui");
+                        dgv_listagem_clientes.Rows.Add(id, nome, sexo, estado_civil, cpf, cep, email, telefone, data_nascimento, observacoes, data_modificacao, "Clique aqui");
 
                     }
 

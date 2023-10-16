@@ -100,8 +100,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                     txt_preco.Text = this.produto_selecionado.preco.ToString();
 
-                    nud_estoque.Value = this.produto_selecionado.estoque;
-
                     cbbox_tamanho.Text = this.produto_selecionado.tamanho;
 
                     cbbox_categoria.Text = this.produto_selecionado.categoria;
@@ -195,8 +193,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     id = (this.produto_selecionado != null) ? this.produto_selecionado.id : 0,
 
                     nome = txt_nome.Text,
-
-                    estoque = Convert.ToInt32(nud_estoque.Value),
 
                     preco = double.Parse(txt_preco.Text),
 
