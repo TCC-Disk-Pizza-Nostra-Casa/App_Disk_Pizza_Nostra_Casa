@@ -189,9 +189,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.Columns.Insert(9, new DataGridViewTextBoxColumn());
 
-                dgv_listagem_funcionarios.Columns.Insert(10, new DataGridViewTextBoxColumn());
-
-                dgv_listagem_funcionarios.Columns.Insert(11, new DataGridViewCheckBoxColumn());
+                dgv_listagem_funcionarios.Columns.Insert(10, new DataGridViewCheckBoxColumn());
 
                 // Dados das colunas.
 
@@ -199,49 +197,45 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 dgv_listagem_funcionarios.Columns[0].Name = "dgv_listagem_funcionarios_id";
                 dgv_listagem_funcionarios.Columns[0].Visible = false;
 
-                dgv_listagem_funcionarios.Columns[1].HeaderText = "Índice:";
-                dgv_listagem_funcionarios.Columns[1].Name = "dgv_listagem_funcionarios_indice_linha";
+                dgv_listagem_funcionarios.Columns[1].HeaderText = "Nome:";
+                dgv_listagem_funcionarios.Columns[1].Name = "dgv_listagem_funcionarios_nome";
                 dgv_listagem_funcionarios.Columns[1].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[2].HeaderText = "Nome:";
-                dgv_listagem_funcionarios.Columns[2].Name = "dgv_listagem_funcionarios_nome";
+                dgv_listagem_funcionarios.Columns[2].HeaderText = "Sexo:";
+                dgv_listagem_funcionarios.Columns[2].Name = "dgv_listagem_funcionarios_sexo";
                 dgv_listagem_funcionarios.Columns[2].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[3].HeaderText = "Sexo:";
-                dgv_listagem_funcionarios.Columns[3].Name = "dgv_listagem_funcionarios_sexo";
+                dgv_listagem_funcionarios.Columns[3].HeaderText = "Estado civil:";
+                dgv_listagem_funcionarios.Columns[3].Name = "dgv_listagem_funcionarios_estado_civil";
                 dgv_listagem_funcionarios.Columns[3].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[4].HeaderText = "Estado civil:";
-                dgv_listagem_funcionarios.Columns[4].Name = "dgv_listagem_funcionarios_estado_civil";
+                dgv_listagem_funcionarios.Columns[4].HeaderText = "CPF:";
+                dgv_listagem_funcionarios.Columns[4].Name = "dgv_listagem_funcionarios_cpf";
                 dgv_listagem_funcionarios.Columns[4].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[5].HeaderText = "CPF:";
-                dgv_listagem_funcionarios.Columns[5].Name = "dgv_listagem_funcionarios_cpf";
+                dgv_listagem_funcionarios.Columns[5].HeaderText = "CEP:";
+                dgv_listagem_funcionarios.Columns[5].Name = "dgv_listagem_funcionarios_cep";
                 dgv_listagem_funcionarios.Columns[5].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[6].HeaderText = "CEP:";
-                dgv_listagem_funcionarios.Columns[6].Name = "dgv_listagem_funcionarios_cep";
+                dgv_listagem_funcionarios.Columns[6].HeaderText = "E-mail:";
+                dgv_listagem_funcionarios.Columns[6].Name = "dgv_listagem_funcionarios_email";
                 dgv_listagem_funcionarios.Columns[6].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[7].HeaderText = "E-mail:";
-                dgv_listagem_funcionarios.Columns[7].Name = "dgv_listagem_funcionarios_email";
+                dgv_listagem_funcionarios.Columns[7].HeaderText = "Telefone:";
+                dgv_listagem_funcionarios.Columns[7].Name = "dgv_listagem_funcionarios_telefone";
                 dgv_listagem_funcionarios.Columns[7].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[8].HeaderText = "Telefone:";
-                dgv_listagem_funcionarios.Columns[8].Name = "dgv_listagem_funcionarios_telefone";
+                dgv_listagem_funcionarios.Columns[8].HeaderText = "Observações:";
+                dgv_listagem_funcionarios.Columns[8].Name = "dgv_listagem_funcionarios_observacoes";
                 dgv_listagem_funcionarios.Columns[8].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[9].HeaderText = "Observações:";
-                dgv_listagem_funcionarios.Columns[9].Name = "dgv_listagem_funcionarios_observacoes";
+                dgv_listagem_funcionarios.Columns[9].HeaderText = "Última modificação:";
+                dgv_listagem_funcionarios.Columns[9].Name = "dgv_listagem_funcionarios_data_modificacao";
                 dgv_listagem_funcionarios.Columns[9].Visible = true;
 
-                dgv_listagem_funcionarios.Columns[10].HeaderText = "Última modificação:";
-                dgv_listagem_funcionarios.Columns[10].Name = "dgv_listagem_funcionarios_data_modificacao";
+                dgv_listagem_funcionarios.Columns[10].HeaderText = "Administrador:";
+                dgv_listagem_funcionarios.Columns[10].Name = "dgv_listagem_funcionarios_administrador";
                 dgv_listagem_funcionarios.Columns[10].Visible = true;
-
-                dgv_listagem_funcionarios.Columns[11].HeaderText = "Administrador:";
-                dgv_listagem_funcionarios.Columns[11].Name = "dgv_listagem_funcionarios_administrador";
-                dgv_listagem_funcionarios.Columns[11].Visible = true;
 
             }
 
@@ -294,7 +288,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         bool administrador = Convert.ToBoolean(lista[i].administrador);
 
-                        dgv_listagem_funcionarios.Rows.Add(id, indice_linha, nome, sexo, estado_civil, cpf, cep, email, telefone, observacoes, data_modificacao, administrador);
+                        dgv_listagem_funcionarios.Rows.Add(id, nome, sexo, estado_civil, cpf, cep, email, telefone, observacoes, data_modificacao, administrador);
 
                     }
 

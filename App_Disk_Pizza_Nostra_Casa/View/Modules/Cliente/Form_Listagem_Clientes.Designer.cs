@@ -45,6 +45,7 @@
             // 
             btn_resetar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btn_resetar.BackColor = Color.Transparent;
+            btn_resetar.Cursor = Cursors.Hand;
             btn_resetar.FlatAppearance.BorderColor = Color.Black;
             btn_resetar.FlatAppearance.BorderSize = 2;
             btn_resetar.FlatStyle = FlatStyle.Flat;
@@ -60,6 +61,7 @@
             // cbbox_condicao_cliente
             // 
             cbbox_condicao_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbbox_condicao_cliente.Cursor = Cursors.Hand;
             cbbox_condicao_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_cliente.FormattingEnabled = true;
             cbbox_condicao_cliente.Location = new Point(613, 53);
@@ -72,6 +74,7 @@
             // 
             btn_voltar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             btn_voltar.BackColor = Color.Transparent;
+            btn_voltar.Cursor = Cursors.Hand;
             btn_voltar.FlatAppearance.BorderColor = Color.Black;
             btn_voltar.FlatAppearance.BorderSize = 2;
             btn_voltar.FlatStyle = FlatStyle.Flat;
@@ -88,6 +91,7 @@
             // 
             btn_desativar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_desativar.BackColor = Color.Transparent;
+            btn_desativar.Cursor = Cursors.Hand;
             btn_desativar.FlatAppearance.BorderColor = Color.Black;
             btn_desativar.FlatAppearance.BorderSize = 2;
             btn_desativar.FlatStyle = FlatStyle.Flat;
@@ -104,6 +108,7 @@
             // 
             btn_reativar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_reativar.BackColor = Color.Transparent;
+            btn_reativar.Cursor = Cursors.Hand;
             btn_reativar.FlatAppearance.BorderColor = Color.Black;
             btn_reativar.FlatAppearance.BorderSize = 2;
             btn_reativar.FlatStyle = FlatStyle.Flat;

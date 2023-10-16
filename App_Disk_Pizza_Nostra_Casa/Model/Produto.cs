@@ -17,8 +17,6 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string nome { get; set; }
 
-        public int estoque { get; set; }
-
         public double preco { get; set; }
 
         public string tamanho { get; set; }
@@ -38,9 +36,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public async Task<bool>? Save()
         {
 
-            if (String.IsNullOrEmpty(this.nome) || this.estoque < 1 ||
-                String.IsNullOrEmpty(this.preco.ToString()) || String.IsNullOrEmpty(this.tamanho) ||
-                String.IsNullOrEmpty(this.categoria) || this.fk_fornecedor < 1)
+            if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.preco.ToString()) ||
+                String.IsNullOrEmpty(this.tamanho) || String.IsNullOrEmpty(this.categoria) ||
+                this.fk_fornecedor < 1)
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");

@@ -307,19 +307,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
             string cep = value.Replace("-", "");
 
-            if (cep.Length < 8 || cep.Length > 8)
-            {
-
-                return false;
-
-            }
-
-            else
-            {
-
-                return true;
-
-            }
+            return (cep.Length < 8 || cep.Length > 8) ? false : true;
 
             /* Esta função é relativamente simples, pois o único orgão que detém o método de
              * validação de um cep, caso exista, são os Correios. */

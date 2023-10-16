@@ -62,11 +62,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                     btn_funcionarios.Visible = false;
 
-                    btn_produtos.Visible = false;
-
-                    btn_clientes.Visible = false;
-
                     btn_fornecedores.Visible = false;
+
+                    btn_produtos.Visible = false;
 
                 }
 
