@@ -53,7 +53,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_pesquisar_vendas.BackgroundImageLayout = ImageLayout.Zoom;
             btn_pesquisar_vendas.FlatAppearance.BorderSize = 0;
             btn_pesquisar_vendas.FlatStyle = FlatStyle.Flat;
-            btn_pesquisar_vendas.Location = new Point(747, 11);
+            btn_pesquisar_vendas.Location = new Point(749, 12);
             btn_pesquisar_vendas.Name = "btn_pesquisar_vendas";
             btn_pesquisar_vendas.Size = new Size(23, 23);
             btn_pesquisar_vendas.TabIndex = 4;
@@ -91,7 +91,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_vendas.BackgroundColor = Color.White;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { id, codigo, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
-            dgv_listagem_vendas.Location = new Point(10, 48);
+            dgv_listagem_vendas.Location = new Point(10, 99);
             dgv_listagem_vendas.MultiSelect = false;
             dgv_listagem_vendas.Name = "dgv_listagem_vendas";
             dgv_listagem_vendas.ReadOnly = true;
@@ -159,7 +159,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_excluir.BackColor = Color.White;
             btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
-            btn_excluir.Location = new Point(665, 409);
+            btn_excluir.Location = new Point(665, 453);
             btn_excluir.Name = "btn_excluir";
             btn_excluir.Size = new Size(107, 40);
             btn_excluir.TabIndex = 7;
@@ -169,8 +169,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             // dtp_to_search
             // 
-            dtp_to_search.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            dtp_to_search.Location = new Point(10, 526);
+            dtp_to_search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            dtp_to_search.Location = new Point(470, 49);
             dtp_to_search.Name = "dtp_to_search";
             dtp_to_search.Size = new Size(271, 23);
             dtp_to_search.TabIndex = 8;
