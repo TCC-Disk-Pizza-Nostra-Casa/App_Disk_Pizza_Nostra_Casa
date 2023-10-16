@@ -208,7 +208,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 dgv_listagem_funcionarios.Columns[2].Visible = true;
 
                 dgv_listagem_funcionarios.Columns[3].HeaderText = "Sexo:";
-                dgv_listagem_funcionarios.Columns[3].Name = "sexo";
+                dgv_listagem_funcionarios.Columns[3].Name = "dgv_listagem_funcionarios_sexo";
                 dgv_listagem_funcionarios.Columns[3].Visible = true;
 
                 dgv_listagem_funcionarios.Columns[4].HeaderText = "Estado civil:";
@@ -284,7 +284,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         string cep = lista[i].cep;
 
-                        string email = lista[i].email;
+                        string? email = lista[i].email;
 
                         string telefone = lista[i].telefone;
 
@@ -323,12 +323,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 btn_desativar.Enabled = false;
 
-                List<Model.Funcionario> lista_funcionarios = await Model.Funcionario.GetList();
+                Global.funcionarios_cadastrados = await Model.Funcionario.GetList();
 
-                if (lista_funcionarios.Count > 0)
+                if (Global.funcionarios_cadastrados.Count > 0)
                 {
 
-                    ValuesAssociation(lista_funcionarios, cbbox_condicao_funcionario.SelectedIndex);
+                    ValuesAssociation(Global.funcionarios_cadastrados, cbbox_condicao_funcionario.SelectedIndex);
 
                 }
 
@@ -349,20 +349,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                switch (cbbox_condicao_funcionario.SelectedIndex)
+                if (dgv_listagem_funcionarios.Rows.Count > 0)
                 {
 
-                    case 0:
+                    switch (cbbox_condicao_funcionario.SelectedIndex)
+                    {
 
-                        btn_reativar.Enabled = true;
+                        case 0:
 
-                        break;
+                            btn_reativar.Enabled = true;
 
-                    case 1:
+                            break;
 
-                        btn_desativar.Enabled = true;
+                        case 1:
 
-                        break;
+                            btn_desativar.Enabled = true;
+
+                            break;
+
+                    }
 
                 }
 
@@ -383,14 +388,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 11)
+                if (dgv_listagem_funcionarios.RowCount > 0 && dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 11)
                 {
 
                     if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse funcionário?",
                        "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-
-                        bool exito;
 
                         if (Convert.ToBoolean(dgv_listagem_funcionarios.CurrentCell.Value))
                         {
@@ -425,7 +428,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private async void User_Manipulation()
+        private async void Employee_Manipulation()
         {
 
             try
@@ -434,8 +437,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (MessageBox.Show("Realmente deseja modificar a ativação desse funcionário?",
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-
-                    bool exito;
 
                     switch (cbbox_condicao_funcionario.SelectedIndex)
                     {
@@ -483,7 +484,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                User_Manipulation();
+                Employee_Manipulation();
 
             }
 
@@ -502,7 +503,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                User_Manipulation();
+                Employee_Manipulation();
 
             }
 
@@ -547,7 +548,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             {
 
                 if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
-                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.Close();

@@ -36,6 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             /** Preenchendo os combo boxs */
 
+            /**
             if (produtoList.Count > 0)
             {
                 //Bebidas
@@ -112,12 +113,33 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             }
 
+            */
+
+
+            /** Selecionando pizzas grandes */
+            if (cbox_grande.Checked)
+            {
+
+
+
+            }
+
+            /** Selecionando pizzas broto */
+            if (cbox_broto.Checked)
+            {
+
+
+
+            }
+
+            /** Bebidas */
+
         }
 
         /**
          * Ira calcular os produtos e mostrar na lbl_valortotal
          */
-        private async void btn_Calcular_Click(object sender, EventArgs e)
+        private void btn_Calcular_Click(object sender, EventArgs e)
         {
             // valor pizza(s) + valor bebida(s) = lbltalortotal
             //List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
@@ -161,7 +183,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             Model.Venda venda_model = await Data_Service_Venda.SaveAsyncVenda(venda);
 
-            if (venda_model.id != null)
+            if (venda_model != null)
             {
 
                 MessageBox.Show("Venda feita com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -214,7 +236,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         {
             List<Model.Produto>? produtoList = await Data_Service_Produto.GetListAsyncProduto();
             /** Adicionando o que selecionou */
-            string itemSelecionado = cbx_produtos_addvenda.SelectedItem.ToString();
+            string itemSelecionado = cbx_produtos_addvenda.Text;
             dgv_adicionar_vendas.Rows.Add(itemSelecionado, produtoList[0].preco);
 
 
@@ -249,36 +271,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void dgv_adicionar_vendas_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void txt_observacoes_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox8_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void rdbtn_nao_CheckedChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void rdbtn_sim_CheckedChanged(object sender, EventArgs e)
-        {
-        }
     }
 
 }

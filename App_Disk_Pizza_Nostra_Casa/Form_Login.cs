@@ -27,11 +27,11 @@ namespace App_Disk_Pizza_Nostra_Casa
             try
             {
 
-                this.MinimumSize = new Size(700, 400);
+                this.MinimumSize = new Size(600, 400);
 
-                this.MaximumSize = new Size(700, 400);
+                this.MaximumSize = new Size(600, 400);
 
-                this.Size = new Size(700, 400);
+                this.Size = new Size(600, 400);
 
                 mtxt_cpf.BackColor = this.BackColor;
 
@@ -101,6 +101,8 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         };
 
+                        Global.formulario_global = tela_inicial;
+
                         tela_inicial.Show();
 
                     }
@@ -123,6 +125,8 @@ namespace App_Disk_Pizza_Nostra_Casa
                             View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
 
                             tela_inicial.usuario_sessao = usuario_encontrado;
+
+                            Global.formulario_global = tela_inicial;
 
                             tela_inicial.Show();
 

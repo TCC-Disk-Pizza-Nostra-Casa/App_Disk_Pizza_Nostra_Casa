@@ -1,9 +1,11 @@
-﻿using App_Disk_Pizza_Nostra_Casa.Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
 
 namespace App_Disk_Pizza_Nostra_Casa.Model
 {

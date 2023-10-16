@@ -56,14 +56,14 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
-            else if (!Model.Funcoes_Globais.CPFValidation(this.cpf))
+            else if (!Global.CPFValidation(this.cpf))
             {
 
                 throw new Exception("CPF inválido! Revise-o e tente novamente.");
 
             }
 
-            else if (!Model.Funcoes_Globais.CEPValidation(this.cep))
+            else if (!Global.CEPValidation(this.cep))
             {
 
                 throw new Exception("Um CEP possui 8 dígitos! Revise-o e tente novamente.");
@@ -86,7 +86,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                     Model.Funcionario funcionario_retornado = await Data_Service_Funcionario.SaveAsyncFuncionario(this);
 
-                    if (funcionario_retornado.id != null)
+                    if (funcionario_retornado != null)
                     {
 
                         MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);

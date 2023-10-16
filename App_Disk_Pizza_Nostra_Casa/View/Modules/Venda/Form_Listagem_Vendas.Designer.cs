@@ -1,4 +1,4 @@
-﻿namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
+namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 {
     partial class form_listagem_vendas
     {
@@ -53,7 +53,7 @@
             btn_pesquisar_vendas.BackgroundImageLayout = ImageLayout.Zoom;
             btn_pesquisar_vendas.FlatAppearance.BorderSize = 0;
             btn_pesquisar_vendas.FlatStyle = FlatStyle.Flat;
-            btn_pesquisar_vendas.Location = new Point(1047, 11);
+            btn_pesquisar_vendas.Location = new Point(747, 11);
             btn_pesquisar_vendas.Name = "btn_pesquisar_vendas";
             btn_pesquisar_vendas.Size = new Size(23, 23);
             btn_pesquisar_vendas.TabIndex = 4;
@@ -69,7 +69,7 @@
             txt_pesquisar_vendas.Location = new Point(116, 12);
             txt_pesquisar_vendas.Name = "txt_pesquisar_vendas";
             txt_pesquisar_vendas.PlaceholderText = "Digite a data da venda...";
-            txt_pesquisar_vendas.Size = new Size(925, 22);
+            txt_pesquisar_vendas.Size = new Size(625, 22);
             txt_pesquisar_vendas.TabIndex = 3;
             // 
             // lbl_pesquisar_vendas
@@ -91,13 +91,13 @@
             dgv_listagem_vendas.BackgroundColor = Color.White;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_listagem_vendas.Columns.AddRange(new DataGridViewColumn[] { id, codigo, dgv_listagem_produtos_nome, nome_cliente, dgv_listagem_produtos_estoque, Funcionario, dgv_listagem_produtos_preco });
-            dgv_listagem_vendas.Location = new Point(10, 49);
+            dgv_listagem_vendas.Location = new Point(10, 48);
             dgv_listagem_vendas.MultiSelect = false;
             dgv_listagem_vendas.Name = "dgv_listagem_vendas";
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(1062, 392);
+            dgv_listagem_vendas.Size = new Size(762, 348);
             dgv_listagem_vendas.TabIndex = 6;
             // 
             // id
@@ -159,7 +159,7 @@
             btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_excluir.BackColor = Color.White;
             btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
-            btn_excluir.Location = new Point(965, 509);
+            btn_excluir.Location = new Point(665, 409);
             btn_excluir.Name = "btn_excluir";
             btn_excluir.Size = new Size(107, 40);
             btn_excluir.TabIndex = 7;
@@ -186,7 +186,7 @@
             Controls.Add(btn_pesquisar_vendas);
             Controls.Add(txt_pesquisar_vendas);
             Controls.Add(lbl_pesquisar_vendas);
-            MinimumSize = new Size(800, 600);
+            MinimumSize = new Size(800, 500);
             Name = "form_listagem_vendas";
             Text = "Listagem de Vendas";
             Load += form_listagem_vendas_Load;

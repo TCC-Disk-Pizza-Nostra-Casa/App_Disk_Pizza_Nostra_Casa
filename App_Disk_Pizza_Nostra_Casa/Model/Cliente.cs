@@ -1,9 +1,11 @@
-﻿using App_Disk_Pizza_Nostra_Casa.Service;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
 
 namespace App_Disk_Pizza_Nostra_Casa.Model
 {
@@ -17,6 +19,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string sexo { get; set; }
 
+        public string estado_civil { get; set; }
+
         public string cpf { get; set; }
 
         public string cep { get; set; }
@@ -25,9 +29,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string telefone { get; set; }
 
-        public string? observacoes { get; set; }
+        public string data_nascimento { get; set; }
 
-        public DateTime data_nascimento { get; set; }
+        public string? observacoes { get; set; }
 
         public string data_cadastro { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
@@ -39,23 +43,22 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         {
 
             if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.sexo) ||
-                /*String.IsNullOrEmpty(this.estado_civil) ||*/ String.IsNullOrEmpty(this.cpf) ||
-                String.IsNullOrEmpty(this.cep) || String.IsNullOrEmpty(this.telefone) ||
-                String.IsNullOrEmpty(data_nascimento.ToString()))
+                String.IsNullOrEmpty(this.cpf) || String.IsNullOrEmpty(this.cep) ||
+                String.IsNullOrEmpty(this.telefone) || String.IsNullOrEmpty(data_nascimento))
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
 
             }
 
-            else if (!Model.Funcoes_Globais.CPFValidation(this.cpf))
+            else if (!Global.CPFValidation(this.cpf))
             {
 
                 throw new Exception("CPF inválido! Revise-o e tente novamente.");
 
             }
 
-            else if (!Model.Funcoes_Globais.CEPValidation(this.cep))
+            else if (!Global.CEPValidation(this.cep))
             {
 
                 throw new Exception("Um CEP possui 8 dígitos! Revise-o e tente novamente.");
@@ -71,7 +74,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                     Model.Cliente cliente_retornado = await Data_Service_Cliente.SaveAsyncCliente(this);
 
-                    if (cliente_retornado.id != null)
+                    if (cliente_retornado != null)
                     {
 
                         MessageBox.Show("Dados salvos com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -126,7 +129,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
         public static async Task<bool>? Disable(int id)
         {
 
-            bool exito = await Data_Service_Cliente.EnableAsyncCliente(id);
+            bool exito = await Data_Service_Cliente.DisableAsyncCliente(id);
 
             if (exito)
             {

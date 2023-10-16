@@ -44,12 +44,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
 
-                if (this.usuario_sessao != null)
-                {
-
-                    Form_Fill(this.usuario_sessao);
-
-                }
+                Form_Fill();
 
             }
 
@@ -62,29 +57,34 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         }
 
-        private void Form_Fill(Model.Funcionario dados)
+        private void Form_Fill()
         {
 
             try
             {
 
-                txt_nome.Text = dados.nome;
+                if (this.usuario_sessao != null)
+                {
 
-                cbbox_sexo.Text = dados.sexo;
+                    txt_nome.Text = this.usuario_sessao.nome;
 
-                cbbox_estado_civil.Text = dados.estado_civil;
+                    cbbox_sexo.Text = this.usuario_sessao.sexo;
 
-                mtxt_cpf.Text = dados.cpf;
+                    cbbox_estado_civil.Text = this.usuario_sessao.estado_civil;
 
-                mtxt_cep.Text = dados.cep;
+                    mtxt_cpf.Text = this.usuario_sessao.cpf;
 
-                txt_email.Text = dados.email;
+                    mtxt_cep.Text = this.usuario_sessao.cep;
 
-                mtxt_telefone.Text = dados.telefone;
+                    txt_email.Text = this.usuario_sessao.email;
 
-                txt_observacoes.Text = dados.observacoes;
+                    mtxt_telefone.Text = this.usuario_sessao.telefone;
 
-                ckbox_administrador.Checked = Convert.ToBoolean(dados.administrador);
+                    txt_observacoes.Text = this.usuario_sessao.observacoes;
+
+                    ckbox_administrador.Checked = Convert.ToBoolean(this.usuario_sessao.administrador);
+
+                }
 
             }
 
@@ -134,6 +134,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 if (await dados.Save())
                 {
+
+                    /*if (this.usuario_sessao != null)
+                    {
+
+                        Global.formulario_global.usuario_sessao = (await Data_Service_Funcionario.SearchAsyncFuncionario(txt_nome.Text))[0];
+
+                    }*/
 
                     this.Close();
 
