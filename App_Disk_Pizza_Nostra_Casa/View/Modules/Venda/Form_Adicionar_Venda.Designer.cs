@@ -37,7 +37,6 @@
             btn_Salvar = new Button();
             label6 = new Label();
             lbl_valortotal = new Label();
-            btn_Calcular = new Button();
             btnCancelar = new Button();
             txt_observacoes = new TextBox();
             dgv_adicionar_vendas = new DataGridView();
@@ -143,7 +142,7 @@
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(542, 500);
+            label6.Location = new Point(519, 530);
             label6.Name = "label6";
             label6.Size = new Size(95, 19);
             label6.TabIndex = 15;
@@ -154,28 +153,12 @@
             lbl_valortotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lbl_valortotal.AutoSize = true;
             lbl_valortotal.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_valortotal.Location = new Point(643, 500);
+            lbl_valortotal.Location = new Point(620, 530);
             lbl_valortotal.Name = "lbl_valortotal";
             lbl_valortotal.Size = new Size(18, 19);
             lbl_valortotal.TabIndex = 16;
             lbl_valortotal.Text = "0";
             lbl_valortotal.Click += lbl_valortotal_Click;
-            // 
-            // btn_Calcular
-            // 
-            btn_Calcular.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_Calcular.BackColor = SystemColors.Window;
-            btn_Calcular.FlatAppearance.BorderColor = Color.Black;
-            btn_Calcular.FlatAppearance.BorderSize = 2;
-            btn_Calcular.FlatStyle = FlatStyle.Flat;
-            btn_Calcular.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Calcular.Location = new Point(521, 519);
-            btn_Calcular.Name = "btn_Calcular";
-            btn_Calcular.Size = new Size(116, 41);
-            btn_Calcular.TabIndex = 17;
-            btn_Calcular.Text = "Calcular";
-            btn_Calcular.UseVisualStyleBackColor = false;
-            btn_Calcular.Click += btn_Calcular_Click;
             // 
             // btnCancelar
             // 
@@ -263,7 +246,7 @@
             label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label9.AutoSize = true;
             label9.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(25, 65);
+            label9.Location = new Point(4, 65);
             label9.Name = "label9";
             label9.Size = new Size(93, 18);
             label9.TabIndex = 41;
@@ -274,7 +257,7 @@
             label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label10.AutoSize = true;
             label10.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(198, 66);
+            label10.Location = new Point(188, 66);
             label10.Name = "label10";
             label10.Size = new Size(71, 18);
             label10.TabIndex = 42;
@@ -285,7 +268,7 @@
             label11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label11.AutoSize = true;
             label11.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(368, 66);
+            label11.Location = new Point(366, 66);
             label11.Name = "label11";
             label11.Size = new Size(78, 18);
             label11.TabIndex = 43;
@@ -296,7 +279,7 @@
             label12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label12.AutoSize = true;
             label12.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(539, 65);
+            label12.Location = new Point(548, 66);
             label12.Name = "label12";
             label12.Size = new Size(54, 18);
             label12.TabIndex = 44;
@@ -307,7 +290,7 @@
             label14.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label14.AutoSize = true;
             label14.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(708, 66);
+            label14.Location = new Point(727, 67);
             label14.Name = "label14";
             label14.Size = new Size(67, 18);
             label14.TabIndex = 50;
@@ -316,10 +299,10 @@
             // cbx_bebidas_addvenda
             // 
             cbx_bebidas_addvenda.FormattingEnabled = true;
-            cbx_bebidas_addvenda.Location = new Point(708, 92);
+            cbx_bebidas_addvenda.Location = new Point(743, 130);
             cbx_bebidas_addvenda.MaximumSize = new Size(300, 0);
             cbx_bebidas_addvenda.Name = "cbx_bebidas_addvenda";
-            cbx_bebidas_addvenda.Size = new Size(160, 26);
+            cbx_bebidas_addvenda.Size = new Size(175, 23);
             cbx_bebidas_addvenda.TabIndex = 49;
             // 
             // cbox_delivery
@@ -339,7 +322,7 @@
             cbox_grande.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbox_grande.AutoSize = true;
             cbox_grande.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_grande.Location = new Point(192, 33);
+            cbox_grande.Location = new Point(171, 33);
             cbox_grande.Name = "cbox_grande";
             cbox_grande.Size = new Size(79, 22);
             cbox_grande.TabIndex = 53;
@@ -351,7 +334,7 @@
             cbox_broto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbox_broto.AutoSize = true;
             cbox_broto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_broto.Location = new Point(277, 33);
+            cbox_broto.Location = new Point(256, 33);
             cbox_broto.Name = "cbox_broto";
             cbox_broto.Size = new Size(65, 22);
             cbox_broto.TabIndex = 54;
@@ -365,9 +348,8 @@
             groupBox2.Controls.Add(cbx_tradicionais_addvenda);
             groupBox2.Controls.Add(cbx_variadas_addvenda);
             groupBox2.Controls.Add(cbx_especiais_addvenda);
-            groupBox2.Controls.Add(cbx_doces_addvenda);
             groupBox2.Controls.Add(cbox_broto);
-            groupBox2.Controls.Add(cbx_bebidas_addvenda);
+            groupBox2.Controls.Add(cbx_doces_addvenda);
             groupBox2.Controls.Add(label14);
             groupBox2.Controls.Add(label9);
             groupBox2.Controls.Add(cbox_grande);
@@ -387,7 +369,7 @@
             label8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             label8.AutoSize = true;
             label8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(23, 34);
+            label8.Location = new Point(2, 34);
             label8.Name = "label8";
             label8.Size = new Size(169, 19);
             label8.TabIndex = 59;
@@ -396,37 +378,37 @@
             // cbx_tradicionais_addvenda
             // 
             cbx_tradicionais_addvenda.FormattingEnabled = true;
-            cbx_tradicionais_addvenda.Location = new Point(28, 92);
+            cbx_tradicionais_addvenda.Location = new Point(6, 92);
             cbx_tradicionais_addvenda.MaximumSize = new Size(300, 0);
             cbx_tradicionais_addvenda.Name = "cbx_tradicionais_addvenda";
-            cbx_tradicionais_addvenda.Size = new Size(160, 26);
+            cbx_tradicionais_addvenda.Size = new Size(175, 26);
             cbx_tradicionais_addvenda.TabIndex = 58;
             // 
             // cbx_variadas_addvenda
             // 
             cbx_variadas_addvenda.FormattingEnabled = true;
-            cbx_variadas_addvenda.Location = new Point(198, 92);
+            cbx_variadas_addvenda.Location = new Point(188, 92);
             cbx_variadas_addvenda.MaximumSize = new Size(300, 0);
             cbx_variadas_addvenda.Name = "cbx_variadas_addvenda";
-            cbx_variadas_addvenda.Size = new Size(160, 26);
+            cbx_variadas_addvenda.Size = new Size(175, 26);
             cbx_variadas_addvenda.TabIndex = 57;
             // 
             // cbx_especiais_addvenda
             // 
             cbx_especiais_addvenda.FormattingEnabled = true;
-            cbx_especiais_addvenda.Location = new Point(368, 92);
+            cbx_especiais_addvenda.Location = new Point(369, 92);
             cbx_especiais_addvenda.MaximumSize = new Size(300, 0);
             cbx_especiais_addvenda.Name = "cbx_especiais_addvenda";
-            cbx_especiais_addvenda.Size = new Size(160, 26);
+            cbx_especiais_addvenda.Size = new Size(175, 26);
             cbx_especiais_addvenda.TabIndex = 56;
             // 
             // cbx_doces_addvenda
             // 
             cbx_doces_addvenda.FormattingEnabled = true;
-            cbx_doces_addvenda.Location = new Point(538, 92);
+            cbx_doces_addvenda.Location = new Point(548, 92);
             cbx_doces_addvenda.MaximumSize = new Size(300, 0);
             cbx_doces_addvenda.Name = "cbx_doces_addvenda";
-            cbx_doces_addvenda.Size = new Size(160, 26);
+            cbx_doces_addvenda.Size = new Size(175, 26);
             cbx_doces_addvenda.TabIndex = 55;
             // 
             // form_adicionar_venda
@@ -440,8 +422,8 @@
             Controls.Add(btn_Remover);
             Controls.Add(dgv_adicionar_vendas);
             Controls.Add(txt_observacoes);
+            Controls.Add(cbx_bebidas_addvenda);
             Controls.Add(btnCancelar);
-            Controls.Add(btn_Calcular);
             Controls.Add(lbl_valortotal);
             Controls.Add(label6);
             Controls.Add(btn_Salvar);

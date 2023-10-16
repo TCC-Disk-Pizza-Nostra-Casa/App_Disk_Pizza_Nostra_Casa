@@ -36,6 +36,123 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             /** Preenchendo os combo boxs */
 
+            if (produtoList.Count > 0)
+            {
+
+                /**
+                //Bebidas
+                for (int i = 0; i <= 10; i++)
+                {
+
+                    cbx_bebidas_addvenda.Items.Add(produtoList[i].categoria);
+
+                }*/
+
+                /**switch(produtoList[i].categoria)
+                {
+                    case "Bebidas":
+
+                        cbx_bebidas_addvenda.Items.Add(produtoList[i].nome);
+
+                        break;
+
+                }*/
+
+                //cbx_bebidas_addvenda.Items.Add(produtoList[1].categoria);
+
+                for (int i = 0; i < 115; i++)
+                {
+
+                    if (produtoList[i].categoria == "Bebidas")
+                    {
+
+                        cbx_bebidas_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+
+                    else if (produtoList[i].categoria == "Tradicionais")
+                    {
+
+                        cbx_tradicionais_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Variadas")
+                    {
+
+                        cbx_variadas_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Doces")
+                    {
+
+                        cbx_doces_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Especiais")
+                    {
+
+                        cbx_especiais_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+
+                }
+
+
+                /**
+                for (int i = 0; i == produtoList.Count; i++)
+                {
+
+
+
+                    if (produtoList[i].categoria == "Bebidas")
+                    {
+
+                        cbx_bebidas_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Tradicionais")
+                    {
+
+                        cbx_tradicionais_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Variadas")
+                    {
+
+                        cbx_variadas_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Doces")
+                    {
+
+                        cbx_doces_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+                    else if (produtoList[i].categoria == "Especiais")
+                    {
+
+                        cbx_especiais_addvenda.Items.Add(produtoList[i].nome);
+
+                    }
+
+
+                }
+                */
+
+                /**
+                foreach (List<Model.Produto> Bebidas in produtoList)
+                {
+
+                    cbx_bebidas_addvenda.Items.Add(produtoList.nome);
+
+                }
+                */
+
+
+
+
+            }
+
             /**
             if (produtoList.Count > 0)
             {
@@ -117,10 +234,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
 
             /** Selecionando pizzas grandes */
-            if(cbox_grande.Checked)
+            if (cbox_grande.Checked)
             {
 
-                
+
 
             }
 
