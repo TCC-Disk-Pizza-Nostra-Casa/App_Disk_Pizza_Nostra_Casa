@@ -57,8 +57,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 this.Size = new Size(800, 500);
 
                 dgv_listagem_vendas.Rows.Clear();
-                string parametro = txt_pesquisar_vendas.Text.ToString();
-                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchAsyncVenda(parametro);
+                string termo = txt_pesquisar_vendas.Text.ToString();
+                string data_venda = dtp_to_search.Text.ToString();
+
+                DateTime date = DateTime.Parse(data_venda);
+
+                data_venda = date.ToString("yyyy-MM-dd");
+
+                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchAsyncVenda(termo, data_venda);
 
                 this.fillDgvVenda(lista_vendas);
 

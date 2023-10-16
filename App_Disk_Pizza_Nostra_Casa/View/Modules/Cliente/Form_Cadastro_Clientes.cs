@@ -145,7 +145,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
                 {
 
                     this.Close();
-
                 }
 
             }
@@ -156,7 +155,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
+            
         }
 
     }

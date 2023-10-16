@@ -87,10 +87,16 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
          * lista pro c#.
          */
 
-        public static async Task<List<Venda>>? SearchAsyncVenda(string parametro)
+        public static async Task<List<Venda>>? SearchAsyncVenda(string nome, string data_venda)
         {
 
-            var post_json = JsonConvert.SerializeObject(parametro);
+            var venda = new Venda()
+            {
+                data_venda = data_venda,
+                cliente = nome
+            };
+
+            var post_json = JsonConvert.SerializeObject(venda);
 
             string json = await Data_Service.SendDataApi(post_json, "/venda/search");
 
