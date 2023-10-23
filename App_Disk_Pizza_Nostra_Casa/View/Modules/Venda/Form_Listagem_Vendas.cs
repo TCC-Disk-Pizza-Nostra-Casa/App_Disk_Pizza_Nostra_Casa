@@ -38,6 +38,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.fillDgvVenda(lista_vendas);
 
+
+
             }
 
             catch (Exception ex)
@@ -58,13 +60,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 dgv_listagem_vendas.Rows.Clear();
                 string termo = txt_pesquisar_vendas.Text.ToString();
-                string data_venda = dtp_to_search.Text.ToString();
 
-                DateTime date = DateTime.Parse(data_venda);
-
-                data_venda = date.ToString("yyyy-MM-dd");
-
-                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchAsyncVenda(termo, data_venda);
+                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchByClientAsyncVenda(termo);
 
                 this.fillDgvVenda(lista_vendas);
 
@@ -78,6 +75,36 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             }
 
         }
+
+        private async void dtp_to_search_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                this.MinimumSize = new Size(800, 500);
+                this.Size = new Size(800, 500);
+
+                dgv_listagem_vendas.Rows.Clear();
+                string data_venda = dtp_to_search.Text.ToString();
+
+                DateTime date = DateTime.Parse(data_venda);
+
+                data_venda = date.ToString("yyyy-MM-dd");
+
+                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchByDateAsyncVenda(data_venda);
+
+                this.fillDgvVenda(lista_vendas);
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
+
         private async void btn_excluir_Click(object sender, EventArgs e)
         {
 
@@ -116,6 +143,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             }
         }
 
+        private void cbx_funcionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
