@@ -38,6 +38,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.fillDgvVenda(lista_vendas);
 
+
+
             }
 
             catch (Exception ex)
@@ -139,6 +141,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 }
 
             }
+        }
+
+        private void cbx_funcionario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

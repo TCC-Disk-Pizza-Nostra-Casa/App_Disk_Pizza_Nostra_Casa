@@ -20,7 +20,7 @@ namespace App_Disk_Pizza_Nostra_Casa
             Application.SetDefaultFont(new Font(new FontFamily("Arial"), 12f));
 
             // Inicializando a aplicação.
-            Application.Run(new form_listagem_vendas());
+            Application.Run(new form_login());
 
         }
 

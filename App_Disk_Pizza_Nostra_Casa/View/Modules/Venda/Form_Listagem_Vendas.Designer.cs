@@ -184,6 +184,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbx_funcionario.Size = new Size(247, 23);
             cbx_funcionario.TabIndex = 9;
             cbx_funcionario.Text = "Selecione o funcionário:";
+            cbx_funcionario.SelectedIndexChanged += cbx_funcionario_SelectedIndexChanged;
             // 
             // form_listagem_vendas
             // 
