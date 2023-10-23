@@ -42,18 +42,18 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
             btn_excluir = new Button();
             dtp_to_search = new DateTimePicker();
+            cbx_funcionario = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_vendas).BeginInit();
             SuspendLayout();
             // 
             // btn_pesquisar_vendas
             // 
-            btn_pesquisar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btn_pesquisar_vendas.BackColor = Color.Transparent;
             btn_pesquisar_vendas.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_vendas.BackgroundImage");
             btn_pesquisar_vendas.BackgroundImageLayout = ImageLayout.Zoom;
             btn_pesquisar_vendas.FlatAppearance.BorderSize = 0;
             btn_pesquisar_vendas.FlatStyle = FlatStyle.Flat;
-            btn_pesquisar_vendas.Location = new Point(749, 12);
+            btn_pesquisar_vendas.Location = new Point(402, 9);
             btn_pesquisar_vendas.Name = "btn_pesquisar_vendas";
             btn_pesquisar_vendas.Size = new Size(23, 23);
             btn_pesquisar_vendas.TabIndex = 4;
@@ -62,14 +62,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             // txt_pesquisar_vendas
             // 
-            txt_pesquisar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_pesquisar_vendas.BorderStyle = BorderStyle.FixedSingle;
             txt_pesquisar_vendas.Cursor = Cursors.IBeam;
             txt_pesquisar_vendas.Font = new Font("Arial", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_vendas.Location = new Point(116, 12);
             txt_pesquisar_vendas.Name = "txt_pesquisar_vendas";
-            txt_pesquisar_vendas.PlaceholderText = "Digite a data da venda...";
-            txt_pesquisar_vendas.Size = new Size(625, 22);
+            txt_pesquisar_vendas.PlaceholderText = "Digite o nome do cliente:";
+            txt_pesquisar_vendas.Size = new Size(280, 22);
             txt_pesquisar_vendas.TabIndex = 3;
             // 
             // lbl_pesquisar_vendas
@@ -169,17 +168,29 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             // dtp_to_search
             // 
-            dtp_to_search.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            dtp_to_search.Location = new Point(470, 49);
+            dtp_to_search.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dtp_to_search.Location = new Point(512, 12);
             dtp_to_search.Name = "dtp_to_search";
             dtp_to_search.Size = new Size(271, 23);
             dtp_to_search.TabIndex = 8;
+            dtp_to_search.ValueChanged += dtp_to_search_ValueChanged;
+            // 
+            // cbx_funcionario
+            // 
+            cbx_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbx_funcionario.FormattingEnabled = true;
+            cbx_funcionario.Location = new Point(825, 12);
+            cbx_funcionario.Name = "cbx_funcionario";
+            cbx_funcionario.Size = new Size(247, 23);
+            cbx_funcionario.TabIndex = 9;
+            cbx_funcionario.Text = "Selecione o funcionário:";
             // 
             // form_listagem_vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1084, 561);
+            Controls.Add(cbx_funcionario);
             Controls.Add(dtp_to_search);
             Controls.Add(btn_excluir);
             Controls.Add(dgv_listagem_vendas);
@@ -215,5 +226,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private DataGridViewTextBoxColumn Funcionario;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_preco;
         private DateTimePicker dtp_to_search;
+        private ComboBox cbx_funcionario;
     }
 }
