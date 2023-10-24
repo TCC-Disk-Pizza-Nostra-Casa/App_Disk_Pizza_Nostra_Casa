@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -47,11 +48,18 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
+            else if (!await VerificarExistencia(this))
+            {
+
+                throw new Exception("Dados já cadastrados!");
+
+            }
+
             else
             {
 
                 if (MessageBox.Show("Realmente deseja salvar esses dados?", "Atenção!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     Model.Fornecedor fornecedor_retornado = await Data_Service_Fornecedor.SaveAsyncFornecedor(this);
@@ -145,6 +153,26 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
+        public static async Task<bool>? VerificarExistencia(Fornecedor model)
+        {
+            List<Fornecedor> lista= await Data_Service_Fornecedor.GetListAsyncFornecedor();
+
+            foreach (Fornecedor item in lista)
+            {
+                if (item.nome == model.nome || item.cnpj == model.cnpj || item.telefone == model.telefone)
+                    return false;
+                /*if (item.nome == model.nome)
+                    return "Nome já cadastrado!";
+                
+                else if (item.cnpj == model.cnpj)
+                    return "CNPJ já cadastrado!";
+
+                else if (item.telefone == model.telefone)
+                    return "Telefone já cadastrado!";*/
+            }
+
+            return true;
+        }
     }
 
 }
