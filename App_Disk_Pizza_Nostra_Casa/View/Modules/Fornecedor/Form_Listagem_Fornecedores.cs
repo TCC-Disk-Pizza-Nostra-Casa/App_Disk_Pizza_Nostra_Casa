@@ -155,6 +155,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 dgv_listagem_fornecedores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                //dgv_listagem_fornecedores.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
                 dgv_listagem_fornecedores.ReadOnly = true;
 
                 // Permissões do usuário.
@@ -309,7 +311,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
 
-                if (dgv_listagem_fornecedores.RowCount > 0 && dgv_listagem_fornecedores.CurrentCell.ColumnIndex == 9)
+                if (dgv_listagem_fornecedores.RowCount > 0 && dgv_listagem_fornecedores.CurrentCell.ColumnIndex == 6)
                 {
 
                     if (MessageBox.Show("Deseja editar os dados do fornecedor selecionado?", "Atenção",

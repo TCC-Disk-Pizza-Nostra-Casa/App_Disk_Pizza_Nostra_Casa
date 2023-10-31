@@ -153,6 +153,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 dgv_listagem_produtos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                //dgv_listagem_produtos.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
                 dgv_listagem_produtos.ReadOnly = true;
 
                 // Permissões do usuário.
@@ -315,7 +317,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if (dgv_listagem_produtos.RowCount > 0 && dgv_listagem_produtos.CurrentCell.ColumnIndex == 9)
+                if (dgv_listagem_produtos.RowCount > 0 && dgv_listagem_produtos.CurrentCell.ColumnIndex == 7)
                 {
 
                     if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",

@@ -155,6 +155,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                 dgv_listagem_clientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                //dgv_listagem_clientes.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
                 dgv_listagem_clientes.ReadOnly = true;
 
                 // Permissões do usuário.
@@ -349,7 +351,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
             try
             {
 
-                if (dgv_listagem_clientes.RowCount > 0 && dgv_listagem_clientes.CurrentCell.ColumnIndex == 12)
+                if (dgv_listagem_clientes.RowCount > 0 && dgv_listagem_clientes.CurrentCell.ColumnIndex == 11)
                 {
 
                     if (MessageBox.Show("Deseja editar os dados do cliente selecionado?", "Atenção",

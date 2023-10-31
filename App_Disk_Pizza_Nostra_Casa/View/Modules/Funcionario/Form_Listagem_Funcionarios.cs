@@ -155,6 +155,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
+                //dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
                 dgv_listagem_funcionarios.ReadOnly = true;
 
                 // Permissões do usuário.
@@ -382,7 +384,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (dgv_listagem_funcionarios.RowCount > 0 && dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 11)
+                if (dgv_listagem_funcionarios.RowCount > 0 && dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 10)
                 {
 
                     if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse funcionário?",

@@ -48,7 +48,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
-            else if (!await VerificarExistencia(this))
+            else if (this.id == 0 && !await this.Verify(this))
             {
 
                 throw new Exception("Dados já cadastrados!");
@@ -153,14 +153,17 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        public static async Task<bool>? VerificarExistencia(Fornecedor model)
+        private async Task<bool>? Verify(Fornecedor model)
         {
+
             List<Fornecedor> lista= await Data_Service_Fornecedor.GetListAsyncFornecedor();
 
             foreach (Fornecedor item in lista)
             {
+
                 if (item.nome == model.nome || item.cnpj == model.cnpj || item.telefone == model.telefone)
                     return false;
+
                 /*if (item.nome == model.nome)
                     return "Nome já cadastrado!";
                 
@@ -169,10 +172,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 else if (item.telefone == model.telefone)
                     return "Telefone já cadastrado!";*/
+
             }
 
             return true;
+
         }
+
     }
 
 }

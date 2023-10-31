@@ -91,6 +91,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
             try
             {
 
+                string[] masks = { mtxt_cpf.Mask, mtxt_cep.Mask, mtxt_telefone.Mask };
+
+                mtxt_cpf.Mask = "";
+
+                mtxt_cep.Mask = "";
+
+                mtxt_telefone.Mask = "";
+
                 Model.Cliente dados = new Model.Cliente()
                 {
 
@@ -106,15 +114,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                     cep = mtxt_cep.Text,
 
-                    email = txt_email.Text,
+                    email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
 
                     telefone = mtxt_telefone.Text,
 
                     data_nascimento = dtpck_data_nascimento.Value.ToString("yyyy-MM-dd"),
 
-                    observacoes = txt_observacoes.Text
+                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text
 
                 };
+
+                mtxt_cpf.Mask = masks[0];
+
+                mtxt_cep.Mask = masks[1];
+
+                mtxt_telefone.Mask = masks[2];
 
                 if (await dados.Save())
                 {
