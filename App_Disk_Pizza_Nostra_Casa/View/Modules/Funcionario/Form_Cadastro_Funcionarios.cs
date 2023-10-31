@@ -103,6 +103,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
+                string[] masks = { mtxt_cpf.Mask, mtxt_cep.Mask, mtxt_telefone.Mask };
+
+                mtxt_cpf.Mask = "";
+
+                mtxt_cep.Mask = "";
+
+                mtxt_telefone.Mask = "";
+
                 Model.Funcionario dados = new Model.Funcionario()
                 {
 
@@ -118,7 +126,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                     cep = mtxt_cep.Text,
 
-                    email = txt_email.Text,
+                    email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
 
                     telefone = mtxt_telefone.Text,
 
@@ -126,21 +134,27 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                     confirmacao_senha = txt_confirmar_senha.Text,
 
-                    observacoes = txt_observacoes.Text,
+                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
 
                     administrador = (ckbox_administrador.Checked) ? 1 : 0
 
                 };
 
+                mtxt_cpf.Mask = masks[0];
+
+                mtxt_cep.Mask = masks[1];
+
+                mtxt_telefone.Mask = masks[2];
+
                 if (await dados.Save())
                 {
 
-                    /*if (this.usuario_sessao != null)
+                    if (this.usuario_sessao != null)
                     {
 
-                        Global.formulario_global.usuario_sessao = (await Data_Service_Funcionario.SearchAsyncFuncionario(txt_nome.Text))[0];
+                        Global.formulario_global.usuario_sessao = (await Model.Funcionario.Search(txt_nome.Text))[0];
 
-                    }*/
+                    }
 
                     this.Close();
 

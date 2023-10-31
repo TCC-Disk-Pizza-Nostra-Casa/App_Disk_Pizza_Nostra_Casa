@@ -51,7 +51,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 cbbox_fornecedor.ValueMember = "id";
 
-                List<Model.Fornecedor> fornecedores_cadastrados = await Data_Service_Fornecedor.GetListAsyncFornecedor();
+                List<Model.Fornecedor> fornecedores_cadastrados = await Model.Fornecedor.GetList();
 
                 if (fornecedores_cadastrados.Count > 0)
                 {
@@ -200,7 +200,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                     categoria = cbbox_categoria.Text,
 
-                    observacoes = txt_observacoes.Text,
+                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? null : txt_observacoes.Text,
 
                     fk_fornecedor = Convert.ToInt32(cbbox_fornecedor.SelectedValue)
 

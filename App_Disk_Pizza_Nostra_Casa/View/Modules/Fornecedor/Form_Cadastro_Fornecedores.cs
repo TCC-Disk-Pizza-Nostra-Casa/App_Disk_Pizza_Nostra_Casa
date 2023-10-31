@@ -61,6 +61,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
 
+                string[] masks = { mtxt_cnpj.Mask, mtxt_telefone.Mask };
+
+                mtxt_cnpj.Mask = "";
+
+                mtxt_telefone.Mask = "";
+
                 Model.Fornecedor dados = new Model.Fornecedor()
                 {
 
@@ -72,9 +78,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                     telefone = mtxt_telefone.Text,
 
-                    observacoes = txt_observacoes.Text
+                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
 
                 };
+
+                mtxt_cnpj.Mask = masks[0];
+
+                mtxt_telefone.Mask = masks[1];
 
                 if (await dados.Save())
                 {
