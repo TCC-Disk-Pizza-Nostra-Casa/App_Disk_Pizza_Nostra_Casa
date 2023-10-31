@@ -44,21 +44,14 @@
             Preco = new DataGridViewTextBoxColumn();
             btn_Remover = new Button();
             label7 = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            label11 = new Label();
-            label12 = new Label();
-            label14 = new Label();
-            cbx_bebidas_addvenda = new ComboBox();
             cbox_delivery = new CheckBox();
-            cbox_grande = new CheckBox();
-            cbox_broto = new CheckBox();
             groupBox2 = new GroupBox();
             label8 = new Label();
-            cbx_tradicionais_addvenda = new ComboBox();
-            cbx_variadas_addvenda = new ComboBox();
-            cbx_especiais_addvenda = new ComboBox();
-            cbx_doces_addvenda = new ComboBox();
+            comboBox1 = new ComboBox();
+            lbl_categoria = new Label();
+            lbl_tamanho = new Label();
+            cbbox_categoria = new ComboBox();
+            cbbox_tamanho = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
             groupBox2.SuspendLayout();
             SuspendLayout();
@@ -95,7 +88,7 @@
             label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label4.AutoSize = true;
             label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(384, 406);
+            label4.Location = new Point(516, 150);
             label4.Name = "label4";
             label4.Size = new Size(116, 18);
             label4.TabIndex = 5;
@@ -129,7 +122,7 @@
             btn_Salvar.FlatAppearance.BorderSize = 2;
             btn_Salvar.FlatStyle = FlatStyle.Flat;
             btn_Salvar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Salvar.Location = new Point(643, 403);
+            btn_Salvar.Location = new Point(643, 537);
             btn_Salvar.Name = "btn_Salvar";
             btn_Salvar.Size = new Size(131, 41);
             btn_Salvar.TabIndex = 13;
@@ -142,7 +135,7 @@
             label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             label6.AutoSize = true;
             label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(542, 384);
+            label6.Location = new Point(638, 150);
             label6.Name = "label6";
             label6.Size = new Size(95, 19);
             label6.TabIndex = 15;
@@ -153,28 +146,12 @@
             lbl_valortotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lbl_valortotal.AutoSize = true;
             lbl_valortotal.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_valortotal.Location = new Point(643, 384);
+            lbl_valortotal.Location = new Point(673, 171);
             lbl_valortotal.Name = "lbl_valortotal";
             lbl_valortotal.Size = new Size(18, 19);
             lbl_valortotal.TabIndex = 16;
             lbl_valortotal.Text = "0";
             lbl_valortotal.Click += lbl_valortotal_Click;
-            // 
-            // btn_Calcular
-            // 
-            btn_Calcular.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_Calcular.BackColor = SystemColors.Window;
-            btn_Calcular.FlatAppearance.BorderColor = Color.Black;
-            btn_Calcular.FlatAppearance.BorderSize = 2;
-            btn_Calcular.FlatStyle = FlatStyle.Flat;
-            btn_Calcular.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Calcular.Location = new Point(521, 403);
-            btn_Calcular.Name = "btn_Calcular";
-            btn_Calcular.Size = new Size(116, 41);
-            btn_Calcular.TabIndex = 17;
-            btn_Calcular.Text = "Calcular";
-            btn_Calcular.UseVisualStyleBackColor = false;
-            btn_Calcular.Click += btn_Calcular_Click;
             // 
             // btnCancelar
             // 
@@ -184,7 +161,7 @@
             btnCancelar.FlatAppearance.BorderSize = 2;
             btnCancelar.FlatStyle = FlatStyle.Flat;
             btnCancelar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(12, 403);
+            btnCancelar.Location = new Point(12, 537);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(116, 41);
             btnCancelar.TabIndex = 18;
@@ -196,11 +173,11 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(12, 291);
+            txt_observacoes.Location = new Point(12, 387);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira observações sobre a(s) pizza(s)";
-            txt_observacoes.Size = new Size(760, 88);
+            txt_observacoes.Size = new Size(760, 126);
             txt_observacoes.TabIndex = 30;
             // 
             // dgv_adicionar_vendas
@@ -209,16 +186,16 @@
             dgv_adicionar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_adicionar_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_adicionar_vendas.Columns.AddRange(new DataGridViewColumn[] { Produto, Preco });
-            dgv_adicionar_vendas.Location = new Point(12, 178);
+            dgv_adicionar_vendas.Location = new Point(12, 247);
             dgv_adicionar_vendas.Name = "dgv_adicionar_vendas";
             dgv_adicionar_vendas.ReadOnly = true;
             dgv_adicionar_vendas.RowTemplate.Height = 25;
-            dgv_adicionar_vendas.Size = new Size(760, 98);
+            dgv_adicionar_vendas.Size = new Size(760, 134);
             dgv_adicionar_vendas.TabIndex = 31;
             // 
             // Produto
             // 
-            Produto.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            Produto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             Produto.HeaderText = "Produto";
             Produto.MinimumWidth = 100;
             Produto.Name = "Produto";
@@ -240,7 +217,7 @@
             btn_Remover.FlatAppearance.BorderSize = 2;
             btn_Remover.FlatStyle = FlatStyle.Flat;
             btn_Remover.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Remover.Location = new Point(134, 403);
+            btn_Remover.Location = new Point(134, 537);
             btn_Remover.Name = "btn_Remover";
             btn_Remover.Size = new Size(116, 41);
             btn_Remover.TabIndex = 32;
@@ -257,195 +234,116 @@
             label7.Size = new Size(0, 18);
             label7.TabIndex = 36;
             // 
-            // label9
-            // 
-            label9.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label9.AutoSize = true;
-            label9.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label9.Location = new Point(4, 65);
-            label9.Name = "label9";
-            label9.Size = new Size(93, 18);
-            label9.TabIndex = 41;
-            label9.Text = "Tradicionais";
-            // 
-            // label10
-            // 
-            label10.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label10.AutoSize = true;
-            label10.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label10.Location = new Point(188, 66);
-            label10.Name = "label10";
-            label10.Size = new Size(71, 18);
-            label10.TabIndex = 42;
-            label10.Text = "Variádas";
-            // 
-            // label11
-            // 
-            label11.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label11.AutoSize = true;
-            label11.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label11.Location = new Point(366, 66);
-            label11.Name = "label11";
-            label11.Size = new Size(78, 18);
-            label11.TabIndex = 43;
-            label11.Text = "Especiais";
-            // 
-            // label12
-            // 
-            label12.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label12.AutoSize = true;
-            label12.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label12.Location = new Point(548, 66);
-            label12.Name = "label12";
-            label12.Size = new Size(54, 18);
-            label12.TabIndex = 44;
-            label12.Text = "Doces";
-            // 
-            // label14
-            // 
-            label14.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label14.AutoSize = true;
-            label14.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label14.Location = new Point(727, 67);
-            label14.Name = "label14";
-            label14.Size = new Size(67, 18);
-            label14.TabIndex = 50;
-            label14.Text = "Bebidas";
-            // 
-            // cbx_bebidas_addvenda
-            // 
-            cbx_bebidas_addvenda.FormattingEnabled = true;
-            cbx_bebidas_addvenda.Location = new Point(743, 130);
-            cbx_bebidas_addvenda.MaximumSize = new Size(300, 0);
-            cbx_bebidas_addvenda.Name = "cbx_bebidas_addvenda";
-            cbx_bebidas_addvenda.Size = new Size(175, 23);
-            cbx_bebidas_addvenda.TabIndex = 49;
-            // 
             // cbox_delivery
             // 
             cbox_delivery.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             cbox_delivery.AutoSize = true;
             cbox_delivery.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_delivery.Location = new Point(387, 423);
+            cbox_delivery.Location = new Point(519, 168);
             cbox_delivery.Name = "cbox_delivery";
             cbox_delivery.Size = new Size(55, 22);
             cbox_delivery.TabIndex = 52;
             cbox_delivery.Text = "Sim";
             cbox_delivery.UseVisualStyleBackColor = true;
             // 
-            // cbox_grande
-            // 
-            cbox_grande.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbox_grande.AutoSize = true;
-            cbox_grande.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_grande.Location = new Point(171, 33);
-            cbox_grande.Name = "cbox_grande";
-            cbox_grande.Size = new Size(79, 22);
-            cbox_grande.TabIndex = 53;
-            cbox_grande.Text = "Grande";
-            cbox_grande.UseVisualStyleBackColor = true;
-            // 
-            // cbox_broto
-            // 
-            cbox_broto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbox_broto.AutoSize = true;
-            cbox_broto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_broto.Location = new Point(256, 33);
-            cbox_broto.Name = "cbox_broto";
-            cbox_broto.Size = new Size(65, 22);
-            cbox_broto.TabIndex = 54;
-            cbox_broto.Text = "Broto";
-            cbox_broto.UseVisualStyleBackColor = true;
-            // 
             // groupBox2
             // 
             groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            groupBox2.Controls.Add(cbox_delivery);
             groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(cbx_tradicionais_addvenda);
-            groupBox2.Controls.Add(cbx_variadas_addvenda);
-            groupBox2.Controls.Add(cbx_especiais_addvenda);
-            groupBox2.Controls.Add(cbox_broto);
-            groupBox2.Controls.Add(cbx_doces_addvenda);
-            groupBox2.Controls.Add(label14);
-            groupBox2.Controls.Add(label9);
-            groupBox2.Controls.Add(cbox_grande);
-            groupBox2.Controls.Add(label10);
-            groupBox2.Controls.Add(label11);
-            groupBox2.Controls.Add(label12);
+            groupBox2.Controls.Add(comboBox1);
+            groupBox2.Controls.Add(lbl_categoria);
+            groupBox2.Controls.Add(lbl_tamanho);
+            groupBox2.Controls.Add(cbbox_categoria);
+            groupBox2.Controls.Add(cbbox_tamanho);
+            groupBox2.Controls.Add(lbl_valortotal);
+            groupBox2.Controls.Add(label6);
+            groupBox2.Controls.Add(label4);
             groupBox2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             groupBox2.Location = new Point(12, 38);
             groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(760, 134);
+            groupBox2.Size = new Size(760, 203);
             groupBox2.TabIndex = 55;
             groupBox2.TabStop = false;
             groupBox2.Text = "Pizzas:";
             // 
             // label8
             // 
-            label8.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            label8.AutoSize = true;
+            label8.BackColor = Color.Transparent;
             label8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(2, 34);
+            label8.Location = new Point(37, 105);
             label8.Name = "label8";
-            label8.Size = new Size(169, 19);
-            label8.TabIndex = 59;
-            label8.Text = "TAMANHO DA PIZZA:";
+            label8.Size = new Size(62, 26);
+            label8.TabIndex = 67;
+            label8.Text = "Nome:";
+            label8.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cbx_tradicionais_addvenda
+            // comboBox1
             // 
-            cbx_tradicionais_addvenda.FormattingEnabled = true;
-            cbx_tradicionais_addvenda.Location = new Point(6, 92);
-            cbx_tradicionais_addvenda.MaximumSize = new Size(300, 0);
-            cbx_tradicionais_addvenda.Name = "cbx_tradicionais_addvenda";
-            cbx_tradicionais_addvenda.Size = new Size(175, 26);
-            cbx_tradicionais_addvenda.TabIndex = 58;
+            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            comboBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(105, 105);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(628, 26);
+            comboBox1.TabIndex = 66;
             // 
-            // cbx_variadas_addvenda
+            // lbl_categoria
             // 
-            cbx_variadas_addvenda.FormattingEnabled = true;
-            cbx_variadas_addvenda.Location = new Point(188, 92);
-            cbx_variadas_addvenda.MaximumSize = new Size(300, 0);
-            cbx_variadas_addvenda.Name = "cbx_variadas_addvenda";
-            cbx_variadas_addvenda.Size = new Size(175, 26);
-            cbx_variadas_addvenda.TabIndex = 57;
+            lbl_categoria.BackColor = Color.Transparent;
+            lbl_categoria.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_categoria.Location = new Point(6, 63);
+            lbl_categoria.Name = "lbl_categoria";
+            lbl_categoria.Size = new Size(93, 26);
+            lbl_categoria.TabIndex = 65;
+            lbl_categoria.Text = "Categoria:";
+            lbl_categoria.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cbx_especiais_addvenda
+            // lbl_tamanho
             // 
-            cbx_especiais_addvenda.FormattingEnabled = true;
-            cbx_especiais_addvenda.Location = new Point(369, 92);
-            cbx_especiais_addvenda.MaximumSize = new Size(300, 0);
-            cbx_especiais_addvenda.Name = "cbx_especiais_addvenda";
-            cbx_especiais_addvenda.Size = new Size(175, 26);
-            cbx_especiais_addvenda.TabIndex = 56;
+            lbl_tamanho.BackColor = Color.Transparent;
+            lbl_tamanho.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_tamanho.Location = new Point(6, 22);
+            lbl_tamanho.Name = "lbl_tamanho";
+            lbl_tamanho.Size = new Size(93, 26);
+            lbl_tamanho.TabIndex = 63;
+            lbl_tamanho.Text = "Tamanho:";
+            lbl_tamanho.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // cbx_doces_addvenda
+            // cbbox_categoria
             // 
-            cbx_doces_addvenda.FormattingEnabled = true;
-            cbx_doces_addvenda.Location = new Point(548, 92);
-            cbx_doces_addvenda.MaximumSize = new Size(300, 0);
-            cbx_doces_addvenda.Name = "cbx_doces_addvenda";
-            cbx_doces_addvenda.Size = new Size(175, 26);
-            cbx_doces_addvenda.TabIndex = 55;
+            cbbox_categoria.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_categoria.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_categoria.FormattingEnabled = true;
+            cbbox_categoria.Location = new Point(105, 63);
+            cbbox_categoria.Name = "cbbox_categoria";
+            cbbox_categoria.Size = new Size(628, 26);
+            cbbox_categoria.TabIndex = 62;
+            // 
+            // cbbox_tamanho
+            // 
+            cbbox_tamanho.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_tamanho.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_tamanho.FormattingEnabled = true;
+            cbbox_tamanho.Location = new Point(105, 22);
+            cbbox_tamanho.Name = "cbbox_tamanho";
+            cbbox_tamanho.Size = new Size(628, 26);
+            cbbox_tamanho.TabIndex = 64;
             // 
             // form_adicionar_venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(784, 461);
-            Controls.Add(cbox_delivery);
+            ClientSize = new Size(784, 595);
             Controls.Add(label7);
             Controls.Add(btn_Remover);
             Controls.Add(dgv_adicionar_vendas);
             Controls.Add(txt_observacoes);
-            Controls.Add(cbx_bebidas_addvenda);
             Controls.Add(btnCancelar);
-            Controls.Add(lbl_valortotal);
-            Controls.Add(label6);
             Controls.Add(btn_Salvar);
             Controls.Add(cbx_clientes_addvenda);
             Controls.Add(label5);
-            Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -474,7 +372,6 @@
         private Button btn_Salvar;
         private Label label6;
         private Label lbl_valortotal;
-        private Button btn_Calcular;
         private Button btnCancelar;
         private TextBox txt_observacoes;
         private DataGridView dgv_adicionar_vendas;
@@ -484,26 +381,19 @@
         private Button button1;
         private ComboBox cbx_produtos_addvenda;
         private Label label7;
-        private ComboBox cbx_tradicionais_addvenda;
-        private ComboBox cbx_doces_addvenda;
-        private ComboBox cbx_especiais_addvenda;
-        private Label label9;
-        private Label label10;
-        private Label label11;
-        private Label label12;
-        private ComboBox cbx_variadas_addvenda;
         private ComboBox comboBox5;
         private ComboBox comboBox6;
         private ComboBox comboBox7;
-        private Label label14;
         private ComboBox comboBox8;
-        private CheckBox cbox_grande;
-        private ComboBox cbx_bebidas_addvenda;
         private CheckBox cbox_delivery;
         private DataGridViewTextBoxColumn Produto;
         private DataGridViewTextBoxColumn Preco;
-        private CheckBox cbox_broto;
         private GroupBox groupBox2;
         private Label label8;
+        private ComboBox comboBox1;
+        private Label lbl_categoria;
+        private Label lbl_tamanho;
+        private ComboBox cbbox_categoria;
+        private ComboBox cbbox_tamanho;
     }
 }

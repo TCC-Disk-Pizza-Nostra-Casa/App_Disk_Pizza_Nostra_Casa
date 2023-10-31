@@ -33,6 +33,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             txt_pesquisar_vendas = new TextBox();
             lbl_pesquisar_vendas = new Label();
             dgv_listagem_vendas = new DataGridView();
+            btn_excluir = new Button();
+            dtp_to_search = new DateTimePicker();
+            cbx_funcionario = new ComboBox();
             id = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_nome = new DataGridViewTextBoxColumn();
@@ -40,9 +43,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_produtos_estoque = new DataGridViewTextBoxColumn();
             Funcionario = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
-            btn_excluir = new Button();
-            dtp_to_search = new DateTimePicker();
-            cbx_funcionario = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -96,69 +96,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(762, 348);
+            dgv_listagem_vendas.Size = new Size(1062, 404);
             dgv_listagem_vendas.TabIndex = 6;
-            // 
-            // id
-            // 
-            id.HeaderText = "id";
-            id.Name = "id";
-            id.ReadOnly = true;
-            id.Visible = false;
-            // 
-            // codigo
-            // 
-            codigo.HeaderText = "Código";
-            codigo.Name = "codigo";
-            codigo.ReadOnly = true;
-            // 
-            // dgv_listagem_produtos_nome
-            // 
-            dgv_listagem_produtos_nome.DividerWidth = 2;
-            dgv_listagem_produtos_nome.FillWeight = 130F;
-            dgv_listagem_produtos_nome.HeaderText = "Data da Venda";
-            dgv_listagem_produtos_nome.Name = "dgv_listagem_produtos_nome";
-            dgv_listagem_produtos_nome.ReadOnly = true;
-            dgv_listagem_produtos_nome.Resizable = DataGridViewTriState.True;
-            dgv_listagem_produtos_nome.Width = 250;
-            // 
-            // nome_cliente
-            // 
-            nome_cliente.FillWeight = 420F;
-            nome_cliente.HeaderText = "Cliente";
-            nome_cliente.Name = "nome_cliente";
-            nome_cliente.ReadOnly = true;
-            nome_cliente.Width = 200;
-            // 
-            // dgv_listagem_produtos_estoque
-            // 
-            dgv_listagem_produtos_estoque.DividerWidth = 2;
-            dgv_listagem_produtos_estoque.HeaderText = "Delivery";
-            dgv_listagem_produtos_estoque.Name = "dgv_listagem_produtos_estoque";
-            dgv_listagem_produtos_estoque.ReadOnly = true;
-            // 
-            // Funcionario
-            // 
-            Funcionario.FillWeight = 420F;
-            Funcionario.HeaderText = "Funcionario";
-            Funcionario.Name = "Funcionario";
-            Funcionario.ReadOnly = true;
-            Funcionario.Width = 200;
-            // 
-            // dgv_listagem_produtos_preco
-            // 
-            dgv_listagem_produtos_preco.DividerWidth = 2;
-            dgv_listagem_produtos_preco.FillWeight = 200F;
-            dgv_listagem_produtos_preco.HeaderText = "Valor Total";
-            dgv_listagem_produtos_preco.Name = "dgv_listagem_produtos_preco";
-            dgv_listagem_produtos_preco.ReadOnly = true;
             // 
             // btn_excluir
             // 
             btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             btn_excluir.BackColor = Color.White;
             btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
-            btn_excluir.Location = new Point(665, 453);
+            btn_excluir.Location = new Point(965, 509);
             btn_excluir.Name = "btn_excluir";
             btn_excluir.Size = new Size(107, 40);
             btn_excluir.TabIndex = 7;
@@ -185,6 +131,60 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbx_funcionario.TabIndex = 9;
             cbx_funcionario.Text = "Selecione o funcionário:";
             cbx_funcionario.SelectedIndexChanged += cbx_funcionario_SelectedIndexChanged;
+            // 
+            // id
+            // 
+            id.HeaderText = "id";
+            id.Name = "id";
+            id.ReadOnly = true;
+            id.Visible = false;
+            // 
+            // codigo
+            // 
+            codigo.HeaderText = "Código";
+            codigo.Name = "codigo";
+            codigo.ReadOnly = true;
+            // 
+            // dgv_listagem_produtos_nome
+            // 
+            dgv_listagem_produtos_nome.DividerWidth = 2;
+            dgv_listagem_produtos_nome.FillWeight = 130F;
+            dgv_listagem_produtos_nome.HeaderText = "Data da Venda";
+            dgv_listagem_produtos_nome.Name = "dgv_listagem_produtos_nome";
+            dgv_listagem_produtos_nome.ReadOnly = true;
+            dgv_listagem_produtos_nome.Resizable = DataGridViewTriState.True;
+            dgv_listagem_produtos_nome.Width = 250;
+            // 
+            // nome_cliente
+            // 
+            nome_cliente.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            nome_cliente.FillWeight = 420F;
+            nome_cliente.HeaderText = "Cliente";
+            nome_cliente.Name = "nome_cliente";
+            nome_cliente.ReadOnly = true;
+            // 
+            // dgv_listagem_produtos_estoque
+            // 
+            dgv_listagem_produtos_estoque.DividerWidth = 2;
+            dgv_listagem_produtos_estoque.HeaderText = "Delivery";
+            dgv_listagem_produtos_estoque.Name = "dgv_listagem_produtos_estoque";
+            dgv_listagem_produtos_estoque.ReadOnly = true;
+            // 
+            // Funcionario
+            // 
+            Funcionario.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Funcionario.FillWeight = 420F;
+            Funcionario.HeaderText = "Funcionario";
+            Funcionario.Name = "Funcionario";
+            Funcionario.ReadOnly = true;
+            // 
+            // dgv_listagem_produtos_preco
+            // 
+            dgv_listagem_produtos_preco.DividerWidth = 2;
+            dgv_listagem_produtos_preco.FillWeight = 200F;
+            dgv_listagem_produtos_preco.HeaderText = "Valor Total";
+            dgv_listagem_produtos_preco.Name = "dgv_listagem_produtos_preco";
+            dgv_listagem_produtos_preco.ReadOnly = true;
             // 
             // form_listagem_vendas
             // 
@@ -219,6 +219,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private TextBox textBox1;
         private TextBox textBox2;
         private Button btn_excluir;
+        private DateTimePicker dtp_to_search;
+        private ComboBox cbx_funcionario;
         private DataGridViewTextBoxColumn id;
         private DataGridViewTextBoxColumn codigo;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_nome;
@@ -226,7 +228,5 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private DataGridViewTextBoxColumn dgv_listagem_produtos_estoque;
         private DataGridViewTextBoxColumn Funcionario;
         private DataGridViewTextBoxColumn dgv_listagem_produtos_preco;
-        private DateTimePicker dtp_to_search;
-        private ComboBox cbx_funcionario;
     }
 }
