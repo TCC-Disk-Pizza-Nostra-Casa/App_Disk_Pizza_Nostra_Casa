@@ -34,9 +34,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.Size = new Size(800, 500);
 
-                List<Model.Venda>? lista_vendas = await Model.Venda.GetList();
+                //List<Model.Venda>? lista_vendas = await Model.Venda.GetList();
 
-                this.fillDgvVenda(lista_vendas);
+                //this.fillDgvVenda(lista_vendas);
 
 
 
@@ -110,18 +110,23 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
             if ((MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
             {
+
                 int id = Convert.ToInt32(dgv_listagem_vendas.CurrentRow.Cells["id"].Value);
 
                 await Data_Service_Venda.DeleteAsyncVenda(id);
 
                 dgv_listagem_vendas.Rows.RemoveAt(dgv_listagem_vendas.CurrentRow.Index);
+
             }
+
         }
 
         public void fillDgvVenda(List<Model.Venda> lista_vendas)
         {
-            if (lista_vendas.Count > 0)
+
+            /*if (lista_vendas.Count > 0)
             {
+
                 for (int i = 0; i < lista_vendas.Count; i++)
                 {
 
@@ -140,13 +145,17 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 }
 
-            }
+            }*/
+
         }
 
         private void cbx_funcionario_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+
+
         }
+
     }
 
 }

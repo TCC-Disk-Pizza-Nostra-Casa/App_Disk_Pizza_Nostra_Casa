@@ -28,372 +28,340 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            cbx_clientes_addvenda = new ComboBox();
-            btn_Salvar = new Button();
-            label6 = new Label();
-            lbl_valortotal = new Label();
-            btnCancelar = new Button();
-            txt_observacoes = new TextBox();
-            dgv_adicionar_vendas = new DataGridView();
-            Produto = new DataGridViewTextBoxColumn();
-            Preco = new DataGridViewTextBoxColumn();
-            btn_Remover = new Button();
-            label7 = new Label();
-            cbox_delivery = new CheckBox();
-            groupBox2 = new GroupBox();
-            label8 = new Label();
-            comboBox1 = new ComboBox();
-            lbl_categoria = new Label();
-            lbl_tamanho = new Label();
-            cbbox_categoria = new ComboBox();
-            cbbox_tamanho = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).BeginInit();
-            groupBox2.SuspendLayout();
+            btn_salvar_pedido = new Button();
+            btn_cancelar_pedido = new Button();
+            cbbox_cliente = new ComboBox();
+            lbl_nome_produto = new Label();
+            cbbox_nome_produto = new ComboBox();
+            lbl_tamanho_produto = new Label();
+            cbbox_categoria_produto = new ComboBox();
+            cbbox_tamanho_produto = new ComboBox();
+            lbl_categoria_produto = new Label();
+            dgv_carrinho_produtos = new DataGridView();
+            btn_remover_produto = new Button();
+            btn_adicionar_produto = new Button();
+            grpbox_envolvidos = new GroupBox();
+            lbl_cliente = new Label();
+            lbl_funcionario = new Label();
+            cbbox_funcionario = new ComboBox();
+            grpbox_produtos = new GroupBox();
+            panel1 = new Panel();
+            txt_quantidade_produto = new TextBox();
+            lbl_quantidade_produto = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgv_carrinho_produtos).BeginInit();
+            grpbox_envolvidos.SuspendLayout();
+            grpbox_produtos.SuspendLayout();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // label1
+            // btn_salvar_pedido
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 14);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 15);
-            label1.TabIndex = 0;
+            btn_salvar_pedido.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_salvar_pedido.BackColor = Color.Transparent;
+            btn_salvar_pedido.Cursor = Cursors.Hand;
+            btn_salvar_pedido.FlatAppearance.BorderColor = Color.Black;
+            btn_salvar_pedido.FlatAppearance.BorderSize = 2;
+            btn_salvar_pedido.FlatStyle = FlatStyle.Flat;
+            btn_salvar_pedido.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_salvar_pedido.Location = new Point(622, 410);
+            btn_salvar_pedido.Name = "btn_salvar_pedido";
+            btn_salvar_pedido.Size = new Size(150, 39);
+            btn_salvar_pedido.TabIndex = 45;
+            btn_salvar_pedido.Text = "Salvar Pedido";
+            btn_salvar_pedido.UseVisualStyleBackColor = false;
+            btn_salvar_pedido.Click += btn_salvar_pedido_Click;
             // 
-            // label2
+            // btn_cancelar_pedido
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(12, 14);
-            label2.Name = "label2";
-            label2.Size = new Size(129, 18);
-            label2.TabIndex = 1;
-            label2.Text = "Nome do Cliente:";
+            btn_cancelar_pedido.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_cancelar_pedido.BackColor = Color.Transparent;
+            btn_cancelar_pedido.Cursor = Cursors.Hand;
+            btn_cancelar_pedido.FlatAppearance.BorderColor = Color.Black;
+            btn_cancelar_pedido.FlatAppearance.BorderSize = 2;
+            btn_cancelar_pedido.FlatStyle = FlatStyle.Flat;
+            btn_cancelar_pedido.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_cancelar_pedido.Location = new Point(466, 410);
+            btn_cancelar_pedido.Name = "btn_cancelar_pedido";
+            btn_cancelar_pedido.Size = new Size(150, 39);
+            btn_cancelar_pedido.TabIndex = 46;
+            btn_cancelar_pedido.Text = "Cancelar Pedido";
+            btn_cancelar_pedido.UseVisualStyleBackColor = false;
+            btn_cancelar_pedido.Click += btn_cancelar_pedido_Click;
             // 
-            // label3
+            // cbbox_cliente
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(12, 45);
-            label3.Name = "label3";
-            label3.Size = new Size(0, 18);
-            label3.TabIndex = 2;
+            cbbox_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_cliente.FormattingEnabled = true;
+            cbbox_cliente.Location = new Point(94, 68);
+            cbbox_cliente.Name = "cbbox_cliente";
+            cbbox_cliente.Size = new Size(649, 26);
+            cbbox_cliente.TabIndex = 0;
             // 
-            // label4
+            // lbl_nome_produto
             // 
-            label4.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label4.Location = new Point(516, 150);
-            label4.Name = "label4";
-            label4.Size = new Size(116, 18);
-            label4.TabIndex = 5;
-            label4.Text = "Fazer Entrega?";
+            lbl_nome_produto.AutoSize = true;
+            lbl_nome_produto.BackColor = Color.Transparent;
+            lbl_nome_produto.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_nome_produto.Location = new Point(14, 98);
+            lbl_nome_produto.Name = "lbl_nome_produto";
+            lbl_nome_produto.Size = new Size(77, 19);
+            lbl_nome_produto.TabIndex = 59;
+            lbl_nome_produto.Text = "Produto:";
+            lbl_nome_produto.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label5
+            // cbbox_nome_produto
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(12, 57);
-            label5.Name = "label5";
-            label5.Size = new Size(0, 18);
-            label5.TabIndex = 8;
+            cbbox_nome_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_nome_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_nome_produto.FormattingEnabled = true;
+            cbbox_nome_produto.Location = new Point(97, 95);
+            cbbox_nome_produto.Name = "cbbox_nome_produto";
+            cbbox_nome_produto.Size = new Size(631, 26);
+            cbbox_nome_produto.TabIndex = 2;
             // 
-            // cbx_clientes_addvenda
+            // lbl_tamanho_produto
             // 
-            cbx_clientes_addvenda.AllowDrop = true;
-            cbx_clientes_addvenda.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbx_clientes_addvenda.FormattingEnabled = true;
-            cbx_clientes_addvenda.Location = new Point(147, 9);
-            cbx_clientes_addvenda.Name = "cbx_clientes_addvenda";
-            cbx_clientes_addvenda.Size = new Size(625, 23);
-            cbx_clientes_addvenda.TabIndex = 10;
-            cbx_clientes_addvenda.SelectedIndexChanged += cbx_cliente_addvenda_SelectedIndexChanged;
+            lbl_tamanho_produto.AutoSize = true;
+            lbl_tamanho_produto.BackColor = Color.Transparent;
+            lbl_tamanho_produto.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_tamanho_produto.Location = new Point(14, 56);
+            lbl_tamanho_produto.Name = "lbl_tamanho_produto";
+            lbl_tamanho_produto.Size = new Size(86, 19);
+            lbl_tamanho_produto.TabIndex = 58;
+            lbl_tamanho_produto.Text = "Tamanho:";
+            lbl_tamanho_produto.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btn_Salvar
+            // cbbox_categoria_produto
             // 
-            btn_Salvar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_Salvar.BackColor = SystemColors.Window;
-            btn_Salvar.FlatAppearance.BorderColor = Color.Black;
-            btn_Salvar.FlatAppearance.BorderSize = 2;
-            btn_Salvar.FlatStyle = FlatStyle.Flat;
-            btn_Salvar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Salvar.Location = new Point(643, 537);
-            btn_Salvar.Name = "btn_Salvar";
-            btn_Salvar.Size = new Size(131, 41);
-            btn_Salvar.TabIndex = 13;
-            btn_Salvar.Text = "Salvar Pedido";
-            btn_Salvar.UseVisualStyleBackColor = false;
-            btn_Salvar.Click += btn_Salvar_Click;
+            cbbox_categoria_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_categoria_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_categoria_produto.FormattingEnabled = true;
+            cbbox_categoria_produto.Location = new Point(109, 12);
+            cbbox_categoria_produto.Name = "cbbox_categoria_produto";
+            cbbox_categoria_produto.Size = new Size(619, 26);
+            cbbox_categoria_produto.TabIndex = 0;
+            cbbox_categoria_produto.SelectedIndexChanged += cbbox_categoria_produto_SelectedIndexChanged;
             // 
-            // label6
+            // cbbox_tamanho_produto
             // 
-            label6.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            label6.AutoSize = true;
-            label6.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(638, 150);
-            label6.Name = "label6";
-            label6.Size = new Size(95, 19);
-            label6.TabIndex = 15;
-            label6.Text = "Valor Total:";
+            cbbox_tamanho_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_tamanho_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_tamanho_produto.FormattingEnabled = true;
+            cbbox_tamanho_produto.Location = new Point(106, 53);
+            cbbox_tamanho_produto.Name = "cbbox_tamanho_produto";
+            cbbox_tamanho_produto.Size = new Size(622, 26);
+            cbbox_tamanho_produto.TabIndex = 1;
             // 
-            // lbl_valortotal
+            // lbl_categoria_produto
             // 
-            lbl_valortotal.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            lbl_valortotal.AutoSize = true;
-            lbl_valortotal.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_valortotal.Location = new Point(673, 171);
-            lbl_valortotal.Name = "lbl_valortotal";
-            lbl_valortotal.Size = new Size(18, 19);
-            lbl_valortotal.TabIndex = 16;
-            lbl_valortotal.Text = "0";
-            lbl_valortotal.Click += lbl_valortotal_Click;
+            lbl_categoria_produto.AutoSize = true;
+            lbl_categoria_produto.BackColor = Color.Transparent;
+            lbl_categoria_produto.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_categoria_produto.Location = new Point(14, 15);
+            lbl_categoria_produto.Name = "lbl_categoria_produto";
+            lbl_categoria_produto.Size = new Size(89, 19);
+            lbl_categoria_produto.TabIndex = 57;
+            lbl_categoria_produto.Text = "Categoria:";
+            lbl_categoria_produto.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btnCancelar
+            // dgv_carrinho_produtos
             // 
-            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btnCancelar.BackColor = SystemColors.Window;
-            btnCancelar.FlatAppearance.BorderColor = Color.Black;
-            btnCancelar.FlatAppearance.BorderSize = 2;
-            btnCancelar.FlatStyle = FlatStyle.Flat;
-            btnCancelar.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btnCancelar.Location = new Point(12, 537);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(116, 41);
-            btnCancelar.TabIndex = 18;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = false;
-            btnCancelar.Click += btnCancelar_Click;
+            dgv_carrinho_produtos.AllowUserToAddRows = false;
+            dgv_carrinho_produtos.AllowUserToDeleteRows = false;
+            dgv_carrinho_produtos.AllowUserToOrderColumns = true;
+            dgv_carrinho_produtos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_carrinho_produtos.BackgroundColor = Color.White;
+            dgv_carrinho_produtos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_carrinho_produtos.Location = new Point(12, 289);
+            dgv_carrinho_produtos.MultiSelect = false;
+            dgv_carrinho_produtos.Name = "dgv_carrinho_produtos";
+            dgv_carrinho_produtos.ReadOnly = true;
+            dgv_carrinho_produtos.RowHeadersWidth = 51;
+            dgv_carrinho_produtos.RowTemplate.Height = 25;
+            dgv_carrinho_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_carrinho_produtos.Size = new Size(760, 106);
+            dgv_carrinho_produtos.TabIndex = 49;
             // 
-            // txt_observacoes
+            // btn_remover_produto
             // 
-            txt_observacoes.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(12, 387);
-            txt_observacoes.Multiline = true;
-            txt_observacoes.Name = "txt_observacoes";
-            txt_observacoes.PlaceholderText = "Insira observações sobre a(s) pizza(s)";
-            txt_observacoes.Size = new Size(760, 126);
-            txt_observacoes.TabIndex = 30;
+            btn_remover_produto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_remover_produto.BackColor = Color.Transparent;
+            btn_remover_produto.Cursor = Cursors.Hand;
+            btn_remover_produto.FlatAppearance.BorderColor = Color.Black;
+            btn_remover_produto.FlatAppearance.BorderSize = 2;
+            btn_remover_produto.FlatStyle = FlatStyle.Flat;
+            btn_remover_produto.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_remover_produto.Location = new Point(12, 410);
+            btn_remover_produto.Name = "btn_remover_produto";
+            btn_remover_produto.Size = new Size(160, 39);
+            btn_remover_produto.TabIndex = 53;
+            btn_remover_produto.Text = "Remover Produto";
+            btn_remover_produto.UseVisualStyleBackColor = false;
+            btn_remover_produto.Click += btn_remover_produto_Click;
             // 
-            // dgv_adicionar_vendas
+            // btn_adicionar_produto
             // 
-            dgv_adicionar_vendas.AllowUserToAddRows = false;
-            dgv_adicionar_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv_adicionar_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_adicionar_vendas.Columns.AddRange(new DataGridViewColumn[] { Produto, Preco });
-            dgv_adicionar_vendas.Location = new Point(12, 247);
-            dgv_adicionar_vendas.Name = "dgv_adicionar_vendas";
-            dgv_adicionar_vendas.ReadOnly = true;
-            dgv_adicionar_vendas.RowTemplate.Height = 25;
-            dgv_adicionar_vendas.Size = new Size(760, 134);
-            dgv_adicionar_vendas.TabIndex = 31;
+            btn_adicionar_produto.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            btn_adicionar_produto.BackColor = Color.Transparent;
+            btn_adicionar_produto.Cursor = Cursors.Hand;
+            btn_adicionar_produto.FlatAppearance.BorderColor = Color.Black;
+            btn_adicionar_produto.FlatAppearance.BorderSize = 2;
+            btn_adicionar_produto.FlatStyle = FlatStyle.Flat;
+            btn_adicionar_produto.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            btn_adicionar_produto.Location = new Point(178, 410);
+            btn_adicionar_produto.Name = "btn_adicionar_produto";
+            btn_adicionar_produto.Size = new Size(160, 39);
+            btn_adicionar_produto.TabIndex = 52;
+            btn_adicionar_produto.Text = "Adicionar Produto";
+            btn_adicionar_produto.UseVisualStyleBackColor = false;
+            btn_adicionar_produto.Click += btn_adicionar_produto_Click;
             // 
-            // Produto
+            // grpbox_envolvidos
             // 
-            Produto.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            Produto.HeaderText = "Produto";
-            Produto.MinimumWidth = 100;
-            Produto.Name = "Produto";
-            Produto.ReadOnly = true;
-            Produto.Resizable = DataGridViewTriState.True;
+            grpbox_envolvidos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grpbox_envolvidos.Controls.Add(lbl_cliente);
+            grpbox_envolvidos.Controls.Add(lbl_funcionario);
+            grpbox_envolvidos.Controls.Add(cbbox_cliente);
+            grpbox_envolvidos.Controls.Add(cbbox_funcionario);
+            grpbox_envolvidos.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            grpbox_envolvidos.Location = new Point(12, 12);
+            grpbox_envolvidos.Name = "grpbox_envolvidos";
+            grpbox_envolvidos.Size = new Size(760, 110);
+            grpbox_envolvidos.TabIndex = 48;
+            grpbox_envolvidos.TabStop = false;
+            grpbox_envolvidos.Text = "Envolvidos:";
             // 
-            // Preco
+            // lbl_cliente
             // 
-            Preco.HeaderText = "Preço";
-            Preco.Name = "Preco";
-            Preco.ReadOnly = true;
-            Preco.Width = 175;
+            lbl_cliente.AutoSize = true;
+            lbl_cliente.BackColor = Color.Transparent;
+            lbl_cliente.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_cliente.Location = new Point(20, 71);
+            lbl_cliente.Name = "lbl_cliente";
+            lbl_cliente.Size = new Size(68, 19);
+            lbl_cliente.TabIndex = 61;
+            lbl_cliente.Text = "Cliente:";
+            lbl_cliente.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // btn_Remover
+            // lbl_funcionario
             // 
-            btn_Remover.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            btn_Remover.BackColor = SystemColors.Window;
-            btn_Remover.FlatAppearance.BorderColor = Color.Black;
-            btn_Remover.FlatAppearance.BorderSize = 2;
-            btn_Remover.FlatStyle = FlatStyle.Flat;
-            btn_Remover.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            btn_Remover.Location = new Point(134, 537);
-            btn_Remover.Name = "btn_Remover";
-            btn_Remover.Size = new Size(116, 41);
-            btn_Remover.TabIndex = 32;
-            btn_Remover.Text = "Remover";
-            btn_Remover.UseVisualStyleBackColor = false;
-            btn_Remover.Click += btn_Remover_Click;
+            lbl_funcionario.AutoSize = true;
+            lbl_funcionario.BackColor = Color.Transparent;
+            lbl_funcionario.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_funcionario.Location = new Point(20, 33);
+            lbl_funcionario.Name = "lbl_funcionario";
+            lbl_funcionario.Size = new Size(107, 19);
+            lbl_funcionario.TabIndex = 60;
+            lbl_funcionario.Text = "Funcionário:";
+            lbl_funcionario.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // cbbox_funcionario
             // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(614, 82);
-            label7.Name = "label7";
-            label7.Size = new Size(0, 18);
-            label7.TabIndex = 36;
+            cbbox_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_funcionario.FormattingEnabled = true;
+            cbbox_funcionario.Location = new Point(133, 30);
+            cbbox_funcionario.Name = "cbbox_funcionario";
+            cbbox_funcionario.Size = new Size(610, 26);
+            cbbox_funcionario.TabIndex = 0;
             // 
-            // cbox_delivery
+            // grpbox_produtos
             // 
-            cbox_delivery.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            cbox_delivery.AutoSize = true;
-            cbox_delivery.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbox_delivery.Location = new Point(519, 168);
-            cbox_delivery.Name = "cbox_delivery";
-            cbox_delivery.Size = new Size(55, 22);
-            cbox_delivery.TabIndex = 52;
-            cbox_delivery.Text = "Sim";
-            cbox_delivery.UseVisualStyleBackColor = true;
+            grpbox_produtos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            grpbox_produtos.Controls.Add(panel1);
+            grpbox_produtos.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            grpbox_produtos.Location = new Point(12, 137);
+            grpbox_produtos.Name = "grpbox_produtos";
+            grpbox_produtos.Size = new Size(760, 133);
+            grpbox_produtos.TabIndex = 60;
+            grpbox_produtos.TabStop = false;
+            grpbox_produtos.Text = "Produtos:";
             // 
-            // groupBox2
+            // panel1
             // 
-            groupBox2.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            groupBox2.Controls.Add(cbox_delivery);
-            groupBox2.Controls.Add(label8);
-            groupBox2.Controls.Add(comboBox1);
-            groupBox2.Controls.Add(lbl_categoria);
-            groupBox2.Controls.Add(lbl_tamanho);
-            groupBox2.Controls.Add(cbbox_categoria);
-            groupBox2.Controls.Add(cbbox_tamanho);
-            groupBox2.Controls.Add(lbl_valortotal);
-            groupBox2.Controls.Add(label6);
-            groupBox2.Controls.Add(label4);
-            groupBox2.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBox2.Location = new Point(12, 38);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(760, 203);
-            groupBox2.TabIndex = 55;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Pizzas:";
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panel1.AutoScroll = true;
+            panel1.Controls.Add(txt_quantidade_produto);
+            panel1.Controls.Add(cbbox_categoria_produto);
+            panel1.Controls.Add(lbl_nome_produto);
+            panel1.Controls.Add(lbl_categoria_produto);
+            panel1.Controls.Add(cbbox_nome_produto);
+            panel1.Controls.Add(cbbox_tamanho_produto);
+            panel1.Controls.Add(lbl_tamanho_produto);
+            panel1.Controls.Add(lbl_quantidade_produto);
+            panel1.Location = new Point(6, 25);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(748, 93);
+            panel1.TabIndex = 0;
             // 
-            // label8
+            // txt_quantidade_produto
             // 
-            label8.BackColor = Color.Transparent;
-            label8.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(37, 105);
-            label8.Name = "label8";
-            label8.Size = new Size(62, 26);
-            label8.TabIndex = 67;
-            label8.Text = "Nome:";
-            label8.TextAlign = ContentAlignment.MiddleLeft;
+            txt_quantidade_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_quantidade_produto.Location = new Point(123, 137);
+            txt_quantidade_produto.Name = "txt_quantidade_produto";
+            txt_quantidade_produto.Size = new Size(605, 26);
+            txt_quantidade_produto.TabIndex = 61;
+            txt_quantidade_produto.KeyPress += txt_quantidade_produto_KeyPress;
             // 
-            // comboBox1
+            // lbl_quantidade_produto
             // 
-            comboBox1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            comboBox1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(105, 105);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(628, 26);
-            comboBox1.TabIndex = 66;
-            // 
-            // lbl_categoria
-            // 
-            lbl_categoria.BackColor = Color.Transparent;
-            lbl_categoria.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_categoria.Location = new Point(6, 63);
-            lbl_categoria.Name = "lbl_categoria";
-            lbl_categoria.Size = new Size(93, 26);
-            lbl_categoria.TabIndex = 65;
-            lbl_categoria.Text = "Categoria:";
-            lbl_categoria.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // lbl_tamanho
-            // 
-            lbl_tamanho.BackColor = Color.Transparent;
-            lbl_tamanho.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_tamanho.Location = new Point(6, 22);
-            lbl_tamanho.Name = "lbl_tamanho";
-            lbl_tamanho.Size = new Size(93, 26);
-            lbl_tamanho.TabIndex = 63;
-            lbl_tamanho.Text = "Tamanho:";
-            lbl_tamanho.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // cbbox_categoria
-            // 
-            cbbox_categoria.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbbox_categoria.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbbox_categoria.FormattingEnabled = true;
-            cbbox_categoria.Location = new Point(105, 63);
-            cbbox_categoria.Name = "cbbox_categoria";
-            cbbox_categoria.Size = new Size(628, 26);
-            cbbox_categoria.TabIndex = 62;
-            // 
-            // cbbox_tamanho
-            // 
-            cbbox_tamanho.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            cbbox_tamanho.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cbbox_tamanho.FormattingEnabled = true;
-            cbbox_tamanho.Location = new Point(105, 22);
-            cbbox_tamanho.Name = "cbbox_tamanho";
-            cbbox_tamanho.Size = new Size(628, 26);
-            cbbox_tamanho.TabIndex = 64;
+            lbl_quantidade_produto.AutoSize = true;
+            lbl_quantidade_produto.BackColor = Color.Transparent;
+            lbl_quantidade_produto.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_quantidade_produto.Location = new Point(14, 140);
+            lbl_quantidade_produto.Name = "lbl_quantidade_produto";
+            lbl_quantidade_produto.Size = new Size(103, 19);
+            lbl_quantidade_produto.TabIndex = 61;
+            lbl_quantidade_produto.Text = "Quantidade:";
             // 
             // form_adicionar_venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(784, 595);
-            Controls.Add(label7);
-            Controls.Add(btn_Remover);
-            Controls.Add(dgv_adicionar_vendas);
-            Controls.Add(txt_observacoes);
-            Controls.Add(btnCancelar);
-            Controls.Add(btn_Salvar);
-            Controls.Add(cbx_clientes_addvenda);
-            Controls.Add(label5);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(groupBox2);
+            ClientSize = new Size(784, 461);
+            Controls.Add(grpbox_produtos);
+            Controls.Add(grpbox_envolvidos);
+            Controls.Add(btn_remover_produto);
+            Controls.Add(btn_adicionar_produto);
+            Controls.Add(btn_cancelar_pedido);
+            Controls.Add(btn_salvar_pedido);
+            Controls.Add(dgv_carrinho_produtos);
             MinimumSize = new Size(800, 500);
             Name = "form_adicionar_venda";
-            Text = "Adicionar Venda";
+            Text = "Efetuação de Vendas";
             Load += form_adicionar_venda_Load;
-            ((System.ComponentModel.ISupportInitialize)dgv_adicionar_vendas).EndInit();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_carrinho_produtos).EndInit();
+            grpbox_envolvidos.ResumeLayout(false);
+            grpbox_envolvidos.PerformLayout();
+            grpbox_produtos.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private RadioButton rdbtn_sim;
-        private RadioButton rdbtn_nao;
-        private Label label5;
-        private ComboBox cbx_clientes_addvenda;
-        private Button btn_Salvar;
-        private Label label6;
-        private Label lbl_valortotal;
-        private Button btnCancelar;
-        private TextBox txt_observacoes;
-        private DataGridView dgv_adicionar_vendas;
-        private Button btnInserir_dgv;
-        private Button btnExcluir_dgv;
-        private Button btn_Remover;
-        private Button button1;
-        private ComboBox cbx_produtos_addvenda;
-        private Label label7;
-        private ComboBox comboBox5;
-        private ComboBox comboBox6;
-        private ComboBox comboBox7;
-        private ComboBox comboBox8;
-        private CheckBox cbox_delivery;
-        private DataGridViewTextBoxColumn Produto;
-        private DataGridViewTextBoxColumn Preco;
-        private GroupBox groupBox2;
-        private Label label8;
-        private ComboBox comboBox1;
-        private Label lbl_categoria;
-        private Label lbl_tamanho;
-        private ComboBox cbbox_categoria;
-        private ComboBox cbbox_tamanho;
+        private Button btn_salvar_pedido;
+        private Button btn_cancelar_pedido;
+        private ComboBox cbbox_cliente;
+        private ComboBox cbbox_categoria_produto;
+        private ComboBox cbbox_nome_produto;
+        private ComboBox cbbox_tamanho_produto;
+        private Label lbl_nome_produto;
+        private Label lbl_tamanho_produto;
+        private Label lbl_categoria_produto;
+        private DataGridView dgv_carrinho_produtos;
+        private Button btn_remover_produto;
+        private Button btn_adicionar_produto;
+        private GroupBox grpbox_envolvidos;
+        private ComboBox cbbox_funcionario;
+        private Label lbl_cliente;
+        private Label lbl_funcionario;
+        private GroupBox grpbox_produtos;
+        private Panel panel1;
+        private Label lbl_quantidade_produto;
+        private TextBox txt_quantidade_produto;
     }
 }

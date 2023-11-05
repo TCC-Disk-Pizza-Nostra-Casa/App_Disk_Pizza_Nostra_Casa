@@ -24,64 +24,349 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private async void form_adicionar_venda_Load(object sender, EventArgs e)
+        private void form_adicionar_venda_Load(object sender, EventArgs e)
         {
 
-            List<Model.Produto>? produtoList = await Model.Produto.GetList();
-            List<Model.Cliente>? clienteList = await Model.Cliente.GetList();
-
-            /** Items do cbx de Produto */
-            //cbx_produtos_addvenda.Items.Add(produtoList[0].nome);
-            //cbx_produtos_addvenda.Items.Add(produtoList[1].nome);
-
-
-        }
-
-
-        /**
-         * 
-         * Irá salvar as informações da venda, enviar pra API.
-         * Na listagem recuperaremos esses dados.
-         * 
-         * Esse botão só deve ser acionado quando o Funcionário for 
-         * adicionar a venda, somente quando tiver certeza.
-         * 
-         * O Funcionário ira pedir ao cliente se pode concluir a venda,
-         * se a resposta for afirmativa, a venda é feita, sendo cadastrada.
-         * 
-         */
-        private async void btn_Salvar_Click(object sender, EventArgs e)
-        {
-
-            Model.Venda venda = new Model.Venda()
-            {
-                /**
-                data_venda = // data_atual
-                delivery = cbox_delivery.checked,
-                valor_total = // soma
-                funcionario = // funcionario atual
-                cliente = cbx_clientes_addvenda,
-                produto = // dgv_adicionar_vendas.produtoList[];
-                quantidade_produto = dgv_adicionar_vendas.RowCount,
-                valor_total_item_venda = // produtoList[].preco + [...].preco;
-                */
-
-            };
-
-            Model.Venda venda_model = await Data_Service_Venda.SaveAsyncVenda(venda);
-
-            if (venda_model != null)
+            try
             {
 
-                MessageBox.Show("Venda feita com sucesso!", "Sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                this.MinimumSize = new Size(800, 500);
+
+                this.Size = new Size(800, 500);
+
+                cbbox_funcionario.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_cliente.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_categoria_produto.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_tamanho_produto.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_nome_produto.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_categoria_produto.DataSource = new string[] { "Pizza comum", "Pizza especial", "Pizza doce", "Bebida", "Doce" };
+
+                cbbox_tamanho_produto.DataSource = new string[] { "Grande", "Broto" };
+
+                cbbox_funcionario.DisplayMember = "nome";
+
+                cbbox_funcionario.ValueMember = "id";
+
+                cbbox_cliente.DisplayMember = "nome";
+
+                cbbox_cliente.ValueMember = "id";
+
+                cbbox_nome_produto.DisplayMember = "nome";
+
+                cbbox_nome_produto.ValueMember = "id";
+
+                ComboBoxes_Fill();
+
+                DataGridView_Configuration();
 
             }
 
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private async void ComboBoxes_Fill()
         {
+
+            try
+            {
+
+                List<Model.Funcionario> funcionarios_cadastrados = await Model.Funcionario.GetList();
+
+                if (funcionarios_cadastrados.Count > 0)
+                {
+
+                    List<Model.Funcionario> funcionarios_ativos = new List<Model.Funcionario>();
+
+                    for (int i = 0; i < funcionarios_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(funcionarios_cadastrados[i].ativo))
+                        {
+
+                            funcionarios_ativos.Add(funcionarios_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    cbbox_funcionario.DataSource = funcionarios_ativos;
+
+                }
+
+                List<Model.Cliente> clientes_cadastrados = await Model.Cliente.GetList();
+
+                if (clientes_cadastrados.Count > 0)
+                {
+
+                    List<Model.Cliente> clientes_ativos = new List<Model.Cliente>();
+
+                    for (int i = 0; i < clientes_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(clientes_cadastrados[i].ativo))
+                        {
+
+                            clientes_ativos.Add(clientes_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    cbbox_cliente.DataSource = clientes_ativos;
+
+                }
+
+                List<Model.Produto> produtos_cadastrados = await Model.Produto.GetList();
+
+                if (produtos_cadastrados.Count > 0)
+                {
+
+                    List<Model.Produto> produtos_ativos = new List<Model.Produto>();
+
+                    for (int i = 0; i < produtos_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(produtos_cadastrados[i].ativo))
+                        {
+
+                            produtos_ativos.Add(produtos_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    cbbox_nome_produto.DataSource = produtos_ativos;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_categoria_produto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (cbbox_categoria_produto.SelectedIndex == 3 || cbbox_categoria_produto.SelectedIndex == 4)
+                {
+
+                    cbbox_tamanho_produto.DataSource = new string[] { "Único" };
+
+                }
+
+                else
+                {
+
+                    cbbox_tamanho_produto.DataSource = new string[] { "Grande", "Broto" };
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void txt_quantidade_produto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (Char.IsNumber(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+
+                e.Handled = false;
+
+            }
+
+            else
+            {
+
+                e.Handled = true;
+
+            }
+
+        }
+
+        private void DataGridView_Configuration()
+        {
+
+            try
+            {
+
+                // Configurações iniciais.
+
+                dgv_carrinho_produtos.Font = new Font(new FontFamily("Arial"), 12f);
+
+                dgv_carrinho_produtos.ForeColor = Color.Black;
+
+                dgv_carrinho_produtos.Columns.Clear();
+
+                dgv_carrinho_produtos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+                //dgv_listagem_produtos.SelectionMode = DataGridViewSelectionMode.CellSelect;
+
+                dgv_carrinho_produtos.ReadOnly = true;
+
+                // Permissões do usuário.
+
+                dgv_carrinho_produtos.AllowUserToAddRows = false;
+
+                dgv_carrinho_produtos.AllowUserToDeleteRows = false;
+
+                dgv_carrinho_produtos.AllowUserToOrderColumns = true;
+
+                dgv_carrinho_produtos.AllowUserToResizeRows = true;
+
+                // Colunas.
+
+                dgv_carrinho_produtos.Columns.Insert(0, new DataGridViewTextBoxColumn());
+
+                dgv_carrinho_produtos.Columns.Insert(1, new DataGridViewTextBoxColumn());
+
+                dgv_carrinho_produtos.Columns.Insert(2, new DataGridViewTextBoxColumn());
+
+                dgv_carrinho_produtos.Columns.Insert(3, new DataGridViewTextBoxColumn());
+
+                dgv_carrinho_produtos.Columns.Insert(4, new DataGridViewTextBoxColumn());
+
+                dgv_carrinho_produtos.Columns.Insert(5, new DataGridViewTextBoxColumn());
+
+                dgv_carrinho_produtos.Columns.Insert(6, new DataGridViewTextBoxColumn());
+
+                // Dados das colunas.
+
+                dgv_carrinho_produtos.Columns[0].HeaderText = "ID_produto:";
+                dgv_carrinho_produtos.Columns[0].Name = "dgv_carrinho_produtos_id_produto";
+                dgv_carrinho_produtos.Columns[0].Visible = false;
+
+                dgv_carrinho_produtos.Columns[1].HeaderText = "Produto:";
+                dgv_carrinho_produtos.Columns[1].Name = "dgv_carrinho_produtos_nome";
+                dgv_carrinho_produtos.Columns[1].Visible = true;
+
+                dgv_carrinho_produtos.Columns[2].HeaderText = "Tamanho";
+                dgv_carrinho_produtos.Columns[2].Name = "dgv_carrinho_produtos_tamanho";
+                dgv_carrinho_produtos.Columns[2].Visible = true;
+
+                dgv_carrinho_produtos.Columns[3].HeaderText = "Categoria:";
+                dgv_carrinho_produtos.Columns[3].Name = "dgv_carrinho_produtos_categoria";
+                dgv_carrinho_produtos.Columns[3].Visible = true;
+
+                dgv_carrinho_produtos.Columns[4].HeaderText = "Quantidade:";
+                dgv_carrinho_produtos.Columns[4].Name = "dgv_carrinho_produtos_quantidade";
+                dgv_carrinho_produtos.Columns[4].Visible = true;
+
+                dgv_carrinho_produtos.Columns[5].HeaderText = "Preço:";
+                dgv_carrinho_produtos.Columns[5].Name = "dgv_carrinho_produtos_preco";
+                dgv_carrinho_produtos.Columns[5].Visible = true;
+
+                dgv_carrinho_produtos.Columns[6].HeaderText = "Valor:";
+                dgv_carrinho_produtos.Columns[6].Name = "dgv_carrinho_produtos_valor";
+                dgv_carrinho_produtos.Columns[6].Visible = true;
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_adicionar_produto_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_remover_produto_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (dgv_carrinho_produtos.RowCount > 0)
+                {
+
+
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_salvar_pedido_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Modules.Venda.form_confirmacao_venda formulario_confirmacao = new Modules.Venda.form_confirmacao_venda();
+
+                formulario_confirmacao.valor_total = 100;
+
+                formulario_confirmacao.Show();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_cancelar_pedido_Click(object sender, EventArgs e)
+        {
+
             try
             {
 
@@ -100,60 +385,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
-        }
-
-        private void lbl_valortotal_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        /**
-         * ComboBox que ira recuperar uma lista de clientes cadastrados para selecioná-los
-         */
-        private void cbx_cliente_addvenda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /**
-         * ComboBox que ira recuperar uma lista de produtos cadastrados para selecioná-los
-         */
-        private async void cbx_produtos_addvenda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            List<Model.Produto>? produtoList = await Model.Produto.GetList();
-            /** Adicionando o que selecionou */
-            string itemSelecionado = cbx_produtos_addvenda.Text;
-            dgv_adicionar_vendas.Rows.Add(itemSelecionado, produtoList[0].preco);
-
-
-        }
-
-        private void btnInserir_dgv_Click(object sender, EventArgs e)
-        {
-            //Adicionando ao dgv os dados do cbx
-            dgv_adicionar_vendas.Rows.Add("");
-            cbx_produtos_addvenda.Text = "";
-
-
-
-        }
-
-        private void btn_Remover_Click(object sender, EventArgs e)
-        {
-
-            if (dgv_adicionar_vendas.RowCount > 0)
-            {
-
-                if ((MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
-                {
-                    dgv_adicionar_vendas.Rows.RemoveAt(dgv_adicionar_vendas.CurrentRow.Index);
-                }
-
-            }
-            else if (dgv_adicionar_vendas.RowCount == 0)
-            {
-                MessageBox.Show("Não existem registros a serem removidos.", "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
