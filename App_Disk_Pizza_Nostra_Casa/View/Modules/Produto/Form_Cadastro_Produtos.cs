@@ -231,7 +231,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             {
 
                 if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
-                   MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     this.Close();
