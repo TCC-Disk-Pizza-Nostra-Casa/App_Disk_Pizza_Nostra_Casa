@@ -93,7 +93,7 @@
             dgv_listagem_funcionarios.RowHeadersWidth = 51;
             dgv_listagem_funcionarios.RowTemplate.Height = 25;
             dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_funcionarios.Size = new Size(760, 301);
+            dgv_listagem_funcionarios.Size = new Size(760, 297);
             dgv_listagem_funcionarios.TabIndex = 3;
             dgv_listagem_funcionarios.CellContentClick += dgv_listagem_funcionarios_CellContentClick;
             dgv_listagem_funcionarios.CellDoubleClick += dgv_listagem_funcionarios_CellDoubleClick;

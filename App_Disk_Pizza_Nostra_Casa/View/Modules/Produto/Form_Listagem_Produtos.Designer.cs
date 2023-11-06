@@ -173,7 +173,7 @@
             dgv_listagem_produtos.RowHeadersWidth = 51;
             dgv_listagem_produtos.RowTemplate.Height = 25;
             dgv_listagem_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_produtos.Size = new Size(760, 301);
+            dgv_listagem_produtos.Size = new Size(760, 298);
             dgv_listagem_produtos.TabIndex = 40;
             dgv_listagem_produtos.CellClick += dgv_listagem_produtos_CellClick;
             dgv_listagem_produtos.CellDoubleClick += dgv_listagem_produtos_CellDoubleClick;

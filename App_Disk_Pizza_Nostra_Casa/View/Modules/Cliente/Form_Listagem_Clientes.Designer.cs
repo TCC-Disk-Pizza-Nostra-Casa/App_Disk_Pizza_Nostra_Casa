@@ -173,7 +173,7 @@
             dgv_listagem_clientes.RowHeadersWidth = 51;
             dgv_listagem_clientes.RowTemplate.Height = 25;
             dgv_listagem_clientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_clientes.Size = new Size(760, 301);
+            dgv_listagem_clientes.Size = new Size(760, 297);
             dgv_listagem_clientes.TabIndex = 40;
             dgv_listagem_clientes.CellClick += dgv_listagem_clientes_CellClick;
             dgv_listagem_clientes.CellDoubleClick += dgv_listagem_clientes_CellDoubleClick;

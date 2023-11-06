@@ -173,7 +173,7 @@
             dgv_listagem_fornecedores.RowHeadersWidth = 51;
             dgv_listagem_fornecedores.RowTemplate.Height = 25;
             dgv_listagem_fornecedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_fornecedores.Size = new Size(760, 301);
+            dgv_listagem_fornecedores.Size = new Size(760, 296);
             dgv_listagem_fornecedores.TabIndex = 49;
             dgv_listagem_fornecedores.CellClick += dgv_listagem_fornecedores_CellClick;
             dgv_listagem_fornecedores.CellDoubleClick += dgv_listagem_fornecedores_CellDoubleClick;
