@@ -14,7 +14,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
     public partial class form_confirmacao_venda : Form
     {
 
-        public double valor_total = 0;
+        public List<int> ids_itens_venda;
+
+        private double valor_total = 0;
 
         public form_adicionar_venda? form_venda_atual = null;
 
