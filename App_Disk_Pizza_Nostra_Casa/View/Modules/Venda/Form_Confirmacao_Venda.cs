@@ -16,6 +16,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         public double valor_total = 0;
 
+        public form_adicionar_venda? form_venda_atual = null;
+
         public form_confirmacao_venda()
         {
 
@@ -35,7 +37,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.Size = new Size(400, 400);
 
-                lbl_valor_total.Text = valor_total.ToString("C2");
+                lbl_valor_total.Text = "Valor Total: " + valor_total.ToString("C2");
 
             }
 
@@ -55,25 +57,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             {
 
 
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-
-            try
-            {
-
-                this.Close();
 
             }
 

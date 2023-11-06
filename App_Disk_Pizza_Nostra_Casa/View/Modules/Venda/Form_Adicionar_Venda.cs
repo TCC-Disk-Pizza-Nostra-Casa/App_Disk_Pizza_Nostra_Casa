@@ -298,13 +298,36 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+        private Model.Produto? ReturnProductObject(int id)
+        {
+
+            return null;
+
+        }
+
         private void btn_adicionar_produto_Click(object sender, EventArgs e)
         {
 
             try
             {
 
+                /*Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
 
+                string id_produto = produto_selecionado.id.ToString();
+
+                string produto = produto_selecionado.nome;
+
+                string tamanho = produto_selecionado.tamanho;
+
+                string categoria = produto_selecionado.categoria;
+
+                string quantidade = txt_quantidade_produto.Text;
+
+                string preco = produto_selecionado.preco.ToString("C2");
+
+                string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
+
+                dgv_carrinho_produtos.Rows.Add();*/
 
             }
 

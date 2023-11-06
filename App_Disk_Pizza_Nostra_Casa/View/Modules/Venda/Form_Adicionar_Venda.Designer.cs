@@ -173,14 +173,14 @@
             dgv_carrinho_produtos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_carrinho_produtos.BackgroundColor = Color.White;
             dgv_carrinho_produtos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_carrinho_produtos.Location = new Point(12, 289);
+            dgv_carrinho_produtos.Location = new Point(12, 282);
             dgv_carrinho_produtos.MultiSelect = false;
             dgv_carrinho_produtos.Name = "dgv_carrinho_produtos";
             dgv_carrinho_produtos.ReadOnly = true;
             dgv_carrinho_produtos.RowHeadersWidth = 51;
             dgv_carrinho_produtos.RowTemplate.Height = 25;
             dgv_carrinho_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_carrinho_produtos.Size = new Size(760, 106);
+            dgv_carrinho_produtos.Size = new Size(760, 112);
             dgv_carrinho_produtos.TabIndex = 49;
             // 
             // btn_remover_produto
