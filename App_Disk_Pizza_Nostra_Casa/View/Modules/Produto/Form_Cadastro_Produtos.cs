@@ -200,7 +200,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                     categoria = cbbox_categoria.Text,
 
-                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? null : txt_observacoes.Text,
+                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
 
                     fk_fornecedor = Convert.ToInt32(cbbox_fornecedor.SelectedValue)
 

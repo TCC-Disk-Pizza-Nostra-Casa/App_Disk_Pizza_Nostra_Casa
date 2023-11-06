@@ -17,6 +17,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
     public partial class form_adicionar_venda : Form
     {
 
+        private List<Model.Produto>? produtos_ativos = null;
+
         public form_adicionar_venda()
         {
 
@@ -146,7 +148,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                     }
 
-                    cbbox_nome_produto.DataSource = produtos_ativos;
+                    this.produtos_ativos = produtos_ativos;
+
+                    cbbox_nome_produto.DataSource = this.produtos_ativos;
 
                 }
 
@@ -301,7 +305,33 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private Model.Produto? ReturnProductObject(int id)
         {
 
-            return null;
+            if (this.produtos_ativos != null)
+            {
+
+                Model.Produto? retorno = null;
+
+                for (int i = 0; i < this.produtos_ativos.Count; i++)
+                {
+
+                    if (this.produtos_ativos[i].id == id)
+                    {
+
+                        retorno = this.produtos_ativos[i];
+
+                    }
+
+                }
+
+                return retorno;
+
+            }
+
+            else
+            {
+
+                return null;
+
+            }
 
         }
 
@@ -311,7 +341,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                /*Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
+                Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
 
                 string id_produto = produto_selecionado.id.ToString();
 
@@ -327,7 +357,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
 
-                dgv_carrinho_produtos.Rows.Add();*/
+                dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
 
             }
 
@@ -364,6 +394,22 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+        private List<int> ConvertToListObjects(DataGridViewRowCollection itens)
+        {
+
+            List<int>? ids_itens_carrinho = new List<int>();
+
+            foreach (DataGridViewRow item in dgv_carrinho_produtos.Rows)
+            {
+
+                ids_itens_carrinho.Add(Convert.ToInt32(item.Cells[0]));
+
+            }
+
+            return ids_itens_carrinho;
+
+        }
+
         private void btn_salvar_pedido_Click(object sender, EventArgs e)
         {
 
@@ -372,7 +418,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 Modules.Venda.form_confirmacao_venda formulario_confirmacao = new Modules.Venda.form_confirmacao_venda();
 
-                formulario_confirmacao.valor_total = 100;
+                formulario_confirmacao.ids_itens_venda = ConvertToListObjects(dgv_carrinho_produtos.Rows);
+
+                formulario_confirmacao.form_venda_atual = this;
 
                 formulario_confirmacao.Show();
 
