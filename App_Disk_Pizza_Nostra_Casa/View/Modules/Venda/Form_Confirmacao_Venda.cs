@@ -113,7 +113,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 Model.Venda retorno = await dados.Save();
 
-                if (retorno.id != null)
+                if (retorno != null && retorno.id != null)
                 {
 
                     int itens_cadastrados_sucesso = 0;
@@ -145,6 +145,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                     if (itens_cadastrados_sucesso == this.ids_itens_venda.Count)
                     {
+
+                        this.form_venda_atual.Close();
 
                         this.Close();
 

@@ -66,6 +66,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 DataGridView_Configuration();
 
+                btn_remover_produto.Enabled = false;
+
             }
 
             catch (Exception ex)
@@ -379,13 +381,49 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private void ResetProductOptions()
         {
 
-            cbbox_categoria_produto.SelectedIndex = 0;
+            try
+            {
 
-            cbbox_tamanho_produto.SelectedIndex = 0;
+                cbbox_categoria_produto.SelectedIndex = 0;
 
-            cbbox_nome_produto.SelectedIndex = 0;
+                cbbox_tamanho_produto.SelectedIndex = 0;
 
-            txt_quantidade_produto.Clear();
+                cbbox_nome_produto.SelectedIndex = 0;
+
+                txt_quantidade_produto.Clear();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void dgv_carrinho_produtos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+
+                if (dgv_carrinho_produtos.RowCount > 0)
+                {
+
+                    btn_remover_produto.Enabled = true;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
@@ -395,25 +433,37 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
+                if (String.IsNullOrEmpty(cbbox_nome_produto.Text) || String.IsNullOrEmpty(txt_quantidade_produto.Text))
+                {
 
-                string id_produto = produto_selecionado.id.ToString();
+                    throw new Exception("Preencha todos os campos exigidos antes de prosseguir.");
 
-                string produto = produto_selecionado.nome;
+                }
 
-                string tamanho = produto_selecionado.tamanho;
+                else
+                {
 
-                string categoria = produto_selecionado.categoria;
+                    Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
 
-                string quantidade = txt_quantidade_produto.Text;
+                    string id_produto = produto_selecionado.id.ToString();
 
-                string preco = produto_selecionado.preco.ToString("C2");
+                    string produto = produto_selecionado.nome;
 
-                string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
+                    string tamanho = produto_selecionado.tamanho;
 
-                dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
+                    string categoria = produto_selecionado.categoria;
 
-                ResetProductOptions();
+                    string quantidade = txt_quantidade_produto.Text;
+
+                    string preco = produto_selecionado.preco.ToString("C2");
+
+                    string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
+
+                    dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
+
+                    ResetProductOptions();
+
+                }
 
             }
 
@@ -435,7 +485,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 if (dgv_carrinho_produtos.RowCount > 0)
                 {
 
+                    dgv_carrinho_produtos.Rows.RemoveAt(dgv_carrinho_produtos.CurrentRow.Index);
 
+                    btn_remover_produto.Enabled = false;
 
                 }
 
@@ -504,19 +556,31 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                Modules.Venda.form_confirmacao_venda formulario_confirmacao = new Modules.Venda.form_confirmacao_venda();
+                if (dgv_carrinho_produtos.RowCount > 0)
+                {
 
-                formulario_confirmacao.ids_envolvidos = new int[] { Convert.ToInt32(cbbox_funcionario.SelectedValue), Convert.ToInt32(cbbox_cliente.SelectedValue) };
+                    Modules.Venda.form_confirmacao_venda formulario_confirmacao = new Modules.Venda.form_confirmacao_venda();
 
-                formulario_confirmacao.ids_itens_venda = GetObjectsID(dgv_carrinho_produtos.Rows);
+                    formulario_confirmacao.ids_envolvidos = new int[] { Convert.ToInt32(cbbox_funcionario.SelectedValue), Convert.ToInt32(cbbox_cliente.SelectedValue) };
 
-                formulario_confirmacao.quantidades_itens_venda = GetObjectsQuantity(dgv_carrinho_produtos.Rows);
+                    formulario_confirmacao.ids_itens_venda = GetObjectsID(dgv_carrinho_produtos.Rows);
 
-                formulario_confirmacao.valores_itens_venda = GetObjectsTotalValue(dgv_carrinho_produtos.Rows);
+                    formulario_confirmacao.quantidades_itens_venda = GetObjectsQuantity(dgv_carrinho_produtos.Rows);
 
-                formulario_confirmacao.form_venda_atual = this;
+                    formulario_confirmacao.valores_itens_venda = GetObjectsTotalValue(dgv_carrinho_produtos.Rows);
 
-                formulario_confirmacao.Show();
+                    formulario_confirmacao.form_venda_atual = this;
+
+                    formulario_confirmacao.Show();
+
+                }
+
+                else
+                {
+
+                    throw new Exception("Nenhum item foi selecionado até o momento! Escolha algum produto e tente novamente.");
+
+                }
 
             }
 
