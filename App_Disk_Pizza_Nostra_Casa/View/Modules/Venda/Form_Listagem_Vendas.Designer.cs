@@ -58,7 +58,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_pesquisar_vendas.Size = new Size(23, 23);
             btn_pesquisar_vendas.TabIndex = 4;
             btn_pesquisar_vendas.UseVisualStyleBackColor = false;
-            btn_pesquisar_vendas.Click += btn_pesquisar_vendas_Click;
             // 
             // txt_pesquisar_vendas
             // 
@@ -164,7 +163,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_excluir.TabIndex = 7;
             btn_excluir.Text = "Excluir";
             btn_excluir.UseVisualStyleBackColor = false;
-            btn_excluir.Click += btn_excluir_Click;
             // 
             // dtp_to_search
             // 
@@ -173,7 +171,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dtp_to_search.Name = "dtp_to_search";
             dtp_to_search.Size = new Size(0, 23);
             dtp_to_search.TabIndex = 8;
-            dtp_to_search.ValueChanged += dtp_to_search_ValueChanged;
             // 
             // cbx_funcionario
             // 
@@ -184,7 +181,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbx_funcionario.Size = new Size(247, 23);
             cbx_funcionario.TabIndex = 9;
             cbx_funcionario.Text = "Selecione o funcionário:";
-            cbx_funcionario.SelectedIndexChanged += cbx_funcionario_SelectedIndexChanged;
             // 
             // form_listagem_vendas
             // 

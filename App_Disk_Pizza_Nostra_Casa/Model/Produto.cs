@@ -29,7 +29,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string data_modificacao { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        public int ativo = 1;
+        public int ativo { get; set; } = 1;
 
         public int fk_fornecedor { get; set; } = 0;
 

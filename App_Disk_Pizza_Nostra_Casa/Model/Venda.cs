@@ -23,13 +23,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string data_venda { get; set; } = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        public int ativo = 1;
+        public int ativo { get; set; } = 1;
 
         public int fk_funcionario { get; set; }
 
         public int fk_cliente { get; set; }
 
-        public async Task<bool>? Save()
+        public async Task<Model.Venda>? Save()
         {
 
             if (this.fk_funcionario < 1 || this.fk_cliente < 1)
@@ -51,16 +51,16 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
                     if (venda_retornada.id != null)
                     {
 
-                        MessageBox.Show("Dados salvos com sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Venda salva com sucesso!", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                        return true;
+                        return venda_retornada;
 
                     }
 
                     else
                     {
 
-                        throw new Exception("Não foi possível salvar estes dados! Revise-os e tente novamente.");
+                        throw new Exception("Não foi possível salvar os dados da venda! Revise-os e tente novamente.");
 
                     }
 
@@ -69,7 +69,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
                 else
                 {
 
-                    return false;
+                    return null;
 
                 }
 

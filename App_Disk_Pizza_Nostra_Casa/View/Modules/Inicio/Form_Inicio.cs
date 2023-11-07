@@ -497,6 +497,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                             form_funcionario.usuario_sessao = this.usuario_sessao;
 
+                            form_funcionario.condicao_administrador = false;
+
                             External_Form_Association(form_funcionario);
 
                         }

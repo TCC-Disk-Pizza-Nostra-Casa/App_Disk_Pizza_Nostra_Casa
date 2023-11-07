@@ -19,6 +19,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
         public Model.Funcionario? usuario_sessao = null;
 
+        public bool condicao_administrador = true;
+
         public form_cadastro_funcionarios()
         {
 
@@ -43,6 +45,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 cbbox_sexo.DataSource = new string[] { "Masculino", "Feminino", "Não informar" };
 
                 cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
+
+                ckbox_administrador.Visible = this.condicao_administrador;
 
                 Form_Fill();
 
