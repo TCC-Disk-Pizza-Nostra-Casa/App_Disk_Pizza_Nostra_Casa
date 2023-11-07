@@ -33,9 +33,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             txt_pesquisar_vendas = new TextBox();
             lbl_pesquisar_vendas = new Label();
             dgv_listagem_vendas = new DataGridView();
-            btn_excluir = new Button();
-            dtp_to_search = new DateTimePicker();
-            cbx_funcionario = new ComboBox();
             id = new DataGridViewTextBoxColumn();
             codigo = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_nome = new DataGridViewTextBoxColumn();
@@ -43,6 +40,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_produtos_estoque = new DataGridViewTextBoxColumn();
             Funcionario = new DataGridViewTextBoxColumn();
             dgv_listagem_produtos_preco = new DataGridViewTextBoxColumn();
+            btn_excluir = new Button();
+            dtp_to_search = new DateTimePicker();
+            cbx_funcionario = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)dgv_listagem_vendas).BeginInit();
             SuspendLayout();
             // 
@@ -96,41 +96,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(1062, 404);
+            dgv_listagem_vendas.Size = new Size(762, 304);
             dgv_listagem_vendas.TabIndex = 6;
-            // 
-            // btn_excluir
-            // 
-            btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
-            btn_excluir.BackColor = Color.White;
-            btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
-            btn_excluir.Location = new Point(965, 509);
-            btn_excluir.Name = "btn_excluir";
-            btn_excluir.Size = new Size(107, 40);
-            btn_excluir.TabIndex = 7;
-            btn_excluir.Text = "Excluir";
-            btn_excluir.UseVisualStyleBackColor = false;
-            btn_excluir.Click += btn_excluir_Click;
-            // 
-            // dtp_to_search
-            // 
-            dtp_to_search.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            dtp_to_search.Location = new Point(512, 12);
-            dtp_to_search.Name = "dtp_to_search";
-            dtp_to_search.Size = new Size(271, 23);
-            dtp_to_search.TabIndex = 8;
-            dtp_to_search.ValueChanged += dtp_to_search_ValueChanged;
-            // 
-            // cbx_funcionario
-            // 
-            cbx_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cbx_funcionario.FormattingEnabled = true;
-            cbx_funcionario.Location = new Point(825, 12);
-            cbx_funcionario.Name = "cbx_funcionario";
-            cbx_funcionario.Size = new Size(247, 23);
-            cbx_funcionario.TabIndex = 9;
-            cbx_funcionario.Text = "Selecione o funcionário:";
-            cbx_funcionario.SelectedIndexChanged += cbx_funcionario_SelectedIndexChanged;
             // 
             // id
             // 
@@ -186,11 +153,44 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_produtos_preco.Name = "dgv_listagem_produtos_preco";
             dgv_listagem_produtos_preco.ReadOnly = true;
             // 
+            // btn_excluir
+            // 
+            btn_excluir.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btn_excluir.BackColor = Color.White;
+            btn_excluir.ForeColor = SystemColors.ActiveCaptionText;
+            btn_excluir.Location = new Point(665, 409);
+            btn_excluir.Name = "btn_excluir";
+            btn_excluir.Size = new Size(107, 40);
+            btn_excluir.TabIndex = 7;
+            btn_excluir.Text = "Excluir";
+            btn_excluir.UseVisualStyleBackColor = false;
+            btn_excluir.Click += btn_excluir_Click;
+            // 
+            // dtp_to_search
+            // 
+            dtp_to_search.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dtp_to_search.Location = new Point(512, 12);
+            dtp_to_search.Name = "dtp_to_search";
+            dtp_to_search.Size = new Size(0, 23);
+            dtp_to_search.TabIndex = 8;
+            dtp_to_search.ValueChanged += dtp_to_search_ValueChanged;
+            // 
+            // cbx_funcionario
+            // 
+            cbx_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cbx_funcionario.FormattingEnabled = true;
+            cbx_funcionario.Location = new Point(525, 12);
+            cbx_funcionario.Name = "cbx_funcionario";
+            cbx_funcionario.Size = new Size(247, 23);
+            cbx_funcionario.TabIndex = 9;
+            cbx_funcionario.Text = "Selecione o funcionário:";
+            cbx_funcionario.SelectedIndexChanged += cbx_funcionario_SelectedIndexChanged;
+            // 
             // form_listagem_vendas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1084, 561);
+            ClientSize = new Size(784, 461);
             Controls.Add(cbx_funcionario);
             Controls.Add(dtp_to_search);
             Controls.Add(btn_excluir);

@@ -45,7 +45,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 cbbox_tamanho.DataSource = new string[] { "Grande", "Broto" };
 
-                cbbox_categoria.DataSource = new string[] { "Pizza comum", "Pizza especial", "Pizza doce", "Bebida", "Doce" };
+                cbbox_categoria.DataSource = new string[] { "Pizza Tradicional", "Pizza Variada", "Pizza Especial", "Pizza Doce", "Bebida", "Doce" };
 
                 cbbox_fornecedor.DisplayMember = "nome";
 
@@ -156,7 +156,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if (cbbox_categoria.SelectedIndex == 3 || cbbox_categoria.SelectedIndex == 4)
+                if (cbbox_categoria.SelectedIndex == cbbox_categoria.Items.Count - 2 ||
+                    cbbox_categoria.SelectedIndex == cbbox_categoria.Items.Count - 1)
                 {
 
                     cbbox_tamanho.DataSource = new string[] { "Único" };

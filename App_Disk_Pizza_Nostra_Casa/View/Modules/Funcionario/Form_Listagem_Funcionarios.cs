@@ -217,11 +217,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.Columns[5].HeaderText = "CEP:";
                 dgv_listagem_funcionarios.Columns[5].Name = "dgv_listagem_funcionarios_cep";
-                dgv_listagem_funcionarios.Columns[5].Visible = true;
+                dgv_listagem_funcionarios.Columns[5].Visible = false;
 
                 dgv_listagem_funcionarios.Columns[6].HeaderText = "E-mail:";
                 dgv_listagem_funcionarios.Columns[6].Name = "dgv_listagem_funcionarios_email";
-                dgv_listagem_funcionarios.Columns[6].Visible = true;
+                dgv_listagem_funcionarios.Columns[6].Visible = false;
 
                 dgv_listagem_funcionarios.Columns[7].HeaderText = "Telefone:";
                 dgv_listagem_funcionarios.Columns[7].Name = "dgv_listagem_funcionarios_telefone";

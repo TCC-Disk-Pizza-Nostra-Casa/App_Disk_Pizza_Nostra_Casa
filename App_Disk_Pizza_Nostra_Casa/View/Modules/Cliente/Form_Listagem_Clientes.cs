@@ -215,7 +215,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                 dgv_listagem_clientes.Columns[4].HeaderText = "CPF:";
                 dgv_listagem_clientes.Columns[4].Name = "dgv_listagem_clientes_cpf";
-                dgv_listagem_clientes.Columns[4].Visible = true;
+                dgv_listagem_clientes.Columns[4].Visible = false;
 
                 dgv_listagem_clientes.Columns[5].HeaderText = "CEP:";
                 dgv_listagem_clientes.Columns[5].Name = "dgv_listagem_clientes_cep";
@@ -223,7 +223,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                 dgv_listagem_clientes.Columns[6].HeaderText = "E-mail:";
                 dgv_listagem_clientes.Columns[6].Name = "dgv_listagem_clientes_email";
-                dgv_listagem_clientes.Columns[6].Visible = true;
+                dgv_listagem_clientes.Columns[6].Visible = false;
 
                 dgv_listagem_clientes.Columns[7].HeaderText = "Telefone:";
                 dgv_listagem_clientes.Columns[7].Name = "dgv_listagem_clientes_telefone";
