@@ -32,6 +32,8 @@
             txt_observacoes = new TextBox();
             lbl_observacoes = new Label();
             lbl_valor_total = new Label();
+            lbl_tipo_consumo = new Label();
+            cbbox_tipo_consumo = new ComboBox();
             SuspendLayout();
             // 
             // btn_salvar
@@ -55,11 +57,11 @@
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_observacoes.ForeColor = Color.Black;
-            txt_observacoes.Location = new Point(12, 146);
+            txt_observacoes.Location = new Point(12, 154);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre a venda...";
-            txt_observacoes.Size = new Size(360, 149);
+            txt_observacoes.Size = new Size(360, 141);
             txt_observacoes.TabIndex = 2;
             // 
             // lbl_observacoes
@@ -68,7 +70,7 @@
             lbl_observacoes.BackColor = Color.Transparent;
             lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_observacoes.ForeColor = Color.Black;
-            lbl_observacoes.Location = new Point(12, 115);
+            lbl_observacoes.Location = new Point(12, 124);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(116, 19);
             lbl_observacoes.TabIndex = 3;
@@ -82,16 +84,40 @@
             lbl_valor_total.ForeColor = Color.Black;
             lbl_valor_total.Location = new Point(12, 9);
             lbl_valor_total.Name = "lbl_valor_total";
-            lbl_valor_total.Size = new Size(360, 94);
+            lbl_valor_total.Size = new Size(360, 63);
             lbl_valor_total.TabIndex = 5;
             lbl_valor_total.Text = "Valor";
             lbl_valor_total.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lbl_tipo_consumo
+            // 
+            lbl_tipo_consumo.AutoSize = true;
+            lbl_tipo_consumo.BackColor = Color.Transparent;
+            lbl_tipo_consumo.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_tipo_consumo.ForeColor = Color.Black;
+            lbl_tipo_consumo.Location = new Point(12, 87);
+            lbl_tipo_consumo.Name = "lbl_tipo_consumo";
+            lbl_tipo_consumo.Size = new Size(90, 19);
+            lbl_tipo_consumo.TabIndex = 6;
+            lbl_tipo_consumo.Text = "Consumo:";
+            // 
+            // cbbox_tipo_consumo
+            // 
+            cbbox_tipo_consumo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_tipo_consumo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cbbox_tipo_consumo.FormattingEnabled = true;
+            cbbox_tipo_consumo.Location = new Point(108, 84);
+            cbbox_tipo_consumo.Name = "cbbox_tipo_consumo";
+            cbbox_tipo_consumo.Size = new Size(264, 26);
+            cbbox_tipo_consumo.TabIndex = 7;
             // 
             // form_confirmacao_venda
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(384, 361);
+            Controls.Add(cbbox_tipo_consumo);
+            Controls.Add(lbl_tipo_consumo);
             Controls.Add(lbl_valor_total);
             Controls.Add(lbl_observacoes);
             Controls.Add(txt_observacoes);
@@ -111,5 +137,7 @@
         private TextBox txt_observacoes;
         private Label lbl_observacoes;
         private Label lbl_valor_total;
+        private Label lbl_tipo_consumo;
+        private ComboBox cbbox_tipo_consumo;
     }
 }

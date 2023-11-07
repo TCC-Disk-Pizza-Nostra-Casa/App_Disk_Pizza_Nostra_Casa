@@ -24,7 +24,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private async void form_listagem_vendas_Load(object sender, EventArgs e)
+        private void form_listagem_vendas_Load(object sender, EventArgs e)
         {
 
             try
@@ -34,12 +34,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.Size = new Size(800, 500);
 
-                //List<Model.Venda>? lista_vendas = await Model.Venda.GetList();
-
-                //this.fillDgvVenda(lista_vendas);
-
-
-
             }
 
             catch (Exception ex)
@@ -48,111 +42,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
-        }
-        private async void btn_pesquisar_vendas_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                this.MinimumSize = new Size(800, 500);
-                this.Size = new Size(800, 500);
-
-                dgv_listagem_vendas.Rows.Clear();
-                string termo = txt_pesquisar_vendas.Text.ToString();
-
-                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchByClientAsyncVenda(termo);
-
-                this.fillDgvVenda(lista_vendas);
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-
-        }
-
-        private async void dtp_to_search_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-
-                this.MinimumSize = new Size(800, 500);
-                this.Size = new Size(800, 500);
-
-                dgv_listagem_vendas.Rows.Clear();
-                string data_venda = dtp_to_search.Text.ToString();
-
-                DateTime date = DateTime.Parse(data_venda);
-
-                data_venda = date.ToString("yyyy-MM-dd");
-
-                List<Model.Venda> lista_vendas = await Data_Service_Venda.SearchByDateAsyncVenda(data_venda);
-
-                this.fillDgvVenda(lista_vendas);
-
-            }
-
-            catch (Exception ex)
-            {
-
-                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-        }
-
-        private async void btn_excluir_Click(object sender, EventArgs e)
-        {
-
-            if ((MessageBox.Show("Tem certeza?", "Venda será excluída!", MessageBoxButtons.YesNo)) == DialogResult.Yes)
-            {
-
-                int id = Convert.ToInt32(dgv_listagem_vendas.CurrentRow.Cells["id"].Value);
-
-                await Data_Service_Venda.DeleteAsyncVenda(id);
-
-                dgv_listagem_vendas.Rows.RemoveAt(dgv_listagem_vendas.CurrentRow.Index);
-
-            }
-
-        }
-
-        public void fillDgvVenda(List<Model.Venda> lista_vendas)
-        {
-
-            /*if (lista_vendas.Count > 0)
-            {
-
-                for (int i = 0; i < lista_vendas.Count; i++)
-                {
-
-                    string id = lista_vendas[i].id.ToString();
-                    string data_venda = lista_vendas[i].data_venda.ToString();
-
-                    string delivery = (Convert.ToBoolean(lista_vendas[i].delivery)) ? "Sim" : "Não";
-
-                    string cliente = lista_vendas[i].cliente.ToString();
-
-                    string funcionario = lista_vendas[i].funcionario.ToString();
-
-                    string valor_total = lista_vendas[i].valor_total.ToString();
-
-                    dgv_listagem_vendas.Rows.Add(id, i + 1, data_venda, cliente, delivery, funcionario, valor_total);
-
-                }
-
-            }*/
-
-        }
-
-        private void cbx_funcionario_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-
 
         }
 

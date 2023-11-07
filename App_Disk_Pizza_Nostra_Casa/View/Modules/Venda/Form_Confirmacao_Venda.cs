@@ -14,7 +14,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
     public partial class form_confirmacao_venda : Form
     {
 
-        public List<int> ids_itens_venda;
+        public int[]? ids_envolvidos = null;
+
+        public List<int>? ids_itens_venda = null;
+
+        public List<int>? quantidades_itens_venda = null;
+
+        public List<double>? valores_itens_venda = null;
 
         private double valor_total = 0;
 
@@ -39,7 +45,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 this.Size = new Size(400, 400);
 
-                lbl_valor_total.Text = "Valor Total: " + valor_total.ToString("C2");
+                Calculate_Total_Value();
+
+                lbl_valor_total.Text = "Valor Total: " + this.valor_total.ToString("C2");
+
+                cbbox_tipo_consumo.DropDownStyle = ComboBoxStyle.DropDownList;
+
+                cbbox_tipo_consumo.DataSource = new string[] { "Local", "Delivery (Entrega)" };
 
             }
 
@@ -52,13 +64,93 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void btn_salvar_Click(object sender, EventArgs e)
+        private void Calculate_Total_Value()
         {
 
             try
             {
 
+                for (int i = 0; i < this.valores_itens_venda.Count; i++)
+                {
 
+                    this.valor_total += this.valores_itens_venda[i];
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void btn_salvar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Model.Venda dados = new Model.Venda()
+                {
+
+                    id = 0,
+
+                    delivery = cbbox_tipo_consumo.SelectedIndex,
+
+                    valor_total = this.valor_total,
+
+                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+
+                    fk_funcionario = this.ids_envolvidos[0],
+
+                    fk_cliente = this.ids_envolvidos[1]
+
+                };
+
+                Model.Venda retorno = await dados.Save();
+
+                if (retorno.id != null)
+                {
+
+                    int itens_cadastrados_sucesso = 0;
+
+                    for (int i = 0; i < this.ids_itens_venda.Count; i++)
+                    {
+
+                        Model.Venda_Produto_Assoc item_venda = new Model.Venda_Produto_Assoc()
+                        {
+
+                            fk_venda = retorno.id,
+
+                            fk_produto = this.ids_itens_venda[i],
+
+                            quantidade_produto = this.quantidades_itens_venda[i],
+
+                            valor_total_item_venda = this.valores_itens_venda[i]
+
+                        };
+
+                        if (await item_venda.Save())
+                        {
+
+                            itens_cadastrados_sucesso++;
+
+                        }
+
+                    }
+
+                    if (itens_cadastrados_sucesso == this.ids_itens_venda.Count)
+                    {
+
+                        this.Close();
+
+                    }
+
+                }
 
             }
 
