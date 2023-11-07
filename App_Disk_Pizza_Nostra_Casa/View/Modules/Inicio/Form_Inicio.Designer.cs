@@ -79,7 +79,7 @@
             pnl_menu_lateral.Dock = DockStyle.Left;
             pnl_menu_lateral.Location = new Point(0, 0);
             pnl_menu_lateral.Name = "pnl_menu_lateral";
-            pnl_menu_lateral.Size = new Size(211, 784);
+            pnl_menu_lateral.Size = new Size(211, 761);
             pnl_menu_lateral.TabIndex = 0;
             // 
             // pnl_opcoes
@@ -101,7 +101,7 @@
             pnl_opcoes.Dock = DockStyle.Fill;
             pnl_opcoes.Location = new Point(0, 147);
             pnl_opcoes.Name = "pnl_opcoes";
-            pnl_opcoes.Size = new Size(211, 637);
+            pnl_opcoes.Size = new Size(211, 614);
             pnl_opcoes.TabIndex = 12;
             // 
             // btn_perfil
@@ -578,7 +578,7 @@
             pnl_formulario_externo.Dock = DockStyle.Fill;
             pnl_formulario_externo.Location = new Point(211, 147);
             pnl_formulario_externo.Name = "pnl_formulario_externo";
-            pnl_formulario_externo.Size = new Size(973, 637);
+            pnl_formulario_externo.Size = new Size(973, 614);
             pnl_formulario_externo.TabIndex = 1;
             // 
             // pctbox_icone_espera
@@ -586,7 +586,7 @@
             pctbox_icone_espera.Anchor = AnchorStyles.None;
             pctbox_icone_espera.BackColor = Color.Transparent;
             pctbox_icone_espera.Image = (Image)resources.GetObject("pctbox_icone_espera.Image");
-            pctbox_icone_espera.Location = new Point(310, 167);
+            pctbox_icone_espera.Location = new Point(310, 156);
             pctbox_icone_espera.Name = "pctbox_icone_espera";
             pctbox_icone_espera.Size = new Size(329, 267);
             pctbox_icone_espera.SizeMode = PictureBoxSizeMode.Zoom;
@@ -607,7 +607,7 @@
             AutoScaleDimensions = new SizeF(7F, 16F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1184, 784);
+            ClientSize = new Size(1184, 761);
             ControlBox = false;
             Controls.Add(pnl_formulario_externo);
             Controls.Add(pnl_titulo_formulario_externo);

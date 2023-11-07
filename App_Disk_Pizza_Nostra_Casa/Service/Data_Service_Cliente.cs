@@ -59,9 +59,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/cliente/list");
 
-            List<Cliente> list_clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            List<Cliente> lista_clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
 
-            return list_clientes;
+            return lista_clientes;
 
         }
 
@@ -72,9 +72,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/cliente/search");
 
-            List<Cliente> list_clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            List<Cliente> lista_clientes_encontrados = JsonConvert.DeserializeObject<List<Cliente>>(json);
 
-            return list_clientes;
+            return lista_clientes_encontrados;
 
         }
 

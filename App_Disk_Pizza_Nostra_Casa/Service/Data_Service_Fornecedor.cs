@@ -1,10 +1,12 @@
-﻿using App_Disk_Pizza_Nostra_Casa.Model;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
+using Newtonsoft.Json;
 
 namespace App_Disk_Pizza_Nostra_Casa.Service
 {
@@ -23,16 +25,29 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<bool>? DeleteAsyncFornecedor(int id)
+        public static async Task<bool>? EnableAsyncFornecedor(int id)
         {
 
             var post_json = JsonConvert.SerializeObject(id);
 
-            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/delete");
+            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/enable");
 
-            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
 
-            return resultado;
+            return exito;
+
+        }
+
+        public static async Task<bool>? DisableAsyncFornecedor(int id)
+        {
+
+            var post_json = JsonConvert.SerializeObject(id);
+
+            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/disable");
+
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
+
+            return exito;
 
         }
 
@@ -41,9 +56,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/fornecedor/list");
 
-            List<Fornecedor> model_retornada = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
+            List<Fornecedor> lista_fornecedores = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
 
-            return model_retornada;
+            return lista_fornecedores;
 
         }
 
@@ -54,32 +69,12 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/fornecedor/search");
 
-            List<Fornecedor> model_retornada = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
+            List<Fornecedor> lista_fornecedores_encontrados = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
 
-            return model_retornada;
+            return lista_fornecedores_encontrados;
 
         }
 
-        public static async Task<bool> EnableAsyncFornecedor(int id)
-        {
-            var post_json = JsonConvert.SerializeObject(id);
-
-            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/enable");
-
-            bool resultado = JsonConvert.DeserializeObject<bool>(json);
-
-            return resultado;
-        }
-
-        public static async Task<bool> DisableAsyncFornecedor(int id)
-        {
-            var post_json = JsonConvert.SerializeObject(id);
-
-            string json = await Data_Service.SendDataApi(post_json, "/fornecedor/disable");
-
-            bool resultado = JsonConvert.DeserializeObject<bool>(json);
-
-            return resultado;
-        }
     }
+
 }

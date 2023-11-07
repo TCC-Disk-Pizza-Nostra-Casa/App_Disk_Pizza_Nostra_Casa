@@ -152,6 +152,7 @@
             cbbox_tamanho_produto.Name = "cbbox_tamanho_produto";
             cbbox_tamanho_produto.Size = new Size(622, 26);
             cbbox_tamanho_produto.TabIndex = 1;
+            cbbox_tamanho_produto.SelectedIndexChanged += cbbox_tamanho_produto_SelectedIndexChanged;
             // 
             // lbl_categoria_produto
             // 

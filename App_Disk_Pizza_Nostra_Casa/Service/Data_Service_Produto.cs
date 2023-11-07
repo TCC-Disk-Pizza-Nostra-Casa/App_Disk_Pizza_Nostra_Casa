@@ -1,4 +1,4 @@
-﻿                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -58,9 +58,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/produto/list");
 
-            List<Produto> model_retornada = JsonConvert.DeserializeObject<List<Produto>>(json);
+            List<Produto> lista_produtos = JsonConvert.DeserializeObject<List<Produto>>(json);
 
-            return model_retornada;
+            return lista_produtos;
 
         }
 
@@ -71,9 +71,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/produto/search");
 
-            List<Produto> model_retornada = JsonConvert.DeserializeObject<List<Produto>>(json);
+            List<Produto> lista_produtos_encontrados = JsonConvert.DeserializeObject<List<Produto>>(json);
 
-            return model_retornada;
+            return lista_produtos_encontrados;
 
         }
 

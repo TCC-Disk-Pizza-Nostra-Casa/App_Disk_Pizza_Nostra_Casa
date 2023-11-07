@@ -46,7 +46,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 cbbox_nome_produto.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_categoria_produto.DataSource = new string[] { "Pizza comum", "Pizza especial", "Pizza doce", "Bebida", "Doce" };
+                cbbox_categoria_produto.DataSource = new string[] { "Pizza Tradicional", "Pizza Variada", "Pizza Especial", "Pizza Doce", "Bebida", "Doce" };
 
                 cbbox_tamanho_produto.DataSource = new string[] { "Grande", "Broto" };
 
@@ -129,6 +129,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 }
 
+                Product_ComboBox_Fill();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void Product_ComboBox_Fill()
+        {
+
+            try
+            {
+
                 List<Model.Produto> produtos_cadastrados = await Model.Produto.GetList();
 
                 if (produtos_cadastrados.Count > 0)
@@ -139,7 +158,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                     for (int i = 0; i < produtos_cadastrados.Count; i++)
                     {
 
-                        if (Convert.ToBoolean(produtos_cadastrados[i].ativo))
+                        if (Convert.ToBoolean(produtos_cadastrados[i].ativo) &&
+                            produtos_cadastrados[i].tamanho == cbbox_tamanho_produto.Text &&
+                            produtos_cadastrados[i].categoria == cbbox_categoria_produto.Text)
                         {
 
                             produtos_ativos.Add(produtos_cadastrados[i]);
@@ -171,7 +192,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                if (cbbox_categoria_produto.SelectedIndex == 3 || cbbox_categoria_produto.SelectedIndex == 4)
+                if (cbbox_categoria_produto.SelectedIndex == cbbox_categoria_produto.Items.Count - 2 ||
+                    cbbox_categoria_produto.SelectedIndex == cbbox_categoria_produto.Items.Count - 1)
                 {
 
                     cbbox_tamanho_produto.DataSource = new string[] { "Único" };
@@ -184,6 +206,27 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                     cbbox_tamanho_produto.DataSource = new string[] { "Grande", "Broto" };
 
                 }
+
+                Product_ComboBox_Fill();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_tamanho_produto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Product_ComboBox_Fill();
 
             }
 
