@@ -174,15 +174,16 @@
             dgv_carrinho_produtos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_carrinho_produtos.BackgroundColor = Color.White;
             dgv_carrinho_produtos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_carrinho_produtos.Location = new Point(12, 282);
+            dgv_carrinho_produtos.Location = new Point(12, 302);
             dgv_carrinho_produtos.MultiSelect = false;
             dgv_carrinho_produtos.Name = "dgv_carrinho_produtos";
             dgv_carrinho_produtos.ReadOnly = true;
             dgv_carrinho_produtos.RowHeadersWidth = 51;
             dgv_carrinho_produtos.RowTemplate.Height = 25;
             dgv_carrinho_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_carrinho_produtos.Size = new Size(760, 112);
+            dgv_carrinho_produtos.Size = new Size(760, 92);
             dgv_carrinho_produtos.TabIndex = 49;
+            dgv_carrinho_produtos.CellDoubleClick += dgv_carrinho_produtos_CellDoubleClick;
             // 
             // btn_remover_produto
             // 
@@ -274,7 +275,7 @@
             grpbox_produtos.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             grpbox_produtos.Location = new Point(12, 137);
             grpbox_produtos.Name = "grpbox_produtos";
-            grpbox_produtos.Size = new Size(760, 133);
+            grpbox_produtos.Size = new Size(760, 150);
             grpbox_produtos.TabIndex = 60;
             grpbox_produtos.TabStop = false;
             grpbox_produtos.Text = "Produtos:";
@@ -293,7 +294,7 @@
             panel1.Controls.Add(lbl_quantidade_produto);
             panel1.Location = new Point(6, 25);
             panel1.Name = "panel1";
-            panel1.Size = new Size(748, 93);
+            panel1.Size = new Size(748, 110);
             panel1.TabIndex = 0;
             // 
             // txt_quantidade_produto
