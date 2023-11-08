@@ -93,7 +93,7 @@
             txt_observacoes.Location = new Point(12, 228);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
-            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o fornecedor...";
+            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) fornecedor(a)...";
             txt_observacoes.Size = new Size(760, 162);
             txt_observacoes.TabIndex = 4;
             // 
@@ -163,7 +163,7 @@
             txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_nome.Location = new Point(80, 34);
             txt_nome.Name = "txt_nome";
-            txt_nome.PlaceholderText = "Insira o nome do fornecedor aqui...";
+            txt_nome.PlaceholderText = "Insira o nome do(a) fornecedor(a) aqui...";
             txt_nome.Size = new Size(660, 26);
             txt_nome.TabIndex = 49;
             // 

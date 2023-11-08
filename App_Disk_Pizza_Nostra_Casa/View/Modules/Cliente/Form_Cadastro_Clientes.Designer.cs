@@ -288,7 +288,7 @@
             txt_observacoes.MaxLength = 255;
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
-            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o produto...";
+            txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) cliente...";
             txt_observacoes.Size = new Size(760, 69);
             txt_observacoes.TabIndex = 45;
             // 
