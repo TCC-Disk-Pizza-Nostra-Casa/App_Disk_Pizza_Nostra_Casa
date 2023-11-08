@@ -443,23 +443,61 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 else
                 {
 
-                    Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
+                    bool produto_adicionado = false;
 
-                    string id_produto = produto_selecionado.id.ToString();
+                    int indice_item = -1;
 
-                    string produto = produto_selecionado.nome;
+                    foreach (DataGridViewRow item in dgv_carrinho_produtos.Rows)
+                    {
 
-                    string tamanho = produto_selecionado.tamanho;
+                        if (item.Cells[1].Value.ToString() == cbbox_nome_produto.Text)
+                        {
 
-                    string categoria = produto_selecionado.categoria;
+                            produto_adicionado = true;
 
-                    string quantidade = txt_quantidade_produto.Text;
+                            indice_item = item.Index;
 
-                    string preco = produto_selecionado.preco.ToString("C2");
+                        }
 
-                    string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
+                    }
 
-                    dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
+                    if (produto_adicionado && indice_item >= 0)
+                    {
+
+                        int quantidade_atual = Convert.ToInt32(dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value);
+
+                        dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value = quantidade_atual + int.Parse(txt_quantidade_produto.Text);
+
+                        int quantidade_nova = Convert.ToInt32(dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value);
+
+                        double preco = double.Parse(dgv_carrinho_produtos.Rows[indice_item].Cells[5].Value.ToString().Replace("R$ ", ""));
+
+                        dgv_carrinho_produtos.Rows[indice_item].Cells[6].Value = (preco * quantidade_nova).ToString("C2");
+
+                    }
+
+                    else
+                    {
+
+                        Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
+
+                        string id_produto = produto_selecionado.id.ToString();
+
+                        string produto = produto_selecionado.nome;
+
+                        string tamanho = produto_selecionado.tamanho;
+
+                        string categoria = produto_selecionado.categoria;
+
+                        string quantidade = txt_quantidade_produto.Text;
+
+                        string preco = produto_selecionado.preco.ToString("C2");
+
+                        string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
+
+                        dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
+
+                    }
 
                     ResetProductOptions();
 
