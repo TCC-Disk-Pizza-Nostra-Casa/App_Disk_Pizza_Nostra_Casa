@@ -241,12 +241,19 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                     }
 
-                    int primeiro_digito_verificador = 11 - (soma_resultados_primeira_verificacao % 11);
+                    int primeiro_digito_verificador;
 
-                    if (primeiro_digito_verificador < 2)
+                    if (soma_resultados_primeira_verificacao % 11 < 2)
                     {
 
                         primeiro_digito_verificador = 0;
+
+                    }
+
+                    else
+                    {
+
+                        primeiro_digito_verificador = 11 - (soma_resultados_primeira_verificacao % 11);
 
                     }
 
@@ -270,12 +277,19 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                     }
 
-                    int segundo_digito_verificador = 11 - (soma_resultados_segunda_verificacao % 11);
+                    int segundo_digito_verificador;
 
-                    if (segundo_digito_verificador < 2)
+                    if (soma_resultados_segunda_verificacao % 11 < 2)
                     {
 
                         segundo_digito_verificador = 0;
+
+                    }
+
+                    else
+                    {
+
+                        segundo_digito_verificador = 11 - (soma_resultados_segunda_verificacao % 11);
 
                     }
 
@@ -311,6 +325,15 @@ namespace App_Disk_Pizza_Nostra_Casa
 
             /* Esta função é relativamente simples, pois o único orgão que detém o método de
              * validação de um cep, caso exista, são os Correios. */
+
+        }
+
+        public static bool TelephoneValidation(string value)
+        {
+
+            string telefone = value.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
+
+            return (telefone.Length < 10 || telefone.Length > 11) ? false : true;
 
         }
 

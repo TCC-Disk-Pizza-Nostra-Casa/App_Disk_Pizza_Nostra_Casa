@@ -51,20 +51,20 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 cbbox_fornecedor.ValueMember = "id";
 
-                List<Model.Fornecedor> fornecedores_cadastrados = await Model.Fornecedor.GetList();
+                Global.fornecedores_cadastrados = await Model.Fornecedor.GetList();
 
-                if (fornecedores_cadastrados.Count > 0)
+                if (Global.fornecedores_cadastrados.Count > 0)
                 {
 
                     List<Model.Fornecedor> fornecedores_ativos = new List<Model.Fornecedor>();
 
-                    for (int i = 0; i < fornecedores_cadastrados.Count; i++)
+                    for (int i = 0; i < Global.fornecedores_cadastrados.Count; i++)
                     {
 
-                        if (Convert.ToBoolean(fornecedores_cadastrados[i].ativo))
+                        if (Convert.ToBoolean(Global.fornecedores_cadastrados[i].ativo))
                         {
 
-                            fornecedores_ativos.Add(fornecedores_cadastrados[i]);
+                            fornecedores_ativos.Add(Global.fornecedores_cadastrados[i]);
 
                         }
 

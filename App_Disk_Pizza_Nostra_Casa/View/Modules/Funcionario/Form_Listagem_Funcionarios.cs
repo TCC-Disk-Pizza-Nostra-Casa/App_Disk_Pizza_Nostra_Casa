@@ -258,15 +258,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.Rows.Clear();
 
-                int indice_linha = 0;
-
                 for (int i = 0; i < lista.Count; i++)
                 {
 
                     if (lista[i].ativo == condicao)
                     {
-
-                        indice_linha++;
 
                         int id = lista[i].id;
 
@@ -434,12 +430,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
+                    int id_funcionario = Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value);
+
                     switch (cbbox_condicao_funcionario.SelectedIndex)
                     {
 
                         case 0:
 
-                            if (Convert.ToBoolean(await Model.Funcionario.Enable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Funcionario.Enable(id_funcionario)))
                             {
 
                                 DataGridView_Fill();
@@ -450,7 +448,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         case 1:
 
-                            if (Convert.ToBoolean(await Model.Funcionario.Disable(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Funcionario.Disable(id_funcionario)))
                             {
 
                                 DataGridView_Fill();

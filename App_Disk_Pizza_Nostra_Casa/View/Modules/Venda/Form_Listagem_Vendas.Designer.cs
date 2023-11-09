@@ -68,7 +68,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dtpck_data_venda.Format = DateTimePickerFormat.Short;
             dtpck_data_venda.Location = new Point(266, 12);
             dtpck_data_venda.Name = "dtpck_data_venda";
-            dtpck_data_venda.Size = new Size(209, 26);
+            dtpck_data_venda.Size = new Size(134, 26);
             dtpck_data_venda.TabIndex = 2;
             // 
             // dgv_listagem_vendas
@@ -79,15 +79,16 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_vendas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgv_listagem_vendas.BackgroundColor = Color.White;
             dgv_listagem_vendas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_listagem_vendas.Location = new Point(12, 96);
+            dgv_listagem_vendas.Location = new Point(12, 55);
             dgv_listagem_vendas.MultiSelect = false;
             dgv_listagem_vendas.Name = "dgv_listagem_vendas";
             dgv_listagem_vendas.ReadOnly = true;
             dgv_listagem_vendas.RowHeadersWidth = 51;
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_vendas.Size = new Size(760, 109);
+            dgv_listagem_vendas.Size = new Size(760, 150);
             dgv_listagem_vendas.TabIndex = 50;
+            dgv_listagem_vendas.CellDoubleClick += dgv_listagem_vendas_CellDoubleClick;
             // 
             // dgv_listagem_itens_venda
             // 
@@ -104,23 +105,23 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_itens_venda.RowHeadersWidth = 51;
             dgv_listagem_itens_venda.RowTemplate.Height = 25;
             dgv_listagem_itens_venda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_listagem_itens_venda.Size = new Size(760, 172);
+            dgv_listagem_itens_venda.Size = new Size(760, 170);
             dgv_listagem_itens_venda.TabIndex = 51;
             // 
             // btn_pesquisar_venda
             // 
-            btn_pesquisar_venda.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btn_pesquisar_venda.BackColor = Color.Transparent;
             btn_pesquisar_venda.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_venda.BackgroundImage");
             btn_pesquisar_venda.BackgroundImageLayout = ImageLayout.Zoom;
             btn_pesquisar_venda.FlatAppearance.BorderSize = 0;
             btn_pesquisar_venda.FlatStyle = FlatStyle.Flat;
             btn_pesquisar_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_pesquisar_venda.Location = new Point(749, 12);
+            btn_pesquisar_venda.Location = new Point(415, 12);
             btn_pesquisar_venda.Name = "btn_pesquisar_venda";
             btn_pesquisar_venda.Size = new Size(23, 23);
             btn_pesquisar_venda.TabIndex = 52;
             btn_pesquisar_venda.UseVisualStyleBackColor = false;
+            btn_pesquisar_venda.Click += btn_pesquisar_venda_Click;
             // 
             // btn_resetar
             // 
@@ -196,10 +197,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbbox_condicao_venda.Cursor = Cursors.Hand;
             cbbox_condicao_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_venda.FormattingEnabled = true;
-            cbbox_condicao_venda.Location = new Point(613, 54);
+            cbbox_condicao_venda.Location = new Point(613, 12);
             cbbox_condicao_venda.Name = "cbbox_condicao_venda";
             cbbox_condicao_venda.Size = new Size(159, 26);
             cbbox_condicao_venda.TabIndex = 57;
+            cbbox_condicao_venda.SelectedIndexChanged += cbbox_condicao_venda_SelectedIndexChanged;
             // 
             // form_listagem_vendas
             // 

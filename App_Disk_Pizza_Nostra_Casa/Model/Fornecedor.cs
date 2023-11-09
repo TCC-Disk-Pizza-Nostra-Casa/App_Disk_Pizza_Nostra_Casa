@@ -48,12 +48,19 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
-            else if (this.id == 0 && !await this.Verify(this))
+            else if (!Global.TelephoneValidation(this.telefone))
+            {
+
+                throw new Exception("Um telefone possui de 10 a 11 dígitos! Revise-o e tente novamente.");
+
+            }
+
+            /*else if (this.id == 0 && !await this.Verify(this))
             {
 
                 throw new Exception("Dados já cadastrados!");
 
-            }
+            }*/
 
             else
             {
@@ -153,7 +160,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        private async Task<bool>? Verify(Fornecedor model)
+        /*private async Task<bool>? Verify(Fornecedor model)
         {
 
             List<Fornecedor> lista= await Data_Service_Fornecedor.GetListAsyncFornecedor();
@@ -171,13 +178,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
                     return "CNPJ já cadastrado!";
 
                 else if (item.telefone == model.telefone)
-                    return "Telefone já cadastrado!";*/
+                    return "Telefone já cadastrado!";
 
             }
 
             return true;
 
-        }
+        }*/
 
     }
 

@@ -85,20 +85,20 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                List<Model.Funcionario> funcionarios_cadastrados = await Model.Funcionario.GetList();
+                Global.funcionarios_cadastrados = await Model.Funcionario.GetList();
 
-                if (funcionarios_cadastrados.Count > 0)
+                if (Global.funcionarios_cadastrados.Count > 0)
                 {
 
                     List<Model.Funcionario> funcionarios_ativos = new List<Model.Funcionario>();
 
-                    for (int i = 0; i < funcionarios_cadastrados.Count; i++)
+                    for (int i = 0; i < Global.funcionarios_cadastrados.Count; i++)
                     {
 
-                        if (Convert.ToBoolean(funcionarios_cadastrados[i].ativo))
+                        if (Convert.ToBoolean(Global.funcionarios_cadastrados[i].ativo))
                         {
 
-                            funcionarios_ativos.Add(funcionarios_cadastrados[i]);
+                            funcionarios_ativos.Add(Global.funcionarios_cadastrados[i]);
 
                         }
 
@@ -108,20 +108,20 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 }
 
-                List<Model.Cliente> clientes_cadastrados = await Model.Cliente.GetList();
+                Global.clientes_cadastrados = await Model.Cliente.GetList();
 
-                if (clientes_cadastrados.Count > 0)
+                if (Global.clientes_cadastrados.Count > 0)
                 {
 
                     List<Model.Cliente> clientes_ativos = new List<Model.Cliente>();
 
-                    for (int i = 0; i < clientes_cadastrados.Count; i++)
+                    for (int i = 0; i < Global.clientes_cadastrados.Count; i++)
                     {
 
-                        if (Convert.ToBoolean(clientes_cadastrados[i].ativo))
+                        if (Convert.ToBoolean(Global.clientes_cadastrados[i].ativo))
                         {
 
-                            clientes_ativos.Add(clientes_cadastrados[i]);
+                            clientes_ativos.Add(Global.clientes_cadastrados[i]);
 
                         }
 
@@ -148,22 +148,22 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                List<Model.Produto> produtos_cadastrados = await Model.Produto.GetList();
+                Global.produtos_cadastrados = await Model.Produto.GetList();
 
-                if (produtos_cadastrados.Count > 0)
+                if (Global.produtos_cadastrados.Count > 0)
                 {
 
                     List<Model.Produto> produtos_ativos = new List<Model.Produto>();
 
-                    for (int i = 0; i < produtos_cadastrados.Count; i++)
+                    for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
                     {
 
-                        if (Convert.ToBoolean(produtos_cadastrados[i].ativo) &&
-                            produtos_cadastrados[i].tamanho == cbbox_tamanho_produto.Text &&
-                            produtos_cadastrados[i].categoria == cbbox_categoria_produto.Text)
+                        if (Convert.ToBoolean(Global.produtos_cadastrados[i].ativo) &&
+                            Global.produtos_cadastrados[i].tamanho == cbbox_tamanho_produto.Text &&
+                            Global.produtos_cadastrados[i].categoria == cbbox_categoria_produto.Text)
                         {
 
-                            produtos_ativos.Add(produtos_cadastrados[i]);
+                            produtos_ativos.Add(Global.produtos_cadastrados[i]);
 
                         }
 
@@ -348,29 +348,43 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
         private Model.Produto? ReturnProductObject(int id)
         {
 
-            if (this.produtos_ativos != null)
+            try
             {
 
-                Model.Produto? retorno = null;
-
-                for (int i = 0; i < this.produtos_ativos.Count; i++)
+                if (this.produtos_ativos != null)
                 {
 
-                    if (this.produtos_ativos[i].id == id)
+                    Model.Produto? retorno = null;
+
+                    for (int i = 0; i < this.produtos_ativos.Count; i++)
                     {
 
-                        retorno = this.produtos_ativos[i];
+                        if (this.produtos_ativos[i].id == id)
+                        {
+
+                            retorno = this.produtos_ativos[i];
+
+                        }
 
                     }
 
+                    return retorno;
+
                 }
 
-                return retorno;
+                else
+                {
+
+                    return null;
+
+                }
 
             }
 
-            else
+            catch (Exception ex)
             {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                 return null;
 

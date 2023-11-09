@@ -264,15 +264,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                 dgv_listagem_clientes.Rows.Clear();
 
-                int indice_linha = 0;
-
                 for (int i = 0; i < lista.Count; i++)
                 {
 
                     if (lista[i].ativo == condicao)
                     {
-
-                        indice_linha++;
 
                         int id = lista[i].id;
 
@@ -449,12 +445,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
+                    int id_cliente = Convert.ToInt32(dgv_listagem_clientes.CurrentRow.Cells[0].Value);
+
                     switch (cbbox_condicao_cliente.SelectedIndex)
                     {
 
                         case 0:
 
-                            if (Convert.ToBoolean(await Model.Cliente.Enable(Convert.ToInt32(dgv_listagem_clientes.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Cliente.Enable(id_cliente)))
                             {
 
                                 DataGridView_Fill();
@@ -465,7 +463,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                         case 1:
 
-                            if (Convert.ToBoolean(await Model.Cliente.Disable(Convert.ToInt32(dgv_listagem_clientes.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Cliente.Disable(id_cliente)))
                             {
 
                                 DataGridView_Fill();

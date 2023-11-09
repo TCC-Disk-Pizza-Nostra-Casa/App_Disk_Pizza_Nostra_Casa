@@ -17,6 +17,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
     public partial class form_listagem_produtos : Form
     {
 
+        private List<Model.Fornecedor>? fornecedores_ativos = null;
+
         public form_listagem_produtos()
         {
 
@@ -24,7 +26,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private void form_listagem_produtos_Load(object sender, EventArgs e)
+        private async void form_listagem_produtos_Load(object sender, EventArgs e)
         {
 
             try
@@ -39,6 +41,29 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 cbbox_condicao_produto.DataSource = new string[] { "Não ativos", "Ativos" };
 
                 DataGridView_Configuration();
+
+                Global.fornecedores_cadastrados = await Model.Fornecedor.GetList();
+
+                if (Global.fornecedores_cadastrados.Count > 0)
+                {
+
+                    List<Model.Fornecedor> fornecedores_ativos = new List<Model.Fornecedor>();
+
+                    for (int i = 0; i < Global.fornecedores_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.fornecedores_cadastrados[i].ativo))
+                        {
+
+                            fornecedores_ativos.Add(Global.fornecedores_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.fornecedores_ativos = fornecedores_ativos;
+
+                }
 
                 cbbox_condicao_produto.SelectedIndex = 1;
 
@@ -185,6 +210,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 dgv_listagem_produtos.Columns.Insert(7, new DataGridViewTextBoxColumn());
 
+                dgv_listagem_produtos.Columns.Insert(8, new DataGridViewTextBoxColumn());
+
+                dgv_listagem_produtos.Columns.Insert(9, new DataGridViewTextBoxColumn());
+
                 // Dados das colunas.
 
                 dgv_listagem_produtos.Columns[0].HeaderText = "ID:";
@@ -207,17 +236,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 dgv_listagem_produtos.Columns[4].Name = "dgv_listagem_produtos_categoria";
                 dgv_listagem_produtos.Columns[4].Visible = true;
 
-                dgv_listagem_produtos.Columns[5].HeaderText = "Observações:";
-                dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_observacoes";
-                dgv_listagem_produtos.Columns[5].Visible = true;
+                dgv_listagem_produtos.Columns[5].HeaderText = "ID_fornecedor:";
+                dgv_listagem_produtos.Columns[5].Name = "dgv_listagem_produtos_id_fornecedor";
+                dgv_listagem_produtos.Columns[5].Visible = false;
 
-                dgv_listagem_produtos.Columns[6].HeaderText = "Última modificação:";
-                dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_data_modificacao";
+                dgv_listagem_produtos.Columns[6].HeaderText = "Fornecedor:";
+                dgv_listagem_produtos.Columns[6].Name = "dgv_listagem_produtos_fornecedor";
                 dgv_listagem_produtos.Columns[6].Visible = true;
 
-                dgv_listagem_produtos.Columns[7].HeaderText = "Editar:";
-                dgv_listagem_produtos.Columns[7].Name = "dgv_listagem_produtos_editar";
+                dgv_listagem_produtos.Columns[7].HeaderText = "Observações:";
+                dgv_listagem_produtos.Columns[7].Name = "dgv_listagem_produtos_observacoes";
                 dgv_listagem_produtos.Columns[7].Visible = true;
+
+                dgv_listagem_produtos.Columns[8].HeaderText = "Última modificação:";
+                dgv_listagem_produtos.Columns[8].Name = "dgv_listagem_produtos_data_modificacao";
+                dgv_listagem_produtos.Columns[8].Visible = true;
+
+                dgv_listagem_produtos.Columns[9].HeaderText = "Editar:";
+                dgv_listagem_produtos.Columns[9].Name = "dgv_listagem_produtos_editar";
+                dgv_listagem_produtos.Columns[9].Visible = true;
 
             }
 
@@ -225,6 +262,53 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             {
 
                 MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private string? ReturnProviderName(int id)
+        {
+
+            try
+            {
+
+                if (this.fornecedores_ativos != null)
+                {
+
+                    string? retorno = null;
+
+                    for (int i = 0; i < this.fornecedores_ativos.Count; i++)
+                    {
+
+                        if (this.fornecedores_ativos[i].id == id)
+                        {
+
+                            retorno = this.fornecedores_ativos[i].nome;
+
+                        }
+
+                    }
+
+                    return retorno;
+
+                }
+
+                else
+                {
+
+                    return null;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
 
             }
 
@@ -238,15 +322,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                 dgv_listagem_produtos.Rows.Clear();
 
-                int indice_linha = 0;
-
                 for (int i = 0; i < lista.Count; i++)
                 {
 
                     if (lista[i].ativo == condicao)
                     {
-
-                        indice_linha++;
 
                         int id = lista[i].id;
 
@@ -258,11 +338,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         string categoria = lista[i].categoria;
 
+                        int id_fornecedor = lista[i].fk_fornecedor;
+
+                        string fornecedor = ReturnProviderName(id_fornecedor);
+
                         string? observacoes = lista[i].observacoes;
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_produtos.Rows.Add(id, nome, preco, tamanho, categoria, observacoes, data_modificacao, "Clique aqui.");
+                        dgv_listagem_produtos.Rows.Add(id, nome, preco, tamanho, categoria, id_fornecedor, fornecedor, observacoes, data_modificacao, "Clique aqui.");
 
                     }
 
@@ -317,7 +401,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if (dgv_listagem_produtos.RowCount > 0 && dgv_listagem_produtos.CurrentCell.ColumnIndex == 7)
+                if (dgv_listagem_produtos.RowCount > 0 && dgv_listagem_produtos.CurrentCell.ColumnIndex == 9)
                 {
 
                     if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",
@@ -415,12 +499,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
+                    int id_produto = Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value);
+
                     switch (cbbox_condicao_produto.SelectedIndex)
                     {
 
                         case 0:
 
-                            if (Convert.ToBoolean(await Model.Produto.Enable(Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Produto.Enable(id_produto)))
                             {
 
                                 DataGridView_Fill();
@@ -431,7 +517,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         case 1:
 
-                            if (Convert.ToBoolean(await Model.Produto.Disable(Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Produto.Disable(id_produto)))
                             {
 
                                 DataGridView_Fill();

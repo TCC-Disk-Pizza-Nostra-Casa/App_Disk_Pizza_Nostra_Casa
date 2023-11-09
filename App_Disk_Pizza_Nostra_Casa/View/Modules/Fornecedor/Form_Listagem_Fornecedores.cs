@@ -234,15 +234,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 dgv_listagem_fornecedores.Rows.Clear();
 
-                int indice_linha = 0;
-
                 for (int i = 0; i < lista.Count; i++)
                 {
 
                     if (lista[i].ativo == condicao)
                     {
-
-                        indice_linha++;
 
                         int id = lista[i].id;
 
@@ -409,12 +405,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                     "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
+                    int id_fornecedor = Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value);
+
                     switch (cbbox_condicao_fornecedor.SelectedIndex)
                     {
 
                         case 0:
 
-                            if (Convert.ToBoolean(await Model.Fornecedor.Enable(Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Fornecedor.Enable(id_fornecedor)))
                             {
 
                                 DataGridView_Fill();
@@ -425,7 +423,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         case 1:
 
-                            if (Convert.ToBoolean(await Model.Fornecedor.Disable(Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value))))
+                            if (Convert.ToBoolean(await Model.Fornecedor.Disable(id_fornecedor)))
                             {
 
                                 DataGridView_Fill();
