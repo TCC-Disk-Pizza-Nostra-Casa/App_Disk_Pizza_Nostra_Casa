@@ -17,6 +17,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
     public partial class form_listagem_vendas : Form
     {
 
+        private List<Model.Funcionario>? funcionarios_ativos = null;
+
+        private List<Model.Cliente>? clientes_ativos = null;
+
+        private List<Model.Produto>? produtos_ativos = null;
+
         public form_listagem_vendas()
         {
 
@@ -50,11 +56,147 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 cbbox_cliente.ValueMember = "id";
 
+                ComboBoxes_Fill();
+
                 Sales_DataGridView_Configuration();
 
                 Items_DataGridView_Configuration();
 
+                dtpck_data_venda.MinDate = new DateTime(1900, 1, 1);
+
+                dtpck_data_venda.MaxDate = DateTime.Now.Date;
+
                 cbbox_condicao_venda.SelectedIndex = 1;
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void ComboBoxes_Fill()
+        {
+
+            try
+            {
+
+                Global.funcionarios_cadastrados = await Model.Funcionario.GetList();
+
+                if (Global.funcionarios_cadastrados.Count > 0)
+                {
+
+                    List<Model.Funcionario> funcionarios_ativos = new List<Model.Funcionario>();
+
+                    for (int i = 0; i < Global.funcionarios_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.funcionarios_cadastrados[i].ativo))
+                        {
+
+                            funcionarios_ativos.Add(Global.funcionarios_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.funcionarios_ativos = funcionarios_ativos;
+
+                    cbbox_funcionario.DataSource = this.funcionarios_ativos;
+
+                }
+
+                Global.clientes_cadastrados = await Model.Cliente.GetList();
+
+                if (Global.clientes_cadastrados.Count > 0)
+                {
+
+                    List<Model.Cliente> clientes_ativos = new List<Model.Cliente>();
+
+                    for (int i = 0; i < Global.clientes_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.clientes_cadastrados[i].ativo))
+                        {
+
+                            clientes_ativos.Add(Global.clientes_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.clientes_ativos = clientes_ativos;
+
+                    cbbox_cliente.DataSource = this.clientes_ativos;
+
+                }
+
+                Global.produtos_cadastrados = await Model.Produto.GetList();
+
+                if (Global.produtos_cadastrados.Count > 0)
+                {
+
+                    List<Model.Produto> produtos_ativos = new List<Model.Produto>();
+
+                    for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.produtos_cadastrados[i].ativo))
+                        {
+
+                            produtos_ativos.Add(Global.produtos_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.produtos_ativos = produtos_ativos;
+
+                    cbbox_cliente.DataSource = this.produtos_ativos;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_pesquisar_venda_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void cbbox_condicao_venda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                Sales_DataGridView_Fill();
 
             }
 
@@ -259,17 +401,384 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void btn_voltar_Click(object sender, EventArgs e)
+        private string? ReturnEmployeeName(int id)
         {
 
             try
             {
 
-                if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
-                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (this.funcionarios_ativos != null)
                 {
 
-                    this.Close();
+                    string? retorno = null;
+
+                    for (int i = 0; i < this.funcionarios_ativos.Count; i++)
+                    {
+
+                        if (this.funcionarios_ativos[i].id == id)
+                        {
+
+                            retorno = this.funcionarios_ativos[i].nome;
+
+                        }
+
+                    }
+
+                    return retorno;
+
+                }
+
+                else
+                {
+
+                    return null;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
+
+            }
+
+        }
+
+        private string? ReturnClientName(int id)
+        {
+
+            try
+            {
+
+                if (this.clientes_ativos != null)
+                {
+
+                    string? retorno = null;
+
+                    for (int i = 0; i < this.clientes_ativos.Count; i++)
+                    {
+
+                        if (this.clientes_ativos[i].id == id)
+                        {
+
+                            retorno = this.clientes_ativos[i].nome;
+
+                        }
+
+                    }
+
+                    return retorno;
+
+                }
+
+                else
+                {
+
+                    return null;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
+
+            }
+
+        }
+
+        private Model.Produto? ReturnProductObject(int id)
+        {
+
+            try
+            {
+
+                if (this.produtos_ativos != null)
+                {
+
+                    Model.Produto? retorno = null;
+
+                    for (int i = 0; i < this.produtos_ativos.Count; i++)
+                    {
+
+                        if (this.produtos_ativos[i].id == id)
+                        {
+
+                            retorno = this.produtos_ativos[i];
+
+                        }
+
+                    }
+
+                    return retorno;
+
+                }
+
+                else
+                {
+
+                    return null;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
+
+            }
+
+        }
+
+        private void SaleValuesAssociation(List<Model.Venda> lista, int condicao)
+        {
+
+            try
+            {
+
+                dgv_listagem_vendas.Rows.Clear();
+
+                dgv_listagem_itens_venda.Rows.Clear();
+
+                for (int i = 0; i < lista.Count; i++)
+                {
+
+                    if (lista[i].ativo == condicao)
+                    {
+
+                        int id = lista[i].id;
+
+                        int id_funcionario = lista[i].fk_funcionario;
+
+                        string funcionario = ReturnEmployeeName(id_funcionario);
+
+                        int id_cliente = lista[i].fk_cliente;
+
+                        string cliente = ReturnClientName(id_cliente);
+
+                        string delivery = (lista[i].delivery == 1) ? "Sim" : "Não";
+
+                        string valor_total = lista[i].valor_total.ToString("C2");
+
+                        string? observacoes = lista[i].observacoes;
+
+                        string data_efetuacao = DateTime.Parse(lista[i].data_venda).ToString("dd/MM/yyyy HH:mm:ss");
+
+                        dgv_listagem_vendas.Rows.Add(id, id_funcionario, funcionario, id_cliente, cliente, delivery, valor_total, observacoes, data_efetuacao);
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void ItemsValuesAssociation(List<Model.Venda_Produto_Assoc> lista, int condicao)
+        {
+
+            try
+            {
+
+                for (int i = 0; i < lista.Count; i++)
+                {
+
+                    if (lista[i].ativo == condicao)
+                    {
+
+                        int id_venda = lista[i].fk_venda;
+
+                        int id_produto = lista[i].fk_produto;
+
+                        string produto = ReturnProductObject(id_produto).nome;
+
+                        string tamanho = ReturnProductObject(id_produto).tamanho;
+
+                        string categoria = ReturnProductObject(id_produto).categoria;
+
+                        int quantidade_produto = lista[i].quantidade_produto;
+
+                        string preco_produto = ReturnProductObject(id_produto).preco.ToString("C2");
+
+                        string valor_total_item_venda = lista[i].valor_total_item_venda.ToString("C2");
+
+                        dgv_listagem_itens_venda.Rows.Add(id_venda, id_produto, produto, tamanho, categoria, quantidade_produto, preco_produto, valor_total_item_venda);
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void Sales_DataGridView_Fill()
+        {
+
+            try
+            {
+
+                btn_resetar.Enabled = false;
+
+                btn_reativar.Enabled = false;
+
+                btn_desativar.Enabled = false;
+
+                Global.vendas_cadastradas = await Model.Venda.GetList();
+
+                if (Global.vendas_cadastradas.Count > 0)
+                {
+
+                    SaleValuesAssociation(Global.vendas_cadastradas, cbbox_condicao_venda.SelectedIndex);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void Items_DataGridView_Fill(int id_venda)
+        {
+
+            try
+            {
+
+                List<Model.Venda_Produto_Assoc>? itens_venda = await Model.Venda_Produto_Assoc.Search(id_venda);
+
+                if (itens_venda.Count > 0)
+                {
+
+                    ItemsValuesAssociation(itens_venda, cbbox_condicao_venda.SelectedIndex);
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void dgv_listagem_vendas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            try
+            {
+
+                if (dgv_listagem_vendas.RowCount > 0)
+                {
+
+                    Items_DataGridView_Fill(Convert.ToInt32(dgv_listagem_vendas.CurrentRow.Cells[0].Value));
+
+                    switch (cbbox_condicao_venda.SelectedIndex)
+                    {
+
+                        case 0:
+
+                            btn_reativar.Enabled = true;
+
+                            break;
+
+                        case 1:
+
+                            btn_desativar.Enabled = true;
+
+                            break;
+
+                    }
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private async void Sale_Manipulation()
+        {
+
+            try
+            {
+
+                if (MessageBox.Show("Realmente deseja modificar a ativação dessa venda?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    int id_venda = Convert.ToInt32(dgv_listagem_vendas.CurrentRow.Cells[0].Value);
+
+                    switch (cbbox_condicao_venda.SelectedIndex)
+                    {
+
+                        case 0:
+
+                            if (Convert.ToBoolean(await Model.Venda.Enable(id_venda)))
+                            {
+
+                                await Model.Venda_Produto_Assoc.Enable(id_venda);
+
+                                Sales_DataGridView_Fill();
+
+                            }
+
+                            break;
+
+                        case 1:
+
+                            if (Convert.ToBoolean(await Model.Venda.Disable(id_venda)))
+                            {
+
+                                await Model.Venda_Produto_Assoc.Disable(id_venda);
+
+                                Sales_DataGridView_Fill();
+
+                            }
+
+                            break;
+
+                    }
 
                 }
 
@@ -290,7 +799,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                
+                Sale_Manipulation();
 
             }
 
@@ -309,7 +818,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-
+                Sale_Manipulation();
 
             }
 
@@ -329,6 +838,31 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             {
 
 
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
+        }
+
+        private void btn_voltar_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+
+                if (MessageBox.Show("Deseja fechar este formulário?", "Atenção!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+
+                    this.Close();
+
+                }
 
             }
 

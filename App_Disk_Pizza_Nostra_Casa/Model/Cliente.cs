@@ -65,6 +65,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
+            else if (!Global.TelephoneValidation(this.telefone))
+            {
+
+                throw new Exception("Um telefone possui de 10 a 11 dígitos! Revise-o e tente novamente.");
+
+            }
+
             else
             {
 
