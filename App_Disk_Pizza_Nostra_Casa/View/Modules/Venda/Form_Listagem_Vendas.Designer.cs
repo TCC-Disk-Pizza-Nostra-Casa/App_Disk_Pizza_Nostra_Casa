@@ -48,9 +48,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             cbbox_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_cliente.FormattingEnabled = true;
-            cbbox_cliente.Location = new Point(139, 12);
+            cbbox_cliente.Location = new Point(193, 12);
             cbbox_cliente.Name = "cbbox_cliente";
-            cbbox_cliente.Size = new Size(121, 26);
+            cbbox_cliente.Size = new Size(175, 26);
             cbbox_cliente.TabIndex = 0;
             // 
             // cbbox_funcionario
@@ -59,14 +59,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbbox_funcionario.FormattingEnabled = true;
             cbbox_funcionario.Location = new Point(12, 12);
             cbbox_funcionario.Name = "cbbox_funcionario";
-            cbbox_funcionario.Size = new Size(121, 26);
+            cbbox_funcionario.Size = new Size(175, 26);
             cbbox_funcionario.TabIndex = 1;
             // 
             // dtpck_data_venda
             // 
             dtpck_data_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtpck_data_venda.Format = DateTimePickerFormat.Short;
-            dtpck_data_venda.Location = new Point(266, 12);
+            dtpck_data_venda.Location = new Point(374, 12);
             dtpck_data_venda.Name = "dtpck_data_venda";
             dtpck_data_venda.Size = new Size(134, 26);
             dtpck_data_venda.TabIndex = 2;
@@ -116,7 +116,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_pesquisar_venda.FlatAppearance.BorderSize = 0;
             btn_pesquisar_venda.FlatStyle = FlatStyle.Flat;
             btn_pesquisar_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_pesquisar_venda.Location = new Point(415, 12);
+            btn_pesquisar_venda.Location = new Point(523, 13);
             btn_pesquisar_venda.Name = "btn_pesquisar_venda";
             btn_pesquisar_venda.Size = new Size(23, 23);
             btn_pesquisar_venda.TabIndex = 52;

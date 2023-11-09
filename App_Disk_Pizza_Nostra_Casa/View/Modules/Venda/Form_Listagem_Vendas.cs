@@ -30,7 +30,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void form_listagem_vendas_Load(object sender, EventArgs e)
+        private async void form_listagem_vendas_Load(object sender, EventArgs e)
         {
 
             try
@@ -65,6 +65,29 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 dtpck_data_venda.MinDate = new DateTime(1900, 1, 1);
 
                 dtpck_data_venda.MaxDate = DateTime.Now.Date;
+
+                Global.produtos_cadastrados = await Model.Produto.GetList();
+
+                if (Global.produtos_cadastrados.Count > 0)
+                {
+
+                    List<Model.Produto> produtos_ativos = new List<Model.Produto>();
+
+                    for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.produtos_cadastrados[i].ativo))
+                        {
+
+                            produtos_ativos.Add(Global.produtos_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.produtos_ativos = produtos_ativos;
+
+                }
 
                 cbbox_condicao_venda.SelectedIndex = 1;
 
@@ -132,31 +155,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                     this.clientes_ativos = clientes_ativos;
 
                     cbbox_cliente.DataSource = this.clientes_ativos;
-
-                }
-
-                Global.produtos_cadastrados = await Model.Produto.GetList();
-
-                if (Global.produtos_cadastrados.Count > 0)
-                {
-
-                    List<Model.Produto> produtos_ativos = new List<Model.Produto>();
-
-                    for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
-                    {
-
-                        if (Convert.ToBoolean(Global.produtos_cadastrados[i].ativo))
-                        {
-
-                            produtos_ativos.Add(Global.produtos_cadastrados[i]);
-
-                        }
-
-                    }
-
-                    this.produtos_ativos = produtos_ativos;
-
-                    cbbox_cliente.DataSource = this.produtos_ativos;
 
                 }
 
