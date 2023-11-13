@@ -188,29 +188,41 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                Model.Produto dados = new Model.Produto()
+                if (!Global.administrador)
                 {
 
-                    id = (this.produto_selecionado != null) ? this.produto_selecionado.id : 0,
+                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                    nome = txt_nome.Text,
+                }
 
-                    preco = double.Parse(txt_preco.Text),
-
-                    tamanho = cbbox_tamanho.Text,
-
-                    categoria = cbbox_categoria.Text,
-
-                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
-
-                    fk_fornecedor = Convert.ToInt32(cbbox_fornecedor.SelectedValue)
-
-                };
-
-                if (await dados.Save())
+                else
                 {
 
-                    this.Close();
+                    Model.Produto dados = new Model.Produto()
+                    {
+
+                        id = (this.produto_selecionado != null) ? this.produto_selecionado.id : 0,
+
+                        nome = txt_nome.Text,
+
+                        preco = double.Parse(txt_preco.Text),
+
+                        tamanho = cbbox_tamanho.Text,
+
+                        categoria = cbbox_categoria.Text,
+
+                        observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+
+                        fk_fornecedor = Convert.ToInt32(cbbox_fornecedor.SelectedValue)
+
+                    };
+
+                    if (await dados.Save())
+                    {
+
+                        this.Close();
+
+                    }
 
                 }
 

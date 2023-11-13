@@ -61,35 +61,47 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
 
-                string[] masks = { mtxt_cnpj.Mask, mtxt_telefone.Mask };
-
-                mtxt_cnpj.Mask = "";
-
-                mtxt_telefone.Mask = "";
-
-                Model.Fornecedor dados = new Model.Fornecedor()
+                if (!Global.administrador)
                 {
 
-                    id = (this.fornecedor_selecionado != null) ? this.fornecedor_selecionado.id : 0,
+                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                    nome = txt_nome.Text,
+                }
 
-                    cnpj = mtxt_cnpj.Text,
-
-                    telefone = mtxt_telefone.Text,
-
-                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
-
-                };
-
-                mtxt_cnpj.Mask = masks[0];
-
-                mtxt_telefone.Mask = masks[1];
-
-                if (await dados.Save())
+                else
                 {
 
-                    this.Close();
+                    string[] masks = { mtxt_cnpj.Mask, mtxt_telefone.Mask };
+
+                    mtxt_cnpj.Mask = "";
+
+                    mtxt_telefone.Mask = "";
+
+                    Model.Fornecedor dados = new Model.Fornecedor()
+                    {
+
+                        id = (this.fornecedor_selecionado != null) ? this.fornecedor_selecionado.id : 0,
+
+                        nome = txt_nome.Text,
+
+                        cnpj = mtxt_cnpj.Text,
+
+                        telefone = mtxt_telefone.Text,
+
+                        observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+
+                    };
+
+                    mtxt_cnpj.Mask = masks[0];
+
+                    mtxt_telefone.Mask = masks[1];
+
+                    if (await dados.Save())
+                    {
+
+                        this.Close();
+
+                    }
 
                 }
 

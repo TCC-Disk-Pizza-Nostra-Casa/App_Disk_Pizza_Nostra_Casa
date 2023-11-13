@@ -1,5 +1,4 @@
-﻿using App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,8 +16,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
     {
 
         private Form? formulario_associado = null;
-
-        public Model.Funcionario? usuario_sessao = null;
 
         public form_inicio()
         {
@@ -39,7 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                 Hide_Submenus();
 
-                Hide_Confidential_Content();
+                //Hide_Confidential_Content();
 
             }
 
@@ -58,7 +55,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                if (this.usuario_sessao.administrador == 0)
+                if (!Global.administrador)
                 {
 
                     btn_funcionarios.Visible = false;
@@ -66,6 +63,12 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
                     btn_fornecedores.Visible = false;
 
                     btn_produtos.Visible = false;
+
+                    btn_funcionarios.Enabled = false;
+
+                    btn_fornecedores.Enabled = false;
+
+                    btn_produtos.Enabled = false;
 
                 }
 
@@ -232,7 +235,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                 Modules.Funcionario.form_listagem_funcionarios form_listagem_funcionarios = new Modules.Funcionario.form_listagem_funcionarios();
 
-                form_listagem_funcionarios.id_usuario_sessao = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0;
+                form_listagem_funcionarios.id_usuario_sessao = (Global.usuario_sessao != null) ? Global.usuario_sessao.id : 0;
 
                 External_Form_Association(form_listagem_funcionarios);
 
@@ -481,7 +484,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                if (this.usuario_sessao != null)
+                if (Global.usuario_sessao != null)
                 {
 
                     // Fonte de Pesquisa: https://www.macoratti.net/10/10/c_inbox.htm
@@ -491,16 +494,16 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
                     if (senha != "")
                     {
 
-                        string[] dados_confirmacao = { this.usuario_sessao.cpf, senha };
+                        string[] dados_confirmacao = { Global.usuario_sessao.cpf, senha };
 
                         Model.Funcionario usuario_encontrado = await Model.Funcionario.Login(dados_confirmacao);
 
-                        if (usuario_encontrado != null && usuario_encontrado.senha == this.usuario_sessao.senha)
+                        if (usuario_encontrado != null && usuario_encontrado.senha == Global.usuario_sessao.senha)
                         {
 
                             Modules.Funcionario.form_cadastro_funcionarios form_funcionario = new Modules.Funcionario.form_cadastro_funcionarios();
 
-                            form_funcionario.usuario_sessao = this.usuario_sessao;
+                            form_funcionario.cadastro = false;
 
                             form_funcionario.condicao_administrador = false;
 

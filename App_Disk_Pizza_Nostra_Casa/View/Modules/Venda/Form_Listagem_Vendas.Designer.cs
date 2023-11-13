@@ -113,7 +113,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_pesquisar_venda.BackColor = Color.Transparent;
             btn_pesquisar_venda.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_venda.BackgroundImage");
             btn_pesquisar_venda.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_pesquisar_venda.Cursor = Cursors.Hand;
             btn_pesquisar_venda.FlatAppearance.BorderSize = 0;
+            btn_pesquisar_venda.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btn_pesquisar_venda.FlatStyle = FlatStyle.Flat;
             btn_pesquisar_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_pesquisar_venda.Location = new Point(523, 13);

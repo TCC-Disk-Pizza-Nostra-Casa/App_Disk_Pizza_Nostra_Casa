@@ -495,38 +495,50 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if (MessageBox.Show("Realmente deseja modificar a ativação desse produto?",
-                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (Global.administrador)
                 {
 
-                    int id_produto = Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value);
-
-                    switch (cbbox_condicao_produto.SelectedIndex)
+                    if (MessageBox.Show("Realmente deseja modificar a ativação desse produto?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
 
-                        case 0:
+                        int id_produto = Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value);
 
-                            if (Convert.ToBoolean(await Model.Produto.Enable(id_produto)))
-                            {
+                        switch (cbbox_condicao_produto.SelectedIndex)
+                        {
 
-                                DataGridView_Fill();
+                            case 0:
 
-                            }
+                                if (Convert.ToBoolean(await Model.Produto.Enable(id_produto)))
+                                {
 
-                            break;
+                                    DataGridView_Fill();
 
-                        case 1:
+                                }
 
-                            if (Convert.ToBoolean(await Model.Produto.Disable(id_produto)))
-                            {
+                                break;
 
-                                DataGridView_Fill();
+                            case 1:
 
-                            }
+                                if (Convert.ToBoolean(await Model.Produto.Disable(id_produto)))
+                                {
 
-                            break;
+                                    DataGridView_Fill();
+
+                                }
+
+                                break;
+
+                        }
 
                     }
+
+                }
+
+                else
+                {
+
+                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
                 }
 
