@@ -1,4 +1,5 @@
-﻿using System;
+﻿using App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,9 +16,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
     public partial class form_inicio : Form
     {
 
-        private Form formulario_associado = null;
+        private Form? formulario_associado = null;
 
-        public Model.Funcionario usuario_sessao;
+        public Model.Funcionario? usuario_sessao = null;
 
         public form_inicio()
         {
@@ -229,7 +230,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
             try
             {
 
-                External_Form_Association(new Modules.Funcionario.form_listagem_funcionarios());
+                Modules.Funcionario.form_listagem_funcionarios form_listagem_funcionarios = new Modules.Funcionario.form_listagem_funcionarios();
+
+                form_listagem_funcionarios.id_usuario_sessao = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0;
+
+                External_Form_Association(form_listagem_funcionarios);
 
             }
 
@@ -517,8 +522,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
                 else
                 {
 
-                    MessageBox.Show("Para acessar essa guia, utilize um perfil que esteja registrado no banco de dados!", "Atenção!",
-                                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    throw new Exception("Para acessar essa guia, utilize um perfil que esteja registrado no banco de dados!");
 
                 }
 
