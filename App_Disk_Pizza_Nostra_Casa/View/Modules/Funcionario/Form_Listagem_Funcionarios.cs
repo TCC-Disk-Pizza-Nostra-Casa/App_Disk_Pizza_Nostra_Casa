@@ -17,6 +17,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_listagem_funcionarios : Form
     {
 
+        public int id_usuario_sessao = 0;
+
         public form_listagem_funcionarios()
         {
 
@@ -287,6 +289,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                         bool administrador = Convert.ToBoolean(lista[i].administrador);
 
                         dgv_listagem_funcionarios.Rows.Add(id, nome, sexo, estado_civil, cpf, cep, email, telefone, observacoes, data_modificacao, administrador);
+
+                    }
+
+                }
+
+                if (dgv_listagem_funcionarios.RowCount > 0)
+                {
+
+                    foreach (DataGridViewRow linha in dgv_listagem_funcionarios.Rows)
+                    {
+
+                        if (this.id_usuario_sessao > 0 && this.id_usuario_sessao == Convert.ToInt32(linha.Cells[0].Value))
+                        {
+
+                            dgv_listagem_funcionarios.Rows.RemoveAt(linha.Index);
+
+                            break;
+
+                        }
 
                     }
 
