@@ -76,7 +76,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
 
-                        tela_inicial.usuario_sessao = new Model.Funcionario()
+                        Global.usuario_sessao = new Model.Funcionario()
                         {
 
                             nome = "Root",
@@ -103,6 +103,8 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                         Global.formulario_global = tela_inicial;
 
+                        Global.administrador = Convert.ToBoolean(Global.usuario_sessao.administrador);
+
                         tela_inicial.Show();
 
                     }
@@ -117,16 +119,18 @@ namespace App_Disk_Pizza_Nostra_Casa
                         if (usuario_encontrado != null)
                         {
 
-                            MessageBox.Show("Login efetuado com sucesso.", "Atenção!",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            MessageBox.Show("Login efetuado com sucesso! Seja bem-vindo(a) " + usuario_encontrado.nome + ".",
+                                            "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                             this.Hide();
 
                             View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
 
-                            tela_inicial.usuario_sessao = usuario_encontrado;
+                            Global.usuario_sessao = usuario_encontrado;
 
                             Global.formulario_global = tela_inicial;
+
+                            Global.administrador = Convert.ToBoolean(Global.usuario_sessao.administrador);
 
                             tela_inicial.Show();
 

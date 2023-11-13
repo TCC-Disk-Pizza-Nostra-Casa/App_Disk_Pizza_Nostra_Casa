@@ -18,6 +18,12 @@ namespace App_Disk_Pizza_Nostra_Casa
 
         public static View.Modules.Inicio.form_inicio? formulario_global = null;
 
+        // Variáveis globais.
+
+        public static Model.Funcionario? usuario_sessao = null;
+
+        public static bool administrador = false;
+
         // Registros do banco de dados.
 
         public static List<Model.Funcionario>? funcionarios_cadastrados = null;

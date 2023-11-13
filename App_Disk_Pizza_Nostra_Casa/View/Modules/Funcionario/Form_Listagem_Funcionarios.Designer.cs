@@ -47,7 +47,9 @@
             btn_pesquisar_funcionario.BackColor = Color.Transparent;
             btn_pesquisar_funcionario.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_funcionario.BackgroundImage");
             btn_pesquisar_funcionario.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_pesquisar_funcionario.Cursor = Cursors.Hand;
             btn_pesquisar_funcionario.FlatAppearance.BorderSize = 0;
+            btn_pesquisar_funcionario.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btn_pesquisar_funcionario.FlatStyle = FlatStyle.Flat;
             btn_pesquisar_funcionario.Location = new Point(749, 13);
             btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";

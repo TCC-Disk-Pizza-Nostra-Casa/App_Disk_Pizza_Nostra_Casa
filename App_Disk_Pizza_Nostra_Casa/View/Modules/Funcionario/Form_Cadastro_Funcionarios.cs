@@ -17,9 +17,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
     public partial class form_cadastro_funcionarios : Form
     {
 
-        public Model.Funcionario? usuario_sessao = null;
-
         public bool condicao_administrador = true;
+
+        public bool cadastro = true;
 
         public form_cadastro_funcionarios()
         {
@@ -67,26 +67,26 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (this.usuario_sessao != null)
+                if (!this.cadastro && Global.usuario_sessao != null)
                 {
 
-                    txt_nome.Text = this.usuario_sessao.nome;
+                    txt_nome.Text = Global.usuario_sessao.nome;
 
-                    cbbox_sexo.Text = this.usuario_sessao.sexo;
+                    cbbox_sexo.Text = Global.usuario_sessao.sexo;
 
-                    cbbox_estado_civil.Text = this.usuario_sessao.estado_civil;
+                    cbbox_estado_civil.Text = Global.usuario_sessao.estado_civil;
 
-                    mtxt_cpf.Text = this.usuario_sessao.cpf;
+                    mtxt_cpf.Text = Global.usuario_sessao.cpf;
 
-                    mtxt_cep.Text = this.usuario_sessao.cep;
+                    mtxt_cep.Text = Global.usuario_sessao.cep;
 
-                    txt_email.Text = this.usuario_sessao.email;
+                    txt_email.Text = Global.usuario_sessao.email;
 
-                    mtxt_telefone.Text = this.usuario_sessao.telefone;
+                    mtxt_telefone.Text = Global.usuario_sessao.telefone;
 
-                    txt_observacoes.Text = this.usuario_sessao.observacoes;
+                    txt_observacoes.Text = Global.usuario_sessao.observacoes;
 
-                    ckbox_administrador.Checked = Convert.ToBoolean(this.usuario_sessao.administrador);
+                    ckbox_administrador.Checked = Convert.ToBoolean(Global.usuario_sessao.administrador);
 
                 }
 
@@ -107,60 +107,72 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                string[] masks = { mtxt_cpf.Mask, mtxt_cep.Mask, mtxt_telefone.Mask };
-
-                mtxt_cpf.Mask = "";
-
-                mtxt_cep.Mask = "";
-
-                mtxt_telefone.Mask = "";
-
-                Model.Funcionario dados = new Model.Funcionario()
+                if (Global.usuario_sessao == null && !Global.administrador)
                 {
 
-                    id = (this.usuario_sessao != null) ? this.usuario_sessao.id : 0,
+                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                    nome = txt_nome.Text,
+                }
 
-                    sexo = (cbbox_sexo.Text == "Não informar") ? "Não informado" : cbbox_sexo.Text,
-
-                    estado_civil = cbbox_estado_civil.Text,
-
-                    cpf = mtxt_cpf.Text,
-
-                    cep = mtxt_cep.Text,
-
-                    email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
-
-                    telefone = mtxt_telefone.Text,
-
-                    senha = txt_senha.Text,
-
-                    confirmacao_senha = txt_confirmar_senha.Text,
-
-                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
-
-                    administrador = (ckbox_administrador.Checked) ? 1 : 0
-
-                };
-
-                mtxt_cpf.Mask = masks[0];
-
-                mtxt_cep.Mask = masks[1];
-
-                mtxt_telefone.Mask = masks[2];
-
-                if (await dados.Save())
+                else
                 {
 
-                    if (this.usuario_sessao != null)
+                    string[] masks = { mtxt_cpf.Mask, mtxt_cep.Mask, mtxt_telefone.Mask };
+
+                    mtxt_cpf.Mask = "";
+
+                    mtxt_cep.Mask = "";
+
+                    mtxt_telefone.Mask = "";
+
+                    Model.Funcionario dados = new Model.Funcionario()
                     {
 
-                        Global.formulario_global.usuario_sessao = (await Model.Funcionario.Search(txt_nome.Text))[0];
+                        id = (Global.usuario_sessao != null) ? Global.usuario_sessao.id : 0,
+
+                        nome = txt_nome.Text,
+
+                        sexo = (cbbox_sexo.Text == "Não informar") ? "Não informado" : cbbox_sexo.Text,
+
+                        estado_civil = cbbox_estado_civil.Text,
+
+                        cpf = mtxt_cpf.Text,
+
+                        cep = mtxt_cep.Text,
+
+                        email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
+
+                        telefone = mtxt_telefone.Text,
+
+                        senha = txt_senha.Text,
+
+                        confirmacao_senha = txt_confirmar_senha.Text,
+
+                        observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+
+                        administrador = (ckbox_administrador.Checked) ? 1 : 0
+
+                    };
+
+                    mtxt_cpf.Mask = masks[0];
+
+                    mtxt_cep.Mask = masks[1];
+
+                    mtxt_telefone.Mask = masks[2];
+
+                    if (await dados.Save())
+                    {
+
+                        if (Global.usuario_sessao != null)
+                        {
+
+                            Global.usuario_sessao = (await Model.Funcionario.Search(txt_nome.Text))[0];
+
+                        }
+
+                        this.Close();
 
                     }
-
-                    this.Close();
 
                 }
 

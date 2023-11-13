@@ -127,7 +127,9 @@
             btn_pesquisar_produto.BackColor = Color.Transparent;
             btn_pesquisar_produto.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_produto.BackgroundImage");
             btn_pesquisar_produto.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_pesquisar_produto.Cursor = Cursors.Hand;
             btn_pesquisar_produto.FlatAppearance.BorderSize = 0;
+            btn_pesquisar_produto.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btn_pesquisar_produto.FlatStyle = FlatStyle.Flat;
             btn_pesquisar_produto.Location = new Point(749, 13);
             btn_pesquisar_produto.Name = "btn_pesquisar_produto";

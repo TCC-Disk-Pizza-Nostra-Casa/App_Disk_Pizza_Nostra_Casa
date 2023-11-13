@@ -127,7 +127,9 @@
             btn_pesquisar_fornecedor.BackColor = Color.Transparent;
             btn_pesquisar_fornecedor.BackgroundImage = (Image)resources.GetObject("btn_pesquisar_fornecedor.BackgroundImage");
             btn_pesquisar_fornecedor.BackgroundImageLayout = ImageLayout.Zoom;
+            btn_pesquisar_fornecedor.Cursor = Cursors.Hand;
             btn_pesquisar_fornecedor.FlatAppearance.BorderSize = 0;
+            btn_pesquisar_fornecedor.FlatAppearance.MouseOverBackColor = Color.Transparent;
             btn_pesquisar_fornecedor.FlatStyle = FlatStyle.Flat;
             btn_pesquisar_fornecedor.Location = new Point(749, 13);
             btn_pesquisar_fornecedor.Name = "btn_pesquisar_fornecedor";
