@@ -130,7 +130,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         }
 
-        public static async Task<List<Venda>>? Search(int[] dados_pesquisa)
+        public static async Task<List<Venda>>? Search(string[] dados_pesquisa)
         {
 
             return await Data_Service_Venda.SearchAsyncVenda(dados_pesquisa);

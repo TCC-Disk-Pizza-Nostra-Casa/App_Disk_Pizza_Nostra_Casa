@@ -98,7 +98,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                     txt_pesquisar_produto.Clear();
 
-                    List<Model.Produto> lista_produtos_encontrados = await Data_Service_Produto.SearchAsyncProduto(texto);
+                    List<Model.Produto> lista_produtos_encontrados = await Model.Produto.Search(texto);
 
                     if (lista_produtos_encontrados.Count > 0)
                     {

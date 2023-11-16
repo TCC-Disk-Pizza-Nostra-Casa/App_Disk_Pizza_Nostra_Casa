@@ -146,7 +146,7 @@
             txt_pesquisar_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_cliente.Location = new Point(110, 12);
             txt_pesquisar_cliente.Name = "txt_pesquisar_cliente";
-            txt_pesquisar_cliente.PlaceholderText = "Digite o nome do cliente...";
+            txt_pesquisar_cliente.PlaceholderText = "Digite o nome do(a) cliente...";
             txt_pesquisar_cliente.Size = new Size(633, 26);
             txt_pesquisar_cliente.TabIndex = 41;
             // 

@@ -20,6 +20,8 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public string cnpj {  get; set; }
 
+        public string? email { get; set; } = null;
+
         public string telefone { get; set; }
 
         public string? observacoes { get; set; }

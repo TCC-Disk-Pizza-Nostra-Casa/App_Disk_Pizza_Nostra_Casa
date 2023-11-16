@@ -64,7 +64,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
         }
 
-        public static async Task<List<Venda>>? SearchAsyncVenda(int[] filtros)
+        public static async Task<List<Venda>>? SearchAsyncVenda(string[] filtros)
         {
 
             var post_json = JsonConvert.SerializeObject(filtros);

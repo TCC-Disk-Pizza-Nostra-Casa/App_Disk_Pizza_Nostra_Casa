@@ -146,7 +146,7 @@
             txt_pesquisar_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_fornecedor.Location = new Point(110, 12);
             txt_pesquisar_fornecedor.Name = "txt_pesquisar_fornecedor";
-            txt_pesquisar_fornecedor.PlaceholderText = "Digite o nome do fornecedor...";
+            txt_pesquisar_fornecedor.PlaceholderText = "Digite o nome do(a) fornecedor(a)...";
             txt_pesquisar_fornecedor.Size = new Size(633, 26);
             txt_pesquisar_fornecedor.TabIndex = 50;
             // 

@@ -66,7 +66,7 @@
             txt_pesquisar_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_funcionario.Location = new Point(110, 12);
             txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
-            txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do funcionário...";
+            txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do(a) funcionário(a)...";
             txt_pesquisar_funcionario.Size = new Size(633, 26);
             txt_pesquisar_funcionario.TabIndex = 4;
             // 
