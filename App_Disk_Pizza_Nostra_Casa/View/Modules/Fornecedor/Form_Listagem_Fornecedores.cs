@@ -193,7 +193,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                 dgv_listagem_fornecedores.Columns[0].Name = "dgv_listagem_fornecedores_id";
                 dgv_listagem_fornecedores.Columns[0].Visible = false;
 
-                dgv_listagem_fornecedores.Columns[1].HeaderText = "Nome do produto:";
+                dgv_listagem_fornecedores.Columns[1].HeaderText = "Nome:";
                 dgv_listagem_fornecedores.Columns[1].Name = "dgv_listagem_fornecedores_nome";
                 dgv_listagem_fornecedores.Columns[1].Visible = true;
 
