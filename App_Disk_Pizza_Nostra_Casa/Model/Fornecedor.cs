@@ -110,7 +110,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Fornecedor reativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Fornecedor(a) reativado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 return true;
 
@@ -119,7 +119,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                throw new Exception("Não foi possível reativar o fornecedor selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível reativar o(a) fornecedor(a) selecionado(a)! Tente novamente mais tarde.");
 
             }
 
@@ -133,7 +133,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Fornecedor desativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Fornecedor(a) desativado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 return true;
 
@@ -142,7 +142,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                throw new Exception("Não foi possível desativar o fornecedor selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível desativar o(a) fornecedor(a) selecionado(a)! Tente novamente mais tarde.");
 
             }
 

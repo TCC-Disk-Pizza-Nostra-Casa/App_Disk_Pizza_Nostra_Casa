@@ -122,9 +122,9 @@
             ckbox_administrador.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ckbox_administrador.Location = new Point(12, 426);
             ckbox_administrador.Name = "ckbox_administrador";
-            ckbox_administrador.Size = new Size(136, 23);
+            ckbox_administrador.Size = new Size(155, 23);
             ckbox_administrador.TabIndex = 40;
-            ckbox_administrador.Text = "Administrador";
+            ckbox_administrador.Text = "Administrador(a)";
             ckbox_administrador.UseVisualStyleBackColor = true;
             // 
             // grpbox_dados

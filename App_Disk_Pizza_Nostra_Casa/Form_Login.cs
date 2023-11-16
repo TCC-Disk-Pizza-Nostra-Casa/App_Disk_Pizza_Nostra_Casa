@@ -71,7 +71,7 @@ namespace App_Disk_Pizza_Nostra_Casa
                     if (usuario_encontrado != null && usuario_encontrado.ativo == 1)
                     {
 
-                        MessageBox.Show("Login efetuado com sucesso! Seja bem-vindo(a) " + usuario_encontrado.nome + ".",
+                        MessageBox.Show("Login efetuado com sucesso! Seja bem-vindo(a), " + usuario_encontrado.nome + ".",
                                         "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                         this.Hide();
