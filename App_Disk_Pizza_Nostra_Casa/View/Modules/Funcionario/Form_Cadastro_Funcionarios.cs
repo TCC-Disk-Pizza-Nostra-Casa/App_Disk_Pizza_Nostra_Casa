@@ -107,7 +107,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (Global.usuario_sessao == null && !Global.administrador)
+                if (!Global.administrador)
                 {
 
                     throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
@@ -128,11 +128,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     Model.Funcionario dados = new Model.Funcionario()
                     {
 
-                        id = (Global.usuario_sessao != null) ? Global.usuario_sessao.id : 0,
+                        id = (!this.cadastro && Global.usuario_sessao != null) ? Global.usuario_sessao.id : 0,
 
                         nome = txt_nome.Text,
 
-                        sexo = (cbbox_sexo.Text == "Não informar") ? "Não informado" : cbbox_sexo.Text,
+                        sexo = (cbbox_sexo.SelectedIndex == 2) ? "Não informado" : cbbox_sexo.Text,
 
                         estado_civil = cbbox_estado_civil.Text,
 
@@ -163,7 +163,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                     if (await dados.Save())
                     {
 
-                        if (Global.usuario_sessao != null)
+                        if (!this.cadastro && Global.usuario_sessao != null)
                         {
 
                             Global.usuario_sessao = (await Model.Funcionario.Search(txt_nome.Text))[0];

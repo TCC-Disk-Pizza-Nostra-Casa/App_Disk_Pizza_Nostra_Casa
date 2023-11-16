@@ -54,7 +54,7 @@ namespace App_Disk_Pizza_Nostra_Casa
             try
             {
 
-                if (String.IsNullOrEmpty(mtxt_cpf.Text) || String.IsNullOrEmpty(txt_senha.Text))
+                if (String.IsNullOrEmpty(mtxt_cpf.Text.Trim()) || String.IsNullOrEmpty(txt_senha.Text.Trim()))
                 {
 
                     throw new Exception("Preencha todos os campos antes de prosseguir.");
@@ -64,42 +64,21 @@ namespace App_Disk_Pizza_Nostra_Casa
                 else
                 {
 
-                    // Condição destinada para testes da aplicação.
+                    string[] dados_login = { mtxt_cpf.Text, txt_senha.Text };
 
-                    if (mtxt_cpf.Text == "123.456.789-09" && txt_senha.Text == "etecjau")
+                    Model.Funcionario usuario_encontrado = await Model.Funcionario.Login(dados_login);
+
+                    if (usuario_encontrado != null && usuario_encontrado.ativo == 1)
                     {
 
-                        MessageBox.Show("Iniciando sessão de testes.", "Atenção!",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        MessageBox.Show("Login efetuado com sucesso! Seja bem-vindo(a) " + usuario_encontrado.nome + ".",
+                                        "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                         this.Hide();
 
                         View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
 
-                        Global.usuario_sessao = new Model.Funcionario()
-                        {
-
-                            nome = "Root",
-
-                            sexo = "Não informado.",
-
-                            estado_civil = "Solteiro",
-
-                            cpf = "12345678909",
-
-                            cep = "17212646",
-
-                            email = "root@etec.sp.gov.br",
-
-                            telefone = "14991116468",
-
-                            senha = "1234",
-
-                            observacoes = "Usuário de testes",
-
-                            administrador = 1
-
-                        };
+                        Global.usuario_sessao = usuario_encontrado;
 
                         Global.formulario_global = tela_inicial;
 
@@ -112,40 +91,11 @@ namespace App_Disk_Pizza_Nostra_Casa
                     else
                     {
 
-                        string[] dados_login = { mtxt_cpf.Text, txt_senha.Text };
+                        mtxt_cpf.Clear();
 
-                        Model.Funcionario usuario_encontrado = await Model.Funcionario.Login(dados_login);
+                        txt_senha.Clear();
 
-                        if (usuario_encontrado != null)
-                        {
-
-                            MessageBox.Show("Login efetuado com sucesso! Seja bem-vindo(a) " + usuario_encontrado.nome + ".",
-                                            "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
-                            this.Hide();
-
-                            View.Modules.Inicio.form_inicio tela_inicial = new View.Modules.Inicio.form_inicio();
-
-                            Global.usuario_sessao = usuario_encontrado;
-
-                            Global.formulario_global = tela_inicial;
-
-                            Global.administrador = Convert.ToBoolean(Global.usuario_sessao.administrador);
-
-                            tela_inicial.Show();
-
-                        }
-
-                        else
-                        {
-
-                            mtxt_cpf.Clear();
-
-                            txt_senha.Clear();
-
-                            throw new Exception("Nenhum usuário encontrado! Verifique seu CPF e senha.");
-
-                        }
+                        throw new Exception("Nenhum usuário encontrado! Verifique seu CPF e senha.");
 
                     }
 

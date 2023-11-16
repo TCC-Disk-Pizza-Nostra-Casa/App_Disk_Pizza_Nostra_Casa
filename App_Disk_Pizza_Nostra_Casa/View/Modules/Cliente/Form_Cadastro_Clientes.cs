@@ -106,7 +106,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                     nome = txt_nome.Text,
 
-                    sexo = (cbbox_sexo.Text == "Não informar") ? "Não informado" : cbbox_sexo.Text,
+                    sexo = (cbbox_sexo.SelectedIndex == 2) ? "Não informado" : cbbox_sexo.Text,
 
                     estado_civil = cbbox_estado_civil.Text,
 
