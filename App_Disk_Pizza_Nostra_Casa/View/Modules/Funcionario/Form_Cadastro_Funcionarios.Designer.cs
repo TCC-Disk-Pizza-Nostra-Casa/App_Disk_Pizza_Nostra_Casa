@@ -45,7 +45,7 @@
             mtxt_telefone = new MaskedTextBox();
             lbl_telefone = new Label();
             txt_email = new TextBox();
-            email = new Label();
+            lbl_email = new Label();
             lbl_cep = new Label();
             mtxt_cep = new MaskedTextBox();
             lbl_cpf = new Label();
@@ -153,7 +153,7 @@
             pnl_campos.Controls.Add(mtxt_telefone);
             pnl_campos.Controls.Add(lbl_telefone);
             pnl_campos.Controls.Add(txt_email);
-            pnl_campos.Controls.Add(email);
+            pnl_campos.Controls.Add(lbl_email);
             pnl_campos.Controls.Add(lbl_cep);
             pnl_campos.Controls.Add(mtxt_cep);
             pnl_campos.Controls.Add(lbl_cpf);
@@ -280,17 +280,17 @@
             txt_email.Size = new Size(653, 26);
             txt_email.TabIndex = 21;
             // 
-            // email
+            // lbl_email
             // 
-            email.AutoSize = true;
-            email.BackColor = Color.Transparent;
-            email.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            email.Location = new Point(12, 213);
-            email.Name = "email";
-            email.Size = new Size(57, 19);
-            email.TabIndex = 16;
-            email.Text = "Email:";
-            email.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_email.AutoSize = true;
+            lbl_email.BackColor = Color.Transparent;
+            lbl_email.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_email.Location = new Point(12, 213);
+            lbl_email.Name = "lbl_email";
+            lbl_email.Size = new Size(57, 19);
+            lbl_email.TabIndex = 16;
+            lbl_email.Text = "Email:";
+            lbl_email.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // lbl_cep
             // 
@@ -343,7 +343,7 @@
             txt_nome.Location = new Point(78, 7);
             txt_nome.MaxLength = 255;
             txt_nome.Name = "txt_nome";
-            txt_nome.PlaceholderText = "Insira seu nome aqui...";
+            txt_nome.PlaceholderText = "Insira o nome do(a) funcionário(a) aqui...";
             txt_nome.Size = new Size(650, 26);
             txt_nome.TabIndex = 4;
             // 
@@ -406,7 +406,7 @@
         private MaskedTextBox mtxt_telefone;
         private Label lbl_telefone;
         private TextBox txt_email;
-        private Label email;
+        private Label lbl_email;
         private Label lbl_cep;
         private MaskedTextBox mtxt_cep;
         private Label lbl_cpf;

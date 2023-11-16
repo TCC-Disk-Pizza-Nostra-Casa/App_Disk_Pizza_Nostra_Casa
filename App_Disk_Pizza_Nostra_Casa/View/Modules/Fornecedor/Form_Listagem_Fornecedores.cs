@@ -185,6 +185,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 dgv_listagem_fornecedores.Columns.Insert(6, new DataGridViewTextBoxColumn());
 
+                dgv_listagem_fornecedores.Columns.Insert(7, new DataGridViewTextBoxColumn());
+
                 // Dados das colunas.
 
                 dgv_listagem_fornecedores.Columns[0].HeaderText = "ID:";
@@ -199,21 +201,25 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                 dgv_listagem_fornecedores.Columns[2].Name = "dgv_listagem_fornecedores_cnpj";
                 dgv_listagem_fornecedores.Columns[2].Visible = true;
 
-                dgv_listagem_fornecedores.Columns[3].HeaderText = "Telefone:";
-                dgv_listagem_fornecedores.Columns[3].Name = "dgv_listagem_fornecedores_telefone";
+                dgv_listagem_fornecedores.Columns[3].HeaderText = "E-mail:";
+                dgv_listagem_fornecedores.Columns[3].Name = "dgv_listagem_fornecedores_email";
                 dgv_listagem_fornecedores.Columns[3].Visible = true;
 
-                dgv_listagem_fornecedores.Columns[4].HeaderText = "Observações:";
-                dgv_listagem_fornecedores.Columns[4].Name = "dgv_listagem_fornecedores_observacoes";
+                dgv_listagem_fornecedores.Columns[4].HeaderText = "Telefone:";
+                dgv_listagem_fornecedores.Columns[4].Name = "dgv_listagem_fornecedores_telefone";
                 dgv_listagem_fornecedores.Columns[4].Visible = true;
 
-                dgv_listagem_fornecedores.Columns[5].HeaderText = "Última modificação:";
-                dgv_listagem_fornecedores.Columns[5].Name = "dgv_listagem_fornecedores_data_modificacao";
+                dgv_listagem_fornecedores.Columns[5].HeaderText = "Observações:";
+                dgv_listagem_fornecedores.Columns[5].Name = "dgv_listagem_fornecedores_observacoes";
                 dgv_listagem_fornecedores.Columns[5].Visible = true;
 
-                dgv_listagem_fornecedores.Columns[6].HeaderText = "Editar:";
-                dgv_listagem_fornecedores.Columns[6].Name = "dgv_listagem_fornecedores_editar";
+                dgv_listagem_fornecedores.Columns[6].HeaderText = "Última modificação:";
+                dgv_listagem_fornecedores.Columns[6].Name = "dgv_listagem_fornecedores_data_modificacao";
                 dgv_listagem_fornecedores.Columns[6].Visible = true;
+
+                dgv_listagem_fornecedores.Columns[7].HeaderText = "Editar:";
+                dgv_listagem_fornecedores.Columns[7].Name = "dgv_listagem_fornecedores_editar";
+                dgv_listagem_fornecedores.Columns[7].Visible = true;
 
             }
 
@@ -246,13 +252,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         string cnpj = lista[i].cnpj;
 
+                        string? email = lista[i].email;
+
                         string telefone = lista[i].telefone;
 
                         string? observacoes = lista[i].observacoes;
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_fornecedores.Rows.Add(id, nome, cnpj, telefone, observacoes, data_modificacao, "Clique aqui.");
+                        dgv_listagem_fornecedores.Rows.Add(id, nome, cnpj, email, telefone, observacoes, data_modificacao, "Clique aqui.");
 
                     }
 
@@ -307,7 +315,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
 
-                if (dgv_listagem_fornecedores.RowCount > 0 && dgv_listagem_fornecedores.CurrentCell.ColumnIndex == 6)
+                if (dgv_listagem_fornecedores.RowCount > 0 && dgv_listagem_fornecedores.CurrentCell.ColumnIndex == 7)
                 {
 
                     if (MessageBox.Show("Deseja editar os dados do fornecedor selecionado?", "Atenção",

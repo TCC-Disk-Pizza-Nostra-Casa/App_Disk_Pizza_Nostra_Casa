@@ -47,6 +47,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                 mtxt_cnpj.Text = this.fornecedor_selecionado.cnpj;
 
+                txt_email.Text = this.fornecedor_selecionado.email;
+
                 mtxt_telefone.Text = this.fornecedor_selecionado.telefone;
 
                 txt_observacoes.Text = this.fornecedor_selecionado.observacoes;
@@ -85,6 +87,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                         nome = txt_nome.Text,
 
                         cnpj = mtxt_cnpj.Text,
+
+                        email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
 
                         telefone = mtxt_telefone.Text,
 

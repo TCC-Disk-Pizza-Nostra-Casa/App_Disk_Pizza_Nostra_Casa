@@ -253,9 +253,9 @@
             lbl_funcionario.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             lbl_funcionario.Location = new Point(20, 33);
             lbl_funcionario.Name = "lbl_funcionario";
-            lbl_funcionario.Size = new Size(107, 19);
+            lbl_funcionario.Size = new Size(126, 19);
             lbl_funcionario.TabIndex = 60;
-            lbl_funcionario.Text = "Funcionário:";
+            lbl_funcionario.Text = "Funcionário(a):";
             lbl_funcionario.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // cbbox_funcionario
@@ -263,9 +263,9 @@
             cbbox_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbbox_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_funcionario.FormattingEnabled = true;
-            cbbox_funcionario.Location = new Point(133, 30);
+            cbbox_funcionario.Location = new Point(152, 30);
             cbbox_funcionario.Name = "cbbox_funcionario";
-            cbbox_funcionario.Size = new Size(610, 26);
+            cbbox_funcionario.Size = new Size(591, 26);
             cbbox_funcionario.TabIndex = 0;
             // 
             // grpbox_produtos

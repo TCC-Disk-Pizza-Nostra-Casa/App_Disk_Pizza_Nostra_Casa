@@ -33,12 +33,14 @@
             lbl_observacoes = new Label();
             txt_observacoes = new TextBox();
             grpbox_dados = new GroupBox();
+            lbl_email = new Label();
             txt_telefone = new Label();
             mtxt_telefone = new MaskedTextBox();
             lbl_cnpj = new Label();
             mtxt_cnpj = new MaskedTextBox();
             txt_nome = new TextBox();
             lbl_nome = new Label();
+            txt_email = new TextBox();
             grpbox_dados.SuspendLayout();
             SuspendLayout();
             // 
@@ -79,7 +81,7 @@
             // lbl_observacoes
             // 
             lbl_observacoes.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            lbl_observacoes.Location = new Point(12, 188);
+            lbl_observacoes.Location = new Point(12, 230);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(125, 28);
             lbl_observacoes.TabIndex = 53;
@@ -90,37 +92,51 @@
             // 
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txt_observacoes.Location = new Point(12, 228);
+            txt_observacoes.Location = new Point(12, 271);
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) fornecedor(a)...";
-            txt_observacoes.Size = new Size(760, 162);
+            txt_observacoes.Size = new Size(760, 119);
             txt_observacoes.TabIndex = 4;
             // 
             // grpbox_dados
             // 
             grpbox_dados.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             grpbox_dados.BackColor = Color.Transparent;
+            grpbox_dados.Controls.Add(lbl_email);
             grpbox_dados.Controls.Add(txt_telefone);
             grpbox_dados.Controls.Add(mtxt_telefone);
             grpbox_dados.Controls.Add(lbl_cnpj);
             grpbox_dados.Controls.Add(mtxt_cnpj);
             grpbox_dados.Controls.Add(txt_nome);
             grpbox_dados.Controls.Add(lbl_nome);
+            grpbox_dados.Controls.Add(txt_email);
             grpbox_dados.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             grpbox_dados.Location = new Point(12, 12);
             grpbox_dados.Name = "grpbox_dados";
-            grpbox_dados.Size = new Size(760, 163);
+            grpbox_dados.Size = new Size(760, 206);
             grpbox_dados.TabIndex = 60;
             grpbox_dados.TabStop = false;
             grpbox_dados.Text = "Dados";
+            // 
+            // lbl_email
+            // 
+            lbl_email.AutoSize = true;
+            lbl_email.BackColor = Color.Transparent;
+            lbl_email.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            lbl_email.Location = new Point(14, 119);
+            lbl_email.Name = "lbl_email";
+            lbl_email.Size = new Size(57, 19);
+            lbl_email.TabIndex = 60;
+            lbl_email.Text = "Email:";
+            lbl_email.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // txt_telefone
             // 
             txt_telefone.AutoSize = true;
             txt_telefone.BackColor = Color.Transparent;
             txt_telefone.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            txt_telefone.Location = new Point(14, 119);
+            txt_telefone.Location = new Point(14, 160);
             txt_telefone.Name = "txt_telefone";
             txt_telefone.Size = new Size(80, 19);
             txt_telefone.TabIndex = 59;
@@ -130,7 +146,7 @@
             // mtxt_telefone
             // 
             mtxt_telefone.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            mtxt_telefone.Location = new Point(100, 116);
+            mtxt_telefone.Location = new Point(100, 157);
             mtxt_telefone.Mask = "(00) 00000-0000";
             mtxt_telefone.Name = "mtxt_telefone";
             mtxt_telefone.Size = new Size(640, 26);
@@ -179,6 +195,17 @@
             lbl_nome.Text = "Nome:";
             lbl_nome.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // txt_email
+            // 
+            txt_email.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txt_email.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txt_email.Location = new Point(77, 116);
+            txt_email.MaxLength = 60;
+            txt_email.Name = "txt_email";
+            txt_email.PlaceholderText = "Exemplo: fornecedor@gmail.com";
+            txt_email.Size = new Size(663, 26);
+            txt_email.TabIndex = 61;
+            // 
             // form_cadastro_fornecedores
             // 
             AutoScaleDimensions = new SizeF(7F, 16F);
@@ -215,5 +242,7 @@
         private MaskedTextBox mtxt_cnpj;
         private Label txt_telefone;
         private MaskedTextBox mtxt_telefone;
+        private TextBox txt_email;
+        private Label lbl_email;
     }
 }

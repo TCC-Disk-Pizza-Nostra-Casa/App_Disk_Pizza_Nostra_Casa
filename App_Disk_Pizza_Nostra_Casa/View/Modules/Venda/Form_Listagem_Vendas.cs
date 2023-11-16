@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -30,7 +31,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private async void form_listagem_vendas_Load(object sender, EventArgs e)
+        private void form_listagem_vendas_Load(object sender, EventArgs e)
         {
 
             try
@@ -56,40 +57,15 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 cbbox_cliente.ValueMember = "id";
 
-                ComboBoxes_Fill();
-
                 Sales_DataGridView_Configuration();
 
                 Items_DataGridView_Configuration();
 
-                dtpck_data_venda.MinDate = new DateTime(1900, 1, 1);
+                dtpck_data_venda.MinDate = new DateTime(1950, 1, 1);
 
                 dtpck_data_venda.MaxDate = DateTime.Now.Date;
 
-                Global.produtos_cadastrados = await Model.Produto.GetList();
-
-                if (Global.produtos_cadastrados.Count > 0)
-                {
-
-                    List<Model.Produto> produtos_ativos = new List<Model.Produto>();
-
-                    for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
-                    {
-
-                        if (Convert.ToBoolean(Global.produtos_cadastrados[i].ativo))
-                        {
-
-                            produtos_ativos.Add(Global.produtos_cadastrados[i]);
-
-                        }
-
-                    }
-
-                    this.produtos_ativos = produtos_ativos;
-
-                }
-
-                cbbox_condicao_venda.SelectedIndex = 1;
+                ComboBoxes_Fill();
 
             }
 
@@ -158,6 +134,31 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 }
 
+                Global.produtos_cadastrados = await Model.Produto.GetList();
+
+                if (Global.produtos_cadastrados.Count > 0)
+                {
+
+                    List<Model.Produto> produtos_ativos = new List<Model.Produto>();
+
+                    for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.produtos_cadastrados[i].ativo))
+                        {
+
+                            produtos_ativos.Add(Global.produtos_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.produtos_ativos = produtos_ativos;
+
+                }
+
+                cbbox_condicao_venda.SelectedIndex = 1;
+
             }
 
             catch (Exception ex)
@@ -169,13 +170,71 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void btn_pesquisar_venda_Click(object sender, EventArgs e)
+        private async void btn_pesquisar_venda_Click(object sender, EventArgs e)
         {
 
             try
             {
 
+                if (String.IsNullOrEmpty(cbbox_funcionario.Text) ||
+                    String.IsNullOrEmpty(cbbox_cliente.Text) ||
+                    String.IsNullOrEmpty(dtpck_data_venda.Text))
+                {
 
+                    throw new Exception("Preencha os campos de pesquisa para prosseguir.");
+
+                }
+
+                else
+                {
+
+                    string[] dados_pesquisa = { cbbox_funcionario.SelectedValue.ToString(),
+                                                cbbox_cliente.SelectedValue.ToString(),
+                                                dtpck_data_venda.Value.ToString("yyyy-MM-dd") };
+
+                    cbbox_funcionario.SelectedIndex = 0;
+
+                    cbbox_cliente.SelectedIndex = 0;
+
+                    dtpck_data_venda.Value = DateTime.Now.Date;
+
+                    List<Model.Venda> lista_vendas_encontradas = await Model.Venda.Search(dados_pesquisa);
+
+                    if (lista_vendas_encontradas.Count > 0)
+                    {
+
+                        dgv_listagem_vendas.Rows.Clear();
+
+                        dgv_listagem_itens_venda.Rows.Clear();
+
+                        SaleValuesAssociation(lista_vendas_encontradas, cbbox_condicao_venda.SelectedIndex);
+
+                        if (dgv_listagem_vendas.RowCount > 0)
+                        {
+
+                            btn_resetar.Enabled = true;
+
+                        }
+
+                        else
+                        {
+
+                            Sales_DataGridView_Fill();
+
+                            throw new Exception("Nenhuma venda encontrada que corresponda a esses parâmetros.");
+
+                        }
+
+                    }
+
+                    else
+                    {
+
+                        throw new Exception("Nenhuma venda encontrada que corresponda a esses parâmetros.");
+
+                    }
+
+                }
 
             }
 
@@ -267,7 +326,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 dgv_listagem_vendas.Columns[1].Name = "dgv_listagem_vendas_id_funcionario";
                 dgv_listagem_vendas.Columns[1].Visible = false;
 
-                dgv_listagem_vendas.Columns[2].HeaderText = "Funcionário:";
+                dgv_listagem_vendas.Columns[2].HeaderText = "Funcionário(a):";
                 dgv_listagem_vendas.Columns[2].Name = "dgv_listagem_vendas_funcionario";
                 dgv_listagem_vendas.Columns[2].Visible = true;
 
@@ -399,7 +458,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private string? ReturnEmployeeName(int id)
+        private Model.Funcionario? ReturnEmployeeObject(int id)
         {
 
             try
@@ -408,7 +467,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 if (this.funcionarios_ativos != null)
                 {
 
-                    string? retorno = null;
+                    Model.Funcionario? retorno = null;
 
                     for (int i = 0; i < this.funcionarios_ativos.Count; i++)
                     {
@@ -416,7 +475,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                         if (this.funcionarios_ativos[i].id == id)
                         {
 
-                            retorno = this.funcionarios_ativos[i].nome;
+                            retorno = this.funcionarios_ativos[i];
 
                         }
 
@@ -446,7 +505,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private string? ReturnClientName(int id)
+        private Model.Cliente? ReturnClientObject(int id)
         {
 
             try
@@ -455,7 +514,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 if (this.clientes_ativos != null)
                 {
 
-                    string? retorno = null;
+                    Model.Cliente? retorno = null;
 
                     for (int i = 0; i < this.clientes_ativos.Count; i++)
                     {
@@ -463,7 +522,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                         if (this.clientes_ativos[i].id == id)
                         {
 
-                            retorno = this.clientes_ativos[i].nome;
+                            retorno = this.clientes_ativos[i];
 
                         }
 
@@ -546,10 +605,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                dgv_listagem_vendas.Rows.Clear();
-
-                dgv_listagem_itens_venda.Rows.Clear();
-
                 for (int i = 0; i < lista.Count; i++)
                 {
 
@@ -560,11 +615,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                         int id_funcionario = lista[i].fk_funcionario;
 
-                        string funcionario = ReturnEmployeeName(id_funcionario);
+                        string funcionario = (ReturnEmployeeObject(id_funcionario) != null) ? ReturnEmployeeObject(id_funcionario).nome : "Não encontrado(a).";
 
                         int id_cliente = lista[i].fk_cliente;
 
-                        string cliente = ReturnClientName(id_cliente);
+                        string cliente = (ReturnClientObject(id_cliente) != null) ? ReturnClientObject(id_cliente).nome : "Não encontrado(a).";
 
                         string delivery = (lista[i].delivery == 1) ? "Sim" : "Não";
 
@@ -648,10 +703,14 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 btn_desativar.Enabled = false;
 
+                dgv_listagem_itens_venda.Rows.Clear();
+
                 Global.vendas_cadastradas = await Model.Venda.GetList();
 
                 if (Global.vendas_cadastradas.Count > 0)
                 {
+
+                    dgv_listagem_vendas.Rows.Clear();
 
                     SaleValuesAssociation(Global.vendas_cadastradas, cbbox_condicao_venda.SelectedIndex);
 
@@ -678,6 +737,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 if (itens_venda.Count > 0)
                 {
+
+                    dgv_listagem_itens_venda.Rows.Clear();
 
                     ItemsValuesAssociation(itens_venda, cbbox_condicao_venda.SelectedIndex);
 
@@ -835,7 +896,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
+                if (MessageBox.Show("Realmente deseja resetar a tabela de vendas?", "Atenção!",
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
 
+                    Sales_DataGridView_Fill();
+
+                }
 
             }
 
