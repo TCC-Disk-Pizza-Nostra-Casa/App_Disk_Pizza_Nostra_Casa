@@ -297,13 +297,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (dgv_listagem_funcionarios.RowCount > 0)
                 {
 
-                    foreach (DataGridViewRow linha in dgv_listagem_funcionarios.Rows)
+                    for (int i = 0; i < dgv_listagem_funcionarios.Rows.Count; i++)
                     {
 
-                        if (this.id_usuario_sessao > 0 && this.id_usuario_sessao == Convert.ToInt32(linha.Cells[0].Value))
+                        if (this.id_usuario_sessao > 0 && this.id_usuario_sessao == Convert.ToInt32(dgv_listagem_funcionarios.Rows[i].Cells[0].Value))
                         {
 
-                            dgv_listagem_funcionarios.Rows.RemoveAt(linha.Index);
+                            dgv_listagem_funcionarios.Rows.Remove(dgv_listagem_funcionarios.Rows[i]);
 
                             break;
 
