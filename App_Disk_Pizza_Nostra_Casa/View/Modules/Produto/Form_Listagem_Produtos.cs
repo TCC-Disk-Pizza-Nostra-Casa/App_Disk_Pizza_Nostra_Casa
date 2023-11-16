@@ -220,7 +220,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 dgv_listagem_produtos.Columns[0].Name = "dgv_listagem_produtos_id";
                 dgv_listagem_produtos.Columns[0].Visible = false;
 
-                dgv_listagem_produtos.Columns[1].HeaderText = "Nome do produto:";
+                dgv_listagem_produtos.Columns[1].HeaderText = "Nome:";
                 dgv_listagem_produtos.Columns[1].Name = "dgv_listagem_produtos_nome";
                 dgv_listagem_produtos.Columns[1].Visible = true;
 
