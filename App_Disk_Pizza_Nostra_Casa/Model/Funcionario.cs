@@ -130,7 +130,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Funcionário reativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Funcionário(a) reativado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 return true;
 
@@ -139,7 +139,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                throw new Exception("Não foi possível reativar o funcionário selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível reativar o(a) funcionário(a) selecionado(a)! Tente novamente mais tarde.");
 
             }
 
@@ -153,7 +153,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Funcionário desativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Funcionário(a) desativado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 return true;
 
@@ -162,7 +162,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                throw new Exception("Não foi possível desativar o funcionário selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível desativar o(a) funcionário(a) selecionado(a)! Tente novamente mais tarde.");
 
             }
 
@@ -176,14 +176,14 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Funcionário promovido com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Funcionário(a) promovido(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
 
             else
             {
 
-                throw new Exception("Não foi possível promover o funcionário selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível promover o(a) funcionário(a) selecionado(a)! Tente novamente mais tarde.");
 
             }
 
@@ -197,14 +197,14 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Funcionário rebaixado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Funcionário(a) rebaixado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
 
             else
             {
 
-                throw new Exception("Não foi possível rebaixar o funcionário selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível rebaixar o(a) funcionário(a) selecionado(a)! Tente novamente mais tarde.");
 
             }
 

@@ -119,7 +119,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Cliente reativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Cliente reativado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 return true;
 
@@ -128,7 +128,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                throw new Exception("Não foi possível reativar o cliente selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível reativar o(a) cliente selecionado(a)! Tente novamente mais tarde.");
 
             }
 
@@ -142,7 +142,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             if (exito)
             {
 
-                MessageBox.Show("Cliente desativado com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("Cliente desativado(a) com sucesso.", "Atenção!", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 return true;
 
@@ -151,7 +151,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             else
             {
 
-                throw new Exception("Não foi possível desativar o cliente selecionado! Tente novamente mais tarde.");
+                throw new Exception("Não foi possível desativar o(a) cliente selecionado(a)! Tente novamente mais tarde.");
 
             }
 

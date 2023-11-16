@@ -80,7 +80,7 @@
             // 
             lbl_valor_total.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             lbl_valor_total.BackColor = Color.Transparent;
-            lbl_valor_total.Font = new Font("Arial", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_valor_total.Font = new Font("Arial", 18F, FontStyle.Regular, GraphicsUnit.Point);
             lbl_valor_total.ForeColor = Color.Black;
             lbl_valor_total.Location = new Point(12, 9);
             lbl_valor_total.Name = "lbl_valor_total";
@@ -115,6 +115,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             ClientSize = new Size(384, 361);
             Controls.Add(cbbox_tipo_consumo);
             Controls.Add(lbl_tipo_consumo);
