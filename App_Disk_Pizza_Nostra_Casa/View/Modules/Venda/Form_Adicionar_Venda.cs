@@ -441,6 +441,88 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
+        private bool Verify_Quantities()
+        {
+
+            try
+            {
+
+                int quantidade_pizzas = 0;
+
+                int quantidade_bebidas = 0;
+
+                int quantidade_doces = 0;
+
+                int quantidade_maxima_produto = 250;
+
+                foreach (DataGridViewRow item in dgv_carrinho_produtos.Rows)
+                {
+
+                    if (item.Cells[3].Value.ToString() == "Bebida")
+                    {
+
+                        quantidade_bebidas += Convert.ToInt32(item.Cells[4].Value);
+
+                    }
+
+                    else if (item.Cells[3].Value.ToString() == "Doce")
+                    {
+
+                        quantidade_doces += Convert.ToInt32(item.Cells[4].Value);
+
+                    }
+
+                    else
+                    {
+
+                        quantidade_pizzas += Convert.ToInt32(item.Cells[4].Value);
+
+                    }
+
+                }
+
+                if (cbbox_categoria_produto.Text == "Bebida" && quantidade_bebidas + int.Parse(txt_quantidade_produto.Text) > quantidade_maxima_produto)
+                {
+
+                    throw new Exception("A quantidade máxima de bebidas por cliente é de 250 unidades.");
+
+                }
+
+                else if (cbbox_categoria_produto.Text == "Doce" && quantidade_doces + int.Parse(txt_quantidade_produto.Text) > quantidade_maxima_produto)
+                {
+
+                    throw new Exception("A quantidade máxima de doces por cliente é de 250 unidades.");
+
+                }
+
+                else if (cbbox_categoria_produto.Text != "Bebida" && cbbox_categoria_produto.Text != "Doce" &&
+                         quantidade_pizzas + int.Parse(txt_quantidade_produto.Text) > quantidade_maxima_produto)
+                {
+
+                    throw new Exception("A quantidade máxima de pizzas por cliente é de 250 unidades.");
+
+                }
+
+                else
+                {
+
+                    return true;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return false;
+
+            }
+
+        }
+
         private void btn_adicionar_produto_Click(object sender, EventArgs e)
         {
 
@@ -457,63 +539,68 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 else
                 {
 
-                    bool produto_adicionado = false;
-
-                    int indice_item = -1;
-
-                    foreach (DataGridViewRow item in dgv_carrinho_produtos.Rows)
+                    if (Verify_Quantities())
                     {
 
-                        if (item.Cells[1].Value.ToString() == cbbox_nome_produto.Text)
+                        bool produto_adicionado = false;
+
+                        int indice_item = -1;
+
+                        foreach (DataGridViewRow item in dgv_carrinho_produtos.Rows)
                         {
 
-                            produto_adicionado = true;
+                            if (item.Cells[1].Value.ToString() == cbbox_nome_produto.Text)
+                            {
 
-                            indice_item = item.Index;
+                                produto_adicionado = true;
+
+                                indice_item = item.Index;
+
+                            }
 
                         }
 
+                        if (produto_adicionado && indice_item >= 0)
+                        {
+
+                            int quantidade_atual = Convert.ToInt32(dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value);
+
+                            dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value = quantidade_atual + int.Parse(txt_quantidade_produto.Text);
+
+                            int quantidade_nova = Convert.ToInt32(dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value);
+
+                            double preco = double.Parse(dgv_carrinho_produtos.Rows[indice_item].Cells[5].Value.ToString().Replace("R$ ", ""));
+
+                            dgv_carrinho_produtos.Rows[indice_item].Cells[6].Value = (preco * quantidade_nova).ToString("C2");
+
+                        }
+
+                        else
+                        {
+
+                            Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
+
+                            string id_produto = produto_selecionado.id.ToString();
+
+                            string produto = produto_selecionado.nome;
+
+                            string tamanho = produto_selecionado.tamanho;
+
+                            string categoria = produto_selecionado.categoria;
+
+                            string quantidade = txt_quantidade_produto.Text;
+
+                            string preco = produto_selecionado.preco.ToString("C2");
+
+                            string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
+
+                            dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
+
+                        }
+
+                        ResetProductOptions();
+
                     }
-
-                    if (produto_adicionado && indice_item >= 0)
-                    {
-
-                        int quantidade_atual = Convert.ToInt32(dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value);
-
-                        dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value = quantidade_atual + int.Parse(txt_quantidade_produto.Text);
-
-                        int quantidade_nova = Convert.ToInt32(dgv_carrinho_produtos.Rows[indice_item].Cells[4].Value);
-
-                        double preco = double.Parse(dgv_carrinho_produtos.Rows[indice_item].Cells[5].Value.ToString().Replace("R$ ", ""));
-
-                        dgv_carrinho_produtos.Rows[indice_item].Cells[6].Value = (preco * quantidade_nova).ToString("C2");
-
-                    }
-
-                    else
-                    {
-
-                        Model.Produto? produto_selecionado = ReturnProductObject(Convert.ToInt32(cbbox_nome_produto.SelectedValue));
-
-                        string id_produto = produto_selecionado.id.ToString();
-
-                        string produto = produto_selecionado.nome;
-
-                        string tamanho = produto_selecionado.tamanho;
-
-                        string categoria = produto_selecionado.categoria;
-
-                        string quantidade = txt_quantidade_produto.Text;
-
-                        string preco = produto_selecionado.preco.ToString("C2");
-
-                        string valor_total_item_venda = (produto_selecionado.preco * Convert.ToInt32(txt_quantidade_produto.Text)).ToString("C2");
-
-                        dgv_carrinho_produtos.Rows.Add(id_produto, produto, tamanho, categoria, quantidade, preco, valor_total_item_venda);
-
-                    }
-
-                    ResetProductOptions();
 
                 }
 
