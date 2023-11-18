@@ -21,7 +21,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/venda/save");
 
-            Venda model_retornada = JsonConvert.DeserializeObject<Venda>(json);
+            Venda? model_retornada = JsonConvert.DeserializeObject<Venda>(json);
 
             return model_retornada;
 
@@ -58,7 +58,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/venda/list");
 
-            List<Venda> lista_vendas = JsonConvert.DeserializeObject<List<Venda>>(json);
+            List<Venda>? lista_vendas = JsonConvert.DeserializeObject<List<Venda>>(json);
 
             return lista_vendas;
 
@@ -71,35 +71,11 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/venda/search");
 
-            List<Venda> lista_vendas_encontradas = JsonConvert.DeserializeObject<List<Venda>>(json);
+            List<Venda>? lista_vendas_encontradas = JsonConvert.DeserializeObject<List<Venda>>(json);
 
             return lista_vendas_encontradas;
 
         }
-
-        /*public static async Task<List<Venda>>? SearchByClientAsyncVenda(string nome)
-        {
-            var post_json = JsonConvert.SerializeObject(nome);
-
-            string json = await Data_Service.SendDataApi(post_json, "/venda/searchByClient");
-
-            List<Venda> lista_vendas_encontradas = JsonConvert.DeserializeObject<List<Venda>>(json);
-
-            return lista_vendas_encontradas;
-
-        }
-
-        public static async Task<List<Venda>>? SearchByDateAsyncVenda(string date)
-        {
-            var post_json = JsonConvert.SerializeObject(date);
-
-            string json = await Data_Service.SendDataApi(post_json, "/venda/searchByDate");
-
-            List<Venda> lista_vendas_encontradas = JsonConvert.DeserializeObject<List<Venda>>(json);
-
-            return lista_vendas_encontradas;
-
-        }*/
 
     }
 

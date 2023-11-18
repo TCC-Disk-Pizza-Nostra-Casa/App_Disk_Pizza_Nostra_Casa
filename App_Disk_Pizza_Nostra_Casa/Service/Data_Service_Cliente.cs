@@ -22,7 +22,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/cliente/save");
 
-            Cliente model_retornada = JsonConvert.DeserializeObject<Cliente>(json);
+            Cliente? model_retornada = JsonConvert.DeserializeObject<Cliente>(json);
 
             return model_retornada;
 
@@ -35,9 +35,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/cliente/enable");
 
-            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
 
-            return resultado;
+            return exito;
 
         }
 
@@ -48,9 +48,9 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/cliente/disable");
 
-            bool resultado = JsonConvert.DeserializeObject<bool>(json);
+            bool exito = JsonConvert.DeserializeObject<bool>(json);
 
-            return resultado;
+            return exito;
 
         }
 
@@ -59,7 +59,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/cliente/list");
 
-            List<Cliente> lista_clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            List<Cliente>? lista_clientes = JsonConvert.DeserializeObject<List<Cliente>>(json);
 
             return lista_clientes;
 
@@ -72,7 +72,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/cliente/search");
 
-            List<Cliente> lista_clientes_encontrados = JsonConvert.DeserializeObject<List<Cliente>>(json);
+            List<Cliente>? lista_clientes_encontrados = JsonConvert.DeserializeObject<List<Cliente>>(json);
 
             return lista_clientes_encontrados;
 

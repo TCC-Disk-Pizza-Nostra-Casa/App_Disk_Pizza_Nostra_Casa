@@ -88,11 +88,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         cnpj = mtxt_cnpj.Text,
 
-                        email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
+                        email = (String.IsNullOrWhiteSpace(txt_email.Text)) ? "Não informado" : txt_email.Text,
 
                         telefone = mtxt_telefone.Text,
 
-                        observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+                        observacoes = (String.IsNullOrWhiteSpace(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
 
                     };
 

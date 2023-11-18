@@ -21,7 +21,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/funcionario/save");
 
-            Funcionario model_retornada = JsonConvert.DeserializeObject<Funcionario>(json);
+            Funcionario? model_retornada = JsonConvert.DeserializeObject<Funcionario>(json);
 
             return model_retornada;
 
@@ -84,7 +84,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/funcionario/list");
 
-            List<Funcionario> lista_funcionarios = JsonConvert.DeserializeObject<List<Funcionario>>(json);
+            List<Funcionario>? lista_funcionarios = JsonConvert.DeserializeObject<List<Funcionario>>(json);
 
             return lista_funcionarios;
 
@@ -97,7 +97,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/funcionario/search");
 
-            List<Funcionario> lista_funcionarios_encontrados = JsonConvert.DeserializeObject<List<Funcionario>>(json);
+            List<Funcionario>? lista_funcionarios_encontrados = JsonConvert.DeserializeObject<List<Funcionario>>(json);
 
             return lista_funcionarios_encontrados;
 
@@ -110,7 +110,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/funcionario/login");
 
-            Funcionario usuario_correspondente = JsonConvert.DeserializeObject<Funcionario>(json);
+            Funcionario? usuario_correspondente = JsonConvert.DeserializeObject<Funcionario>(json);
 
             return usuario_correspondente;
 

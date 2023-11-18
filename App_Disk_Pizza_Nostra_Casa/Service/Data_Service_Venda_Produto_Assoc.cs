@@ -21,7 +21,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/venda_produto/save");
 
-            Venda_Produto_Assoc model_retornada = JsonConvert.DeserializeObject<Venda_Produto_Assoc>(json);
+            Venda_Produto_Assoc? model_retornada = JsonConvert.DeserializeObject<Venda_Produto_Assoc>(json);
 
             return model_retornada;
 
@@ -60,7 +60,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/venda_produto/search");
 
-            List<Venda_Produto_Assoc> lista_itens_encontrados = JsonConvert.DeserializeObject<List<Venda_Produto_Assoc>>(json);
+            List<Venda_Produto_Assoc>? lista_itens_encontrados = JsonConvert.DeserializeObject<List<Venda_Produto_Assoc>>(json);
 
             return lista_itens_encontrados;
 

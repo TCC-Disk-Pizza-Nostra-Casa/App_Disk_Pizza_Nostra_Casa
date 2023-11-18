@@ -140,7 +140,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         cep = mtxt_cep.Text,
 
-                        email = (String.IsNullOrEmpty(txt_email.Text)) ? "Não informado" : txt_email.Text,
+                        email = (String.IsNullOrWhiteSpace(txt_email.Text)) ? "Não informado" : txt_email.Text,
 
                         telefone = mtxt_telefone.Text,
 
@@ -148,7 +148,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         confirmacao_senha = txt_confirmar_senha.Text,
 
-                        observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+                        observacoes = (String.IsNullOrWhiteSpace(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
 
                         administrador = (ckbox_administrador.Checked) ? 1 : 0
 

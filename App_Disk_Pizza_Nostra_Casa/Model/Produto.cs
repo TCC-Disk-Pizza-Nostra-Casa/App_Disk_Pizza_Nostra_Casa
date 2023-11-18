@@ -33,15 +33,51 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int fk_fornecedor { get; set; } = 0;
 
+        private async Task<string> VerifyExistence()
+        {
+
+            List<Produto>? produtos = await GetList();
+
+            string mensagem = "";
+
+            string nome = this.nome;
+
+            foreach (Produto produto in produtos)
+            {
+
+                if (this.id == 0 && produto.nome == nome)
+                {
+
+                    mensagem = "Já existe um produto com esse nome! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+            }
+
+            return mensagem;
+
+        }
+
         public async Task<bool>? Save()
         {
 
-            if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.preco.ToString()) ||
-                String.IsNullOrEmpty(this.tamanho) || String.IsNullOrEmpty(this.categoria) ||
+            string verificacao_repeticao = await VerifyExistence();
+
+            if (String.IsNullOrWhiteSpace(this.nome) || String.IsNullOrWhiteSpace(this.preco.ToString()) ||
+                String.IsNullOrWhiteSpace(this.tamanho) || String.IsNullOrWhiteSpace(this.categoria) ||
                 this.fk_fornecedor < 1)
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
+
+            }
+
+            else if (verificacao_repeticao != "")
+            {
+
+                throw new Exception(verificacao_repeticao);
 
             }
 

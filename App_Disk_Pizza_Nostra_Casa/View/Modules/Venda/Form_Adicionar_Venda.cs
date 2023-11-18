@@ -529,7 +529,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                if (String.IsNullOrEmpty(cbbox_nome_produto.Text) || String.IsNullOrEmpty(txt_quantidade_produto.Text))
+                if (String.IsNullOrWhiteSpace(cbbox_nome_produto.Text) || String.IsNullOrWhiteSpace(txt_quantidade_produto.Text))
                 {
 
                     throw new Exception("Preencha todos os campos exigidos antes de prosseguir.");

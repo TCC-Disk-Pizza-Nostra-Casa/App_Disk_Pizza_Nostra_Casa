@@ -40,12 +40,74 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int ativo { get; set; } = 1;
 
+        private async Task<string> VerifyExistence()
+        {
+
+            List<Cliente>? clientes = await GetList();
+
+            string mensagem = "";
+
+            string nome = this.nome;
+
+            string cpf = this.cpf.Replace(".", "").Replace("-", "");
+
+            string? email = this.email;
+
+            string telefone = this.telefone.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
+
+            foreach (Cliente cliente in clientes)
+            {
+
+                if (this.id == 0 && cliente.nome == nome)
+                {
+
+                    mensagem = "Já existe um cliente com esse nome! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && cliente.cpf == cpf)
+                {
+
+                    mensagem = "Já existe um cliente com esse CPF! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && cliente.email == email)
+                {
+
+                    mensagem = "Já existe um cliente com esse E-mail! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && cliente.telefone == telefone)
+                {
+
+                    mensagem = "Já existe um cliente com esse telefone! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+            }
+
+            return mensagem;
+
+        }
+
         public async Task<bool>? Save()
         {
 
-            if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.sexo) ||
-                String.IsNullOrEmpty(this.cpf) || String.IsNullOrEmpty(this.cep) ||
-                String.IsNullOrEmpty(this.telefone) || String.IsNullOrEmpty(data_nascimento))
+            string verificacao_repeticao = await VerifyExistence();
+
+            if (String.IsNullOrWhiteSpace(this.nome) || String.IsNullOrWhiteSpace(this.sexo) ||
+                String.IsNullOrWhiteSpace(this.cpf) || String.IsNullOrWhiteSpace(this.cep) ||
+                String.IsNullOrWhiteSpace(this.telefone) || String.IsNullOrWhiteSpace(data_nascimento))
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
@@ -70,6 +132,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             {
 
                 throw new Exception("Um telefone possui de 10 a 11 dígitos! Revise-o e tente novamente.");
+
+            }
+
+            else if (verificacao_repeticao != "")
+            {
+
+                throw new Exception(verificacao_repeticao);
 
             }
 
