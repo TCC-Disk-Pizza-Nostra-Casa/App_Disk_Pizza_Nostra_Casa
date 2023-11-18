@@ -61,7 +61,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (String.IsNullOrEmpty(txt_pesquisar_funcionario.Text))
+                if (String.IsNullOrWhiteSpace(txt_pesquisar_funcionario.Text))
                 {
 
                     throw new Exception("Preencha o campo de pesquisa para prosseguir.");

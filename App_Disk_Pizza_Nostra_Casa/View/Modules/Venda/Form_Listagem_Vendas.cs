@@ -176,9 +176,9 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             try
             {
 
-                if (String.IsNullOrEmpty(cbbox_funcionario.Text) ||
-                    String.IsNullOrEmpty(cbbox_cliente.Text) ||
-                    String.IsNullOrEmpty(dtpck_data_venda.Text))
+                if (String.IsNullOrWhiteSpace(cbbox_funcionario.Text) ||
+                    String.IsNullOrWhiteSpace(cbbox_cliente.Text) ||
+                    String.IsNullOrWhiteSpace(dtpck_data_venda.Text))
                 {
 
                     throw new Exception("Preencha os campos de pesquisa para prosseguir.");

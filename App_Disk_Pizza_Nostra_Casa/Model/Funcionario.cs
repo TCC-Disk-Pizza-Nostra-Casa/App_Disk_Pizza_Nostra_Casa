@@ -43,13 +43,75 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int ativo { get; set; } = 1;
 
+        private async Task<string> VerifyExistence()
+        {
+
+            List<Funcionario>? funcionarios = await GetList();
+
+            string mensagem = "";
+
+            string nome = this.nome;
+
+            string cpf = this.cpf.Replace(".", "").Replace("-", "");
+
+            string? email = this.email;
+
+            string telefone = this.telefone.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
+
+            foreach (Funcionario funcionario in funcionarios)
+            {
+
+                if (this.id == 0 && funcionario.nome == nome)
+                {
+
+                    mensagem = "Já existe um(a) funcionário(a) com esse nome! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && funcionario.cpf == cpf)
+                {
+
+                    mensagem = "Já existe um(a) funcionário(a) com esse CPF! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && funcionario.email == email)
+                {
+
+                    mensagem = "Já existe um(a) funcionário(a) com esse E-mail! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && funcionario.telefone == telefone)
+                {
+
+                    mensagem = "Já existe um(a) funcionário(a) com esse telefone! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+            }
+
+            return mensagem;
+
+        }
+
         public async Task<bool>? Save()
         {
 
-            if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.sexo) ||
-                String.IsNullOrEmpty(this.estado_civil) || String.IsNullOrEmpty(this.cpf) ||
-                String.IsNullOrEmpty(this.cep) || String.IsNullOrEmpty(this.telefone) ||
-                String.IsNullOrEmpty(this.senha))
+            string verificacao_repeticao = await VerifyExistence();
+
+            if (String.IsNullOrWhiteSpace(this.nome) || String.IsNullOrWhiteSpace(this.sexo) ||
+                String.IsNullOrWhiteSpace(this.estado_civil) || String.IsNullOrWhiteSpace(this.cpf) ||
+                String.IsNullOrWhiteSpace(this.cep) || String.IsNullOrWhiteSpace(this.telefone) ||
+                String.IsNullOrWhiteSpace(this.senha))
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
@@ -81,6 +143,13 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             {
 
                 throw new Exception("As senhas fornecidas divergem! Revise-as e tente novamente.");
+
+            }
+
+            else if (verificacao_repeticao != "")
+            {
+
+                throw new Exception(verificacao_repeticao);
 
             }
 

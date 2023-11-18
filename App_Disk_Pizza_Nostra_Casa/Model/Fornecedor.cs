@@ -32,11 +32,73 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
         public int ativo { get; set; } = 1;
 
+        private async Task<string> VerifyExistence()
+        {
+
+            List<Fornecedor>? fornecedores = await GetList();
+
+            string mensagem = "";
+
+            string nome = this.nome;
+
+            string cnpj = this.cnpj.Replace(".", "").Replace("-", "").Replace("/", "");
+
+            string? email = this.email;
+
+            string telefone = this.telefone.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
+
+            foreach (Fornecedor fornecedor in fornecedores)
+            {
+
+                if (this.id == 0 && fornecedor.nome == nome)
+                {
+
+                    mensagem = "Já existe um(a) fornecedor(a) com esse nome! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && fornecedor.cnpj == cnpj)
+                {
+
+                    mensagem = "Já existe um(a) fornecedor(a) com esse CNPJ! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && fornecedor.email == email)
+                {
+
+                    mensagem = "Já existe um(a) fornecedor(a) com esse E-mail! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+                else if (this.id == 0 && fornecedor.telefone == telefone)
+                {
+
+                    mensagem = "Já existe um(a) fornecedor(a) com esse telefone! Altere-o e tente novamente.";
+
+                    break;
+
+                }
+
+            }
+
+            return mensagem;
+
+        }
+
         public async Task<bool>? Save()
         {
 
-            if (String.IsNullOrEmpty(this.nome) || String.IsNullOrEmpty(this.cnpj) ||
-                String.IsNullOrEmpty(this.telefone))
+            string verificacao_repeticao = await VerifyExistence();
+
+            if (String.IsNullOrWhiteSpace(this.nome) || String.IsNullOrWhiteSpace(this.cnpj) ||
+                String.IsNullOrWhiteSpace(this.telefone))
             {
 
                 throw new Exception("Preencha todos os campos obrigatórios antes de prosseguir.");
@@ -57,18 +119,18 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
-            /*else if (this.id == 0 && !await this.Verify(this))
+            else if (verificacao_repeticao != "")
             {
 
-                throw new Exception("Dados já cadastrados!");
+                throw new Exception(verificacao_repeticao);
 
-            }*/
+            }
 
             else
             {
 
                 if (MessageBox.Show("Realmente deseja salvar esses dados?", "Atenção!",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
                     Model.Fornecedor fornecedor_retornado = await Data_Service_Fornecedor.SaveAsyncFornecedor(this);
@@ -161,32 +223,6 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             return await Data_Service_Fornecedor.SearchAsyncFornecedor(filtro);
 
         }
-
-        /*private async Task<bool>? Verify(Fornecedor model)
-        {
-
-            List<Fornecedor> lista= await Data_Service_Fornecedor.GetListAsyncFornecedor();
-
-            foreach (Fornecedor item in lista)
-            {
-
-                if (item.nome == model.nome || item.cnpj == model.cnpj || item.telefone == model.telefone)
-                    return false;
-
-                /*if (item.nome == model.nome)
-                    return "Nome já cadastrado!";
-                
-                else if (item.cnpj == model.cnpj)
-                    return "CNPJ já cadastrado!";
-
-                else if (item.telefone == model.telefone)
-                    return "Telefone já cadastrado!";
-
-            }
-
-            return true;
-
-        }*/
 
     }
 

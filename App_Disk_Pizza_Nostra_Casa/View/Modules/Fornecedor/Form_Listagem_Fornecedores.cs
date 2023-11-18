@@ -59,7 +59,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
 
-                if (String.IsNullOrEmpty(txt_pesquisar_fornecedor.Text))
+                if (String.IsNullOrWhiteSpace(txt_pesquisar_fornecedor.Text))
                 {
 
                     throw new Exception("Preencha o campo de pesquisa para prosseguir.");

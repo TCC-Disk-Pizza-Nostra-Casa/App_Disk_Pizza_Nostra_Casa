@@ -103,7 +103,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                     valor_total = this.valor_total,
 
-                    observacoes = (String.IsNullOrEmpty(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
+                    observacoes = (String.IsNullOrWhiteSpace(txt_observacoes.Text)) ? "Nenhuma observação" : txt_observacoes.Text,
 
                     fk_funcionario = this.ids_envolvidos[0],
 

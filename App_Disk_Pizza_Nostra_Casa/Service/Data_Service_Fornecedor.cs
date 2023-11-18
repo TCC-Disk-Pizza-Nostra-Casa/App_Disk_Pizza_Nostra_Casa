@@ -19,7 +19,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/fornecedor/save");
 
-            Fornecedor model_retornada = JsonConvert.DeserializeObject<Fornecedor>(json);
+            Fornecedor? model_retornada = JsonConvert.DeserializeObject<Fornecedor>(json);
 
             return model_retornada;
 
@@ -56,7 +56,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.GetDataApi("/fornecedor/list");
 
-            List<Fornecedor> lista_fornecedores = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
+            List<Fornecedor>? lista_fornecedores = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
 
             return lista_fornecedores;
 
@@ -69,7 +69,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
             string json = await Data_Service.SendDataApi(post_json, "/fornecedor/search");
 
-            List<Fornecedor> lista_fornecedores_encontrados = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
+            List<Fornecedor>? lista_fornecedores_encontrados = JsonConvert.DeserializeObject<List<Fornecedor>>(json);
 
             return lista_fornecedores_encontrados;
 
