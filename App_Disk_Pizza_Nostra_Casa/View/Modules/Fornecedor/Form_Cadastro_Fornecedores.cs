@@ -29,29 +29,53 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
         private void Form_Cadastro_Fornecedor_Load(object sender, EventArgs e)
         {
 
-            this.MinimumSize = new Size(800, 500);
+            try
+            {
 
-            this.Size = new Size(800, 500);
+                this.MinimumSize = new Size(800, 500);
 
-            Form_Fill();
+                this.Size = new Size(800, 500);
+
+                Form_Fill();
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
 
         }
 
         private void Form_Fill()
         {
 
-            if (this.fornecedor_selecionado != null)
+            try
             {
 
-                txt_nome.Text = this.fornecedor_selecionado.nome;
+                if (this.fornecedor_selecionado != null)
+                {
 
-                mtxt_cnpj.Text = this.fornecedor_selecionado.cnpj;
+                    txt_nome.Text = this.fornecedor_selecionado.nome;
 
-                txt_email.Text = this.fornecedor_selecionado.email;
+                    mtxt_cnpj.Text = this.fornecedor_selecionado.cnpj;
 
-                mtxt_telefone.Text = this.fornecedor_selecionado.telefone;
+                    txt_email.Text = this.fornecedor_selecionado.email;
 
-                txt_observacoes.Text = this.fornecedor_selecionado.observacoes;
+                    mtxt_telefone.Text = this.fornecedor_selecionado.telefone;
+
+                    txt_observacoes.Text = this.fornecedor_selecionado.observacoes;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 

@@ -22,6 +22,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         private List<Model.Cliente>? clientes_ativos = null;
 
+        private List<Model.Fornecedor>? fornecedores_ativos = null;
+
         private List<Model.Produto>? produtos_ativos = null;
 
         public form_listagem_vendas()
@@ -31,7 +33,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
         }
 
-        private void form_listagem_vendas_Load(object sender, EventArgs e)
+        private async void form_listagem_vendas_Load(object sender, EventArgs e)
         {
 
             try
@@ -64,6 +66,29 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 dtpck_data_venda.MinDate = new DateTime(1950, 1, 1);
 
                 dtpck_data_venda.MaxDate = DateTime.Now.Date;
+
+                Global.fornecedores_cadastrados = await Model.Fornecedor.GetList();
+
+                if (Global.fornecedores_cadastrados.Count > 0)
+                {
+
+                    List<Model.Fornecedor> fornecedores_ativos = new List<Model.Fornecedor>();
+
+                    for (int i = 0; i < Global.fornecedores_cadastrados.Count; i++)
+                    {
+
+                        if (Convert.ToBoolean(Global.fornecedores_cadastrados[i].ativo))
+                        {
+
+                            fornecedores_ativos.Add(Global.fornecedores_cadastrados[i]);
+
+                        }
+
+                    }
+
+                    this.fornecedores_ativos = fornecedores_ativos;
+
+                }
 
                 ComboBoxes_Fill();
 
@@ -413,6 +438,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 dgv_listagem_itens_venda.Columns.Insert(7, new DataGridViewTextBoxColumn());
 
+                dgv_listagem_itens_venda.Columns.Insert(8, new DataGridViewTextBoxColumn());
+
                 // Dados das colunas.
 
                 dgv_listagem_itens_venda.Columns[0].HeaderText = "ID_venda:";
@@ -435,17 +462,21 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 dgv_listagem_itens_venda.Columns[4].Name = "dgv_listagem_itens_venda_categoria";
                 dgv_listagem_itens_venda.Columns[4].Visible = true;
 
-                dgv_listagem_itens_venda.Columns[5].HeaderText = "Quantidade:";
-                dgv_listagem_itens_venda.Columns[5].Name = "dgv_listagem_itens_venda_quantidade";
+                dgv_listagem_itens_venda.Columns[5].HeaderText = "Fornecedor:";
+                dgv_listagem_itens_venda.Columns[5].Name = "dgv_listagem_itens_venda_fornecedor";
                 dgv_listagem_itens_venda.Columns[5].Visible = true;
 
-                dgv_listagem_itens_venda.Columns[6].HeaderText = "Preço:";
-                dgv_listagem_itens_venda.Columns[6].Name = "dgv_listagem_itens_venda_preco";
+                dgv_listagem_itens_venda.Columns[6].HeaderText = "Quantidade:";
+                dgv_listagem_itens_venda.Columns[6].Name = "dgv_listagem_itens_venda_quantidade";
                 dgv_listagem_itens_venda.Columns[6].Visible = true;
 
-                dgv_listagem_itens_venda.Columns[7].HeaderText = "Valor:";
-                dgv_listagem_itens_venda.Columns[7].Name = "dgv_listagem_itens_venda_valor";
+                dgv_listagem_itens_venda.Columns[7].HeaderText = "Preço:";
+                dgv_listagem_itens_venda.Columns[7].Name = "dgv_listagem_itens_venda_preco";
                 dgv_listagem_itens_venda.Columns[7].Visible = true;
+
+                dgv_listagem_itens_venda.Columns[8].HeaderText = "Valor:";
+                dgv_listagem_itens_venda.Columns[8].Name = "dgv_listagem_itens_venda_valor";
+                dgv_listagem_itens_venda.Columns[8].Visible = true;
 
             }
 
@@ -523,6 +554,53 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                         {
 
                             retorno = this.clientes_ativos[i];
+
+                        }
+
+                    }
+
+                    return retorno;
+
+                }
+
+                else
+                {
+
+                    return null;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return null;
+
+            }
+
+        }
+
+        private Model.Fornecedor? ReturnProviderObject(int id)
+        {
+
+            try
+            {
+
+                if (this.fornecedores_ativos != null)
+                {
+
+                    Model.Fornecedor? retorno = null;
+
+                    for (int i = 0; i < this.fornecedores_ativos.Count; i++)
+                    {
+
+                        if (this.fornecedores_ativos[i].id == id)
+                        {
+
+                            retorno = this.fornecedores_ativos[i];
 
                         }
 
@@ -662,11 +740,13 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                         int id_produto = lista[i].fk_produto;
 
-                        string produto = ReturnProductObject(id_produto).nome;
+                        string produto = (ReturnProductObject(id_produto) != null) ? ReturnProductObject(id_produto).nome : "Não encontrado(a).";
 
-                        string tamanho = ReturnProductObject(id_produto).tamanho;
+                        string tamanho = (ReturnProductObject(id_produto) != null) ? ReturnProductObject(id_produto).tamanho : "Não encontrado(a).";
 
-                        string categoria = ReturnProductObject(id_produto).categoria;
+                        string categoria = (ReturnProductObject(id_produto) != null) ? ReturnProductObject(id_produto).categoria : "Não encontrado(a).";
+
+                        string fornecedor = (ReturnProductObject(id_produto) != null) ? ReturnProviderObject(ReturnProductObject(id_produto).fk_fornecedor).nome : "Não encontrado(a).";
 
                         int quantidade_produto = lista[i].quantidade_produto;
 
@@ -674,7 +754,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                         string valor_total_item_venda = lista[i].valor_total_item_venda.ToString("C2");
 
-                        dgv_listagem_itens_venda.Rows.Add(id_venda, id_produto, produto, tamanho, categoria, quantidade_produto, preco_produto, valor_total_item_venda);
+                        dgv_listagem_itens_venda.Rows.Add(id_venda, id_produto, produto, tamanho, categoria, fornecedor, quantidade_produto, preco_produto, valor_total_item_venda);
 
                     }
 

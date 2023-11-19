@@ -60,26 +60,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
         private void Form_Fill()
         {
 
-            if (this.cliente_selecionado != null)
+            try
             {
 
-                txt_nome.Text = this.cliente_selecionado.nome;
+                if (this.cliente_selecionado != null)
+                {
 
-                cbbox_sexo.Text = this.cliente_selecionado.sexo;
+                    txt_nome.Text = this.cliente_selecionado.nome;
 
-                cbbox_estado_civil.Text = this.cliente_selecionado.estado_civil;
+                    cbbox_sexo.Text = this.cliente_selecionado.sexo;
 
-                mtxt_cpf.Text = this.cliente_selecionado.cpf;
+                    cbbox_estado_civil.Text = this.cliente_selecionado.estado_civil;
 
-                mtxt_cep.Text = this.cliente_selecionado.cep;
+                    mtxt_cpf.Text = this.cliente_selecionado.cpf;
 
-                txt_email.Text = this.cliente_selecionado.email;
+                    mtxt_cep.Text = this.cliente_selecionado.cep;
 
-                mtxt_telefone.Text = this.cliente_selecionado.telefone;
+                    txt_email.Text = this.cliente_selecionado.email;
 
-                dtpck_data_nascimento.Value = DateTime.Parse(this.cliente_selecionado.data_nascimento);
+                    mtxt_telefone.Text = this.cliente_selecionado.telefone;
 
-                txt_observacoes.Text = this.cliente_selecionado.observacoes;
+                    dtpck_data_nascimento.Value = DateTime.Parse(this.cliente_selecionado.data_nascimento);
+
+                    txt_observacoes.Text = this.cliente_selecionado.observacoes;
+
+                }
+
+            }
+
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
 
