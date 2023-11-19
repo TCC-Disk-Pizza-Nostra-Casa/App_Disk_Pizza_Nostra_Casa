@@ -318,34 +318,46 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                 if (dgv_listagem_fornecedores.RowCount > 0 && dgv_listagem_fornecedores.CurrentCell.ColumnIndex == 7)
                 {
 
-                    if (MessageBox.Show("Deseja editar os dados do fornecedor selecionado?", "Atenção",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!Global.administrador)
                     {
 
-                        Modules.Fornecedor.form_cadastro_fornecedores form_fornecedor = new form_cadastro_fornecedores();
+                        throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                        Model.Fornecedor? fornecedor_selecionado = null;
+                    }
 
-                        for (int i = 0; i < Global.fornecedores_cadastrados.Count; i++)
+                    else
+                    {
+
+                        if (MessageBox.Show("Deseja editar os dados do fornecedor selecionado?", "Atenção",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
-                            if (Global.fornecedores_cadastrados[i].id == Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value))
+                            Modules.Fornecedor.form_cadastro_fornecedores form_fornecedor = new form_cadastro_fornecedores();
+
+                            Model.Fornecedor? fornecedor_selecionado = null;
+
+                            for (int i = 0; i < Global.fornecedores_cadastrados.Count; i++)
                             {
 
-                                fornecedor_selecionado = Global.fornecedores_cadastrados[i];
+                                if (Global.fornecedores_cadastrados[i].id == Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value))
+                                {
 
-                                break;
+                                    fornecedor_selecionado = Global.fornecedores_cadastrados[i];
+
+                                    break;
+
+                                }
 
                             }
 
-                        }
+                            form_fornecedor.fornecedor_selecionado = fornecedor_selecionado;
 
-                        form_fornecedor.fornecedor_selecionado = fornecedor_selecionado;
+                            if (Global.formulario_global != null)
+                            {
 
-                        if (Global.formulario_global != null)
-                        {
+                                Global.formulario_global.External_Form_Association(form_fornecedor);
 
-                            Global.formulario_global.External_Form_Association(form_fornecedor);
+                            }
 
                         }
 
@@ -373,20 +385,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
                 if (dgv_listagem_fornecedores.RowCount > 0)
                 {
 
-                    switch (cbbox_condicao_fornecedor.SelectedIndex)
+                    if (!Global.administrador)
                     {
 
-                        case 0:
+                        throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                            btn_reativar.Enabled = true;
+                    }
 
-                            break;
+                    else
+                    {
 
-                        case 1:
+                        switch (cbbox_condicao_fornecedor.SelectedIndex)
+                        {
 
-                            btn_desativar.Enabled = true;
+                            case 0:
 
-                            break;
+                                btn_reativar.Enabled = true;
+
+                                break;
+
+                            case 1:
+
+                                btn_desativar.Enabled = true;
+
+                                break;
+
+                        }
 
                     }
 
@@ -409,50 +433,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
             try
             {
 
-                if (Global.administrador)
+                if (MessageBox.Show("Realmente deseja modificar a ativação desse fornecedor?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    if (MessageBox.Show("Realmente deseja modificar a ativação desse fornecedor?",
-                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    int id_fornecedor = Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value);
+
+                    switch (cbbox_condicao_fornecedor.SelectedIndex)
                     {
 
-                        int id_fornecedor = Convert.ToInt32(dgv_listagem_fornecedores.CurrentRow.Cells[0].Value);
+                        case 0:
 
-                        switch (cbbox_condicao_fornecedor.SelectedIndex)
-                        {
+                            if (Convert.ToBoolean(await Model.Fornecedor.Enable(id_fornecedor)))
+                            {
 
-                            case 0:
+                                DataGridView_Fill();
 
-                                if (Convert.ToBoolean(await Model.Fornecedor.Enable(id_fornecedor)))
-                                {
+                            }
 
-                                    DataGridView_Fill();
+                            break;
 
-                                }
+                        case 1:
 
-                                break;
+                            if (Convert.ToBoolean(await Model.Fornecedor.Disable(id_fornecedor)))
+                            {
 
-                            case 1:
+                                DataGridView_Fill();
 
-                                if (Convert.ToBoolean(await Model.Fornecedor.Disable(id_fornecedor)))
-                                {
+                            }
 
-                                    DataGridView_Fill();
-
-                                }
-
-                                break;
-
-                        }
+                            break;
 
                     }
-
-                }
-
-                else
-                {
-
-                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
                 }
 

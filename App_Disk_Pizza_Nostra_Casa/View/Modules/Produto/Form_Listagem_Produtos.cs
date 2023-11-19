@@ -267,7 +267,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
         }
 
-        private string? ReturnProviderName(int id)
+        private Model.Fornecedor? ReturnProviderObject(int id)
         {
 
             try
@@ -276,7 +276,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 if (this.fornecedores_ativos != null)
                 {
 
-                    string? retorno = null;
+                    Model.Fornecedor? retorno = null;
 
                     for (int i = 0; i < this.fornecedores_ativos.Count; i++)
                     {
@@ -284,7 +284,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                         if (this.fornecedores_ativos[i].id == id)
                         {
 
-                            retorno = this.fornecedores_ativos[i].nome;
+                            retorno = this.fornecedores_ativos[i];
 
                         }
 
@@ -340,7 +340,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
 
                         int id_fornecedor = lista[i].fk_fornecedor;
 
-                        string fornecedor = ReturnProviderName(id_fornecedor);
+                        string fornecedor = (ReturnProviderObject(id_fornecedor) != null) ? ReturnProviderObject(id_fornecedor).nome : "Não encontrado(a).";
 
                         string? observacoes = lista[i].observacoes;
 
@@ -404,34 +404,46 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 if (dgv_listagem_produtos.RowCount > 0 && dgv_listagem_produtos.CurrentCell.ColumnIndex == 9)
                 {
 
-                    if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",
-                        MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!Global.administrador)
                     {
 
-                        Modules.Produto.form_cadastro_produtos form_produto = new form_cadastro_produtos();
+                        throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                        Model.Produto? produto_selecionado = null;
+                    }
 
-                        for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
+                    else
+                    {
+
+                        if (MessageBox.Show("Deseja editar os dados do produto selecionado?", "Atenção",
+                            MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
-                            if (Global.produtos_cadastrados[i].id == Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))
+                            Modules.Produto.form_cadastro_produtos form_produto = new form_cadastro_produtos();
+
+                            Model.Produto? produto_selecionado = null;
+
+                            for (int i = 0; i < Global.produtos_cadastrados.Count; i++)
                             {
 
-                                produto_selecionado = Global.produtos_cadastrados[i];
+                                if (Global.produtos_cadastrados[i].id == Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value))
+                                {
 
-                                break;
+                                    produto_selecionado = Global.produtos_cadastrados[i];
+
+                                    break;
+
+                                }
 
                             }
 
-                        }
+                            form_produto.produto_selecionado = produto_selecionado;
 
-                        form_produto.produto_selecionado = produto_selecionado;
+                            if (Global.formulario_global != null)
+                            {
 
-                        if (Global.formulario_global != null)
-                        {
+                                Global.formulario_global.External_Form_Association(form_produto);
 
-                            Global.formulario_global.External_Form_Association(form_produto);
+                            }
 
                         }
 
@@ -459,20 +471,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
                 if (dgv_listagem_produtos.RowCount > 0)
                 {
 
-                    switch (cbbox_condicao_produto.SelectedIndex)
+                    if (!Global.administrador)
                     {
 
-                        case 0:
+                        throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                            btn_reativar.Enabled = true;
+                    }
 
-                            break;
+                    else
+                    {
 
-                        case 1:
+                        switch (cbbox_condicao_produto.SelectedIndex)
+                        {
 
-                            btn_desativar.Enabled = true;
+                            case 0:
 
-                            break;
+                                btn_reativar.Enabled = true;
+
+                                break;
+
+                            case 1:
+
+                                btn_desativar.Enabled = true;
+
+                                break;
+
+                        }
 
                     }
 
@@ -495,50 +519,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Produto
             try
             {
 
-                if (Global.administrador)
+                if (MessageBox.Show("Realmente deseja modificar a ativação desse produto?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    if (MessageBox.Show("Realmente deseja modificar a ativação desse produto?",
-                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    int id_produto = Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value);
+
+                    switch (cbbox_condicao_produto.SelectedIndex)
                     {
 
-                        int id_produto = Convert.ToInt32(dgv_listagem_produtos.CurrentRow.Cells[0].Value);
+                        case 0:
 
-                        switch (cbbox_condicao_produto.SelectedIndex)
-                        {
+                            if (Convert.ToBoolean(await Model.Produto.Enable(id_produto)))
+                            {
 
-                            case 0:
+                                DataGridView_Fill();
 
-                                if (Convert.ToBoolean(await Model.Produto.Enable(id_produto)))
-                                {
+                            }
 
-                                    DataGridView_Fill();
+                            break;
 
-                                }
+                        case 1:
 
-                                break;
+                            if (Convert.ToBoolean(await Model.Produto.Disable(id_produto)))
+                            {
 
-                            case 1:
+                                DataGridView_Fill();
 
-                                if (Convert.ToBoolean(await Model.Produto.Disable(id_produto)))
-                                {
+                            }
 
-                                    DataGridView_Fill();
-
-                                }
-
-                                break;
-
-                        }
+                            break;
 
                     }
-
-                }
-
-                else
-                {
-
-                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
                 }
 

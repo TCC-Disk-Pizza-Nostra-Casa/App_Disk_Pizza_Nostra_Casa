@@ -365,20 +365,32 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (dgv_listagem_funcionarios.Rows.Count > 0)
                 {
 
-                    switch (cbbox_condicao_funcionario.SelectedIndex)
+                    if (!Global.administrador)
                     {
 
-                        case 0:
+                        throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
-                            btn_reativar.Enabled = true;
+                    }
 
-                            break;
+                    else
+                    {
 
-                        case 1:
+                        switch (cbbox_condicao_funcionario.SelectedIndex)
+                        {
 
-                            btn_desativar.Enabled = true;
+                            case 0:
 
-                            break;
+                                btn_reativar.Enabled = true;
+
+                                break;
+
+                            case 1:
+
+                                btn_desativar.Enabled = true;
+
+                                break;
+
+                        }
 
                     }
 
@@ -404,25 +416,37 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
                 if (dgv_listagem_funcionarios.RowCount > 0 && dgv_listagem_funcionarios.CurrentCell.ColumnIndex == 10)
                 {
 
-                    if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse funcionário?",
-                       "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    if (!Global.administrador)
                     {
 
-                        if (Convert.ToBoolean(dgv_listagem_funcionarios.CurrentCell.Value))
+                        throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
+
+                    }
+
+                    else
+                    {
+
+                        if (MessageBox.Show("Realmente deseja alterar a permissão de administrador desse funcionário?",
+                            "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
 
-                            dgv_listagem_funcionarios.CurrentCell.Value = false;
+                            if (Convert.ToBoolean(dgv_listagem_funcionarios.CurrentCell.Value))
+                            {
 
-                            Model.Funcionario.Demote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+                                dgv_listagem_funcionarios.CurrentCell.Value = false;
 
-                        }
+                                Model.Funcionario.Demote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
 
-                        else
-                        {
+                            }
 
-                            dgv_listagem_funcionarios.CurrentCell.Value = true;
+                            else
+                            {
 
-                            Model.Funcionario.Promote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+                                dgv_listagem_funcionarios.CurrentCell.Value = true;
+
+                                Model.Funcionario.Promote(Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value));
+
+                            }
 
                         }
 
@@ -447,50 +471,38 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (Global.administrador)
+                if (MessageBox.Show("Realmente deseja modificar a ativação desse funcionário?",
+                    "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    if (MessageBox.Show("Realmente deseja modificar a ativação desse funcionário?",
-                        "Atenção!", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    int id_funcionario = Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value);
+
+                    switch (cbbox_condicao_funcionario.SelectedIndex)
                     {
 
-                        int id_funcionario = Convert.ToInt32(dgv_listagem_funcionarios.CurrentRow.Cells[0].Value);
+                        case 0:
 
-                        switch (cbbox_condicao_funcionario.SelectedIndex)
-                        {
+                            if (Convert.ToBoolean(await Model.Funcionario.Enable(id_funcionario)))
+                            {
 
-                            case 0:
+                                DataGridView_Fill();
 
-                                if (Convert.ToBoolean(await Model.Funcionario.Enable(id_funcionario)))
-                                {
+                            }
 
-                                    DataGridView_Fill();
+                            break;
 
-                                }
+                        case 1:
 
-                                break;
+                            if (Convert.ToBoolean(await Model.Funcionario.Disable(id_funcionario)))
+                            {
 
-                            case 1:
+                                DataGridView_Fill();
 
-                                if (Convert.ToBoolean(await Model.Funcionario.Disable(id_funcionario)))
-                                {
+                            }
 
-                                    DataGridView_Fill();
-
-                                }
-
-                                break;
-
-                        }
+                            break;
 
                     }
-
-                }
-
-                else
-                {
-
-                    throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");
 
                 }
 

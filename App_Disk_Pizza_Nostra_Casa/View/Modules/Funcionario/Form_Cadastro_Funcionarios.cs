@@ -107,7 +107,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
             try
             {
 
-                if (!Global.administrador)
+                if (this.cadastro && !Global.administrador)
                 {
 
                     throw new Exception("O usuário atual não tem a permissão necessária para executar essa ação.");

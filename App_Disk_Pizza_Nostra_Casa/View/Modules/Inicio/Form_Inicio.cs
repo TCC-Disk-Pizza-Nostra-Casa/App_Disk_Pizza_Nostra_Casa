@@ -36,7 +36,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Inicio
 
                 Hide_Submenus();
 
-                //Hide_Confidential_Content();
+                Hide_Confidential_Content();
 
             }
 
