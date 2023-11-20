@@ -44,6 +44,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                 cbbox_estado_civil.DataSource = new string[] { "Solteiro(a)", "Casado(a)", "Separado(a)", "Divorciado(a)", "Viúvo(a)", };
 
+                dtpck_data_nascimento.MinDate = new DateTime(1900, 1, 1);
+
+                dtpck_data_nascimento.MaxDate = new DateTime(DateTime.Now.Year - 16, 1, 1);
+
                 Form_Fill();
 
             }

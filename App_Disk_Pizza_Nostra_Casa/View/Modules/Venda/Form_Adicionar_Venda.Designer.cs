@@ -66,7 +66,7 @@
             btn_salvar_pedido.Location = new Point(622, 410);
             btn_salvar_pedido.Name = "btn_salvar_pedido";
             btn_salvar_pedido.Size = new Size(150, 39);
-            btn_salvar_pedido.TabIndex = 45;
+            btn_salvar_pedido.TabIndex = 19;
             btn_salvar_pedido.Text = "Salvar Pedido";
             btn_salvar_pedido.UseVisualStyleBackColor = false;
             btn_salvar_pedido.Click += btn_salvar_pedido_Click;
@@ -83,7 +83,7 @@
             btn_cancelar_pedido.Location = new Point(466, 410);
             btn_cancelar_pedido.Name = "btn_cancelar_pedido";
             btn_cancelar_pedido.Size = new Size(150, 39);
-            btn_cancelar_pedido.TabIndex = 46;
+            btn_cancelar_pedido.TabIndex = 18;
             btn_cancelar_pedido.Text = "Cancelar Pedido";
             btn_cancelar_pedido.UseVisualStyleBackColor = false;
             btn_cancelar_pedido.Click += btn_cancelar_pedido_Click;
@@ -94,9 +94,10 @@
             cbbox_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_cliente.FormattingEnabled = true;
             cbbox_cliente.Location = new Point(94, 68);
+            cbbox_cliente.MaxLength = 255;
             cbbox_cliente.Name = "cbbox_cliente";
             cbbox_cliente.Size = new Size(649, 26);
-            cbbox_cliente.TabIndex = 0;
+            cbbox_cliente.TabIndex = 4;
             // 
             // lbl_nome_produto
             // 
@@ -106,7 +107,7 @@
             lbl_nome_produto.Location = new Point(14, 98);
             lbl_nome_produto.Name = "lbl_nome_produto";
             lbl_nome_produto.Size = new Size(77, 19);
-            lbl_nome_produto.TabIndex = 59;
+            lbl_nome_produto.TabIndex = 11;
             lbl_nome_produto.Text = "Produto:";
             lbl_nome_produto.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -116,9 +117,10 @@
             cbbox_nome_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_nome_produto.FormattingEnabled = true;
             cbbox_nome_produto.Location = new Point(97, 95);
+            cbbox_nome_produto.MaxLength = 255;
             cbbox_nome_produto.Name = "cbbox_nome_produto";
             cbbox_nome_produto.Size = new Size(631, 26);
-            cbbox_nome_produto.TabIndex = 2;
+            cbbox_nome_produto.TabIndex = 12;
             // 
             // lbl_tamanho_produto
             // 
@@ -128,7 +130,7 @@
             lbl_tamanho_produto.Location = new Point(14, 56);
             lbl_tamanho_produto.Name = "lbl_tamanho_produto";
             lbl_tamanho_produto.Size = new Size(86, 19);
-            lbl_tamanho_produto.TabIndex = 58;
+            lbl_tamanho_produto.TabIndex = 9;
             lbl_tamanho_produto.Text = "Tamanho:";
             lbl_tamanho_produto.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -138,9 +140,10 @@
             cbbox_categoria_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_categoria_produto.FormattingEnabled = true;
             cbbox_categoria_produto.Location = new Point(109, 12);
+            cbbox_categoria_produto.MaxLength = 17;
             cbbox_categoria_produto.Name = "cbbox_categoria_produto";
             cbbox_categoria_produto.Size = new Size(619, 26);
-            cbbox_categoria_produto.TabIndex = 0;
+            cbbox_categoria_produto.TabIndex = 8;
             cbbox_categoria_produto.SelectedIndexChanged += cbbox_categoria_produto_SelectedIndexChanged;
             // 
             // cbbox_tamanho_produto
@@ -149,9 +152,10 @@
             cbbox_tamanho_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_tamanho_produto.FormattingEnabled = true;
             cbbox_tamanho_produto.Location = new Point(106, 53);
+            cbbox_tamanho_produto.MaxLength = 6;
             cbbox_tamanho_produto.Name = "cbbox_tamanho_produto";
             cbbox_tamanho_produto.Size = new Size(622, 26);
-            cbbox_tamanho_produto.TabIndex = 1;
+            cbbox_tamanho_produto.TabIndex = 10;
             cbbox_tamanho_produto.SelectedIndexChanged += cbbox_tamanho_produto_SelectedIndexChanged;
             // 
             // lbl_categoria_produto
@@ -162,7 +166,7 @@
             lbl_categoria_produto.Location = new Point(14, 15);
             lbl_categoria_produto.Name = "lbl_categoria_produto";
             lbl_categoria_produto.Size = new Size(89, 19);
-            lbl_categoria_produto.TabIndex = 57;
+            lbl_categoria_produto.TabIndex = 7;
             lbl_categoria_produto.Text = "Categoria:";
             lbl_categoria_produto.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -182,7 +186,7 @@
             dgv_carrinho_produtos.RowTemplate.Height = 25;
             dgv_carrinho_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_carrinho_produtos.Size = new Size(760, 92);
-            dgv_carrinho_produtos.TabIndex = 49;
+            dgv_carrinho_produtos.TabIndex = 15;
             dgv_carrinho_produtos.CellDoubleClick += dgv_carrinho_produtos_CellDoubleClick;
             // 
             // btn_remover_produto
@@ -197,7 +201,7 @@
             btn_remover_produto.Location = new Point(12, 410);
             btn_remover_produto.Name = "btn_remover_produto";
             btn_remover_produto.Size = new Size(160, 39);
-            btn_remover_produto.TabIndex = 53;
+            btn_remover_produto.TabIndex = 16;
             btn_remover_produto.Text = "Remover Produto";
             btn_remover_produto.UseVisualStyleBackColor = false;
             btn_remover_produto.Click += btn_remover_produto_Click;
@@ -214,7 +218,7 @@
             btn_adicionar_produto.Location = new Point(178, 410);
             btn_adicionar_produto.Name = "btn_adicionar_produto";
             btn_adicionar_produto.Size = new Size(160, 39);
-            btn_adicionar_produto.TabIndex = 52;
+            btn_adicionar_produto.TabIndex = 17;
             btn_adicionar_produto.Text = "Adicionar Produto";
             btn_adicionar_produto.UseVisualStyleBackColor = false;
             btn_adicionar_produto.Click += btn_adicionar_produto_Click;
@@ -230,7 +234,7 @@
             grpbox_envolvidos.Location = new Point(12, 12);
             grpbox_envolvidos.Name = "grpbox_envolvidos";
             grpbox_envolvidos.Size = new Size(760, 110);
-            grpbox_envolvidos.TabIndex = 48;
+            grpbox_envolvidos.TabIndex = 0;
             grpbox_envolvidos.TabStop = false;
             grpbox_envolvidos.Text = "Envolvidos:";
             // 
@@ -242,7 +246,7 @@
             lbl_cliente.Location = new Point(20, 71);
             lbl_cliente.Name = "lbl_cliente";
             lbl_cliente.Size = new Size(68, 19);
-            lbl_cliente.TabIndex = 61;
+            lbl_cliente.TabIndex = 3;
             lbl_cliente.Text = "Cliente:";
             lbl_cliente.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -254,7 +258,7 @@
             lbl_funcionario.Location = new Point(20, 33);
             lbl_funcionario.Name = "lbl_funcionario";
             lbl_funcionario.Size = new Size(126, 19);
-            lbl_funcionario.TabIndex = 60;
+            lbl_funcionario.TabIndex = 1;
             lbl_funcionario.Text = "Funcionário(a):";
             lbl_funcionario.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -264,9 +268,10 @@
             cbbox_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_funcionario.FormattingEnabled = true;
             cbbox_funcionario.Location = new Point(152, 30);
+            cbbox_funcionario.MaxLength = 255;
             cbbox_funcionario.Name = "cbbox_funcionario";
             cbbox_funcionario.Size = new Size(591, 26);
-            cbbox_funcionario.TabIndex = 0;
+            cbbox_funcionario.TabIndex = 2;
             // 
             // grpbox_produtos
             // 
@@ -276,7 +281,7 @@
             grpbox_produtos.Location = new Point(12, 137);
             grpbox_produtos.Name = "grpbox_produtos";
             grpbox_produtos.Size = new Size(760, 150);
-            grpbox_produtos.TabIndex = 60;
+            grpbox_produtos.TabIndex = 5;
             grpbox_produtos.TabStop = false;
             grpbox_produtos.Text = "Produtos:";
             // 
@@ -295,15 +300,16 @@
             panel1.Location = new Point(6, 25);
             panel1.Name = "panel1";
             panel1.Size = new Size(748, 110);
-            panel1.TabIndex = 0;
+            panel1.TabIndex = 6;
             // 
             // txt_quantidade_produto
             // 
             txt_quantidade_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_quantidade_produto.Location = new Point(123, 137);
+            txt_quantidade_produto.MaxLength = 3;
             txt_quantidade_produto.Name = "txt_quantidade_produto";
             txt_quantidade_produto.Size = new Size(605, 26);
-            txt_quantidade_produto.TabIndex = 61;
+            txt_quantidade_produto.TabIndex = 14;
             txt_quantidade_produto.KeyPress += txt_quantidade_produto_KeyPress;
             // 
             // lbl_quantidade_produto
@@ -314,7 +320,7 @@
             lbl_quantidade_produto.Location = new Point(14, 140);
             lbl_quantidade_produto.Name = "lbl_quantidade_produto";
             lbl_quantidade_produto.Size = new Size(103, 19);
-            lbl_quantidade_produto.TabIndex = 61;
+            lbl_quantidade_produto.TabIndex = 13;
             lbl_quantidade_produto.Text = "Quantidade:";
             // 
             // form_adicionar_venda

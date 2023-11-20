@@ -56,7 +56,7 @@
             btn_cancelar.Location = new Point(534, 406);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(116, 42);
-            btn_cancelar.TabIndex = 6;
+            btn_cancelar.TabIndex = 11;
             btn_cancelar.Text = "Cancelar";
             btn_cancelar.UseVisualStyleBackColor = false;
             btn_cancelar.Click += btn_cancelar_Click;
@@ -73,7 +73,7 @@
             btn_salvar.Location = new Point(656, 406);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(116, 42);
-            btn_salvar.TabIndex = 5;
+            btn_salvar.TabIndex = 12;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = false;
             btn_salvar.Click += btn_salvar_Click;
@@ -84,7 +84,7 @@
             lbl_observacoes.Location = new Point(12, 230);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(125, 28);
-            lbl_observacoes.TabIndex = 53;
+            lbl_observacoes.TabIndex = 9;
             lbl_observacoes.Text = "Observações:";
             lbl_observacoes.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -93,11 +93,12 @@
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_observacoes.Location = new Point(12, 271);
+            txt_observacoes.MaxLength = 255;
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) fornecedor(a)...";
             txt_observacoes.Size = new Size(760, 119);
-            txt_observacoes.TabIndex = 4;
+            txt_observacoes.TabIndex = 10;
             // 
             // grpbox_dados
             // 
@@ -115,7 +116,7 @@
             grpbox_dados.Location = new Point(12, 12);
             grpbox_dados.Name = "grpbox_dados";
             grpbox_dados.Size = new Size(760, 206);
-            grpbox_dados.TabIndex = 60;
+            grpbox_dados.TabIndex = 0;
             grpbox_dados.TabStop = false;
             grpbox_dados.Text = "Dados";
             // 
@@ -127,7 +128,7 @@
             lbl_email.Location = new Point(14, 119);
             lbl_email.Name = "lbl_email";
             lbl_email.Size = new Size(57, 19);
-            lbl_email.TabIndex = 60;
+            lbl_email.TabIndex = 5;
             lbl_email.Text = "Email:";
             lbl_email.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -139,7 +140,7 @@
             txt_telefone.Location = new Point(14, 160);
             txt_telefone.Name = "txt_telefone";
             txt_telefone.Size = new Size(80, 19);
-            txt_telefone.TabIndex = 59;
+            txt_telefone.TabIndex = 7;
             txt_telefone.Text = "Telefone:";
             txt_telefone.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -150,7 +151,7 @@
             mtxt_telefone.Mask = "(00) 00000-0000";
             mtxt_telefone.Name = "mtxt_telefone";
             mtxt_telefone.Size = new Size(640, 26);
-            mtxt_telefone.TabIndex = 59;
+            mtxt_telefone.TabIndex = 8;
             // 
             // lbl_cnpj
             // 
@@ -160,7 +161,7 @@
             lbl_cnpj.Location = new Point(14, 82);
             lbl_cnpj.Name = "lbl_cnpj";
             lbl_cnpj.Size = new Size(59, 19);
-            lbl_cnpj.TabIndex = 58;
+            lbl_cnpj.TabIndex = 3;
             lbl_cnpj.Text = "CNPJ:";
             lbl_cnpj.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -171,17 +172,18 @@
             mtxt_cnpj.Mask = "00,000,000/0000-00";
             mtxt_cnpj.Name = "mtxt_cnpj";
             mtxt_cnpj.Size = new Size(661, 26);
-            mtxt_cnpj.TabIndex = 57;
+            mtxt_cnpj.TabIndex = 4;
             // 
             // txt_nome
             // 
             txt_nome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_nome.Location = new Point(80, 34);
+            txt_nome.MaxLength = 255;
             txt_nome.Name = "txt_nome";
             txt_nome.PlaceholderText = "Insira o nome do(a) fornecedor(a) aqui...";
             txt_nome.Size = new Size(660, 26);
-            txt_nome.TabIndex = 49;
+            txt_nome.TabIndex = 2;
             // 
             // lbl_nome
             // 
@@ -191,7 +193,7 @@
             lbl_nome.Location = new Point(14, 37);
             lbl_nome.Name = "lbl_nome";
             lbl_nome.Size = new Size(60, 19);
-            lbl_nome.TabIndex = 56;
+            lbl_nome.TabIndex = 1;
             lbl_nome.Text = "Nome:";
             lbl_nome.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -204,7 +206,7 @@
             txt_email.Name = "txt_email";
             txt_email.PlaceholderText = "Exemplo: fornecedor@gmail.com";
             txt_email.Size = new Size(663, 26);
-            txt_email.TabIndex = 61;
+            txt_email.TabIndex = 6;
             // 
             // form_cadastro_fornecedores
             // 

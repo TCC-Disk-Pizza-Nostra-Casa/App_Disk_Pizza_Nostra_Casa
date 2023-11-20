@@ -49,18 +49,20 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbbox_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_cliente.FormattingEnabled = true;
             cbbox_cliente.Location = new Point(193, 12);
+            cbbox_cliente.MaxLength = 255;
             cbbox_cliente.Name = "cbbox_cliente";
             cbbox_cliente.Size = new Size(175, 26);
-            cbbox_cliente.TabIndex = 0;
+            cbbox_cliente.TabIndex = 1;
             // 
             // cbbox_funcionario
             // 
             cbbox_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_funcionario.FormattingEnabled = true;
             cbbox_funcionario.Location = new Point(12, 12);
+            cbbox_funcionario.MaxLength = 255;
             cbbox_funcionario.Name = "cbbox_funcionario";
             cbbox_funcionario.Size = new Size(175, 26);
-            cbbox_funcionario.TabIndex = 1;
+            cbbox_funcionario.TabIndex = 0;
             // 
             // dtpck_data_venda
             // 
@@ -69,7 +71,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dtpck_data_venda.Location = new Point(374, 12);
             dtpck_data_venda.Name = "dtpck_data_venda";
             dtpck_data_venda.Size = new Size(134, 26);
-            dtpck_data_venda.TabIndex = 2;
+            dtpck_data_venda.TabIndex = 3;
             // 
             // dgv_listagem_vendas
             // 
@@ -87,7 +89,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_vendas.RowTemplate.Height = 25;
             dgv_listagem_vendas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_vendas.Size = new Size(760, 150);
-            dgv_listagem_vendas.TabIndex = 50;
+            dgv_listagem_vendas.TabIndex = 6;
             dgv_listagem_vendas.CellDoubleClick += dgv_listagem_vendas_CellDoubleClick;
             // 
             // dgv_listagem_itens_venda
@@ -106,7 +108,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             dgv_listagem_itens_venda.RowTemplate.Height = 25;
             dgv_listagem_itens_venda.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_itens_venda.Size = new Size(760, 170);
-            dgv_listagem_itens_venda.TabIndex = 51;
+            dgv_listagem_itens_venda.TabIndex = 7;
             // 
             // btn_pesquisar_venda
             // 
@@ -121,7 +123,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_pesquisar_venda.Location = new Point(523, 13);
             btn_pesquisar_venda.Name = "btn_pesquisar_venda";
             btn_pesquisar_venda.Size = new Size(23, 23);
-            btn_pesquisar_venda.TabIndex = 52;
+            btn_pesquisar_venda.TabIndex = 4;
             btn_pesquisar_venda.UseVisualStyleBackColor = false;
             btn_pesquisar_venda.Click += btn_pesquisar_venda_Click;
             // 
@@ -137,7 +139,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_resetar.Location = new Point(134, 410);
             btn_resetar.Name = "btn_resetar";
             btn_resetar.Size = new Size(116, 39);
-            btn_resetar.TabIndex = 56;
+            btn_resetar.TabIndex = 9;
             btn_resetar.Text = "Resetar";
             btn_resetar.UseVisualStyleBackColor = false;
             btn_resetar.Click += btn_resetar_Click;
@@ -154,7 +156,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_voltar.Location = new Point(12, 410);
             btn_voltar.Name = "btn_voltar";
             btn_voltar.Size = new Size(116, 39);
-            btn_voltar.TabIndex = 55;
+            btn_voltar.TabIndex = 8;
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
             btn_voltar.Click += btn_voltar_Click;
@@ -171,7 +173,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
-            btn_desativar.TabIndex = 54;
+            btn_desativar.TabIndex = 10;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
             btn_desativar.Click += btn_desativar_Click;
@@ -188,7 +190,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             btn_reativar.Location = new Point(656, 410);
             btn_reativar.Name = "btn_reativar";
             btn_reativar.Size = new Size(116, 39);
-            btn_reativar.TabIndex = 53;
+            btn_reativar.TabIndex = 11;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
             btn_reativar.Click += btn_reativar_Click;
@@ -200,9 +202,10 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             cbbox_condicao_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_venda.FormattingEnabled = true;
             cbbox_condicao_venda.Location = new Point(613, 12);
+            cbbox_condicao_venda.MaxLength = 9;
             cbbox_condicao_venda.Name = "cbbox_condicao_venda";
             cbbox_condicao_venda.Size = new Size(159, 26);
-            cbbox_condicao_venda.TabIndex = 57;
+            cbbox_condicao_venda.TabIndex = 5;
             cbbox_condicao_venda.SelectedIndexChanged += cbbox_condicao_venda_SelectedIndexChanged;
             // 
             // form_listagem_vendas

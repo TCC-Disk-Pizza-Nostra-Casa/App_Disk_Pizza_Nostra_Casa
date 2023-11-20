@@ -47,7 +47,7 @@
             btn_salvar.Location = new Point(132, 310);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(116, 39);
-            btn_salvar.TabIndex = 0;
+            btn_salvar.TabIndex = 5;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = true;
             btn_salvar.Click += btn_salvar_Click;
@@ -58,11 +58,12 @@
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_observacoes.ForeColor = Color.Black;
             txt_observacoes.Location = new Point(12, 154);
+            txt_observacoes.MaxLength = 255;
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre a venda...";
             txt_observacoes.Size = new Size(360, 141);
-            txt_observacoes.TabIndex = 2;
+            txt_observacoes.TabIndex = 4;
             // 
             // lbl_observacoes
             // 
@@ -85,7 +86,7 @@
             lbl_valor_total.Location = new Point(12, 9);
             lbl_valor_total.Name = "lbl_valor_total";
             lbl_valor_total.Size = new Size(360, 63);
-            lbl_valor_total.TabIndex = 5;
+            lbl_valor_total.TabIndex = 0;
             lbl_valor_total.Text = "Valor";
             lbl_valor_total.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -98,7 +99,7 @@
             lbl_tipo_consumo.Location = new Point(12, 87);
             lbl_tipo_consumo.Name = "lbl_tipo_consumo";
             lbl_tipo_consumo.Size = new Size(90, 19);
-            lbl_tipo_consumo.TabIndex = 6;
+            lbl_tipo_consumo.TabIndex = 1;
             lbl_tipo_consumo.Text = "Consumo:";
             // 
             // cbbox_tipo_consumo
@@ -107,9 +108,10 @@
             cbbox_tipo_consumo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_tipo_consumo.FormattingEnabled = true;
             cbbox_tipo_consumo.Location = new Point(108, 84);
+            cbbox_tipo_consumo.MaxLength = 21;
             cbbox_tipo_consumo.Name = "cbbox_tipo_consumo";
             cbbox_tipo_consumo.Size = new Size(264, 26);
-            cbbox_tipo_consumo.TabIndex = 7;
+            cbbox_tipo_consumo.TabIndex = 2;
             // 
             // form_confirmacao_venda
             // 

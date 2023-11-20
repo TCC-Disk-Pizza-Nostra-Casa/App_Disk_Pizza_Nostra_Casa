@@ -50,7 +50,7 @@
             mtxt_cpf.Mask = "000,000,000-00";
             mtxt_cpf.Name = "mtxt_cpf";
             mtxt_cpf.Size = new Size(263, 26);
-            mtxt_cpf.TabIndex = 4;
+            mtxt_cpf.TabIndex = 2;
             mtxt_cpf.TextAlign = HorizontalAlignment.Center;
             // 
             // lbl_senha
@@ -63,7 +63,7 @@
             lbl_senha.Margin = new Padding(4, 0, 4, 0);
             lbl_senha.Name = "lbl_senha";
             lbl_senha.Size = new Size(64, 19);
-            lbl_senha.TabIndex = 6;
+            lbl_senha.TabIndex = 3;
             lbl_senha.Text = "Senha:";
             lbl_senha.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -80,7 +80,7 @@
             btn_entrar.Location = new Point(370, 313);
             btn_entrar.Name = "btn_entrar";
             btn_entrar.Size = new Size(122, 36);
-            btn_entrar.TabIndex = 8;
+            btn_entrar.TabIndex = 5;
             btn_entrar.Text = "Entrar";
             btn_entrar.UseVisualStyleBackColor = false;
             btn_entrar.Click += btn_entrar_Click;
@@ -98,7 +98,7 @@
             txt_senha.PasswordChar = '*';
             txt_senha.PlaceholderText = "Digite sua senha...";
             txt_senha.Size = new Size(263, 26);
-            txt_senha.TabIndex = 7;
+            txt_senha.TabIndex = 4;
             txt_senha.TextAlign = HorizontalAlignment.Center;
             // 
             // lbl_cep
@@ -111,7 +111,7 @@
             lbl_cep.Margin = new Padding(4, 0, 4, 0);
             lbl_cep.Name = "lbl_cep";
             lbl_cep.Size = new Size(48, 19);
-            lbl_cep.TabIndex = 5;
+            lbl_cep.TabIndex = 1;
             lbl_cep.Text = "CPF:";
             lbl_cep.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -135,7 +135,7 @@
             lbl_saudacao.Location = new Point(297, 12);
             lbl_saudacao.Name = "lbl_saudacao";
             lbl_saudacao.Size = new Size(263, 37);
-            lbl_saudacao.TabIndex = 10;
+            lbl_saudacao.TabIndex = 0;
             lbl_saudacao.Text = "Seja bem-vindo!";
             lbl_saudacao.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -153,6 +153,7 @@
             Controls.Add(txt_senha);
             Controls.Add(lbl_cep);
             Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(4);
             MaximumSize = new Size(600, 400);
             MinimumSize = new Size(600, 400);
