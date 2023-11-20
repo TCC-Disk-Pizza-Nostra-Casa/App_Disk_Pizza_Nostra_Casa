@@ -53,7 +53,7 @@
             btn_resetar.Location = new Point(134, 410);
             btn_resetar.Name = "btn_resetar";
             btn_resetar.Size = new Size(116, 39);
-            btn_resetar.TabIndex = 48;
+            btn_resetar.TabIndex = 6;
             btn_resetar.Text = "Resetar";
             btn_resetar.UseVisualStyleBackColor = false;
             btn_resetar.Click += btn_resetar_Click;
@@ -65,9 +65,10 @@
             cbbox_condicao_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_cliente.FormattingEnabled = true;
             cbbox_condicao_cliente.Location = new Point(613, 53);
+            cbbox_condicao_cliente.MaxLength = 9;
             cbbox_condicao_cliente.Name = "cbbox_condicao_cliente";
             cbbox_condicao_cliente.Size = new Size(159, 26);
-            cbbox_condicao_cliente.TabIndex = 47;
+            cbbox_condicao_cliente.TabIndex = 3;
             cbbox_condicao_cliente.SelectedIndexChanged += cbbox_condicao_cliente_SelectedIndexChanged;
             // 
             // btn_voltar
@@ -82,7 +83,7 @@
             btn_voltar.Location = new Point(12, 410);
             btn_voltar.Name = "btn_voltar";
             btn_voltar.Size = new Size(116, 39);
-            btn_voltar.TabIndex = 46;
+            btn_voltar.TabIndex = 5;
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
             btn_voltar.Click += btn_voltar_Click;
@@ -99,7 +100,7 @@
             btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
-            btn_desativar.TabIndex = 45;
+            btn_desativar.TabIndex = 7;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
             btn_desativar.Click += btn_desativar_Click;
@@ -116,7 +117,7 @@
             btn_reativar.Location = new Point(656, 410);
             btn_reativar.Name = "btn_reativar";
             btn_reativar.Size = new Size(116, 39);
-            btn_reativar.TabIndex = 44;
+            btn_reativar.TabIndex = 8;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
             btn_reativar.Click += btn_reativar_Click;
@@ -134,7 +135,7 @@
             btn_pesquisar_cliente.Location = new Point(749, 13);
             btn_pesquisar_cliente.Name = "btn_pesquisar_cliente";
             btn_pesquisar_cliente.Size = new Size(23, 23);
-            btn_pesquisar_cliente.TabIndex = 42;
+            btn_pesquisar_cliente.TabIndex = 2;
             btn_pesquisar_cliente.UseVisualStyleBackColor = false;
             btn_pesquisar_cliente.Click += btn_pesquisar_cliente_Click;
             // 
@@ -145,10 +146,11 @@
             txt_pesquisar_cliente.Cursor = Cursors.IBeam;
             txt_pesquisar_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_cliente.Location = new Point(110, 12);
+            txt_pesquisar_cliente.MaxLength = 255;
             txt_pesquisar_cliente.Name = "txt_pesquisar_cliente";
             txt_pesquisar_cliente.PlaceholderText = "Digite o nome do(a) cliente...";
             txt_pesquisar_cliente.Size = new Size(633, 26);
-            txt_pesquisar_cliente.TabIndex = 41;
+            txt_pesquisar_cliente.TabIndex = 1;
             // 
             // lbl_pesquisar_cliente
             // 
@@ -157,7 +159,7 @@
             lbl_pesquisar_cliente.Location = new Point(12, 14);
             lbl_pesquisar_cliente.Name = "lbl_pesquisar_cliente";
             lbl_pesquisar_cliente.Size = new Size(92, 19);
-            lbl_pesquisar_cliente.TabIndex = 43;
+            lbl_pesquisar_cliente.TabIndex = 0;
             lbl_pesquisar_cliente.Text = "Pesquisar:";
             // 
             // dgv_listagem_clientes
@@ -176,7 +178,7 @@
             dgv_listagem_clientes.RowTemplate.Height = 25;
             dgv_listagem_clientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_clientes.Size = new Size(760, 297);
-            dgv_listagem_clientes.TabIndex = 40;
+            dgv_listagem_clientes.TabIndex = 4;
             dgv_listagem_clientes.CellClick += dgv_listagem_clientes_CellClick;
             dgv_listagem_clientes.CellDoubleClick += dgv_listagem_clientes_CellDoubleClick;
             // 

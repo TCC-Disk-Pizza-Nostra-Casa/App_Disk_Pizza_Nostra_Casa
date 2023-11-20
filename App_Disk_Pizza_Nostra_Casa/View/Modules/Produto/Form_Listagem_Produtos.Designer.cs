@@ -53,7 +53,7 @@
             btn_resetar.Location = new Point(134, 410);
             btn_resetar.Name = "btn_resetar";
             btn_resetar.Size = new Size(116, 39);
-            btn_resetar.TabIndex = 48;
+            btn_resetar.TabIndex = 6;
             btn_resetar.Text = "Resetar";
             btn_resetar.UseVisualStyleBackColor = false;
             btn_resetar.Click += btn_resetar_Click;
@@ -65,9 +65,10 @@
             cbbox_condicao_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_produto.FormattingEnabled = true;
             cbbox_condicao_produto.Location = new Point(613, 53);
+            cbbox_condicao_produto.MaxLength = 9;
             cbbox_condicao_produto.Name = "cbbox_condicao_produto";
             cbbox_condicao_produto.Size = new Size(159, 26);
-            cbbox_condicao_produto.TabIndex = 47;
+            cbbox_condicao_produto.TabIndex = 3;
             cbbox_condicao_produto.SelectedIndexChanged += cbbox_condicao_produto_SelectedIndexChanged;
             // 
             // btn_voltar
@@ -82,7 +83,7 @@
             btn_voltar.Location = new Point(12, 410);
             btn_voltar.Name = "btn_voltar";
             btn_voltar.Size = new Size(116, 39);
-            btn_voltar.TabIndex = 46;
+            btn_voltar.TabIndex = 5;
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
             btn_voltar.Click += btn_voltar_Click;
@@ -99,7 +100,7 @@
             btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
-            btn_desativar.TabIndex = 45;
+            btn_desativar.TabIndex = 7;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
             btn_desativar.Click += btn_desativar_Click;
@@ -116,7 +117,7 @@
             btn_reativar.Location = new Point(656, 410);
             btn_reativar.Name = "btn_reativar";
             btn_reativar.Size = new Size(116, 39);
-            btn_reativar.TabIndex = 44;
+            btn_reativar.TabIndex = 8;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
             btn_reativar.Click += btn_reativar_Click;
@@ -134,7 +135,7 @@
             btn_pesquisar_produto.Location = new Point(749, 13);
             btn_pesquisar_produto.Name = "btn_pesquisar_produto";
             btn_pesquisar_produto.Size = new Size(23, 23);
-            btn_pesquisar_produto.TabIndex = 42;
+            btn_pesquisar_produto.TabIndex = 2;
             btn_pesquisar_produto.UseVisualStyleBackColor = false;
             btn_pesquisar_produto.Click += btn_pesquisar_produto_Click;
             // 
@@ -145,10 +146,11 @@
             txt_pesquisar_produto.Cursor = Cursors.IBeam;
             txt_pesquisar_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_produto.Location = new Point(110, 12);
+            txt_pesquisar_produto.MaxLength = 255;
             txt_pesquisar_produto.Name = "txt_pesquisar_produto";
             txt_pesquisar_produto.PlaceholderText = "Digite o nome do produto...";
             txt_pesquisar_produto.Size = new Size(633, 26);
-            txt_pesquisar_produto.TabIndex = 41;
+            txt_pesquisar_produto.TabIndex = 1;
             // 
             // lbl_pesquisar_produto
             // 
@@ -157,7 +159,7 @@
             lbl_pesquisar_produto.Location = new Point(12, 14);
             lbl_pesquisar_produto.Name = "lbl_pesquisar_produto";
             lbl_pesquisar_produto.Size = new Size(92, 19);
-            lbl_pesquisar_produto.TabIndex = 43;
+            lbl_pesquisar_produto.TabIndex = 0;
             lbl_pesquisar_produto.Text = "Pesquisar:";
             // 
             // dgv_listagem_produtos
@@ -176,7 +178,7 @@
             dgv_listagem_produtos.RowTemplate.Height = 25;
             dgv_listagem_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_produtos.Size = new Size(760, 298);
-            dgv_listagem_produtos.TabIndex = 40;
+            dgv_listagem_produtos.TabIndex = 4;
             dgv_listagem_produtos.CellClick += dgv_listagem_produtos_CellClick;
             dgv_listagem_produtos.CellDoubleClick += dgv_listagem_produtos_CellDoubleClick;
             // 

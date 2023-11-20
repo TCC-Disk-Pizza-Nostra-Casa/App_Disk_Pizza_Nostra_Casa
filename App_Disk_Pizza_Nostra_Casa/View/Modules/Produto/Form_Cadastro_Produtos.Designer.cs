@@ -58,7 +58,7 @@
             btn_cancelar.Location = new Point(534, 410);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(116, 39);
-            btn_cancelar.TabIndex = 45;
+            btn_cancelar.TabIndex = 13;
             btn_cancelar.Text = "Cancelar";
             btn_cancelar.UseVisualStyleBackColor = false;
             btn_cancelar.Click += btn_cancelar_Click;
@@ -75,7 +75,7 @@
             btn_salvar.Location = new Point(656, 410);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(116, 39);
-            btn_salvar.TabIndex = 44;
+            btn_salvar.TabIndex = 14;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = false;
             btn_salvar.Click += btn_salvar_Click;
@@ -85,11 +85,12 @@
             txt_observacoes.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             txt_observacoes.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_observacoes.Location = new Point(12, 309);
+            txt_observacoes.MaxLength = 255;
             txt_observacoes.Multiline = true;
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o produto...";
             txt_observacoes.Size = new Size(760, 85);
-            txt_observacoes.TabIndex = 42;
+            txt_observacoes.TabIndex = 12;
             // 
             // lbl_nome
             // 
@@ -99,7 +100,7 @@
             lbl_nome.Location = new Point(14, 37);
             lbl_nome.Name = "lbl_nome";
             lbl_nome.Size = new Size(60, 19);
-            lbl_nome.TabIndex = 56;
+            lbl_nome.TabIndex = 1;
             lbl_nome.Text = "Nome:";
             lbl_nome.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -110,7 +111,7 @@
             lbl_fornecedor.Location = new Point(14, 197);
             lbl_fornecedor.Name = "lbl_fornecedor";
             lbl_fornecedor.Size = new Size(109, 26);
-            lbl_fornecedor.TabIndex = 55;
+            lbl_fornecedor.TabIndex = 9;
             lbl_fornecedor.Text = "Fornecedor:";
             lbl_fornecedor.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -120,20 +121,21 @@
             cbbox_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_fornecedor.FormattingEnabled = true;
             cbbox_fornecedor.Location = new Point(129, 197);
+            cbbox_fornecedor.MaxLength = 255;
             cbbox_fornecedor.Name = "cbbox_fornecedor";
             cbbox_fornecedor.Size = new Size(612, 26);
-            cbbox_fornecedor.TabIndex = 54;
+            cbbox_fornecedor.TabIndex = 10;
             // 
             // txt_preco
             // 
             txt_preco.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_preco.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_preco.Location = new Point(86, 75);
-            txt_preco.MaxLength = 14;
+            txt_preco.MaxLength = 7;
             txt_preco.Name = "txt_preco";
             txt_preco.PlaceholderText = "Insira o preço do produto aqui...";
             txt_preco.Size = new Size(655, 26);
-            txt_preco.TabIndex = 51;
+            txt_preco.TabIndex = 4;
             txt_preco.KeyPress += txt_preco_KeyPress;
             // 
             // lbl_preco
@@ -143,7 +145,7 @@
             lbl_preco.Location = new Point(14, 74);
             lbl_preco.Name = "lbl_preco";
             lbl_preco.Size = new Size(67, 26);
-            lbl_preco.TabIndex = 50;
+            lbl_preco.TabIndex = 3;
             lbl_preco.Text = "Preço:";
             lbl_preco.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -152,10 +154,11 @@
             txt_nome.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             txt_nome.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_nome.Location = new Point(80, 34);
+            txt_nome.MaxLength = 255;
             txt_nome.Name = "txt_nome";
             txt_nome.PlaceholderText = "Insira o nome do produto aqui...";
             txt_nome.Size = new Size(661, 26);
-            txt_nome.TabIndex = 49;
+            txt_nome.TabIndex = 2;
             // 
             // lbl_observacoes
             // 
@@ -164,7 +167,7 @@
             lbl_observacoes.Location = new Point(10, 269);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(125, 28);
-            lbl_observacoes.TabIndex = 58;
+            lbl_observacoes.TabIndex = 11;
             lbl_observacoes.Text = "Observações:";
             lbl_observacoes.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -186,7 +189,7 @@
             grpbox_dados.Location = new Point(12, 12);
             grpbox_dados.Name = "grpbox_dados";
             grpbox_dados.Size = new Size(760, 245);
-            grpbox_dados.TabIndex = 59;
+            grpbox_dados.TabIndex = 0;
             grpbox_dados.TabStop = false;
             grpbox_dados.Text = "Dados";
             // 
@@ -197,7 +200,7 @@
             lbl_categoria.Location = new Point(14, 156);
             lbl_categoria.Name = "lbl_categoria";
             lbl_categoria.Size = new Size(93, 26);
-            lbl_categoria.TabIndex = 61;
+            lbl_categoria.TabIndex = 7;
             lbl_categoria.Text = "Categoria:";
             lbl_categoria.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -207,9 +210,10 @@
             cbbox_categoria.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_categoria.FormattingEnabled = true;
             cbbox_categoria.Location = new Point(113, 156);
+            cbbox_categoria.MaxLength = 17;
             cbbox_categoria.Name = "cbbox_categoria";
             cbbox_categoria.Size = new Size(628, 26);
-            cbbox_categoria.TabIndex = 58;
+            cbbox_categoria.TabIndex = 8;
             cbbox_categoria.SelectedIndexChanged += cbbox_categoria_SelectedIndexChanged;
             // 
             // cbbox_tamanho
@@ -218,9 +222,10 @@
             cbbox_tamanho.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_tamanho.FormattingEnabled = true;
             cbbox_tamanho.Location = new Point(113, 115);
+            cbbox_tamanho.MaxLength = 6;
             cbbox_tamanho.Name = "cbbox_tamanho";
             cbbox_tamanho.Size = new Size(628, 26);
-            cbbox_tamanho.TabIndex = 60;
+            cbbox_tamanho.TabIndex = 6;
             // 
             // lbl_tamanho
             // 
@@ -229,7 +234,7 @@
             lbl_tamanho.Location = new Point(14, 115);
             lbl_tamanho.Name = "lbl_tamanho";
             lbl_tamanho.Size = new Size(93, 26);
-            lbl_tamanho.TabIndex = 59;
+            lbl_tamanho.TabIndex = 5;
             lbl_tamanho.Text = "Tamanho:";
             lbl_tamanho.TextAlign = ContentAlignment.MiddleLeft;
             // 

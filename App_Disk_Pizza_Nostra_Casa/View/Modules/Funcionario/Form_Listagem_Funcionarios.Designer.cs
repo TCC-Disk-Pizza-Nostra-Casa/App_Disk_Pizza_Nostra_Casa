@@ -54,7 +54,7 @@
             btn_pesquisar_funcionario.Location = new Point(749, 13);
             btn_pesquisar_funcionario.Name = "btn_pesquisar_funcionario";
             btn_pesquisar_funcionario.Size = new Size(23, 23);
-            btn_pesquisar_funcionario.TabIndex = 5;
+            btn_pesquisar_funcionario.TabIndex = 2;
             btn_pesquisar_funcionario.UseVisualStyleBackColor = false;
             btn_pesquisar_funcionario.Click += btn_pesquisar_funcionario_Click;
             // 
@@ -65,10 +65,11 @@
             txt_pesquisar_funcionario.Cursor = Cursors.IBeam;
             txt_pesquisar_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_funcionario.Location = new Point(110, 12);
+            txt_pesquisar_funcionario.MaxLength = 255;
             txt_pesquisar_funcionario.Name = "txt_pesquisar_funcionario";
             txt_pesquisar_funcionario.PlaceholderText = "Digite o nome do(a) funcionário(a)...";
             txt_pesquisar_funcionario.Size = new Size(633, 26);
-            txt_pesquisar_funcionario.TabIndex = 4;
+            txt_pesquisar_funcionario.TabIndex = 1;
             // 
             // lbl_pesquisar_funcionario
             // 
@@ -77,7 +78,7 @@
             lbl_pesquisar_funcionario.Location = new Point(12, 14);
             lbl_pesquisar_funcionario.Name = "lbl_pesquisar_funcionario";
             lbl_pesquisar_funcionario.Size = new Size(92, 19);
-            lbl_pesquisar_funcionario.TabIndex = 6;
+            lbl_pesquisar_funcionario.TabIndex = 0;
             lbl_pesquisar_funcionario.Text = "Pesquisar:";
             // 
             // dgv_listagem_funcionarios
@@ -96,7 +97,7 @@
             dgv_listagem_funcionarios.RowTemplate.Height = 25;
             dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_funcionarios.Size = new Size(760, 297);
-            dgv_listagem_funcionarios.TabIndex = 3;
+            dgv_listagem_funcionarios.TabIndex = 4;
             dgv_listagem_funcionarios.CellContentClick += dgv_listagem_funcionarios_CellContentClick;
             dgv_listagem_funcionarios.CellDoubleClick += dgv_listagem_funcionarios_CellDoubleClick;
             // 
@@ -112,7 +113,7 @@
             btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
-            btn_desativar.TabIndex = 36;
+            btn_desativar.TabIndex = 7;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
             btn_desativar.Click += btn_desativar_Click;
@@ -129,7 +130,7 @@
             btn_reativar.Location = new Point(656, 410);
             btn_reativar.Name = "btn_reativar";
             btn_reativar.Size = new Size(116, 39);
-            btn_reativar.TabIndex = 35;
+            btn_reativar.TabIndex = 8;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
             btn_reativar.Click += btn_reativar_Click;
@@ -146,7 +147,7 @@
             btn_voltar.Location = new Point(12, 410);
             btn_voltar.Name = "btn_voltar";
             btn_voltar.Size = new Size(116, 39);
-            btn_voltar.TabIndex = 37;
+            btn_voltar.TabIndex = 5;
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
             btn_voltar.Click += btn_voltar_Click;
@@ -158,9 +159,10 @@
             cbbox_condicao_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_funcionario.FormattingEnabled = true;
             cbbox_condicao_funcionario.Location = new Point(613, 53);
+            cbbox_condicao_funcionario.MaxLength = 9;
             cbbox_condicao_funcionario.Name = "cbbox_condicao_funcionario";
             cbbox_condicao_funcionario.Size = new Size(159, 26);
-            cbbox_condicao_funcionario.TabIndex = 38;
+            cbbox_condicao_funcionario.TabIndex = 3;
             cbbox_condicao_funcionario.SelectedIndexChanged += cbbox_condicao_funcionario_SelectedIndexChanged;
             // 
             // btn_resetar
@@ -175,7 +177,7 @@
             btn_resetar.Location = new Point(134, 410);
             btn_resetar.Name = "btn_resetar";
             btn_resetar.Size = new Size(116, 39);
-            btn_resetar.TabIndex = 39;
+            btn_resetar.TabIndex = 6;
             btn_resetar.Text = "Resetar";
             btn_resetar.UseVisualStyleBackColor = false;
             btn_resetar.Click += btn_resetar_Click;

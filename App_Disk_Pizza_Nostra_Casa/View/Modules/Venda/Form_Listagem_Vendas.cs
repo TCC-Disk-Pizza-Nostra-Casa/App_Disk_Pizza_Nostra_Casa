@@ -63,7 +63,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 Items_DataGridView_Configuration();
 
-                dtpck_data_venda.MinDate = new DateTime(1950, 1, 1);
+                dtpck_data_venda.MinDate = new DateTime(2023, 1, 1);
 
                 dtpck_data_venda.MaxDate = DateTime.Now.Date;
 

@@ -53,7 +53,7 @@
             btn_resetar.Location = new Point(134, 410);
             btn_resetar.Name = "btn_resetar";
             btn_resetar.Size = new Size(116, 39);
-            btn_resetar.TabIndex = 57;
+            btn_resetar.TabIndex = 6;
             btn_resetar.Text = "Resetar";
             btn_resetar.UseVisualStyleBackColor = false;
             btn_resetar.Click += btn_resetar_Click;
@@ -65,9 +65,10 @@
             cbbox_condicao_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_condicao_fornecedor.FormattingEnabled = true;
             cbbox_condicao_fornecedor.Location = new Point(613, 53);
+            cbbox_condicao_fornecedor.MaxLength = 9;
             cbbox_condicao_fornecedor.Name = "cbbox_condicao_fornecedor";
             cbbox_condicao_fornecedor.Size = new Size(159, 26);
-            cbbox_condicao_fornecedor.TabIndex = 56;
+            cbbox_condicao_fornecedor.TabIndex = 3;
             cbbox_condicao_fornecedor.SelectedIndexChanged += cbbox_condicao_fornecedor_SelectedIndexChanged;
             // 
             // btn_voltar
@@ -82,7 +83,7 @@
             btn_voltar.Location = new Point(12, 410);
             btn_voltar.Name = "btn_voltar";
             btn_voltar.Size = new Size(116, 39);
-            btn_voltar.TabIndex = 55;
+            btn_voltar.TabIndex = 5;
             btn_voltar.Text = "Voltar";
             btn_voltar.UseVisualStyleBackColor = false;
             btn_voltar.Click += btn_voltar_Click;
@@ -99,7 +100,7 @@
             btn_desativar.Location = new Point(534, 410);
             btn_desativar.Name = "btn_desativar";
             btn_desativar.Size = new Size(116, 39);
-            btn_desativar.TabIndex = 54;
+            btn_desativar.TabIndex = 7;
             btn_desativar.Text = "Desativar";
             btn_desativar.UseVisualStyleBackColor = false;
             btn_desativar.Click += btn_desativar_Click;
@@ -116,7 +117,7 @@
             btn_reativar.Location = new Point(656, 410);
             btn_reativar.Name = "btn_reativar";
             btn_reativar.Size = new Size(116, 39);
-            btn_reativar.TabIndex = 53;
+            btn_reativar.TabIndex = 8;
             btn_reativar.Text = "Reativar";
             btn_reativar.UseVisualStyleBackColor = false;
             btn_reativar.Click += btn_reativar_Click;
@@ -134,7 +135,7 @@
             btn_pesquisar_fornecedor.Location = new Point(749, 13);
             btn_pesquisar_fornecedor.Name = "btn_pesquisar_fornecedor";
             btn_pesquisar_fornecedor.Size = new Size(23, 23);
-            btn_pesquisar_fornecedor.TabIndex = 51;
+            btn_pesquisar_fornecedor.TabIndex = 2;
             btn_pesquisar_fornecedor.UseVisualStyleBackColor = false;
             btn_pesquisar_fornecedor.Click += btn_pesquisar_fornecedor_Click;
             // 
@@ -145,10 +146,11 @@
             txt_pesquisar_fornecedor.Cursor = Cursors.IBeam;
             txt_pesquisar_fornecedor.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txt_pesquisar_fornecedor.Location = new Point(110, 12);
+            txt_pesquisar_fornecedor.MaxLength = 255;
             txt_pesquisar_fornecedor.Name = "txt_pesquisar_fornecedor";
             txt_pesquisar_fornecedor.PlaceholderText = "Digite o nome do(a) fornecedor(a)...";
             txt_pesquisar_fornecedor.Size = new Size(633, 26);
-            txt_pesquisar_fornecedor.TabIndex = 50;
+            txt_pesquisar_fornecedor.TabIndex = 1;
             // 
             // lbl_pesquisar_fornecedor
             // 
@@ -157,7 +159,7 @@
             lbl_pesquisar_fornecedor.Location = new Point(12, 14);
             lbl_pesquisar_fornecedor.Name = "lbl_pesquisar_fornecedor";
             lbl_pesquisar_fornecedor.Size = new Size(92, 19);
-            lbl_pesquisar_fornecedor.TabIndex = 52;
+            lbl_pesquisar_fornecedor.TabIndex = 0;
             lbl_pesquisar_fornecedor.Text = "Pesquisar:";
             // 
             // dgv_listagem_fornecedores
@@ -176,7 +178,7 @@
             dgv_listagem_fornecedores.RowTemplate.Height = 25;
             dgv_listagem_fornecedores.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_listagem_fornecedores.Size = new Size(760, 296);
-            dgv_listagem_fornecedores.TabIndex = 49;
+            dgv_listagem_fornecedores.TabIndex = 4;
             dgv_listagem_fornecedores.CellClick += dgv_listagem_fornecedores_CellClick;
             dgv_listagem_fornecedores.CellDoubleClick += dgv_listagem_fornecedores_CellDoubleClick;
             // 

@@ -69,7 +69,7 @@
             btn_salvar.Location = new Point(656, 410);
             btn_salvar.Name = "btn_salvar";
             btn_salvar.Size = new Size(116, 39);
-            btn_salvar.TabIndex = 33;
+            btn_salvar.TabIndex = 24;
             btn_salvar.Text = "Salvar";
             btn_salvar.UseVisualStyleBackColor = false;
             btn_salvar.Click += btn_salvar_Click;
@@ -86,7 +86,7 @@
             btn_cancelar.Location = new Point(534, 410);
             btn_cancelar.Name = "btn_cancelar";
             btn_cancelar.Size = new Size(116, 39);
-            btn_cancelar.TabIndex = 34;
+            btn_cancelar.TabIndex = 23;
             btn_cancelar.Text = "Cancelar";
             btn_cancelar.UseVisualStyleBackColor = false;
             btn_cancelar.Click += btn_cancelar_Click;
@@ -99,7 +99,7 @@
             lbl_observacoes.Location = new Point(12, 293);
             lbl_observacoes.Name = "lbl_observacoes";
             lbl_observacoes.Size = new Size(116, 19);
-            lbl_observacoes.TabIndex = 36;
+            lbl_observacoes.TabIndex = 20;
             lbl_observacoes.Text = "Observações:";
             // 
             // txt_observacoes
@@ -112,7 +112,7 @@
             txt_observacoes.Name = "txt_observacoes";
             txt_observacoes.PlaceholderText = "Insira possíveis observações sobre o(a) funcionário(a)...";
             txt_observacoes.Size = new Size(760, 69);
-            txt_observacoes.TabIndex = 39;
+            txt_observacoes.TabIndex = 21;
             // 
             // ckbox_administrador
             // 
@@ -123,7 +123,7 @@
             ckbox_administrador.Location = new Point(12, 426);
             ckbox_administrador.Name = "ckbox_administrador";
             ckbox_administrador.Size = new Size(155, 23);
-            ckbox_administrador.TabIndex = 40;
+            ckbox_administrador.TabIndex = 22;
             ckbox_administrador.Text = "Administrador(a)";
             ckbox_administrador.UseVisualStyleBackColor = true;
             // 
@@ -135,7 +135,7 @@
             grpbox_dados.Location = new Point(12, 12);
             grpbox_dados.Name = "grpbox_dados";
             grpbox_dados.Size = new Size(760, 269);
-            grpbox_dados.TabIndex = 41;
+            grpbox_dados.TabIndex = 0;
             grpbox_dados.TabStop = false;
             grpbox_dados.Text = "Dados";
             // 
@@ -165,7 +165,7 @@
             pnl_campos.Name = "pnl_campos";
             pnl_campos.Padding = new Padding(0, 0, 0, 10);
             pnl_campos.Size = new Size(748, 228);
-            pnl_campos.TabIndex = 36;
+            pnl_campos.TabIndex = 1;
             // 
             // cbbox_estado_civil
             // 
@@ -175,17 +175,17 @@
             cbbox_estado_civil.MaxLength = 13;
             cbbox_estado_civil.Name = "cbbox_estado_civil";
             cbbox_estado_civil.Size = new Size(604, 26);
-            cbbox_estado_civil.TabIndex = 34;
+            cbbox_estado_civil.TabIndex = 7;
             // 
             // cbbox_sexo
             // 
             cbbox_sexo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             cbbox_sexo.FormattingEnabled = true;
             cbbox_sexo.Location = new Point(72, 46);
-            cbbox_sexo.MaxLength = 20;
+            cbbox_sexo.MaxLength = 13;
             cbbox_sexo.Name = "cbbox_sexo";
             cbbox_sexo.Size = new Size(656, 26);
-            cbbox_sexo.TabIndex = 33;
+            cbbox_sexo.TabIndex = 5;
             // 
             // lbl_estado_civil
             // 
@@ -195,7 +195,7 @@
             lbl_estado_civil.Location = new Point(12, 90);
             lbl_estado_civil.Name = "lbl_estado_civil";
             lbl_estado_civil.Size = new Size(106, 19);
-            lbl_estado_civil.TabIndex = 32;
+            lbl_estado_civil.TabIndex = 6;
             lbl_estado_civil.Text = "Estado Civil:";
             lbl_estado_civil.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -209,7 +209,7 @@
             txt_confirmar_senha.PasswordChar = '*';
             txt_confirmar_senha.PlaceholderText = "Confirme a senha...";
             txt_confirmar_senha.Size = new Size(567, 26);
-            txt_confirmar_senha.TabIndex = 30;
+            txt_confirmar_senha.TabIndex = 19;
             // 
             // lbl_confirmar_senha
             // 
@@ -219,7 +219,7 @@
             lbl_confirmar_senha.Location = new Point(12, 336);
             lbl_confirmar_senha.Name = "lbl_confirmar_senha";
             lbl_confirmar_senha.Size = new Size(144, 19);
-            lbl_confirmar_senha.TabIndex = 29;
+            lbl_confirmar_senha.TabIndex = 18;
             lbl_confirmar_senha.Text = "Confirmar Senha:";
             lbl_confirmar_senha.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -231,7 +231,7 @@
             lbl_senha.Location = new Point(12, 296);
             lbl_senha.Name = "lbl_senha";
             lbl_senha.Size = new Size(64, 19);
-            lbl_senha.TabIndex = 28;
+            lbl_senha.TabIndex = 16;
             lbl_senha.Text = "Senha:";
             lbl_senha.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -243,9 +243,9 @@
             txt_senha.MaxLength = 20;
             txt_senha.Name = "txt_senha";
             txt_senha.PasswordChar = '*';
-            txt_senha.PlaceholderText = "Crie uma senha de usuário...";
+            txt_senha.PlaceholderText = "Crie uma senha...";
             txt_senha.Size = new Size(646, 26);
-            txt_senha.TabIndex = 27;
+            txt_senha.TabIndex = 17;
             // 
             // mtxt_telefone
             // 
@@ -255,7 +255,7 @@
             mtxt_telefone.Mask = "(00) 00000-0000";
             mtxt_telefone.Name = "mtxt_telefone";
             mtxt_telefone.Size = new Size(630, 26);
-            mtxt_telefone.TabIndex = 24;
+            mtxt_telefone.TabIndex = 15;
             // 
             // lbl_telefone
             // 
@@ -265,7 +265,7 @@
             lbl_telefone.Location = new Point(12, 255);
             lbl_telefone.Name = "lbl_telefone";
             lbl_telefone.Size = new Size(80, 19);
-            lbl_telefone.TabIndex = 23;
+            lbl_telefone.TabIndex = 14;
             lbl_telefone.Text = "Telefone:";
             lbl_telefone.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -278,7 +278,7 @@
             txt_email.Name = "txt_email";
             txt_email.PlaceholderText = "Exemplo: funcionario@gmail.com";
             txt_email.Size = new Size(653, 26);
-            txt_email.TabIndex = 21;
+            txt_email.TabIndex = 13;
             // 
             // lbl_email
             // 
@@ -288,7 +288,7 @@
             lbl_email.Location = new Point(12, 213);
             lbl_email.Name = "lbl_email";
             lbl_email.Size = new Size(57, 19);
-            lbl_email.TabIndex = 16;
+            lbl_email.TabIndex = 12;
             lbl_email.Text = "Email:";
             lbl_email.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -300,7 +300,7 @@
             lbl_cep.Location = new Point(12, 172);
             lbl_cep.Name = "lbl_cep";
             lbl_cep.Size = new Size(49, 19);
-            lbl_cep.TabIndex = 15;
+            lbl_cep.TabIndex = 10;
             lbl_cep.Text = "CEP:";
             lbl_cep.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -312,7 +312,7 @@
             mtxt_cep.Mask = "00000-000";
             mtxt_cep.Name = "mtxt_cep";
             mtxt_cep.Size = new Size(661, 26);
-            mtxt_cep.TabIndex = 14;
+            mtxt_cep.TabIndex = 11;
             // 
             // lbl_cpf
             // 
@@ -322,7 +322,7 @@
             lbl_cpf.Location = new Point(12, 131);
             lbl_cpf.Name = "lbl_cpf";
             lbl_cpf.Size = new Size(48, 19);
-            lbl_cpf.TabIndex = 10;
+            lbl_cpf.TabIndex = 8;
             lbl_cpf.Text = "CPF:";
             lbl_cpf.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -334,7 +334,7 @@
             mtxt_cpf.Mask = "000,000,000-00";
             mtxt_cpf.Name = "mtxt_cpf";
             mtxt_cpf.Size = new Size(662, 26);
-            mtxt_cpf.TabIndex = 8;
+            mtxt_cpf.TabIndex = 9;
             // 
             // txt_nome
             // 
@@ -345,7 +345,7 @@
             txt_nome.Name = "txt_nome";
             txt_nome.PlaceholderText = "Insira o nome do(a) funcionário(a) aqui...";
             txt_nome.Size = new Size(650, 26);
-            txt_nome.TabIndex = 4;
+            txt_nome.TabIndex = 3;
             // 
             // lbl_sexo
             // 
@@ -355,7 +355,7 @@
             lbl_sexo.Location = new Point(12, 49);
             lbl_sexo.Name = "lbl_sexo";
             lbl_sexo.Size = new Size(54, 19);
-            lbl_sexo.TabIndex = 2;
+            lbl_sexo.TabIndex = 4;
             lbl_sexo.Text = "Sexo:";
             lbl_sexo.TextAlign = ContentAlignment.MiddleLeft;
             // 
@@ -367,7 +367,7 @@
             lbl_nome.Location = new Point(12, 10);
             lbl_nome.Name = "lbl_nome";
             lbl_nome.Size = new Size(60, 19);
-            lbl_nome.TabIndex = 0;
+            lbl_nome.TabIndex = 2;
             lbl_nome.Text = "Nome:";
             lbl_nome.TextAlign = ContentAlignment.MiddleLeft;
             // 

@@ -51,7 +51,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                 cbbox_tipo_consumo.DropDownStyle = ComboBoxStyle.DropDownList;
 
-                cbbox_tipo_consumo.DataSource = new string[] { "Presencial (No local.)", "Delivery (Entrega.)" };
+                cbbox_tipo_consumo.DataSource = new string[] { "Presencial (No local)", "Delivery (Entrega)" };
 
             }
 
