@@ -746,7 +746,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                         string categoria = (ReturnProductObject(id_produto) != null) ? ReturnProductObject(id_produto).categoria : "Não encontrado(a).";
 
-                        string fornecedor = (ReturnProductObject(id_produto) != null) ? ReturnProviderObject(ReturnProductObject(id_produto).fk_fornecedor).nome : "Não encontrado(a).";
+                        string fornecedor = (ReturnProductObject(id_produto) != null && ReturnProviderObject(ReturnProductObject(id_produto).fk_fornecedor) != null) ? ReturnProviderObject(ReturnProductObject(id_produto).fk_fornecedor).nome : "Não encontrado(a).";
 
                         int quantidade_produto = lista[i].quantidade_produto;
 

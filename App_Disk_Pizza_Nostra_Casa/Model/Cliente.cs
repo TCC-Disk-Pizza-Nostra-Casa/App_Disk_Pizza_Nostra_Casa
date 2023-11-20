@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -45,6 +44,20 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             List<Cliente>? clientes = await GetList();
 
+            foreach (Cliente cliente in clientes)
+            {
+
+                if (this.id != 0 && this.id == cliente.id)
+                {
+
+                    clientes.Remove(cliente);
+
+                    break;
+
+                }
+
+            }
+
             string mensagem = "";
 
             string nome = this.nome;
@@ -58,7 +71,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             foreach (Cliente cliente in clientes)
             {
 
-                if (this.id == 0 && cliente.nome == nome)
+                if (cliente.nome == nome)
                 {
 
                     mensagem = "Já existe um cliente com esse nome! Altere-o e tente novamente.";
@@ -67,7 +80,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && cliente.cpf == cpf)
+                else if (cliente.cpf == cpf)
                 {
 
                     mensagem = "Já existe um cliente com esse CPF! Altere-o e tente novamente.";
@@ -76,7 +89,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && cliente.email == email)
+                else if (cliente.email == email)
                 {
 
                     mensagem = "Já existe um cliente com esse E-mail! Altere-o e tente novamente.";
@@ -85,7 +98,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && cliente.telefone == telefone)
+                else if (cliente.telefone == telefone)
                 {
 
                     mensagem = "Já existe um cliente com esse telefone! Altere-o e tente novamente.";

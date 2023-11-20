@@ -48,6 +48,20 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             List<Funcionario>? funcionarios = await GetList();
 
+            foreach (Funcionario funcionario in funcionarios)
+            {
+
+                if (this.id != 0 && this.id == funcionario.id)
+                {
+
+                    funcionarios.Remove(funcionario);
+
+                    break;
+
+                }
+
+            }
+
             string mensagem = "";
 
             string nome = this.nome;
@@ -61,7 +75,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             foreach (Funcionario funcionario in funcionarios)
             {
 
-                if (this.id == 0 && funcionario.nome == nome)
+                if (funcionario.nome == nome)
                 {
 
                     mensagem = "Já existe um(a) funcionário(a) com esse nome! Altere-o e tente novamente.";
@@ -70,7 +84,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && funcionario.cpf == cpf)
+                else if (funcionario.cpf == cpf)
                 {
 
                     mensagem = "Já existe um(a) funcionário(a) com esse CPF! Altere-o e tente novamente.";
@@ -79,7 +93,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && funcionario.email == email)
+                else if (funcionario.email == email)
                 {
 
                     mensagem = "Já existe um(a) funcionário(a) com esse E-mail! Altere-o e tente novamente.";
@@ -88,7 +102,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && funcionario.telefone == telefone)
+                else if (funcionario.telefone == telefone)
                 {
 
                     mensagem = "Já existe um(a) funcionário(a) com esse telefone! Altere-o e tente novamente.";
