@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Threading.Tasks;
-
-using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
+using System.Diagnostics;
+
 using System.Net;
+using System.Net.Http;
+
+using App_Disk_Pizza_Nostra_Casa.Model;
+using App_Disk_Pizza_Nostra_Casa.Service;
 
 namespace App_Disk_Pizza_Nostra_Casa.Service
 {
@@ -15,6 +18,17 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
     {
 
         private static readonly string host = "http://localhost:8000";
+
+        private static void ShowContentInOutput(string mensagem)
+        {
+
+            Debug.WriteLine("\n______________________________________________\n");
+
+            Debug.WriteLine(mensagem + "\n");
+
+            Debug.WriteLine("______________________________________________\n");
+
+        }
 
         protected static async Task<string> GetDataApi(string rota)
         {
@@ -28,7 +42,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
                 HttpResponseMessage requisicao_api = await cliente.GetAsync(uri);
 
-                ShowContentInConsole(requisicao_api.Content.ReadAsStringAsync().Result);
+                ShowContentInOutput(requisicao_api.Content.ReadAsStringAsync().Result);
 
                 if(requisicao_api.IsSuccessStatusCode)
                 {
@@ -62,7 +76,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
 
                 HttpResponseMessage requisicao_api = await cliente.PostAsync(uri, new StringContent(objeto_json, Encoding.UTF8, "application/json"));
 
-                ShowContentInConsole(requisicao_api.Content.ReadAsStringAsync().Result);
+                ShowContentInOutput(requisicao_api.Content.ReadAsStringAsync().Result);
 
                 if(requisicao_api.IsSuccessStatusCode)
                 {
@@ -119,17 +133,6 @@ namespace App_Disk_Pizza_Nostra_Casa.Service
             }
 
             return mensagem_erro;
-
-        }
-
-        private static void ShowContentInConsole(string mensagem)
-        {
-
-            System.Diagnostics.Debug.WriteLine("\n______________________________________________\n");
-
-            System.Diagnostics.Debug.WriteLine(mensagem + "\n");
-
-            System.Diagnostics.Debug.WriteLine("______________________________________________\n");
 
         }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +36,20 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             List<Fornecedor>? fornecedores = await GetList();
 
+            foreach (Fornecedor fornecedor in fornecedores)
+            {
+
+                if (this.id != 0 && this.id == fornecedor.id)
+                {
+
+                    fornecedores.Remove(fornecedor);
+
+                    break;
+
+                }
+
+            }
+
             string mensagem = "";
 
             string nome = this.nome;
@@ -50,7 +63,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             foreach (Fornecedor fornecedor in fornecedores)
             {
 
-                if (this.id == 0 && fornecedor.nome == nome)
+                if (fornecedor.nome == nome)
                 {
 
                     mensagem = "Já existe um(a) fornecedor(a) com esse nome! Altere-o e tente novamente.";
@@ -59,7 +72,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && fornecedor.cnpj == cnpj)
+                else if (fornecedor.cnpj == cnpj)
                 {
 
                     mensagem = "Já existe um(a) fornecedor(a) com esse CNPJ! Altere-o e tente novamente.";
@@ -68,7 +81,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && fornecedor.email == email)
+                else if (fornecedor.email == email)
                 {
 
                     mensagem = "Já existe um(a) fornecedor(a) com esse E-mail! Altere-o e tente novamente.";
@@ -77,7 +90,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
                 }
 
-                else if (this.id == 0 && fornecedor.telefone == telefone)
+                else if (fornecedor.telefone == telefone)
                 {
 
                     mensagem = "Já existe um(a) fornecedor(a) com esse telefone! Altere-o e tente novamente.";

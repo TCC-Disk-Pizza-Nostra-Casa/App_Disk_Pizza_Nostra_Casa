@@ -38,6 +38,20 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             List<Produto>? produtos = await GetList();
 
+            foreach (Produto produto in produtos)
+            {
+
+                if (this.id != 0 && this.id == produto.id)
+                {
+
+                    produtos.Remove(produto);
+
+                    break;
+
+                }
+
+            }
+
             string mensagem = "";
 
             string nome = this.nome;
@@ -45,7 +59,7 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
             foreach (Produto produto in produtos)
             {
 
-                if (this.id == 0 && produto.nome == nome)
+                if (produto.nome == nome)
                 {
 
                     mensagem = "Já existe um produto com esse nome! Altere-o e tente novamente.";
