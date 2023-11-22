@@ -1,0 +1,19 @@
+Meia pizza;
+
+Taxa de meia pizza;
+
+Taxa de entrega;
+
+Borda da pizza (Recheada ou comum.);
+
+Controle de estoque;
+
+Ocultação da senha do usuário logado;
+
+Desativação automática do cliente com base na data da última compra;
+
+Exibição dos clientes fazendo aniversário;
+
+Impressão de pedidos;
+
+Backups temporários.
