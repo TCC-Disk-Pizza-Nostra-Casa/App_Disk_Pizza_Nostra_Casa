@@ -260,7 +260,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Fornecedor
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_fornecedores.Rows.Add(id, nome, cnpj, email, telefone, observacoes, data_modificacao, "Clique aqui.");
+                        dgv_listagem_fornecedores.Rows.Add(id, nome, Global.CNPJ_Mask_Generation(cnpj), email, Global.Telephone_Mask_Generation(telefone), observacoes, data_modificacao, "Clique aqui.");
 
                     }
 

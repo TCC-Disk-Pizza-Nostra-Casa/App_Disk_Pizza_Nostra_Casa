@@ -39,6 +39,7 @@
             // btn_salvar
             // 
             btn_salvar.Anchor = AnchorStyles.Bottom;
+            btn_salvar.Cursor = Cursors.Hand;
             btn_salvar.FlatAppearance.BorderColor = Color.Black;
             btn_salvar.FlatAppearance.BorderSize = 2;
             btn_salvar.FlatStyle = FlatStyle.Flat;
@@ -105,6 +106,7 @@
             // cbbox_tipo_consumo
             // 
             cbbox_tipo_consumo.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_tipo_consumo.Cursor = Cursors.Hand;
             cbbox_tipo_consumo.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_tipo_consumo.FormattingEnabled = true;
             cbbox_tipo_consumo.Location = new Point(108, 84);

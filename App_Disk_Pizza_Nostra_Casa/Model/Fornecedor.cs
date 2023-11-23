@@ -118,14 +118,14 @@ namespace App_Disk_Pizza_Nostra_Casa.Model
 
             }
 
-            else if (!Global.CNPJValidation(this.cnpj))
+            else if (!Global.CNPJ_Validation(this.cnpj))
             {
 
                 throw new Exception("CNPJ inválido! Revise-o e tente novamente.");
 
             }
 
-            else if (!Global.TelephoneValidation(this.telefone))
+            else if (!Global.Telephone_Validation(this.telefone))
             {
 
                 throw new Exception("Um telefone possui de 10 a 11 dígitos! Revise-o e tente novamente.");

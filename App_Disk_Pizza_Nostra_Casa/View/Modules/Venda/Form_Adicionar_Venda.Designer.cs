@@ -91,6 +91,7 @@
             // cbbox_cliente
             // 
             cbbox_cliente.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_cliente.Cursor = Cursors.Hand;
             cbbox_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_cliente.FormattingEnabled = true;
             cbbox_cliente.Location = new Point(94, 68);
@@ -114,6 +115,7 @@
             // cbbox_nome_produto
             // 
             cbbox_nome_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_nome_produto.Cursor = Cursors.Hand;
             cbbox_nome_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_nome_produto.FormattingEnabled = true;
             cbbox_nome_produto.Location = new Point(97, 95);
@@ -137,6 +139,7 @@
             // cbbox_categoria_produto
             // 
             cbbox_categoria_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_categoria_produto.Cursor = Cursors.Hand;
             cbbox_categoria_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_categoria_produto.FormattingEnabled = true;
             cbbox_categoria_produto.Location = new Point(109, 12);
@@ -149,6 +152,7 @@
             // cbbox_tamanho_produto
             // 
             cbbox_tamanho_produto.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_tamanho_produto.Cursor = Cursors.Hand;
             cbbox_tamanho_produto.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_tamanho_produto.FormattingEnabled = true;
             cbbox_tamanho_produto.Location = new Point(106, 53);
@@ -178,14 +182,14 @@
             dgv_carrinho_produtos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_carrinho_produtos.BackgroundColor = Color.White;
             dgv_carrinho_produtos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_carrinho_produtos.Location = new Point(12, 302);
+            dgv_carrinho_produtos.Location = new Point(12, 299);
             dgv_carrinho_produtos.MultiSelect = false;
             dgv_carrinho_produtos.Name = "dgv_carrinho_produtos";
             dgv_carrinho_produtos.ReadOnly = true;
             dgv_carrinho_produtos.RowHeadersWidth = 51;
             dgv_carrinho_produtos.RowTemplate.Height = 25;
             dgv_carrinho_produtos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_carrinho_produtos.Size = new Size(760, 92);
+            dgv_carrinho_produtos.Size = new Size(760, 96);
             dgv_carrinho_produtos.TabIndex = 15;
             dgv_carrinho_produtos.CellDoubleClick += dgv_carrinho_produtos_CellDoubleClick;
             // 
@@ -265,6 +269,7 @@
             // cbbox_funcionario
             // 
             cbbox_funcionario.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            cbbox_funcionario.Cursor = Cursors.Hand;
             cbbox_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_funcionario.FormattingEnabled = true;
             cbbox_funcionario.Location = new Point(152, 30);
