@@ -46,6 +46,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             // cbbox_cliente
             // 
+            cbbox_cliente.Cursor = Cursors.Hand;
             cbbox_cliente.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_cliente.FormattingEnabled = true;
             cbbox_cliente.Location = new Point(193, 12);
@@ -56,6 +57,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             // cbbox_funcionario
             // 
+            cbbox_funcionario.Cursor = Cursors.Hand;
             cbbox_funcionario.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cbbox_funcionario.FormattingEnabled = true;
             cbbox_funcionario.Location = new Point(12, 12);
@@ -66,6 +68,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
             // 
             // dtpck_data_venda
             // 
+            dtpck_data_venda.Cursor = Cursors.Hand;
             dtpck_data_venda.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dtpck_data_venda.Format = DateTimePickerFormat.Short;
             dtpck_data_venda.Location = new Point(374, 12);

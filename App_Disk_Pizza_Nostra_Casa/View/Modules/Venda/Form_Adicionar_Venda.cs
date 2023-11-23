@@ -710,7 +710,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                     formulario_confirmacao.form_venda_atual = this;
 
-                    formulario_confirmacao.Show();
+                    formulario_confirmacao.ShowDialog();
 
                 }
 

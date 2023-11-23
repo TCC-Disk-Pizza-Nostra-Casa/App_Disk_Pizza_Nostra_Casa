@@ -38,7 +38,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
         // Métodos de validação.
 
-        public static bool CPFValidation(string value)
+        public static bool CPF_Validation(string value)
         {
 
             // Removendo símbolos especiais, caso exista, do CPF.
@@ -173,7 +173,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
         }
 
-        public static bool CNPJValidation(string value)
+        public static bool CNPJ_Validation(string value)
         {
 
             // Removendo símbolos especiais, caso exista, do CNPJ.
@@ -322,7 +322,7 @@ namespace App_Disk_Pizza_Nostra_Casa
 
         }
 
-        public static bool CEPValidation(string value)
+        public static bool CEP_Validation(string value)
         {
 
             string cep = value.Replace("-", "");
@@ -334,12 +334,195 @@ namespace App_Disk_Pizza_Nostra_Casa
 
         }
 
-        public static bool TelephoneValidation(string value)
+        public static bool Telephone_Validation(string value)
         {
 
             string telefone = value.Replace("(", "").Replace(")", "").Replace(" ", "").Replace("-", "");
 
             return (telefone.Length < 10 || telefone.Length > 11) ? false : true;
+
+        }
+
+        public static string CPF_Mask_Generation(string value)
+        {
+
+            string cpf_formatado = "";
+
+            for (int i = 0; i < value.Length; i++)
+            {
+
+                if (i == 3 || i == 6)
+                {
+
+                    cpf_formatado += "." + value[i];
+
+                }
+
+                else if (i == 9)
+                {
+
+                    cpf_formatado += "-" + value[i];
+
+                }
+
+                else
+                {
+
+                    cpf_formatado += value[i];
+
+                }
+
+            }
+
+            return cpf_formatado;
+
+        }
+
+        public static string CNPJ_Mask_Generation(string value)
+        {
+
+            string cnpj_formatado = "";
+
+            for (int i = 0; i < value.Length; i++)
+            {
+
+                if (i == 2 || i == 5)
+                {
+
+                    cnpj_formatado += "." + value[i];
+
+                }
+
+                else if (i == 8)
+                {
+
+                    cnpj_formatado += "/" + value[i];
+
+                }
+
+                else if (i == 12)
+                {
+
+                    cnpj_formatado += "-" + value[i];
+
+                }
+
+                else
+                {
+
+                    cnpj_formatado += value[i];
+
+                }
+
+            }
+
+            return cnpj_formatado;
+
+        }
+
+        public static string CEP_Mask_Generation(string value)
+        {
+
+            string cep_formatado = "";
+
+            for (int i = 0; i < value.Length; i++)
+            {
+
+                if (i == 5)
+                {
+
+                    cep_formatado += "-" + value[i];
+
+                }
+
+                else
+                {
+
+                    cep_formatado += value[i];
+
+                }
+
+            }
+
+            return cep_formatado;
+
+        }
+
+        public static string Telephone_Mask_Generation(string value)
+        {
+
+            string telefone_formatado = "";
+
+            if (value.Substring(0, 4) == "0800")
+            {
+
+                for (int i = 0; i < value.Length; i++)
+                {
+
+                    if (i == 4 || i == 7)
+                    {
+
+                        telefone_formatado += " " + value[i];
+
+                    }
+
+                    else
+                    {
+
+                        telefone_formatado += value[i];
+
+                    }
+
+                }
+
+            }
+
+            else
+            {
+
+                for (int i = 0; i < value.Length; i++)
+                {
+
+                    if (i == 0)
+                    {
+
+                        telefone_formatado += "(" + value[i];
+
+                    }
+
+                    else if (i == 1)
+                    {
+
+                        telefone_formatado += value[i] + ") ";
+
+                    }
+
+                    else if (value.Length == 11 && i == 7)
+                    {
+
+                        telefone_formatado += "-" + value[i];
+
+                    }
+
+                    else if (value.Length == 10 && i == 6)
+                    {
+
+                        telefone_formatado += "-" + value[i];
+
+                    }
+
+                    else
+                    {
+
+                        telefone_formatado += value[i];
+
+                    }
+
+                }
+
+            }
+
+            return telefone_formatado;
 
         }
 

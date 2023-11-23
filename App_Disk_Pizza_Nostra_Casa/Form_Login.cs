@@ -54,7 +54,7 @@ namespace App_Disk_Pizza_Nostra_Casa
             try
             {
 
-                if (String.IsNullOrWhiteSpace(mtxt_cpf.Text.Trim()) || String.IsNullOrWhiteSpace(txt_senha.Text.Trim()))
+                if (String.IsNullOrWhiteSpace(mtxt_cpf.Text) || String.IsNullOrWhiteSpace(txt_senha.Text))
                 {
 
                     throw new Exception("Preencha todos os campos antes de prosseguir.");
@@ -90,8 +90,6 @@ namespace App_Disk_Pizza_Nostra_Casa
 
                     else
                     {
-
-                        mtxt_cpf.Clear();
 
                         txt_senha.Clear();
 

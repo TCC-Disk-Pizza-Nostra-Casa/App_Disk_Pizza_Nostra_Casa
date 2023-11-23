@@ -292,7 +292,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Cliente
 
                         string data_modificacao = DateTime.Parse(lista[i].data_modificacao).ToString("dd/MM/yyyy HH:mm:ss");
 
-                        dgv_listagem_clientes.Rows.Add(id, nome, sexo, estado_civil, cpf, cep, email, telefone, data_nascimento, observacoes, data_modificacao, "Clique aqui");
+                        dgv_listagem_clientes.Rows.Add(id, nome, sexo, estado_civil, Global.CPF_Mask_Generation(cpf), Global.CEP_Mask_Generation(cep), email, Global.Telephone_Mask_Generation(telefone), data_nascimento, observacoes, data_modificacao, "Clique aqui");
 
                     }
 

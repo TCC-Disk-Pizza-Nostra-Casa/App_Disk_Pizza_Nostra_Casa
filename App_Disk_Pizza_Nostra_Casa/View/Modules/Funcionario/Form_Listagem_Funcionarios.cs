@@ -157,8 +157,6 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                 dgv_listagem_funcionarios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-                //dgv_listagem_funcionarios.SelectionMode = DataGridViewSelectionMode.CellSelect;
-
                 dgv_listagem_funcionarios.ReadOnly = true;
 
                 // Permissões do usuário.
@@ -288,7 +286,7 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Funcionario
 
                         bool administrador = Convert.ToBoolean(lista[i].administrador);
 
-                        dgv_listagem_funcionarios.Rows.Add(id, nome, sexo, estado_civil, cpf, cep, email, telefone, observacoes, data_modificacao, administrador);
+                        dgv_listagem_funcionarios.Rows.Add(id, nome, sexo, estado_civil, Global.CPF_Mask_Generation(cpf), Global.CEP_Mask_Generation(cep), email, Global.Telephone_Mask_Generation(telefone), observacoes, data_modificacao, administrador);
 
                     }
 
