@@ -470,8 +470,8 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
                 dgv_listagem_itens_venda.Columns[6].Name = "dgv_listagem_itens_venda_quantidade";
                 dgv_listagem_itens_venda.Columns[6].Visible = true;
 
-                dgv_listagem_itens_venda.Columns[7].HeaderText = "Preço:";
-                dgv_listagem_itens_venda.Columns[7].Name = "dgv_listagem_itens_venda_preco";
+                dgv_listagem_itens_venda.Columns[7].HeaderText = "Preço Cobrado:";
+                dgv_listagem_itens_venda.Columns[7].Name = "dgv_listagem_itens_venda_preco_cobrado";
                 dgv_listagem_itens_venda.Columns[7].Visible = true;
 
                 dgv_listagem_itens_venda.Columns[8].HeaderText = "Valor:";
@@ -750,11 +750,11 @@ namespace App_Disk_Pizza_Nostra_Casa.View.Modules.Venda
 
                         int quantidade_produto = lista[i].quantidade_produto;
 
-                        string preco_produto = ReturnProductObject(id_produto).preco.ToString("C2");
-
                         string valor_total_item_venda = lista[i].valor_total_item_venda.ToString("C2");
 
-                        dgv_listagem_itens_venda.Rows.Add(id_venda, id_produto, produto, tamanho, categoria, fornecedor, quantidade_produto, preco_produto, valor_total_item_venda);
+                        string preco_cobrado_produto = (lista[i].valor_total_item_venda / quantidade_produto).ToString("C2");
+
+                        dgv_listagem_itens_venda.Rows.Add(id_venda, id_produto, produto, tamanho, categoria, fornecedor, quantidade_produto, preco_cobrado_produto, valor_total_item_venda);
 
                     }
 
